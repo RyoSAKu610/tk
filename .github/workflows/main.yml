@@ -1,0 +1,24 @@
+name: Grow grass
+
+on:
+  schedule:
+    - cron:  "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Grow grass
+        run: |
+          git config --global user.email ${{ secrets.USER_EMAIL }}
+          git config --global user.name ${{ secrets.USER_NAME }}
+          echo "w" >> README.md
+          git add README.md
+          git commit -m "[add] w"
+          git push origin main
