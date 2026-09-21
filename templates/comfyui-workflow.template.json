@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "purpose": "ResearchPhantom local ComfyUI adapter template",
+  "instructions": [
+    "Copy this file outside the repository and replace comfyWorkflow with your own ComfyUI API workflow JSON.",
+    "The adapter never downloads models. Verify each model license and local hardware capacity yourself.",
+    "The workflow must save a reviewable local video file; import that reviewed file with npm run motion:import."
+  ],
+  "comfyWorkflow": {
+    "__USER_MUST_REPLACE_WITH_A_COMFYUI_API_WORKFLOW__": true
+  }
+}

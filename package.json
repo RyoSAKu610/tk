@@ -1,0 +1,22 @@
+{
+  "name": "researchphantom-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two static ResearchPhantom reading experiences for GitHub Pages.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "npm run build && node tools/serve.mjs",
+    "serve": "node tools/serve.mjs",
+    "sync:content": "node tools/sync-content.mjs",
+    "sync:remote": "node tools/sync-content.mjs --remote",
+    "motion:import": "node tools/import-grok-video.mjs",
+    "motion:queue": "node tools/motion-provider.mjs",
+    "motion:provider": "node tools/motion-provider.mjs",
+    "voice:openai": "node tools/generate-openai-voice.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs src/data/motion-model.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

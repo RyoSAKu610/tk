@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#1f3450" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#191410" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="ResearchPhantom Studio 乙版 — 論文の問い、実験、結果、意味を図版で読み解く、装丁された独立ビューア。"
+    />
+    <title>乙版 データモーション — ResearchPhantom Studio</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%231f3450'/%3E%3Crect x='9' y='9' width='46' height='46' fill='none' stroke='%23e3c583' stroke-width='1.4'/%3E%3Ctext x='32' y='42' font-size='26' font-family='serif' fill='%23e3c583' text-anchor='middle'%3E%E4%B9%99%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/shared/bookbinding.css" />
+    <link rel="stylesheet" href="./src/shared/edition-switcher.css" />
+    <link rel="stylesheet" href="./src/data/data-motion.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#motion-stage">データモーションへ移動</a>
+
+    <div class="app-shell" id="app" data-state="loading">
+      <header class="topbar">
+        <a class="brand" href="./index.html" aria-label="ResearchPhantom Studio ホーム">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>
+            <b>ResearchPhantom</b>
+            <small>STUDIO / INDEPENDENT VIEW</small>
+          </span>
+        </a>
+
+        <div class="edition" aria-label="現在の表示モード">
+          <span>乙版</span>
+          <strong>DATA MOTION</strong>
+          <small>character-free explainer</small>
+        </div>
+
+        <div class="top-actions">
+          <button class="icon-button mobile-library-button" id="mobile-library-button" type="button" aria-expanded="false" aria-controls="paper-rail">
+            <span aria-hidden="true">☷</span><span>論文目次</span>
+          </button>
+          <nav class="edition-switcher" data-edition-switcher data-current-edition="full" aria-label="表示モードを切り替える">
+            <a class="edition-switcher__link" href="./index.html" data-edition-target="light" aria-label="Light：書架と概要を開く"><b>Light</b><small>書架</small></a>
+            <a class="edition-switcher__link" href="./data-motion.html" data-edition-target="full" aria-current="page" aria-label="Full：データ解析を開く"><b>Full</b><small>データ解析</small></a>
+            <a class="edition-switcher__link" href="./character-story.html" data-edition-target="extra" data-paper-handoff aria-label="Extra：キャラクター実演を開く"><b>Extra</b><small>キャラ実演</small></a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="paper-rail" id="paper-rail" aria-label="論文ライブラリ">
+          <div class="rail-head">
+            <div>
+              <p class="eyebrow">Research Feed</p>
+              <h1 id="paper-count-heading">論文を読込中</h1>
+            </div>
+            <button class="rail-close" id="rail-close" type="button" aria-label="論文一覧を閉じる">×</button>
+          </div>
+
+          <label class="search-field" for="paper-search">
+            <span class="visually-hidden">論文を検索</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 4.3 4.3"></path></svg>
+            <input id="paper-search" type="search" autocomplete="off" placeholder="タイトル・著者・キーワード" />
+            <kbd>/</kbd>
+          </label>
+
+          <div class="rail-filters" role="group" aria-label="論文の絞り込み">
+            <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">すべて <b id="all-count">75</b></button>
+            <button class="filter-chip" type="button" data-filter="favorites" aria-pressed="false">お気に入り <b id="favorite-count">0</b></button>
+            <button class="filter-chip" type="button" data-filter="unread" aria-pressed="false">未読 <b id="unread-count">75</b></button>
+          </div>
+
+          <p class="result-count" id="result-count" aria-live="polite">論文を読み込み中…</p>
+          <ol class="paper-list" id="paper-list" aria-label="論文一覧"></ol>
+
+          <div class="rail-foot">
+            <span><i class="status-dot"></i> DAILY SYNC READY</span>
+            <small>feed v1 / local-first</small>
+          </div>
+        </aside>
+
+        <section class="reader" aria-label="選択した論文のデータ解説">
+          <div class="reader-head">
+            <div class="paper-identity">
+              <div class="paper-kicker">
+                <span id="paper-index">PAPER 01 / 75</span>
+                <span class="category-tag" id="paper-category">RESEARCH</span>
+              </div>
+              <h2 id="paper-title">論文を読み込んでいます</h2>
+              <p id="paper-meta">ResearchPhantom archive</p>
+            </div>
+            <div class="paper-actions">
+              <button class="action-button" id="favorite-button" type="button" aria-pressed="false">
+                <span aria-hidden="true">☆</span><span>お気に入り</span>
+              </button>
+              <button class="action-button" id="read-button" type="button" aria-pressed="false">
+                <span aria-hidden="true">○</span><span>既読</span>
+              </button>
+              <a class="action-button" id="source-link" href="#" target="_blank" rel="noreferrer">
+                <span>原論文</span><span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <section class="motion-card" id="motion-stage" aria-labelledby="motion-heading">
+            <div class="motion-toolbar">
+              <div>
+                <p class="eyebrow">LIVE EXPLANATION</p>
+                <h3 id="motion-heading">実験を、時間軸で読む。</h3>
+              </div>
+              <div class="transport" aria-label="再生コントロール">
+                <button class="transport-button" id="previous-step" type="button" aria-label="前の章">←</button>
+                <button class="play-button" id="play-button" type="button" aria-label="データストーリーを再生" aria-pressed="false">
+                  <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"></path></svg>
+                  <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM14 5h4v14h-4z"></path></svg>
+                  <span>再生</span>
+                </button>
+                <button class="transport-button" id="next-step" type="button" aria-label="次の章">→</button>
+                <label class="speed-control" for="playback-speed">
+                  <span class="visually-hidden">再生速度</span>
+                  <select id="playback-speed">
+                    <option value="0.5">0.5×</option>
+                    <option value="0.75">0.75×</option>
+                    <option value="1" selected>1.0×</option>
+                    <option value="1.5">1.5×</option>
+                    <option value="2">2.0×</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="visual-stage" id="visual-stage" data-step="0">
+              <div class="stage-grid" aria-hidden="true"></div>
+              <div class="stage-scan" aria-hidden="true"></div>
+
+              <div class="stage-label stage-label-left" aria-hidden="true">EVIDENCE TRACE</div>
+              <div class="stage-label stage-label-right" aria-hidden="true">SCHEMATIC / NOT MEASURED</div>
+              <div class="schematic-notice">説明用の模式図 — 実測値ではありません</div>
+
+              <svg class="data-viz" id="data-viz" viewBox="0 0 960 520" role="img" aria-labelledby="chart-title chart-description">
+                <title id="chart-title">選択した論文の実験データモーション</title>
+                <desc id="chart-description">問いから意味までを6段階で示す説明用の模式図です。線の位置や形は実測値ではありません。</desc>
+                <defs>
+                  <linearGradient id="area-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#26405c" stop-opacity=".22"></stop>
+                    <stop offset="1" stop-color="#26405c" stop-opacity="0"></stop>
+                  </linearGradient>
+                  <linearGradient id="result-gradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#26405c"></stop>
+                    <stop offset="1" stop-color="#376a61"></stop>
+                  </linearGradient>
+                  <clipPath id="plot-clip"><rect x="120" y="90" width="720" height="330" rx="8"></rect></clipPath>
+                </defs>
+
+                <g class="axis-layer" aria-hidden="true">
+                  <path d="M120 90V420H840"></path>
+                  <path d="M120 337.5H840M120 255H840M120 172.5H840M264 90V420M408 90V420M552 90V420M696 90V420M840 90V420"></path>
+                  <text x="120" y="456">入力</text><text x="392" y="456">処理</text><text x="680" y="456">観測</text><text x="806" y="456">解釈</text>
+                </g>
+
+                <g class="question-layer">
+                  <circle class="question-orbit orbit-a" cx="480" cy="255" r="106"></circle>
+                  <circle class="question-orbit orbit-b" cx="480" cy="255" r="76"></circle>
+                  <text class="question-mark" x="480" y="288" text-anchor="middle">?</text>
+                </g>
+
+                <g class="pipeline-layer" aria-hidden="true">
+                  <path class="pipeline-path" d="M164 257H792"></path>
+                  <g class="pipeline-node" data-node="0" transform="translate(164 257)"><circle r="38"></circle><text y="5">01</text><text class="node-label" y="66">INPUT</text></g>
+                  <g class="pipeline-node" data-node="1" transform="translate(374 257)"><circle r="38"></circle><text y="5">02</text><text class="node-label" y="66">CLEAN</text></g>
+                  <g class="pipeline-node" data-node="2" transform="translate(584 257)"><circle r="38"></circle><text y="5">03</text><text class="node-label" y="66">ANALYZE</text></g>
+                  <g class="pipeline-node" data-node="3" transform="translate(792 257)"><circle r="38"></circle><text y="5">04</text><text class="node-label" y="66">COMPARE</text></g>
+                </g>
+
+                <g class="chart-layer" clip-path="url(#plot-clip)">
+                  <path class="confidence-area" id="confidence-area" d=""></path>
+                  <path class="comparison-line" id="comparison-line" d=""></path>
+                  <path class="primary-line" id="primary-line" d=""></path>
+                  <g class="data-points" id="data-points"></g>
+                </g>
+
+                <g class="result-layer" aria-hidden="true">
+                  <rect class="claim-frame" x="308" y="160" width="344" height="188" rx="28"></rect>
+                  <path class="claim-check" id="effect-value" d="m398 254 51 48 113-118"></path>
+                  <circle class="effect-dot" id="effect-dot" cx="562" cy="184" r="7"></circle>
+                  <text class="effect-number" id="effect-number" x="480" y="253" text-anchor="middle">定性的</text>
+                  <text class="effect-caption" x="480" y="303" text-anchor="middle">ABSTRACT CLAIM / 原文確認</text>
+                </g>
+
+                <g class="meaning-layer" aria-hidden="true">
+                  <circle class="meaning-halo" cx="480" cy="248" r="138"></circle>
+                  <path class="meaning-arrow" d="M359 281 453 196l55 48 105-97"></path>
+                  <path class="meaning-arrow-tip" d="m580 146 35-2-4 36"></path>
+                  <text class="meaning-word" x="480" y="377" text-anchor="middle">WHAT THIS CHANGES</text>
+                </g>
+              </svg>
+
+              <div class="chapter-copy" aria-live="polite" aria-atomic="true">
+                <span id="chapter-number">01 / 06</span>
+                <p id="chapter-label">QUESTION</p>
+                <h4 id="chapter-title">何を確かめたのか？</h4>
+                <p id="chapter-body">論文の問いを抽出しています。</p>
+              </div>
+            </div>
+
+            <div class="timeline-panel">
+              <label class="scrubber" for="timeline-scrubber">
+                <span class="visually-hidden">解説タイムライン</span>
+                <input id="timeline-scrubber" type="range" min="0" max="1000" value="0" step="1" />
+                <span class="scrubber-fill" id="scrubber-fill" aria-hidden="true"></span>
+              </label>
+              <ol class="chapter-tabs" id="chapter-tabs" aria-label="解説の章">
+                <li><button type="button" data-step="0" aria-current="step"><b>01</b><span>問い</span></button></li>
+                <li><button type="button" data-step="1"><b>02</b><span>入力</span></button></li>
+                <li><button type="button" data-step="2"><b>03</b><span>処理</span></button></li>
+                <li><button type="button" data-step="3"><b>04</b><span>観測</span></button></li>
+                <li><button type="button" data-step="4"><b>05</b><span>結果</span></button></li>
+                <li><button type="button" data-step="5"><b>06</b><span>意味</span></button></li>
+              </ol>
+              <div class="timeline-status">
+                <span id="time-current">00:00</span><span>/</span><span id="time-total">00:36</span>
+                <span class="timeline-hint">SPACE 再生 / ← → 移動</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="metrics-section" aria-labelledby="metrics-heading">
+            <div class="section-heading">
+              <div><p class="eyebrow">RESULT AT A GLANCE</p><h3 id="metrics-heading">数字が示すこと</h3></div>
+              <button class="download-button" id="download-props" type="button"><span>Props JSON</span><span aria-hidden="true">↓</span></button>
+            </div>
+            <div class="metric-grid" id="metric-grid">
+              <article class="metric-card metric-primary"><span>結果の型</span><strong id="metric-effect">定性的</strong><small id="metric-effect-note">要旨の記述</small><i></i></article>
+              <article class="metric-card"><span>数値エビデンス</span><strong id="metric-confidence">原文確認</strong><small>feed.metric の有無</small><i></i></article>
+              <article class="metric-card"><span>標本数</span><strong id="metric-samples">記載なし</strong><small>要旨フィード内</small><i></i></article>
+              <article class="metric-card"><span>解釈</span><strong id="metric-direction">原文確認</strong><small id="metric-direction-note">断定を避ける</small><i></i></article>
+            </div>
+
+            <div class="explanation-grid">
+              <article class="insight-card">
+                <p class="eyebrow">INTERPRETATION</p>
+                <h3 id="result-heading">結論を一文で</h3>
+                <p id="paper-result">結果を読み込んでいます。</p>
+                <div class="confidence-note"><span aria-hidden="true">i</span><p>このモーションは理解を助ける再構成です。線の形や位置は説明用の模式図であり、原論文の実測値・統計量ではありません。</p></div>
+              </article>
+              <article class="method-card">
+                <p class="eyebrow">METHOD MAP</p>
+                <h3 id="method-heading">どう確かめたか</h3>
+                <ol id="method-list"></ol>
+              </article>
+            </div>
+          </section>
+
+          <section class="video-section" aria-labelledby="video-heading">
+            <div class="section-heading">
+              <div><p class="eyebrow">REMOTION DEMO · PAPER 01</p><h3 id="video-heading">先頭論文の完成デモ</h3></div>
+              <span class="render-badge"><i></i> PROGRAMMATIC VIDEO</span>
+            </div>
+            <p class="video-demo-note" id="video-demo-note">この完成動画は Paper 01「Persistent Entropy Transform」専用です。字幕・図解主体で、ナレーションは入っていません。図形とバーは理解のための模式図であり、実測値ではありません。ほかの論文は上のライブモーションで内容に合わせて再構成します。</p>
+            <div class="video-frame">
+              <video id="demo-video" controls preload="metadata" playsinline src="./public/assets/video/data-demo.mp4">
+                お使いのブラウザは動画再生に対応していません。
+              </video>
+              <div class="video-fallback" id="video-fallback" hidden>
+                <span>DEMO RENDER</span><strong>この論文の完成動画は未生成です</strong><p>上のライブモーションは、選択した論文の内容で操作できます。</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="control-dock" aria-label="読書コントロール">
+          <section class="dock-card sound-card">
+            <div class="dock-heading"><div><p class="eyebrow">PAGE FOLEY</p><h2>紙をめくる音</h2></div><button class="sound-preview" id="sound-preview" type="button" aria-label="選択中のページ音を試聴">▶</button></div>
+            <label for="sound-select">質感を選択</label>
+            <select id="sound-select">
+              <option value="random">ランダム（前回を回避）</option>
+            </select>
+            <label class="volume-row" for="sound-volume"><span>音量</span><output id="volume-output">45%</output></label>
+            <input id="sound-volume" type="range" min="0" max="1" value="0.45" step="0.05" />
+            <p class="sound-status" id="sound-status" aria-live="polite">音源を準備中…</p>
+          </section>
+
+          <section class="dock-card progress-card">
+            <p class="eyebrow">READING TRACE</p>
+            <h2>今日の知識棚</h2>
+            <div class="progress-ring" id="progress-ring" style="--progress: 0">
+              <span><strong id="read-percent">0%</strong><small>既読</small></span>
+            </div>
+            <dl>
+              <div><dt>読んだ論文</dt><dd id="read-total">0 / 75</dd></div>
+              <div><dt>お気に入り</dt><dd id="saved-total">0</dd></div>
+            </dl>
+          </section>
+
+          <section class="dock-card shortcuts-card">
+            <p class="eyebrow">SHORTCUTS</p>
+            <dl><div><dt>再生 / 停止</dt><dd><kbd>Space</kbd></dd></div><div><dt>論文を検索</dt><dd><kbd>/</kbd></dd></div><div><dt>前 / 次の章</dt><dd><kbd>←</kbd><kbd>→</kbd></dd></div></dl>
+          </section>
+        </aside>
+      </main>
+
+      <div class="loading-screen" id="loading-screen" role="status" aria-live="polite">
+        <div class="loader-graph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        <strong>RESEARCH FEEDを構造化しています</strong>
+        <span>問い → 入力 → 処理 → 観測 → 結果 → 意味</span>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <div class="rail-backdrop" id="rail-backdrop" hidden></div>
+    </div>
+
+    <script type="module" src="./src/shared/edition-runtime.js"></script>
+    <script type="module" src="./src/data/data-motion.js"></script>
+  </body>
+</html>

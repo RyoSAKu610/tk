@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "paperId": "rp-uk37f0",
+  "paperTitle": "Persistent Entropy Transform: An entropy-based descriptor for topological data analysis",
+  "guide": {
+    "id": "newton",
+    "name": "Isaac Newton",
+    "role": "educational guide, not the paper author",
+    "referenceAsset": "public/assets/characters/guide-newton.webp"
+  },
+  "target": {
+    "aspectRatio": "9:16",
+    "preferredDurationSeconds": 6,
+    "minimumDurationSeconds": 4,
+    "maximumDurationSeconds": 8,
+    "audio": false,
+    "loop": true
+  },
+  "prompts": [
+    {
+      "sceneIndex": 1,
+      "sceneId": "question",
+      "file": "01-question.md",
+      "sourceField": "problem",
+      "sourceBasisJa": "永続エントロピーは永続図のコンパクトな概要を提供しますが、データに固有の幾何学的情報は破棄されます。"
+    },
+    {
+      "sceneIndex": 2,
+      "sceneId": "input",
+      "file": "02-input.md",
+      "sourceField": "methods[0]",
+      "sourceBasisJa": "この制限により、計算効率は高いが幾何学的に粗いスカラー要約と、表現力はあるが高次元で計算量が多い方向性トポロジー変換との間にギャップが生じます。"
+    },
+    {
+      "sceneIndex": 3,
+      "sceneId": "process",
+      "file": "03-process.md",
+      "sourceField": "methods[1]",
+      "sourceBasisJa": "この研究では、方向性トポロジ変換のエントロピーベースの圧縮として解釈できる新しい方向性トポロジ記述子である Persistent Entropy Transform (PET) を導入します。"
+    },
+    {
+      "sceneIndex": 4,
+      "sceneId": "caution",
+      "file": "04-caution.md",
+      "sourceField": "prospects",
+      "sourceBasisJa": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。"
+    },
+    {
+      "sceneIndex": 5,
+      "sceneId": "observation",
+      "file": "05-observation.md",
+      "sourceField": "result",
+      "sourceBasisJa": "特に、平行移動不変性、正の一様スケーリングの下でのスケール不変性、および直交等変性を証明します。"
+    },
+    {
+      "sceneIndex": 6,
+      "sceneId": "interpretation",
+      "file": "06-interpretation.md",
+      "sourceField": "analysis",
+      "sourceBasisJa": "報告結果、要旨の解釈、今後の検証を区別して並べます。因果関係を要旨以上に追加しません。"
+    },
+    {
+      "sceneIndex": 7,
+      "sceneId": "conclusion",
+      "file": "07-conclusion.md",
+      "sourceField": "result",
+      "sourceBasisJa": "特に、平行移動不変性、正の一様スケーリングの下でのスケール不変性、および直交等変性を証明します。"
+    }
+  ]
+}

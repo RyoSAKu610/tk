@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja" data-studio-version="cast-lab">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#222d3c" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11161d" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="CAST LAB — 任意の対象を職業キャラクターへ変換し、7シーンのブラウザアニメーションで実演します。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23222d3c'/%3E%3Cpath d='M19 14h26v8L37 35v13l7 3v3H20v-3l7-3V35l-8-13z' fill='none' stroke='%23f2c46e' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/shared/bookbinding.css">
+  <link rel="stylesheet" href="./src/cast/cast-lab.css">
+  <title>CAST LAB — ResearchPhantom Studio</title>
+</head>
+<body>
+  <a class="skip-link" href="#cast-generator">生成フォームへ移動</a>
+
+  <div class="lab-shell" data-cast-lab data-app-state="loading">
+    <header class="lab-topbar">
+      <a class="lab-brand" href="./index.html" aria-label="ResearchPhantom Studioへ戻る">
+        <span class="lab-brand__mark" aria-hidden="true">RP</span>
+        <span><b>ResearchPhantom</b><small>CAST LAB · 擬人化実験室</small></span>
+      </a>
+      <nav class="lab-nav" aria-label="Studio内を移動">
+        <a href="./index.html">Light</a>
+        <a href="./data-motion.html">Full</a>
+        <a href="./character-story.html">Extra</a>
+        <a href="./cast-lab.html" aria-current="page">CAST LAB</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="lab-intro" aria-labelledby="lab-title">
+        <div class="lab-intro__copy">
+          <p class="lab-eyebrow">PERSONIFICATION ENGINE · BROWSER NATIVE</p>
+          <h1 id="lab-title">何でも、<span>仕事をするキャラクター</span>へ。</h1>
+          <p>機能・形状・長所・弱点・天敵を共通形式に整え、職業、性格、装備、必殺技、小物、7シーンをその場で編成します。外部APIへ入力を送信しません。</p>
+          <dl class="lab-stats" aria-label="CAST LABの構成">
+            <div><dt data-occupation-count>21</dt><dd>基礎職業</dd></div>
+            <div><dt>200</dt><dd>支援キャスト</dd></div>
+            <div><dt>7</dt><dd>実演シーン</dd></div>
+            <div><dt>0</dt><dd>外部API</dd></div>
+          </dl>
+        </div>
+
+        <form class="generator-card" id="cast-generator" data-cast-form>
+          <div class="generator-card__heading">
+            <span aria-hidden="true">01</span>
+            <div>
+              <p class="lab-eyebrow">SUBJECT INPUT</p>
+              <h2>擬人化する対象</h2>
+            </div>
+          </div>
+          <label for="cast-target">対象名 <small>必須・120文字以内</small></label>
+          <input id="cast-target" name="target" type="text" value="LLM" maxlength="120" autocomplete="off" required aria-describedby="target-hint">
+          <p id="target-hint">技術、製品、生物、概念、論文などを入力できます。</p>
+          <label for="cast-description">機能や特徴 <small>任意・精度を上げる補足</small></label>
+          <textarea id="cast-description" name="description" rows="3" maxlength="1000">質問や指示を受け取り、文章や案を返す言語モデル</textarea>
+          <button class="generate-button" type="submit" data-generate-play disabled>
+            <span aria-hidden="true">▶</span>
+            <span><b>生成して再生</b><small>Generate and Play</small></span>
+          </button>
+          <output class="lab-status" data-lab-status role="status" aria-live="polite">初期化しています…</output>
+        </form>
+      </section>
+
+      <section class="example-strip" aria-labelledby="examples-title">
+        <div><p class="lab-eyebrow">QUICK SUBJECTS</p><h2 id="examples-title">検証例を入力</h2></div>
+        <div class="example-buttons">
+          <button type="button" data-example="llm">LLM</button>
+          <button type="button" data-example="router">Wi-Fiルーター</button>
+          <button type="button" data-example="mitochondria">ミトコンドリア</button>
+          <button type="button" data-example="card">クレジットカード</button>
+          <button type="button" data-example="umbrella">折り畳み傘</button>
+          <button type="button" data-example="paper">研究論文</button>
+        </div>
+      </section>
+
+      <section class="lab-workspace" aria-label="擬人化結果と7シーン">
+        <div class="theater-column">
+          <div class="section-heading">
+            <div><p class="lab-eyebrow">LIVE DEMONSTRATION</p><h2>7シーン実演</h2></div>
+            <span class="scene-position" data-scene-position aria-live="polite">1 / 7</span>
+          </div>
+
+          <ol class="scene-rail" data-scene-rail aria-label="7シーン">
+            <li><button type="button" data-scene-index="0"><span>01</span>任務</button></li>
+            <li><button type="button" data-scene-index="1"><span>02</span>入力</button></li>
+            <li><button type="button" data-scene-index="2"><span>03</span>処理</button></li>
+            <li><button type="button" data-scene-index="3"><span>04</span>危機</button></li>
+            <li><button type="button" data-scene-index="4"><span>05</span>検証</button></li>
+            <li><button type="button" data-scene-index="5"><span>06</span>必殺</button></li>
+            <li><button type="button" data-scene-index="6"><span>07</span>完了</button></li>
+          </ol>
+
+          <div class="cast-theater" data-cast-theater data-scene="mission" data-effect="briefing" data-playing="false">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="stage-orbit stage-orbit--one" aria-hidden="true"></div>
+            <div class="stage-orbit stage-orbit--two" aria-hidden="true"></div>
+            <div class="stage-particles" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+
+            <article class="scene-copy">
+              <p class="scene-kicker" data-scene-kicker>SCENE 01 · MISSION</p>
+              <h3 data-scene-title>LLMに任務が届く</h3>
+              <p class="scene-point" data-scene-point>言語通訳官として、LLMの役割を七つの場面で説明する。</p>
+              <div class="scene-narration"><span>字幕</span><p data-scene-narration>任務。言語通訳官として、LLMの役割を七つの場面で説明する。</p></div>
+            </article>
+
+            <div class="character-zone">
+              <div class="character-aura" aria-hidden="true"></div>
+              <div class="cast-character-motion">
+                <div class="character-window" data-character-window data-image-state="loading">
+                  <img data-character-image alt="" hidden>
+                  <div class="character-fallback" data-character-fallback hidden aria-hidden="true"><span>?</span><small>図版未読込</small></div>
+                  <span class="character-scan" aria-hidden="true"></span>
+                </div>
+                <span class="speech-pulse" aria-hidden="true"><i></i><i></i><i></i></span>
+              </div>
+              <p class="character-number" data-character-number>人物図鑑 No.---</p>
+            </div>
+
+            <div class="prop-token" aria-label="使用中の小物">
+              <strong data-prop-glyph aria-hidden="true">◎</strong>
+              <span data-prop-name>文脈イヤホン</span>
+            </div>
+            <div class="enemy-card" data-stage-enemy hidden><span>ENEMY</span><strong data-stage-enemy-name>曖昧な指示</strong></div>
+            <div class="special-flash" data-stage-special hidden><small>SPECIAL MOVE</small><strong data-stage-special-name>コンテキスト・リフレーム</strong></div>
+            <div class="result-stamp" data-stage-result hidden><span>CAST</span><strong>COMPLETE</strong></div>
+            <div class="scene-progress" aria-hidden="true"><i data-scene-progress></i></div>
+          </div>
+
+          <div class="playback-controls" aria-label="再生コントロール">
+            <button type="button" data-previous-scene aria-label="前のシーン">←</button>
+            <button class="play-button" type="button" data-play-button aria-pressed="false">▶ 再生</button>
+            <button type="button" data-next-scene aria-label="次のシーン">→</button>
+            <label>速度
+              <select data-speed-select>
+                <option value="0.75">0.75×</option>
+                <option value="1" selected>1.0×</option>
+                <option value="1.25">1.25×</option>
+                <option value="1.5">1.5×</option>
+                <option value="2">2.0×</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <aside class="dossier" aria-labelledby="dossier-title">
+          <div class="dossier-tab"><span>02</span> CAST DOSSIER</div>
+          <p class="lab-eyebrow">GENERATED CHARACTER</p>
+          <h2 id="dossier-title" data-character-name>キャラクターを準備中</h2>
+          <div class="occupation-card">
+            <span>職業</span><strong data-occupation>—</strong><p data-role>—</p>
+          </div>
+          <dl class="dossier-facts">
+            <div><dt>性格</dt><dd data-personality>—</dd></div>
+            <div><dt>天敵</dt><dd data-enemy>—</dd></div>
+            <div><dt>必殺技</dt><dd data-special-move>—</dd></div>
+          </dl>
+          <section><h3>装備</h3><ul class="tag-list" data-equipment></ul></section>
+          <section><h3>視覚モチーフ</h3><ul class="tag-list" data-motifs></ul></section>
+          <details>
+            <summary>正規化した特徴を見る</summary>
+            <div class="normalized-grid">
+              <section><h3>機能</h3><ul data-functions></ul></section>
+              <section><h3>形状</h3><ul data-shapes></ul></section>
+              <section><h3>長所</h3><ul data-strengths></ul></section>
+              <section><h3>弱点</h3><ul data-weaknesses></ul></section>
+              <section><h3>天敵候補</h3><ul data-threats></ul></section>
+            </div>
+          </details>
+          <p class="generation-note" data-disclaimer>生成内容について確認しています。</p>
+        </aside>
+      </section>
+
+      <section class="pipeline" aria-labelledby="pipeline-title">
+        <p class="lab-eyebrow">ENGINE PIPELINE</p>
+        <h2 id="pipeline-title">入力から再生まで、ブラウザ内で完結</h2>
+        <ol>
+          <li><span>01</span><b>入力</b><small>対象名と補足</small></li>
+          <li><span>02</span><b>正規化</b><small>機能・形状・強弱</small></li>
+          <li><span>03</span><b>職業化</b><small>21職＋未知対応</small></li>
+          <li><span>04</span><b>配役</b><small>図鑑200名</small></li>
+          <li><span>05</span><b>小物</b><small>装備・敵・必殺技</small></li>
+          <li><span>06</span><b>構成</b><small>7シーン</small></li>
+          <li><span>07</span><b>再生</b><small>直接アニメーション</small></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="lab-footer">
+      <p><b>CAST LAB</b> は理解の入口を作る比喩生成器です。重要な判断には一次資料を使用してください。</p>
+      <a href="./index.html">ResearchPhantom Studioへ戻る →</a>
+    </footer>
+  </div>
+
+  <noscript>CAST LABの擬人化生成と7シーン再生にはJavaScriptを有効にしてください。</noscript>
+  <script type="module" src="./src/cast/cast-lab.js"></script>
+</body>
+</html>

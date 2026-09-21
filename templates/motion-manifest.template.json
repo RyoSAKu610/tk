@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-08-02T00:00:00.000Z",
+  "papers": {
+    "rp-example": {
+      "scenes": {
+        "observation": {
+          "sceneId": "observation",
+          "sceneIndex": 5,
+          "file": "./rp-example/05-observation.mp4",
+          "mimeType": "video/mp4",
+          "provider": "grok-imagine",
+          "label": "Grok Imagine",
+          "durationMs": 6000,
+          "width": 540,
+          "height": 960,
+          "frameRate": 30,
+          "codec": "h264",
+          "muted": true,
+          "bytes": 1000000,
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "importedAt": "2026-08-02T00:00:00.000Z",
+          "rights": "user-confirmed",
+          "provenanceMarkPolicy": "preserve-platform-mark",
+          "provenance": {
+            "originalFileName": "grok-export.mp4",
+            "originalSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+            "prompt": {
+              "fileName": "grok-imagine-scene-prompt.md",
+              "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}

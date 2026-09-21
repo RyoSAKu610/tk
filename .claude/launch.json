@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "studio",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "PORT=4183 npm run dev"],
+      "port": 4183,
+      "url": "http://127.0.0.1:4183"
+    }
+  ]
+}

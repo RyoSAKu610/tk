@@ -1,0 +1,3439 @@
+{
+  "version": 1,
+  "source": "https://github.com/howly23v/ResearchPhantom",
+  "sourceDate": "2026-07-26T07:06:00Z",
+  "syncedAt": "2026-08-02T02:58:42.892Z",
+  "quality": {
+    "complete": 75,
+    "total": 75
+  },
+  "papers": [
+    {
+      "id": "rp-uk37f0",
+      "title": "Persistent Entropy Transform: An entropy-based descriptor for topological data analysis",
+      "authors": [
+        "Victor Toscano-Duran",
+        "Miguel A. Gutiérrez Naranjo",
+        "Rocio Gonzalez-Diaz"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21476v1",
+      "categories": [
+        "math.GN"
+      ],
+      "summary": "永続エントロピーは永続図のコンパクトな概要を提供しますが、データに固有の幾何学的情報は破棄されます。この制限により、計算効率は高いが幾何学的に粗いスカラー要約と、表現力はあるが高次元で計算量が多い方向性トポロジー変換との間にギャップが生じます。この研究では、方向性トポロジ変換のエントロピーベースの圧縮として解釈できる新しい方向性トポロジ記述子である Persistent Entropy Transform (PET) を導入します。 PETの基本的な理論的特性を確立します。特に、平行移動不変性、正の一様スケーリングの下でのスケール不変性、および直交等変性を証明します。",
+      "analysis": "報告結果、要旨の解釈、今後の検証を区別して並べます。因果関係を要旨以上に追加しません。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "永続エントロピーは永続図のコンパクトな概要を提供しますが、データに固有の幾何学的情報は破棄されます。",
+      "methods": [
+        "この制限により、計算効率は高いが幾何学的に粗いスカラー要約と、表現力はあるが高次元で計算量が多い方向性トポロジー変換との間にギャップが生じます。",
+        "この研究では、方向性トポロジ変換のエントロピーベースの圧縮として解釈できる新しい方向性トポロジ記述子である Persistent Entropy Transform (PET) を導入します。",
+        "PETの基本的な理論的特性を確立します。"
+      ],
+      "result": "特に、平行移動不変性、正の一様スケーリングの下でのスケール不変性、および直交等変性を証明します。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "manual-abstract-review",
+      "dataQuality": {
+        "complete": true,
+        "mode": "manual-abstract-review",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "verified",
+        "verifiedAt": "2026-08-02",
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-elj5gc",
+      "title": "Multimodal Pretraining for Generalizable EEG Representation Learning",
+      "authors": [
+        "Targol Bakhtiarvand",
+        "Jugal Kalita",
+        "Adham Atyabi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21384v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "てんかんに使用される脳波検査 (EEG) モデルは、多くの場合、特定のデータセットとタスクに限定されます。この制限されたアプローチにより、これらのモデルをさまざまなデータセット間またはさまざまな状況に適用することが困難になる可能性があります。しかし、基礎モデルと自己教師あり学習に関する最近の研究では、適応可能な EEG バックボーンがさまざまな EEG 関連タスクをサポートできる可能性があることが示唆されています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：てんかんに使用される脳波検査 (EEG) モデルは、多くの場合、特定のデータセットとタスクに限定されます。この制限されたアプローチにより、これらのモデルをさまざまなデータセット間またはさまざまな状況に適用することが困難になる可能性があります。しかし、基礎モデルと自己教師あり学習に関する最近の研究では、適応可能な EEG バックボーンがさまざまな EEG 関連タスクをサポートできる可能性があることが示唆されています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：てんかんに使用される脳波検査 (EEG) モデルは、多くの場合、特定のデータセットとタスクに限定されます。この制限されたアプローチにより、これらのモデルをさまざまなデータセット間またはさまざまな状況に適用することが困難になる可能性があります。しかし、基礎モデルと自己教師あり学習に関する最近の研究では、適応可能な EEG バックボーンがさまざまな EEG 関連タスクをサポートできる可能性があることが示唆されています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：てんかんに使用される脳波検査 (EEG) モデルは、多くの場合、特定のデータセットとタスクに限定されます。この制限されたアプローチにより、これらのモデルをさまざまなデータセット間またはさまざまな状況に適用することが困難になる可能性があります。しかし、基礎モデルと自己教師あり学習に関する最近の研究では、適応可能な EEG バックボーンがさまざまな EEG 関連タスクをサポートできる可能性があることが示唆されています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-sugig0",
+      "title": "Position Bias is Hidden Behind Ceiling Effects: A Permutation Diagnostic for LLM Benchmarks",
+      "authors": [
+        "Hiroki Tamba"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20864v1",
+      "categories": [
+        "cs.LG",
+        "cs.CL"
+      ],
+      "summary": "多肢選択 LLM 評価における位置バイアスは、能力比較における交絡因子として広く引用されていますが、公表されている測定結果は単一の回答順序シャッフルに依存しており、その結果はバイアス信号とコンテンツレベルのノイズおよびサンプリング確率性を混同しています。これは、inspect_ai 評価フレームワークのオープンソース拡張機能であり、質問ごとに徹底的な回答順序の置換を実行し、ブートストラップ信頼区間を使用して位置バイアスのカイ 2 乗 / Cramer V 署名をレポートします。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：多肢選択 LLM 評価における位置バイアスは、能力比較における交絡因子として広く引用されていますが、公表されている測定結果は単一の回答順序シャッフルに依存しており、その結果はバイアス信号とコンテンツレベルのノイズおよびサンプリング確率性を混同しています。これは、inspect_ai 評価フレームワークのオープンソース拡張機能であり、質問ごとに徹底的な回答順序の置換を実行し、ブートストラップ信頼区間を使用して位置バイアスのカイ 2 乗 / Cramer V 署名をレポートします。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：多肢選択 LLM 評価における位置バイアスは、能力比較における交絡因子として広く引用されていますが、公表されている測定結果は単一の回答順序シャッフルに依存しており、その結果はバイアス信号とコンテンツレベルのノイズおよびサンプリング確率性を混同しています。これは、inspect_ai 評価フレームワークのオープンソース拡張機能であり、質問ごとに徹底的な回答順序の置換を実行し、ブートストラップ信頼区間を使用して位置バイアスのカイ 2 乗 / Cramer V 署名をレポートします。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：多肢選択 LLM 評価における位置バイアスは、能力比較における交絡因子として広く引用されていますが、公表されている測定結果は単一の回答順序シャッフルに依存しており、その結果はバイアス信号とコンテンツレベルのノイズおよびサンプリング確率性を混同しています。これは、inspect_ai 評価フレームワークのオープンソース拡張機能であり、質問ごとに徹底的な回答順序の置換を実行し、ブートストラップ信頼区間を使用して位置バイアスのカイ 2 乗 / Cramer V 署名をレポートします。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1kyp0ro",
+      "title": "The High-Speed FPGA Readout System for the Advanced X-ray Imaging Satellite (AXIS)",
+      "authors": [
+        "Declan O'Neill",
+        "Jill Juneau",
+        "Peter Orel",
+        "Sven Herrmann",
+        "Gregory Prigozhin",
+        "Eric D. Miller",
+        "Steven W. Allen",
+        "Marshall W. Bautz",
+        "Tanmoy Chattopadhyay",
+        "Kevan Donlon",
+        "Robert Goeke",
+        "Catherine E. Grant",
+        "Beverly LaMarr",
+        "Christopher Leitz",
+        "R. Glenn Morris",
+        "Abigail Y. Pan",
+        "Tonya L. Peshel",
+        "Artem Poliszczuk",
+        "Haley R. Stueber",
+        "Keith Warner"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20380v1",
+      "categories": [
+        "astro-ph.IM"
+      ],
+      "summary": "先進 X 線イメージング衛星 (AXIS) は、0.3 ～ 10 keV 帯域にわたって秒角の空間分解能、高感度のスペクトル イメージングを提供するように設計されたプローブ クラスのミッション コンセプトです。スタンフォード大学の X 線天文学・観測宇宙論 (XOC) グループは、MIT カブリ研究所 (MKI) および MIT リンカーン研究所 (MIT-LL) と協力して、ミッションの厳しい性能目標を満たすために必要な検出器とフロントエンド読み出し電子機器の両方を含む AXIS X 線カメラを開発しています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：先進 X 線イメージング衛星 (AXIS) は、0.3 ～ 10 keV 帯域にわたって秒角の空間分解能、高感度のスペクトル イメージングを提供するように設計されたプローブ クラスのミッション コンセプトです。スタンフォード大学の X 線天文学・観測宇宙論 (XOC) グループは、MIT カブリ研究所 (MKI) および MIT リンカーン研究所 (MIT-LL) と協力して、ミッションの厳しい性能目標を満たすために必要な検出器とフロントエンド読み出し電子機器の両方を含む AXIS X 線カメラを開発しています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：先進 X 線イメージング衛星 (AXIS) は、0.3 ～ 10 keV 帯域にわたって秒角の空間分解能、高感度のスペクトル イメージングを提供するように設計されたプローブ クラスのミッション コンセプトです。スタンフォード大学の X 線天文学・観測宇宙論 (XOC) グループは、MIT カブリ研究所 (MKI) および MIT リンカーン研究所 (MIT-LL) と協力して、ミッションの厳しい性能目標を満たすために必要な検出器とフロントエンド読み出し電子機器の両方を含む AXIS X 線カメラを開発しています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：先進 X 線イメージング衛星 (AXIS) は、0.3 ～ 10 keV 帯域にわたって秒角の空間分解能、高感度のスペクトル イメージングを提供するように設計されたプローブ クラスのミッション コンセプトです。スタンフォード大学の X 線天文学・観測宇宙論 (XOC) グループは、MIT カブリ研究所 (MKI) および MIT リンカーン研究所 (MIT-LL) と協力して、ミッションの厳しい性能目標を満たすために必要な検出器とフロントエンド読み出し電子機器の両方を含む AXIS X 線カメラを開発しています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-9ksbo9",
+      "title": "Fast, low-noise CCD systems for future strategic X-ray missions",
+      "authors": [
+        "Haley R. Stueber",
+        "Tanmoy Chattopadhyay",
+        "Tonya L. Peshel",
+        "Abigail Y. Pan",
+        "Steven W. Allen",
+        "Marshall W. Bautz",
+        "Kevan Donlon",
+        "Catherine E. Grant",
+        "Sven Herrmann",
+        "Beverly J. LaMarr",
+        "Eric D. Miller",
+        "R. Glenn Morris",
+        "Peter Orel",
+        "Artem Poliszczuk",
+        "Gregory Y. Prigozhin"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20355v1",
+      "categories": [
+        "astro-ph.IM"
+      ],
+      "summary": "大天文台成熟化プログラム (GOMaP) の対象となるような将来の戦略的 X 線ミッションには、高速で低ノイズの X 線イメージング分光計が必要です。このようなプログラムに必要な速度とノイズ性能を実現するために、スタンフォード大学のチームは、MIT カブリ研究所 (MKI) およびマサチューセッツ工科大学リンカーン研究所 (MIT-LL) と協力して、カスタマイズされた特定用途向け集積回路 (ASIC) を活用する強化された X 線電荷結合素子 (CCD) および読み出しシステムを開発しています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：大天文台成熟化プログラム (GOMaP) の対象となるような将来の戦略的 X 線ミッションには、高速で低ノイズの X 線イメージング分光計が必要です。このようなプログラムに必要な速度とノイズ性能を実現するために、スタンフォード大学のチームは、MIT カブリ研究所 (MKI) およびマサチューセッツ工科大学リンカーン研究所 (MIT-LL) と協力して、カスタマイズされた特定用途向け集積回路 (ASIC) を活用する強化された X 線電荷結合素子 (CCD) および読み出しシステムを開発しています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：大天文台成熟化プログラム (GOMaP) の対象となるような将来の戦略的 X 線ミッションには、高速で低ノイズの X 線イメージング分光計が必要です。このようなプログラムに必要な速度とノイズ性能を実現するために、スタンフォード大学のチームは、MIT カブリ研究所 (MKI) およびマサチューセッツ工科大学リンカーン研究所 (MIT-LL) と協力して、カスタマイズされた特定用途向け集積回路 (ASIC) を活用する強化された X 線電荷結合素子 (CCD) および読み出しシステムを開発しています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：大天文台成熟化プログラム (GOMaP) の対象となるような将来の戦略的 X 線ミッションには、高速で低ノイズの X 線イメージング分光計が必要です。このようなプログラムに必要な速度とノイズ性能を実現するために、スタンフォード大学のチームは、MIT カブリ研究所 (MKI) およびマサチューセッツ工科大学リンカーン研究所 (MIT-LL) と協力して、カスタマイズされた特定用途向け集積回路 (ASIC) を活用する強化された X 線電荷結合素子 (CCD) および読み出しシステムを開発しています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-5ctmj2",
+      "title": "AlphaRoute: Large Language Models as Semantic Optimizers for Multi-Objective Routing",
+      "authors": [
+        "Kabir Murjani",
+        "Mishri Bhavsar",
+        "Manish I. Patel",
+        "Jonti Talukdar"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.19768v1",
+      "categories": [
+        "cs.LG",
+        "cs.AR"
+      ],
+      "summary": "超大規模集積回路 (VLSI) のグローバル ルーティングは、輻輳、配線長、ビア遷移を最小限に抑えながら、容量に制約のある 3D グリッド全体での信号ネットの割り当てを必要とする NP ハードの組み合わせ最適化問題です。従来のヒューリスティックは、複雑な輻輳トポロジでは失敗する静的なペナルティ スケジュールに依存しているため、リッピング アンド リルート (R&R) を動的最適化システムに再定式化する多目的適応検索フレームワークである AlphaRoute を紹介します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：超大規模集積回路 (VLSI) のグローバル ルーティングは、輻輳、配線長、ビア遷移を最小限に抑えながら、容量に制約のある 3D グリッド全体での信号ネットの割り当てを必要とする NP ハードの組み合わせ最適化問題です。従来のヒューリスティックは、複雑な輻輳トポロジでは失敗する静的なペナルティ スケジュールに依存しているため、リッピング アンド リルート (R&R) を動的最適化システムに再定式化する多目的適応検索フレームワークである AlphaRoute を紹介します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：超大規模集積回路 (VLSI) のグローバル ルーティングは、輻輳、配線長、ビア遷移を最小限に抑えながら、容量に制約のある 3D グリッド全体での信号ネットの割り当てを必要とする NP ハードの組み合わせ最適化問題です。従来のヒューリスティックは、複雑な輻輳トポロジでは失敗する静的なペナルティ スケジュールに依存しているため、リッピング アンド リルート (R&R) を動的最適化システムに再定式化する多目的適応検索フレームワークである AlphaRoute を紹介します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：超大規模集積回路 (VLSI) のグローバル ルーティングは、輻輳、配線長、ビア遷移を最小限に抑えながら、容量に制約のある 3D グリッド全体での信号ネットの割り当てを必要とする NP ハードの組み合わせ最適化問題です。従来のヒューリスティックは、複雑な輻輳トポロジでは失敗する静的なペナルティ スケジュールに依存しているため、リッピング アンド リルート (R&R) を動的最適化システムに再定式化する多目的適応検索フレームワークである AlphaRoute を紹介します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-tcuu01",
+      "title": "Unsafe at any AUC: Unlearned Lessons from Sociotechnical Disasters for Responsible AI",
+      "authors": [
+        "Joshua A. Kroll",
+        "Andrew Smart",
+        "R. Stuart Geiger",
+        "Abigail Z. Jacobs"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-15",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.14353v1",
+      "categories": [
+        "cs.CY",
+        "cs.AI",
+        "eess.SY"
+      ],
+      "summary": "自動化された意思決定とデータ駆動型テクノロジーが社会に浸透し、結果として生じる結果を管理するために使用されているため、テクノロジーの機能、限界、およびそれに付随するリスクを状況に応じて理解するには、完全な社会技術システムの分析が必要です。非常に複雑なシステムにおけるリスクの社会技術的分析は、AI システムの設計と評価に明確な教訓を提供し、信頼性の高いコンポーネントや「責任を持って設計された」コンポーネントへの技術的焦点を超えて、システム レベルでリスクを理解します。 人為的大災害は、その重大さのため何十年にもわたって研究されてきました。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：自動化された意思決定とデータ駆動型テクノロジーが社会に浸透し、結果として生じる結果を管理するために使用されているため、テクノロジーの機能、限界、およびそれに付随するリスクを状況に応じて理解するには、完全な社会技術システムの分析が必要です。非常に複雑なシステムにおけるリスクの社会技術的分析は、AI システムの設計と評価に明確な教訓を提供し、信頼性の高いコンポーネントや「責任を持って設計された」コンポーネントへの技術的焦点を超えて、システム レベルでリスクを理解します。 人為的大災害は、その重大さのため何十年にもわたって研究されてきました。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：自動化された意思決定とデータ駆動型テクノロジーが社会に浸透し、結果として生じる結果を管理するために使用されているため、テクノロジーの機能、限界、およびそれに付随するリスクを状況に応じて理解するには、完全な社会技術システムの分析が必要です。非常に複雑なシステムにおけるリスクの社会技術的分析は、AI システムの設計と評価に明確な教訓を提供し、信頼性の高いコンポーネントや「責任を持って設計された」コンポーネントへの技術的焦点を超えて、システム レベルでリスクを理解します。 人為的大災害は、その重大さのため何十年にもわたって研究されてきました。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：自動化された意思決定とデータ駆動型テクノロジーが社会に浸透し、結果として生じる結果を管理するために使用されているため、テクノロジーの機能、限界、およびそれに付随するリスクを状況に応じて理解するには、完全な社会技術システムの分析が必要です。非常に複雑なシステムにおけるリスクの社会技術的分析は、AI システムの設計と評価に明確な教訓を提供し、信頼性の高いコンポーネントや「責任を持って設計された」コンポーネントへの技術的焦点を超えて、システム レベルでリスクを理解します。 人為的大災害は、その重大さのため何十年にもわたって研究されてきました。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-6hy8np",
+      "title": "RED-Sphere: Hyperspherical Residual Edge Debiasing for Cross-Population Fundus Disease Domain Generalization",
+      "authors": [
+        "Yan Lin",
+        "Ziheng Wang",
+        "Shuang Chen",
+        "Amir Atapour-Abarghouei",
+        "Stephen McGough"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-12",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.10777v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "医療画像分類器は 1 つのソース集団内でトレーニングされることがよくありますが、臨床での展開には、外観、取得スタイル、疾患の有病率がソース コホートと異なる患者に対する堅牢性が必要です。既存の公平性とロバスト性の手法では、多くの場合、グループによる監視が必要であったり、外観の変化を未分化の迷惑なものとして扱ったりしますが、母集団に相関する低レベルの手がかりや病変の証拠がエッジやテクスチャ構造を共有する場合には不十分です。私たちは、最適化、検証、スケジューリング、ハイパーパラメーター、モデルの選択中に外部母集団が表示されない、厳密なソースのみの相互母集団設定を研究します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：医療画像分類器は 1 つのソース集団内でトレーニングされることがよくありますが、臨床での展開には、外観、取得スタイル、疾患の有病率がソース コホートと異なる患者に対する堅牢性が必要です。既存の公平性とロバスト性の手法では、多くの場合、グループによる監視が必要であったり、外観の変化を未分化の迷惑なものとして扱ったりしますが、母集団に相関する低レベルの手がかりや病変の証拠がエッジやテクスチャ構造を共有する場合には不十分です。私たちは、最適化、検証、スケジューリング、ハイパーパラメーター、モデルの選択中に外部母集団が表示されない、厳密なソースのみの相互母集団設定を研究します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：医療画像分類器は 1 つのソース集団内でトレーニングされることがよくありますが、臨床での展開には、外観、取得スタイル、疾患の有病率がソース コホートと異なる患者に対する堅牢性が必要です。既存の公平性とロバスト性の手法では、多くの場合、グループによる監視が必要であったり、外観の変化を未分化の迷惑なものとして扱ったりしますが、母集団に相関する低レベルの手がかりや病変の証拠がエッジやテクスチャ構造を共有する場合には不十分です。私たちは、最適化、検証、スケジューリング、ハイパーパラメーター、モデルの選択中に外部母集団が表示されない、厳密なソースのみの相互母集団設定を研究します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：医療画像分類器は 1 つのソース集団内でトレーニングされることがよくありますが、臨床での展開には、外観、取得スタイル、疾患の有病率がソース コホートと異なる患者に対する堅牢性が必要です。既存の公平性とロバスト性の手法では、多くの場合、グループによる監視が必要であったり、外観の変化を未分化の迷惑なものとして扱ったりしますが、母集団に相関する低レベルの手がかりや病変の証拠がエッジやテクスチャ構造を共有する場合には不十分です。私たちは、最適化、検証、スケジューリング、ハイパーパラメーター、モデルの選択中に外部母集団が表示されない、厳密なソースのみの相互母集団設定を研究します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-uetffh",
+      "title": "An AI agent for treatment reasoning over a biomedical tool universe",
+      "authors": [
+        "Shanghua Gao",
+        "Ayush Noori",
+        "Richard Zhu",
+        "Curtis Ginder",
+        "Zhenglun Kong",
+        "Xiaorui Su",
+        "Justin Kauffman",
+        "Benjamin S. Glicksberg",
+        "Joshua Lampert",
+        "Ankit Sakhuja",
+        "Ashwin Sawant",
+        "ATHENA-R1 Evaluation Consortium",
+        "David A. Clifton",
+        "Noa Dagan",
+        "Ran Balicer",
+        "Marinka Zitnik"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-06-27",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2606.28692v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "治療推論はあらゆる治療上の決定を支え、疾患の状況、併存疾患、投薬、禁忌、進化する生物医学的知識を統合して適切な治療法を選択します。これは本質的に反復的です。候補者は多くの制約に照らして比較検討され、証拠が現れるたびに修正され、検証可能な情報源に基づいています。ここでは、1939 年以来 FDA が承認したすべての医薬品にわたって治療推論を行う AI エージェントである ATHENA-R1 を紹介します。この AI エージェントは、212 の生物医学ツールの世界にわたる強化学習によって訓練されています。各ステップで、不足している情報を特定し、関連するツールを選択して実行し、証拠を組み込みます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：治療推論はあらゆる治療上の決定を支え、疾患の状況、併存疾患、投薬、禁忌、進化する生物医学的知識を統合して適切な治療法を選択します。これは本質的に反復的です。候補者は多くの制約に照らして比較検討され、証拠が現れるたびに修正され、検証可能な情報源に基づいています。ここでは、1939 年以来 FDA が承認したすべての医薬品にわたって治療推論を行う AI エージェントである ATHENA-R1 を紹介します。この AI エージェントは、212 の生物医学ツールの世界にわたる強化学習によって訓練されています。各ステップで、不足している情報を特定し、関連するツールを選択して実行し、証拠を組み込みます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：治療推論はあらゆる治療上の決定を支え、疾患の状況、併存疾患、投薬、禁忌、進化する生物医学的知識を統合して適切な治療法を選択します。これは本質的に反復的です。候補者は多くの制約に照らして比較検討され、証拠が現れるたびに修正され、検証可能な情報源に基づいています。ここでは、1939 年以来 FDA が承認したすべての医薬品にわたって治療推論を行う AI エージェントである ATHENA-R1 を紹介します。この AI エージェントは、212 の生物医学ツールの世界にわたる強化学習によって訓練されています。各ステップで、不足している情報を特定し、関連するツールを選択して実行し、証拠を組み込みます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：治療推論はあらゆる治療上の決定を支え、疾患の状況、併存疾患、投薬、禁忌、進化する生物医学的知識を統合して適切な治療法を選択します。これは本質的に反復的です。候補者は多くの制約に照らして比較検討され、証拠が現れるたびに修正され、検証可能な情報源に基づいています。ここでは、1939 年以来 FDA が承認したすべての医薬品にわたって治療推論を行う AI エージェントである ATHENA-R1 を紹介します。この AI エージェントは、212 の生物医学ツールの世界にわたる強化学習によって訓練されています。各ステップで、不足している情報を特定し、関連するツールを選択して実行し、証拠を組み込みます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-157i5go",
+      "title": "Benchmarking NACTI Species Recognition in Long-Tailed Regimes",
+      "authors": [
+        "Zehua Liu",
+        "Tilo Burghardt"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-20",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.18033v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "自然界のほとんどの「野生の」コレクションと同様に、North America Camera Trap Images (NACTI) データセットにはロングテールクラスの不均衡が見られ、最大のクラスが 370 万画像の 50% 以上をカバーしています。 PyTorch Wildlife モデルに基づいて、特殊な損失関数や LTR に敏感な正則化など、種認識パフォーマンスのベンチマークとなるロングテール認識 (LTR) 方法論を体系的に評価します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：自然界のほとんどの「野生の」コレクションと同様に、North America Camera Trap Images (NACTI) データセットにはロングテールクラスの不均衡が見られ、最大のクラスが 370 万画像の 50% 以上をカバーしています。 PyTorch Wildlife モデルに基づいて、特殊な損失関数や LTR に敏感な正則化など、種認識パフォーマンスのベンチマークとなるロングテール認識 (LTR) 方法論を体系的に評価します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：自然界のほとんどの「野生の」コレクションと同様に、North America Camera Trap Images (NACTI) データセットにはロングテールクラスの不均衡が見られ、最大のクラスが 370 万画像の 50% 以上をカバーしています。 PyTorch Wildlife モデルに基づいて、特殊な損失関数や LTR に敏感な正則化など、種認識パフォーマンスのベンチマークとなるロングテール認識 (LTR) 方法論を体系的に評価します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：自然界のほとんどの「野生の」コレクションと同様に、North America Camera Trap Images (NACTI) データセットにはロングテールクラスの不均衡が見られ、最大のクラスが 370 万画像の 50% 以上をカバーしています。 PyTorch Wildlife モデルに基づいて、特殊な損失関数や LTR に敏感な正則化など、種認識パフォーマンスのベンチマークとなるロングテール認識 (LTR) 方法論を体系的に評価します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-6vgi7j",
+      "title": "A memorial tribute: Adriano Garsia (1928--2024)",
+      "authors": [
+        "Hélène Barcelo",
+        "François Bergeron",
+        "Nantel Bergeron",
+        "Sara Billey",
+        "Anders Björner",
+        "Tullio Ceccherini-Silberstein",
+        "Michele D'Adderio",
+        "Mark Haiman",
+        "Angela Hicks",
+        "Luc Lapointe",
+        "Jennifer Morse",
+        "Arun Ram",
+        "Marino Romero",
+        "Emily Sergel",
+        "Michelle Wachs",
+        "Guoce Xin",
+        "Mike Zabrocki"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-15",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.14184v1",
+      "categories": [
+        "math.HO",
+        "math.CO"
+      ],
+      "summary": "アドリアーノ・マリオ・ガルシアは、1928年8月20日にチュニスでチュニジア系イタリア人の家族に生まれました。彼は第二次世界大戦が終わるまでそこで農場に暮らし、その後ローマに移りました。高校を卒業した後、彼はワイミングの親戚と一緒に暮らすために米国に送られ、最終的にカリフォルニアへ向かい、1950年代初頭にスタンフォード大学のチャールズ・ロウナーの学生になりました。アドリアーノは博士号取得後、MIT、ミネソタ大学、カリフォルニア工科大学で職を歴任し、1966 年にカリフォルニア大学サンディエゴ校の設立間もない数学科に加わり、残りのキャリアをそこで過ごしました。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：アドリアーノ・マリオ・ガルシアは、1928年8月20日にチュニスでチュニジア系イタリア人の家族に生まれました。彼は第二次世界大戦が終わるまでそこで農場に暮らし、その後ローマに移りました。高校を卒業した後、彼はワイミングの親戚と一緒に暮らすために米国に送られ、最終的にカリフォルニアへ向かい、1950年代初頭にスタンフォード大学のチャールズ・ロウナーの学生になりました。アドリアーノは博士号取得後、MIT、ミネソタ大学、カリフォルニア工科大学で職を歴任し、1966 年にカリフォルニア大学サンディエゴ校の設立間もない数学科に加わり、残りのキャリアをそこで過ごしました。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：アドリアーノ・マリオ・ガルシアは、1928年8月20日にチュニスでチュニジア系イタリア人の家族に生まれました。彼は第二次世界大戦が終わるまでそこで農場に暮らし、その後ローマに移りました。高校を卒業した後、彼はワイミングの親戚と一緒に暮らすために米国に送られ、最終的にカリフォルニアへ向かい、1950年代初頭にスタンフォード大学のチャールズ・ロウナーの学生になりました。アドリアーノは博士号取得後、MIT、ミネソタ大学、カリフォルニア工科大学で職を歴任し、1966 年にカリフォルニア大学サンディエゴ校の設立間もない数学科に加わり、残りのキャリアをそこで過ごしました。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：アドリアーノ・マリオ・ガルシアは、1928年8月20日にチュニスでチュニジア系イタリア人の家族に生まれました。彼は第二次世界大戦が終わるまでそこで農場に暮らし、その後ローマに移りました。高校を卒業した後、彼はワイミングの親戚と一緒に暮らすために米国に送られ、最終的にカリフォルニアへ向かい、1950年代初頭にスタンフォード大学のチャールズ・ロウナーの学生になりました。アドリアーノは博士号取得後、MIT、ミネソタ大学、カリフォルニア工科大学で職を歴任し、1966 年にカリフォルニア大学サンディエゴ校の設立間もない数学科に加わり、残りのキャリアをそこで過ごしました。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-cdk7ez",
+      "title": "fkcompute: an efficient $F_K$ invariant calculator",
+      "authors": [
+        "Paul Orland",
+        "Davide Passaro",
+        "Lara San Martín Suárez",
+        "Toby Saunders-A'Court",
+        "Josef Svoboda"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-13",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.12155v1",
+      "categories": [
+        "math.GT",
+        "cs.MS",
+        "math.QA"
+      ],
+      "summary": "三つ編みプレゼンテーションからリンクの Gukov-Manolescu 不変量を計算するためのオープンソース パッケージである、fkcompute を紹介します。 fkcompute は、三相パイプラインを通じて Park の反転状態合計を実装します。まず、適切な組紐のプレゼンテーションと組紐の追加の反転データの検索が実行されます。次に、逆和の状態空間は、関連する線形制約システムによって境界付けられた多面体としてエンコードされます。最後に、不変式は、状態に関連付けられた R 行列の乗算によって構築されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：三つ編みプレゼンテーションからリンクの Gukov-Manolescu 不変量を計算するためのオープンソース パッケージである、fkcompute を紹介します。 fkcompute は、三相パイプラインを通じて Park の反転状態合計を実装します。まず、適切な組紐のプレゼンテーションと組紐の追加の反転データの検索が実行されます。次に、逆和の状態空間は、関連する線形制約システムによって境界付けられた多面体としてエンコードされます。最後に、不変式は、状態に関連付けられた R 行列の乗算によって構築されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：三つ編みプレゼンテーションからリンクの Gukov-Manolescu 不変量を計算するためのオープンソース パッケージである、fkcompute を紹介します。 fkcompute は、三相パイプラインを通じて Park の反転状態合計を実装します。まず、適切な組紐のプレゼンテーションと組紐の追加の反転データの検索が実行されます。次に、逆和の状態空間は、関連する線形制約システムによって境界付けられた多面体としてエンコードされます。最後に、不変式は、状態に関連付けられた R 行列の乗算によって構築されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：三つ編みプレゼンテーションからリンクの Gukov-Manolescu 不変量を計算するためのオープンソース パッケージである、fkcompute を紹介します。 fkcompute は、三相パイプラインを通じて Park の反転状態合計を実装します。まず、適切な組紐のプレゼンテーションと組紐の追加の反転データの検索が実行されます。次に、逆和の状態空間は、関連する線形制約システムによって境界付けられた多面体としてエンコードされます。最後に、不変式は、状態に関連付けられた R 行列の乗算によって構築されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-b8xo3c",
+      "title": "Group Chunks in Model Theory and Algebraic Geometry",
+      "authors": [
+        "Ronan O'Gorman"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20824v1",
+      "categories": [
+        "math.AG",
+        "math.LO"
+      ],
+      "summary": "モデル理論と代数幾何学における多くの同様の結果を一般化する、サイト上の層のコンテキストで群チャンク定理を定式化します。第 2 に、定常型の定義可能な関数の芽からグループ チャンクを生成するフルショフスキーの方法の代数幾何学的類似物を開発します。正準基底と虚数の消去のモデル理論ツールの使用は、有理射の「正準」族を研究するためのヒルベルト スキームの使用に置き換えられ、以前に知られていた結果をより一般的な基底スキームに拡張することができます。 これらの結果の証明には、独立して興味深い可能性のある技術的な作業が含まれます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：モデル理論と代数幾何学における多くの同様の結果を一般化する、サイト上の層のコンテキストで群チャンク定理を定式化します。第 2 に、定常型の定義可能な関数の芽からグループ チャンクを生成するフルショフスキーの方法の代数幾何学的類似物を開発します。正準基底と虚数の消去のモデル理論ツールの使用は、有理射の「正準」族を研究するためのヒルベルト スキームの使用に置き換えられ、以前に知られていた結果をより一般的な基底スキームに拡張することができます。 これらの結果の証明には、独立して興味深い可能性のある技術的な作業が含まれます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：モデル理論と代数幾何学における多くの同様の結果を一般化する、サイト上の層のコンテキストで群チャンク定理を定式化します。第 2 に、定常型の定義可能な関数の芽からグループ チャンクを生成するフルショフスキーの方法の代数幾何学的類似物を開発します。正準基底と虚数の消去のモデル理論ツールの使用は、有理射の「正準」族を研究するためのヒルベルト スキームの使用に置き換えられ、以前に知られていた結果をより一般的な基底スキームに拡張することができます。 これらの結果の証明には、独立して興味深い可能性のある技術的な作業が含まれます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：モデル理論と代数幾何学における多くの同様の結果を一般化する、サイト上の層のコンテキストで群チャンク定理を定式化します。第 2 に、定常型の定義可能な関数の芽からグループ チャンクを生成するフルショフスキーの方法の代数幾何学的類似物を開発します。正準基底と虚数の消去のモデル理論ツールの使用は、有理射の「正準」族を研究するためのヒルベルト スキームの使用に置き換えられ、以前に知られていた結果をより一般的な基底スキームに拡張することができます。 これらの結果の証明には、独立して興味深い可能性のある技術的な作業が含まれます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-16nh7su",
+      "title": "U-CFR: Uncertainty-Guided Cascade Forward Refinement for Interactive Segmentation",
+      "authors": [
+        "Elijah Danquah Darko",
+        "Min Xian",
+        "Terence Soule",
+        "Tiankai Yao",
+        "Matthew William Anderson"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20705v1",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "summary": "インタラクティブな画像セグメンテーションは、画像に効率的に注釈を付けるために重要です。ただし、既存の方法では多くの場合、多くの修正クリックが必要になったり、収束が遅い受動的な調整スキームに依存したりすることがあります。私たちは、ユーザーとの対話のたびにモデルが自律的に自己修正できるようにする新しい推論時間フレームワークである不確実性ガイド付きカスケード フォワード リファインメント (U-CFR) を提案します。 U-CFR は、内部の疑似クリックの配置をガイドするために、セグメンテーションの不確実性、輪郭の勾配、および明示的なエッジ予測を融合する、境界を意識した不確実性スコアを導入します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：インタラクティブな画像セグメンテーションは、画像に効率的に注釈を付けるために重要です。ただし、既存の方法では多くの場合、多くの修正クリックが必要になったり、収束が遅い受動的な調整スキームに依存したりすることがあります。私たちは、ユーザーとの対話のたびにモデルが自律的に自己修正できるようにする新しい推論時間フレームワークである不確実性ガイド付きカスケード フォワード リファインメント (U-CFR) を提案します。 U-CFR は、内部の疑似クリックの配置をガイドするために、セグメンテーションの不確実性、輪郭の勾配、および明示的なエッジ予測を融合する、境界を意識した不確実性スコアを導入します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：インタラクティブな画像セグメンテーションは、画像に効率的に注釈を付けるために重要です。ただし、既存の方法では多くの場合、多くの修正クリックが必要になったり、収束が遅い受動的な調整スキームに依存したりすることがあります。私たちは、ユーザーとの対話のたびにモデルが自律的に自己修正できるようにする新しい推論時間フレームワークである不確実性ガイド付きカスケード フォワード リファインメント (U-CFR) を提案します。 U-CFR は、内部の疑似クリックの配置をガイドするために、セグメンテーションの不確実性、輪郭の勾配、および明示的なエッジ予測を融合する、境界を意識した不確実性スコアを導入します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：インタラクティブな画像セグメンテーションは、画像に効率的に注釈を付けるために重要です。ただし、既存の方法では多くの場合、多くの修正クリックが必要になったり、収束が遅い受動的な調整スキームに依存したりすることがあります。私たちは、ユーザーとの対話のたびにモデルが自律的に自己修正できるようにする新しい推論時間フレームワークである不確実性ガイド付きカスケード フォワード リファインメント (U-CFR) を提案します。 U-CFR は、内部の疑似クリックの配置をガイドするために、セグメンテーションの不確実性、輪郭の勾配、および明示的なエッジ予測を融合する、境界を意識した不確実性スコアを導入します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-15d59ud",
+      "title": "Berkeley and Heiserman as an Unexhausted Architecture for Embodied Machine Intelligence",
+      "authors": [
+        "Christopher A. Tucker"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-17",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.16465v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "エドモンド C. バークレーは、記号論理をコンピューティング機械に結び付けることに貢献した作家として一般に記憶されています。その説明は正しいですが、不完全です。バークレーの機械指向の著作やプロジェクトを読むと、中心的な関心はより広範であり、情報を取得し、保持し、変化する条件に適切に対応し、時間の経過とともに動作を組織化する機械にとって、記号ロジックが実用的な設計言語として機能することを示すことです。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：エドモンド C. バークレーは、記号論理をコンピューティング機械に結び付けることに貢献した作家として一般に記憶されています。その説明は正しいですが、不完全です。バークレーの機械指向の著作やプロジェクトを読むと、中心的な関心はより広範であり、情報を取得し、保持し、変化する条件に適切に対応し、時間の経過とともに動作を組織化する機械にとって、記号ロジックが実用的な設計言語として機能することを示すことです。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：エドモンド C. バークレーは、記号論理をコンピューティング機械に結び付けることに貢献した作家として一般に記憶されています。その説明は正しいですが、不完全です。バークレーの機械指向の著作やプロジェクトを読むと、中心的な関心はより広範であり、情報を取得し、保持し、変化する条件に適切に対応し、時間の経過とともに動作を組織化する機械にとって、記号ロジックが実用的な設計言語として機能することを示すことです。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：エドモンド C. バークレーは、記号論理をコンピューティング機械に結び付けることに貢献した作家として一般に記憶されています。その説明は正しいですが、不完全です。バークレーの機械指向の著作やプロジェクトを読むと、中心的な関心はより広範であり、情報を取得し、保持し、変化する条件に適切に対応し、時間の経過とともに動作を組織化する機械にとって、記号ロジックが実用的な設計言語として機能することを示すことです。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-ato4cp",
+      "title": "Absolute charge calibration of DRZ phosphor screens for relativistic electron bunches",
+      "authors": [
+        "Shuang Liu",
+        "Bing Zhou",
+        "Pengwei Huang",
+        "Tianliang Zhang",
+        "Bo Peng",
+        "Shengtai Wei",
+        "Zhiyuan Guo",
+        "Bo Guo",
+        "Fei Li",
+        "Jianfei Hua",
+        "Yang Wan",
+        "Wei Lu"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-19",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.17059v1",
+      "categories": [
+        "physics.acc-ph"
+      ],
+      "summary": "レーザープラズマ加速器は、近年広範な研究の対象となっています。それらが生成する電子ビームは、幅広いエネルギーの広がりを示します。レーザー航跡場加速 (LWFA) からのビームを簡単に特徴付けるには、CCD カメラと結合したシンチレーション スクリーンを採用した電子分光計が通常使用されます。この研究では、一連の DRZ 蛍光体スクリーンを校正し、それらが発する光のスペクトルを測定します。校正は、清華大学の高周波線形電子加速器を使用して実行されました。この加速器は、ピーク エネルギーが約 30 MeV の単一エネルギー電子ビームを提供しました。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：レーザープラズマ加速器は、近年広範な研究の対象となっています。それらが生成する電子ビームは、幅広いエネルギーの広がりを示します。レーザー航跡場加速 (LWFA) からのビームを簡単に特徴付けるには、CCD カメラと結合したシンチレーション スクリーンを採用した電子分光計が通常使用されます。この研究では、一連の DRZ 蛍光体スクリーンを校正し、それらが発する光のスペクトルを測定します。校正は、清華大学の高周波線形電子加速器を使用して実行されました。この加速器は、ピーク エネルギーが約 30 MeV の単一エネルギー電子ビームを提供しました。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：レーザープラズマ加速器は、近年広範な研究の対象となっています。それらが生成する電子ビームは、幅広いエネルギーの広がりを示します。レーザー航跡場加速 (LWFA) からのビームを簡単に特徴付けるには、CCD カメラと結合したシンチレーション スクリーンを採用した電子分光計が通常使用されます。この研究では、一連の DRZ 蛍光体スクリーンを校正し、それらが発する光のスペクトルを測定します。校正は、清華大学の高周波線形電子加速器を使用して実行されました。この加速器は、ピーク エネルギーが約 30 MeV の単一エネルギー電子ビームを提供しました。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：レーザープラズマ加速器は、近年広範な研究の対象となっています。それらが生成する電子ビームは、幅広いエネルギーの広がりを示します。レーザー航跡場加速 (LWFA) からのビームを簡単に特徴付けるには、CCD カメラと結合したシンチレーション スクリーンを採用した電子分光計が通常使用されます。この研究では、一連の DRZ 蛍光体スクリーンを校正し、それらが発する光のスペクトルを測定します。校正は、清華大学の高周波線形電子加速器を使用して実行されました。この加速器は、ピーク エネルギーが約 30 MeV の単一エネルギー電子ビームを提供しました。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1l1fogl",
+      "title": "OMG: Omni-Modal Motion Generation for Generalist Humanoid Control",
+      "authors": [
+        "Siqiao Huang",
+        "Kun-Ying Lee",
+        "Dongming Qiao",
+        "Guanqi He",
+        "Zhenyu Wang",
+        "Yitang Li",
+        "Shaoting Zhu",
+        "Hang Zhao"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-06-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2606.10340v1",
+      "categories": [
+        "cs.RO"
+      ],
+      "summary": "ヒューマノイドの全身制御は近年大幅な進歩を遂げていますが、既存のアプローチは依然として、多額の報酬エンジニアリングを伴う少数スキルのポリシーや、新しい入力モダリティに拡張するのが難しいモーション トラッカーに限定されています。私たちは、汎用ヒューマノイド制御の鍵は、生物学的運動システムの階層構造を反映した、反応運動追跡小脳の上に、さまざまな条件付け様式で推論できるモジュールであるスケーラブルな脳を構築することであると主張します。このビジョンを実現するには 2 つの課題が生じます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ヒューマノイドの全身制御は近年大幅な進歩を遂げていますが、既存のアプローチは依然として、多額の報酬エンジニアリングを伴う少数スキルのポリシーや、新しい入力モダリティに拡張するのが難しいモーション トラッカーに限定されています。私たちは、汎用ヒューマノイド制御の鍵は、生物学的運動システムの階層構造を反映した、反応運動追跡小脳の上に、さまざまな条件付け様式で推論できるモジュールであるスケーラブルな脳を構築することであると主張します。このビジョンを実現するには 2 つの課題が生じます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ヒューマノイドの全身制御は近年大幅な進歩を遂げていますが、既存のアプローチは依然として、多額の報酬エンジニアリングを伴う少数スキルのポリシーや、新しい入力モダリティに拡張するのが難しいモーション トラッカーに限定されています。私たちは、汎用ヒューマノイド制御の鍵は、生物学的運動システムの階層構造を反映した、反応運動追跡小脳の上に、さまざまな条件付け様式で推論できるモジュールであるスケーラブルな脳を構築することであると主張します。このビジョンを実現するには 2 つの課題が生じます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ヒューマノイドの全身制御は近年大幅な進歩を遂げていますが、既存のアプローチは依然として、多額の報酬エンジニアリングを伴う少数スキルのポリシーや、新しい入力モダリティに拡張するのが難しいモーション トラッカーに限定されています。私たちは、汎用ヒューマノイド制御の鍵は、生物学的運動システムの階層構造を反映した、反応運動追跡小脳の上に、さまざまな条件付け様式で推論できるモジュールであるスケーラブルな脳を構築することであると主張します。このビジョンを実現するには 2 つの課題が生じます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1rmxc1s",
+      "title": "From 0-to-1 to 1-to-N: Reproducible Engineering Evidence for MetaAI Recursive Self-Design",
+      "authors": [
+        "Dun Li",
+        "Jiatao Li",
+        "Hongzhi Li"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-06-08",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2606.09663v1",
+      "categories": [
+        "cs.AI"
+      ],
+      "summary": "再帰的自己設計とは、AI システムを構築、評価、改善するメカニズムの AI 支援による変更を指します。この論文では、MetaAI を成熟したパラダイムとしてではなく、設計空間自体が変更の対象となる、人間がシードし、AI によって拡張された開発パターンの作業用語として扱います。我々は、検査可能なターゲットシステム、メタレベル修飾子、フィードバック指向の選択、再帰的継続という 4 つの基準を備えた運用証拠フレームワークを提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：再帰的自己設計とは、AI システムを構築、評価、改善するメカニズムの AI 支援による変更を指します。この論文では、MetaAI を成熟したパラダイムとしてではなく、設計空間自体が変更の対象となる、人間がシードし、AI によって拡張された開発パターンの作業用語として扱います。我々は、検査可能なターゲットシステム、メタレベル修飾子、フィードバック指向の選択、再帰的継続という 4 つの基準を備えた運用証拠フレームワークを提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：再帰的自己設計とは、AI システムを構築、評価、改善するメカニズムの AI 支援による変更を指します。この論文では、MetaAI を成熟したパラダイムとしてではなく、設計空間自体が変更の対象となる、人間がシードし、AI によって拡張された開発パターンの作業用語として扱います。我々は、検査可能なターゲットシステム、メタレベル修飾子、フィードバック指向の選択、再帰的継続という 4 つの基準を備えた運用証拠フレームワークを提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：再帰的自己設計とは、AI システムを構築、評価、改善するメカニズムの AI 支援による変更を指します。この論文では、MetaAI を成熟したパラダイムとしてではなく、設計空間自体が変更の対象となる、人間がシードし、AI によって拡張された開発パターンの作業用語として扱います。我々は、検査可能なターゲットシステム、メタレベル修飾子、フィードバック指向の選択、再帰的継続という 4 つの基準を備えた運用証拠フレームワークを提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-14qtdww",
+      "title": "Jetson-PI: Towards Onboard Real-Time Robot Control via Foresight-Aligned Asynchronous Inference",
+      "authors": [
+        "Zebin Yang",
+        "Qi Wang",
+        "Yunhe Wang",
+        "Xiurui Guo",
+        "Bo Yu",
+        "Shaoshan Liu",
+        "Jiafeng Xu",
+        "Hao Dong",
+        "Meng Li"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-14",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.12659v3",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "summary": "Vision-Language-Action (VLA) モデルは、さまざまな具体化されたタスクで優れたパフォーマンスを達成しました。ただし、Jetson Orin などの低電力オンボード デバイスに VLA モデルを展開することは、計算の複雑さが高く、かなりの推論遅延と低い制御周波数につながるため、依然として困難です。非同期推論は、アクションの実行とその後の推論を並列化することでこのレイテンシを部分的にマスクできますが、認識と実行の不一致と長い反応時間という 2 つの重大な問題が生じます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：Vision-Language-Action (VLA) モデルは、さまざまな具体化されたタスクで優れたパフォーマンスを達成しました。ただし、Jetson Orin などの低電力オンボード デバイスに VLA モデルを展開することは、計算の複雑さが高く、かなりの推論遅延と低い制御周波数につながるため、依然として困難です。非同期推論は、アクションの実行とその後の推論を並列化することでこのレイテンシを部分的にマスクできますが、認識と実行の不一致と長い反応時間という 2 つの重大な問題が生じます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：Vision-Language-Action (VLA) モデルは、さまざまな具体化されたタスクで優れたパフォーマンスを達成しました。ただし、Jetson Orin などの低電力オンボード デバイスに VLA モデルを展開することは、計算の複雑さが高く、かなりの推論遅延と低い制御周波数につながるため、依然として困難です。非同期推論は、アクションの実行とその後の推論を並列化することでこのレイテンシを部分的にマスクできますが、認識と実行の不一致と長い反応時間という 2 つの重大な問題が生じます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：Vision-Language-Action (VLA) モデルは、さまざまな具体化されたタスクで優れたパフォーマンスを達成しました。ただし、Jetson Orin などの低電力オンボード デバイスに VLA モデルを展開することは、計算の複雑さが高く、かなりの推論遅延と低い制御周波数につながるため、依然として困難です。非同期推論は、アクションの実行とその後の推論を並列化することでこのレイテンシを部分的にマスクできますが、認識と実行の不一致と長い反応時間という 2 つの重大な問題が生じます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-lpgj1s",
+      "title": "Multi-Hadron Scattering from Lattice Quantum Chromodynamics",
+      "authors": [
+        "Haobo Yan"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-14",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.12508v1",
+      "categories": [
+        "hep-lat",
+        "hep-ph"
+      ],
+      "summary": "この論文では、特にマルチハドロン共鳴に重点を置き、ハドロンの構造、散乱、崩壊を研究するための格子 QCD 法を開発します。 \\texttt{Mathematica} パッケージ \\texttt{OpTion} は、格子多ハドロン演算子の構築を自動化するために開発されました。有限体積のスペクトルは、量子化条件を通じて無限体積の振幅に関連付けられます。結合チャネル $Dπ$ 散乱では、極軌道のパイオン質量依存性と散乱長が決定され、その結果は $D_0^*(2300)$ の 2 極構造を裏付けています。次に、論文では $ω(782)$ の 3 パイオン崩壊を研究します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この論文では、特にマルチハドロン共鳴に重点を置き、ハドロンの構造、散乱、崩壊を研究するための格子 QCD 法を開発します。 \\texttt{Mathematica} パッケージ \\texttt{OpTion} は、格子多ハドロン演算子の構築を自動化するために開発されました。有限体積のスペクトルは、量子化条件を通じて無限体積の振幅に関連付けられます。結合チャネル $Dπ$ 散乱では、極軌道のパイオン質量依存性と散乱長が決定され、その結果は $D_0^*(2300)$ の 2 極構造を裏付けています。次に、論文では $ω(782)$ の 3 パイオン崩壊を研究します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この論文では、特にマルチハドロン共鳴に重点を置き、ハドロンの構造、散乱、崩壊を研究するための格子 QCD 法を開発します。 \\texttt{Mathematica} パッケージ \\texttt{OpTion} は、格子多ハドロン演算子の構築を自動化するために開発されました。有限体積のスペクトルは、量子化条件を通じて無限体積の振幅に関連付けられます。結合チャネル $Dπ$ 散乱では、極軌道のパイオン質量依存性と散乱長が決定され、その結果は $D_0^*(2300)$ の 2 極構造を裏付けています。次に、論文では $ω(782)$ の 3 パイオン崩壊を研究します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この論文では、特にマルチハドロン共鳴に重点を置き、ハドロンの構造、散乱、崩壊を研究するための格子 QCD 法を開発します。 \\texttt{Mathematica} パッケージ \\texttt{OpTion} は、格子多ハドロン演算子の構築を自動化するために開発されました。有限体積のスペクトルは、量子化条件を通じて無限体積の振幅に関連付けられます。結合チャネル $Dπ$ 散乱では、極軌道のパイオン質量依存性と散乱長が決定され、その結果は $D_0^*(2300)$ の 2 極構造を裏付けています。次に、論文では $ω(782)$ の 3 パイオン崩壊を研究します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1a65egt",
+      "title": "BVS: Bayesian Visual Search with Multimodal Large Language Model for Fine-grained Perception",
+      "authors": [
+        "Geng Li",
+        "Yuxin Peng"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-03",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.03184v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "マルチモーダル大規模言語モデル (MLLM) は優れた一般的な機能を示しますが、超高解像度 (UHR) 画像でのきめ細かい認識、特に乱雑なシーン内の小さなオブジェクトの認識に苦労します。既存の方法はジレンマに直面しています。非効率な事前フリースキャンに依存するか、初期モデルのバイアスを修正するための事後補正が欠如した静的な事前駆動ヒューリスティックに依存するかのどちらかです。これに対処するために、我々は、連続空間スケール多様体にわたる大域最適化問題として知覚を定式化するフレームワークである BVS (Bayesian Visual Search) を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：マルチモーダル大規模言語モデル (MLLM) は優れた一般的な機能を示しますが、超高解像度 (UHR) 画像でのきめ細かい認識、特に乱雑なシーン内の小さなオブジェクトの認識に苦労します。既存の方法はジレンマに直面しています。非効率な事前フリースキャンに依存するか、初期モデルのバイアスを修正するための事後補正が欠如した静的な事前駆動ヒューリスティックに依存するかのどちらかです。これに対処するために、我々は、連続空間スケール多様体にわたる大域最適化問題として知覚を定式化するフレームワークである BVS (Bayesian Visual Search) を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：マルチモーダル大規模言語モデル (MLLM) は優れた一般的な機能を示しますが、超高解像度 (UHR) 画像でのきめ細かい認識、特に乱雑なシーン内の小さなオブジェクトの認識に苦労します。既存の方法はジレンマに直面しています。非効率な事前フリースキャンに依存するか、初期モデルのバイアスを修正するための事後補正が欠如した静的な事前駆動ヒューリスティックに依存するかのどちらかです。これに対処するために、我々は、連続空間スケール多様体にわたる大域最適化問題として知覚を定式化するフレームワークである BVS (Bayesian Visual Search) を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：マルチモーダル大規模言語モデル (MLLM) は優れた一般的な機能を示しますが、超高解像度 (UHR) 画像でのきめ細かい認識、特に乱雑なシーン内の小さなオブジェクトの認識に苦労します。既存の方法はジレンマに直面しています。非効率な事前フリースキャンに依存するか、初期モデルのバイアスを修正するための事後補正が欠如した静的な事前駆動ヒューリスティックに依存するかのどちらかです。これに対処するために、我々は、連続空間スケール多様体にわたる大域最適化問題として知覚を定式化するフレームワークである BVS (Bayesian Visual Search) を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-y96dti",
+      "title": "Fault-tolerant quantum algorithms for simulating atomic nuclei",
+      "authors": [
+        "James Benstead",
+        "Michael Garn",
+        "Neil Gaspar",
+        "Sean Greenaway",
+        "Angus Kan",
+        "Lloyd La Ronde",
+        "Chandan Sarma",
+        "Paul Stevenson"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21563v1",
+      "categories": [
+        "quant-ph",
+        "nucl-th"
+      ],
+      "summary": "フォールトトレラント量子コンピューターの価値を最大化するには、化学や物性物理学などの確立された領域を超えた具体的なアプリケーションを開発することが不可欠です。今回我々は、キラル有効場理論から導かれた三体相互作用を備えた実効シェルモデルハミルトニアンと非コアシェルモデルハミルトニアンを介して、原子核の構造（化学における電子構造問題と類似しているにもかかわらず、量子コンピューティングコミュニティからは比較的注目されていないテーマ）の構造をシミュレーションするための量子アルゴリズムを構築およびコンパイルする。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：フォールトトレラント量子コンピューターの価値を最大化するには、化学や物性物理学などの確立された領域を超えた具体的なアプリケーションを開発することが不可欠です。今回我々は、キラル有効場理論から導かれた三体相互作用を備えた実効シェルモデルハミルトニアンと非コアシェルモデルハミルトニアンを介して、原子核の構造（化学における電子構造問題と類似しているにもかかわらず、量子コンピューティングコミュニティからは比較的注目されていないテーマ）の構造をシミュレーションするための量子アルゴリズムを構築およびコンパイルする。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：フォールトトレラント量子コンピューターの価値を最大化するには、化学や物性物理学などの確立された領域を超えた具体的なアプリケーションを開発することが不可欠です。今回我々は、キラル有効場理論から導かれた三体相互作用を備えた実効シェルモデルハミルトニアンと非コアシェルモデルハミルトニアンを介して、原子核の構造（化学における電子構造問題と類似しているにもかかわらず、量子コンピューティングコミュニティからは比較的注目されていないテーマ）の構造をシミュレーションするための量子アルゴリズムを構築およびコンパイルする。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：フォールトトレラント量子コンピューターの価値を最大化するには、化学や物性物理学などの確立された領域を超えた具体的なアプリケーションを開発することが不可欠です。今回我々は、キラル有効場理論から導かれた三体相互作用を備えた実効シェルモデルハミルトニアンと非コアシェルモデルハミルトニアンを介して、原子核の構造（化学における電子構造問題と類似しているにもかかわらず、量子コンピューティングコミュニティからは比較的注目されていないテーマ）の構造をシミュレーションするための量子アルゴリズムを構築およびコンパイルする。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1qqtcfx",
+      "title": "HARPS Abundances with Korg I: 22 Element Abundances for 426 Red Giant Stars",
+      "authors": [
+        "Sarah E. Aquilina",
+        "Melissa Ness",
+        "Adam J. Wheeler",
+        "Sven Buder"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21001v1",
+      "categories": [
+        "astro-ph.SR",
+        "astro-ph.GA"
+      ],
+      "summary": "大規模な恒星調査により、天の川銀河の地球規模の存在量構造が明らかになりましたが、小規模で忠実度の高いスペクトルサンプルは、元素合成の深さを補足する重要な情報を提供します。私たちは、最高品質のスペクトルを活用して、豊富な量のアンサンブルに含まれるエンコードされた情報にアクセスすることを目指しています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：大規模な恒星調査により、天の川銀河の地球規模の存在量構造が明らかになりましたが、小規模で忠実度の高いスペクトルサンプルは、元素合成の深さを補足する重要な情報を提供します。私たちは、最高品質のスペクトルを活用して、豊富な量のアンサンブルに含まれるエンコードされた情報にアクセスすることを目指しています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：大規模な恒星調査により、天の川銀河の地球規模の存在量構造が明らかになりましたが、小規模で忠実度の高いスペクトルサンプルは、元素合成の深さを補足する重要な情報を提供します。私たちは、最高品質のスペクトルを活用して、豊富な量のアンサンブルに含まれるエンコードされた情報にアクセスすることを目指しています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：大規模な恒星調査により、天の川銀河の地球規模の存在量構造が明らかになりましたが、小規模で忠実度の高いスペクトルサンプルは、元素合成の深さを補足する重要な情報を提供します。私たちは、最高品質のスペクトルを活用して、豊富な量のアンサンブルに含まれるエンコードされた情報にアクセスすることを目指しています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-s1patv",
+      "title": "A Framework for Reputation Aware Uninorm-driven Consensus Algorithms for Blockchain Networks",
+      "authors": [
+        "Bruno Ramos-Cruz",
+        "Javier Andreu-Perez",
+        "David Richerby",
+        "Luis Martínez"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20700v1",
+      "categories": [
+        "cs.DC",
+        "cs.AI"
+      ],
+      "summary": "ブロックチェーンの動作はコンセンサス アルゴリズム (CA) によって管理されます。いくつかのコンセンサスメカニズムはかなりの計算能力を必要とし、その他のメカニズムではブロック内のトランザクションを検証および検証する参加者を選択するために多額のステークを必要とし、権力の集中化と参加者の排除につながります。この論文では、直感的なファジーセット (IFS) とユニノルム集計操作 (UAO) を使用してバリデーターのレピュテーション動作を研究することにより、レピュテーションベースのコンセンサスアルゴリズムにおけるこれらの問題に対処する新しい方法論を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ブロックチェーンの動作はコンセンサス アルゴリズム (CA) によって管理されます。いくつかのコンセンサスメカニズムはかなりの計算能力を必要とし、その他のメカニズムではブロック内のトランザクションを検証および検証する参加者を選択するために多額のステークを必要とし、権力の集中化と参加者の排除につながります。この論文では、直感的なファジーセット (IFS) とユニノルム集計操作 (UAO) を使用してバリデーターのレピュテーション動作を研究することにより、レピュテーションベースのコンセンサスアルゴリズムにおけるこれらの問題に対処する新しい方法論を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ブロックチェーンの動作はコンセンサス アルゴリズム (CA) によって管理されます。いくつかのコンセンサスメカニズムはかなりの計算能力を必要とし、その他のメカニズムではブロック内のトランザクションを検証および検証する参加者を選択するために多額のステークを必要とし、権力の集中化と参加者の排除につながります。この論文では、直感的なファジーセット (IFS) とユニノルム集計操作 (UAO) を使用してバリデーターのレピュテーション動作を研究することにより、レピュテーションベースのコンセンサスアルゴリズムにおけるこれらの問題に対処する新しい方法論を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ブロックチェーンの動作はコンセンサス アルゴリズム (CA) によって管理されます。いくつかのコンセンサスメカニズムはかなりの計算能力を必要とし、その他のメカニズムではブロック内のトランザクションを検証および検証する参加者を選択するために多額のステークを必要とし、権力の集中化と参加者の排除につながります。この論文では、直感的なファジーセット (IFS) とユニノルム集計操作 (UAO) を使用してバリデーターのレピュテーション動作を研究することにより、レピュテーションベースのコンセンサスアルゴリズムにおけるこれらの問題に対処する新しい方法論を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1godeeh",
+      "title": "Decoupled Guidance Diffusion for Adaptive Offline Safe Reinforcement Learning",
+      "authors": [
+        "Rufeng Chen",
+        "Zhaofan Zhang",
+        "Zhejiang Yang",
+        "Hechang Chen",
+        "Sihong Xie"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-04",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2605.02777v2",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "summary": "オフラインで安全な強化学習では、多くの場合、エピソード間で異なる、または単一のエピソード内で変更される安全性バジェットに、展開時にポリシーを適応させる必要があります。拡散ベースのプランナーは柔軟な軌道生成を可能にしますが、既存のガイダンス スキームでは報酬の改善と制約の満足を競合する勾配目標として扱うことが多く、コスト制限の下では信頼性の低い安全遵守につながる可能性があります。適応的安全軌道生成を、予算によって軌道領域が制限され、報酬がその領域内の好みを形成する、制約された軌道分布からのサンプリングとして再解釈します。この観点は、安全分離ガイダンス拡散 (SDGD) の動機付けとなります。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：オフラインで安全な強化学習では、多くの場合、エピソード間で異なる、または単一のエピソード内で変更される安全性バジェットに、展開時にポリシーを適応させる必要があります。拡散ベースのプランナーは柔軟な軌道生成を可能にしますが、既存のガイダンス スキームでは報酬の改善と制約の満足を競合する勾配目標として扱うことが多く、コスト制限の下では信頼性の低い安全遵守につながる可能性があります。適応的安全軌道生成を、予算によって軌道領域が制限され、報酬がその領域内の好みを形成する、制約された軌道分布からのサンプリングとして再解釈します。この観点は、安全分離ガイダンス拡散 (SDGD) の動機付けとなります。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：オフラインで安全な強化学習では、多くの場合、エピソード間で異なる、または単一のエピソード内で変更される安全性バジェットに、展開時にポリシーを適応させる必要があります。拡散ベースのプランナーは柔軟な軌道生成を可能にしますが、既存のガイダンス スキームでは報酬の改善と制約の満足を競合する勾配目標として扱うことが多く、コスト制限の下では信頼性の低い安全遵守につながる可能性があります。適応的安全軌道生成を、予算によって軌道領域が制限され、報酬がその領域内の好みを形成する、制約された軌道分布からのサンプリングとして再解釈します。この観点は、安全分離ガイダンス拡散 (SDGD) の動機付けとなります。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：オフラインで安全な強化学習では、多くの場合、エピソード間で異なる、または単一のエピソード内で変更される安全性バジェットに、展開時にポリシーを適応させる必要があります。拡散ベースのプランナーは柔軟な軌道生成を可能にしますが、既存のガイダンス スキームでは報酬の改善と制約の満足を競合する勾配目標として扱うことが多く、コスト制限の下では信頼性の低い安全遵守につながる可能性があります。適応的安全軌道生成を、予算によって軌道領域が制限され、報酬がその領域内の好みを形成する、制約された軌道分布からのサンプリングとして再解釈します。この観点は、安全分離ガイダンス拡散 (SDGD) の動機付けとなります。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1mz1hn3",
+      "title": "A novel three-step approach to forecast firm-specific technology convergence opportunity via multi-dimensional feature fusion",
+      "authors": [
+        "Fu Gu",
+        "Ao Chen",
+        "Yingwen Wu"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-01",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.00803v1",
+      "categories": [
+        "cs.IR"
+      ],
+      "summary": "重要なイノベーション パラダイムとして、テクノロジー コンバージェンス (TC) への注目がますます高まっています。しかし、既存の研究は主に業界レベルでの TC の予測に焦点を当てており、企業固有の技術機会発見 (TOD) に関する TC の予測にはほとんど注意が払われていません。さらに、特許などの技術文書には書誌情報、ネットワーク構造、およびテキストの特徴が豊富に含まれていますが、そのような特徴は既存の TC 予測では十分に活用されていません。関連する研究のほとんどは、これらの特徴の 1 次元または 2 次元のみを使用しており、すべての 3 次元特徴が融合されることはほとんどありません。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：重要なイノベーション パラダイムとして、テクノロジー コンバージェンス (TC) への注目がますます高まっています。しかし、既存の研究は主に業界レベルでの TC の予測に焦点を当てており、企業固有の技術機会発見 (TOD) に関する TC の予測にはほとんど注意が払われていません。さらに、特許などの技術文書には書誌情報、ネットワーク構造、およびテキストの特徴が豊富に含まれていますが、そのような特徴は既存の TC 予測では十分に活用されていません。関連する研究のほとんどは、これらの特徴の 1 次元または 2 次元のみを使用しており、すべての 3 次元特徴が融合されることはほとんどありません。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：重要なイノベーション パラダイムとして、テクノロジー コンバージェンス (TC) への注目がますます高まっています。しかし、既存の研究は主に業界レベルでの TC の予測に焦点を当てており、企業固有の技術機会発見 (TOD) に関する TC の予測にはほとんど注意が払われていません。さらに、特許などの技術文書には書誌情報、ネットワーク構造、およびテキストの特徴が豊富に含まれていますが、そのような特徴は既存の TC 予測では十分に活用されていません。関連する研究のほとんどは、これらの特徴の 1 次元または 2 次元のみを使用しており、すべての 3 次元特徴が融合されることはほとんどありません。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：重要なイノベーション パラダイムとして、テクノロジー コンバージェンス (TC) への注目がますます高まっています。しかし、既存の研究は主に業界レベルでの TC の予測に焦点を当てており、企業固有の技術機会発見 (TOD) に関する TC の予測にはほとんど注意が払われていません。さらに、特許などの技術文書には書誌情報、ネットワーク構造、およびテキストの特徴が豊富に含まれていますが、そのような特徴は既存の TC 予測では十分に活用されていません。関連する研究のほとんどは、これらの特徴の 1 次元または 2 次元のみを使用しており、すべての 3 次元特徴が融合されることはほとんどありません。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-125hp2i",
+      "title": "From AI Weather Prediction to Infrastructure Resilience: A Correction-Downscaling Framework for Tropical Cyclone Impacts",
+      "authors": [
+        "You Wu",
+        "Zhenguo Wang",
+        "Naiyu Wang"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-13",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.12828v1",
+      "categories": [
+        "eess.SY",
+        "cs.LG"
+      ],
+      "summary": "このペーパーでは、インフラストラクチャの回復力に欠けている機能、つまり、高速でグローバルな AI 天気予報を資産規模の対処可能なリスクに変える機能について取り上げます。 AI ベースの補正ダウンスケーリング フレームワーク (ACDF) を導入します。これは、大まかな AI 気象予測 (AIWP) を、500 メートルの不偏の風力発電所と熱帯低気圧の送電塔/送電線の故障確率に変換します。 ACDF は、暴風雨スケールのバイアス補正を地形を考慮したダウンスケーリングから分離し、構造荷重を支配するサブキロメートルの変動を復元しながら誤差の伝播を防ぎます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：このペーパーでは、インフラストラクチャの回復力に欠けている機能、つまり、高速でグローバルな AI 天気予報を資産規模の対処可能なリスクに変える機能について取り上げます。 AI ベースの補正ダウンスケーリング フレームワーク (ACDF) を導入します。これは、大まかな AI 気象予測 (AIWP) を、500 メートルの不偏の風力発電所と熱帯低気圧の送電塔/送電線の故障確率に変換します。 ACDF は、暴風雨スケールのバイアス補正を地形を考慮したダウンスケーリングから分離し、構造荷重を支配するサブキロメートルの変動を復元しながら誤差の伝播を防ぎます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：このペーパーでは、インフラストラクチャの回復力に欠けている機能、つまり、高速でグローバルな AI 天気予報を資産規模の対処可能なリスクに変える機能について取り上げます。 AI ベースの補正ダウンスケーリング フレームワーク (ACDF) を導入します。これは、大まかな AI 気象予測 (AIWP) を、500 メートルの不偏の風力発電所と熱帯低気圧の送電塔/送電線の故障確率に変換します。 ACDF は、暴風雨スケールのバイアス補正を地形を考慮したダウンスケーリングから分離し、構造荷重を支配するサブキロメートルの変動を復元しながら誤差の伝播を防ぎます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：このペーパーでは、インフラストラクチャの回復力に欠けている機能、つまり、高速でグローバルな AI 天気予報を資産規模の対処可能なリスクに変える機能について取り上げます。 AI ベースの補正ダウンスケーリング フレームワーク (ACDF) を導入します。これは、大まかな AI 気象予測 (AIWP) を、500 メートルの不偏の風力発電所と熱帯低気圧の送電塔/送電線の故障確率に変換します。 ACDF は、暴風雨スケールのバイアス補正を地形を考慮したダウンスケーリングから分離し、構造荷重を支配するサブキロメートルの変動を復元しながら誤差の伝播を防ぎます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-emdfpg",
+      "title": "DyneTrion: A Spatio-temporally Coherent Generative Emulator for Protein Dynamics Across Timescales",
+      "authors": [
+        "Kaihui Cheng",
+        "Zhiqiang Cai",
+        "Peng Tu",
+        "Yisong Yao",
+        "Limei Han",
+        "Libo Wu",
+        "Siyu Zhu",
+        "Tzuhsiung Yang",
+        "Yuan Qi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-15",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.15309v1",
+      "categories": [
+        "q-bio.QM",
+        "cs.LG"
+      ],
+      "summary": "タンパク質は、複数の空間的および時間的スケールにわたる協調運動を通じて機能し、リガンド結合、アロステリー、触媒作用などのプロセスを支えます。しかし、分子動力学 (MD) シミュレーションを通じて長期スケールの構造変化にアクセスすることは、多様なシステムにわたる体系的な探索には依然として法外なコストがかかります。ここでは、単一のフレームワーク内で幾何学的対称性、構造的一貫性、時間的一貫性を共同で強化する生成タンパク質ダイナミクス エミュレーターである DyneTrion を紹介します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：タンパク質は、複数の空間的および時間的スケールにわたる協調運動を通じて機能し、リガンド結合、アロステリー、触媒作用などのプロセスを支えます。しかし、分子動力学 (MD) シミュレーションを通じて長期スケールの構造変化にアクセスすることは、多様なシステムにわたる体系的な探索には依然として法外なコストがかかります。ここでは、単一のフレームワーク内で幾何学的対称性、構造的一貫性、時間的一貫性を共同で強化する生成タンパク質ダイナミクス エミュレーターである DyneTrion を紹介します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：タンパク質は、複数の空間的および時間的スケールにわたる協調運動を通じて機能し、リガンド結合、アロステリー、触媒作用などのプロセスを支えます。しかし、分子動力学 (MD) シミュレーションを通じて長期スケールの構造変化にアクセスすることは、多様なシステムにわたる体系的な探索には依然として法外なコストがかかります。ここでは、単一のフレームワーク内で幾何学的対称性、構造的一貫性、時間的一貫性を共同で強化する生成タンパク質ダイナミクス エミュレーターである DyneTrion を紹介します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：タンパク質は、複数の空間的および時間的スケールにわたる協調運動を通じて機能し、リガンド結合、アロステリー、触媒作用などのプロセスを支えます。しかし、分子動力学 (MD) シミュレーションを通じて長期スケールの構造変化にアクセスすることは、多様なシステムにわたる体系的な探索には依然として法外なコストがかかります。ここでは、単一のフレームワーク内で幾何学的対称性、構造的一貫性、時間的一貫性を共同で強化する生成タンパク質ダイナミクス エミュレーターである DyneTrion を紹介します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-f9ef4e",
+      "title": "Beyond Overlap Metrics: Rewarding Reasoning and Preferences for Faithful Multi-Role Dialogue Summarization",
+      "authors": [
+        "Xiaoyong Mei",
+        "Tingting Zuo",
+        "Da Chen",
+        "Guangyu Hu",
+        "Xiangyu Wen",
+        "Chao Duan",
+        "Mingyan Zhang",
+        "Fudan Zheng"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-19",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.17188v2",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "summary": "複数の役割による対話の要約では、役割固有の情報と事実の一貫性を維持しながら、複数の話者間の複雑な対話をモデル化する必要があります。しかし、既存の手法のほとんどは、ROUGE や BERTScore などの自動メトリクスに合わせて最適化されており、忠実性や人間の好みとの整合性の真の向上よりも、参照の表面レベルの模倣を優先します。我々は、明示的な認知スタイルの推論と、複数の役割の対話を要約するための報酬ベースの最適化を組み合わせた新しいフレームワークを提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：複数の役割による対話の要約では、役割固有の情報と事実の一貫性を維持しながら、複数の話者間の複雑な対話をモデル化する必要があります。しかし、既存の手法のほとんどは、ROUGE や BERTScore などの自動メトリクスに合わせて最適化されており、忠実性や人間の好みとの整合性の真の向上よりも、参照の表面レベルの模倣を優先します。我々は、明示的な認知スタイルの推論と、複数の役割の対話を要約するための報酬ベースの最適化を組み合わせた新しいフレームワークを提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：複数の役割による対話の要約では、役割固有の情報と事実の一貫性を維持しながら、複数の話者間の複雑な対話をモデル化する必要があります。しかし、既存の手法のほとんどは、ROUGE や BERTScore などの自動メトリクスに合わせて最適化されており、忠実性や人間の好みとの整合性の真の向上よりも、参照の表面レベルの模倣を優先します。我々は、明示的な認知スタイルの推論と、複数の役割の対話を要約するための報酬ベースの最適化を組み合わせた新しいフレームワークを提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：複数の役割による対話の要約では、役割固有の情報と事実の一貫性を維持しながら、複数の話者間の複雑な対話をモデル化する必要があります。しかし、既存の手法のほとんどは、ROUGE や BERTScore などの自動メトリクスに合わせて最適化されており、忠実性や人間の好みとの整合性の真の向上よりも、参照の表面レベルの模倣を優先します。我々は、明示的な認知スタイルの推論と、複数の役割の対話を要約するための報酬ベースの最適化を組み合わせた新しいフレームワークを提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1bo4g68",
+      "title": "BARD: Bridging AutoRegressive and Diffusion Vision-Language Models Via Highly Efficient Progressive Block Merging and Stage-Wise Distillation",
+      "authors": [
+        "Baoyou Chen",
+        "Hanchen Xia",
+        "Peng Tu",
+        "Haojun Shi",
+        "Liwei Zhang",
+        "Yuxuan Yao",
+        "Weihao Yuan",
+        "Siyu Zhu"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-15",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.16514v5",
+      "categories": [
+        "cs.CV",
+        "cs.LG"
+      ],
+      "summary": "自己回帰ビジョン言語モデル (VLM) は強力なマルチモーダル機能を提供しますが、トークンごとのデコードが根本的な推論のボトルネックを引き起こします。拡散 VLM は、より並列的なデコード パラダイムを提供しますが、事前トレーニングされた自己回帰 VLM を大ブロック拡散 VLM (dVLM) に直接変換すると、多くの場合、大幅な品質の低下につながります。この研究では、事前トレーニングされた自己回帰 VLM を同じアーキテクチャのデコード効率の高い dVLM に変換する、シンプルで効果的なブリッジング フレームワークである BARD を紹介します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：自己回帰ビジョン言語モデル (VLM) は強力なマルチモーダル機能を提供しますが、トークンごとのデコードが根本的な推論のボトルネックを引き起こします。拡散 VLM は、より並列的なデコード パラダイムを提供しますが、事前トレーニングされた自己回帰 VLM を大ブロック拡散 VLM (dVLM) に直接変換すると、多くの場合、大幅な品質の低下につながります。この研究では、事前トレーニングされた自己回帰 VLM を同じアーキテクチャのデコード効率の高い dVLM に変換する、シンプルで効果的なブリッジング フレームワークである BARD を紹介します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：自己回帰ビジョン言語モデル (VLM) は強力なマルチモーダル機能を提供しますが、トークンごとのデコードが根本的な推論のボトルネックを引き起こします。拡散 VLM は、より並列的なデコード パラダイムを提供しますが、事前トレーニングされた自己回帰 VLM を大ブロック拡散 VLM (dVLM) に直接変換すると、多くの場合、大幅な品質の低下につながります。この研究では、事前トレーニングされた自己回帰 VLM を同じアーキテクチャのデコード効率の高い dVLM に変換する、シンプルで効果的なブリッジング フレームワークである BARD を紹介します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：自己回帰ビジョン言語モデル (VLM) は強力なマルチモーダル機能を提供しますが、トークンごとのデコードが根本的な推論のボトルネックを引き起こします。拡散 VLM は、より並列的なデコード パラダイムを提供しますが、事前トレーニングされた自己回帰 VLM を大ブロック拡散 VLM (dVLM) に直接変換すると、多くの場合、大幅な品質の低下につながります。この研究では、事前トレーニングされた自己回帰 VLM を同じアーキテクチャのデコード効率の高い dVLM に変換する、シンプルで効果的なブリッジング フレームワークである BARD を紹介します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-19q9ndc",
+      "title": "Accelerating fossil gas independence in Europe",
+      "authors": [
+        "Lukas Franken",
+        "Iegor Riepin",
+        "Tom Brown"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21048v1",
+      "categories": [
+        "econ.GN",
+        "physics.soc-ph"
+      ],
+      "summary": "最近の価格ショックを受けて、欧州の化石ガス輸入依存を抑制するよう求める声が高まっているが、この目標にかかる費用や、それによって得られる消費者保護は依然として不透明だ。ここでは、高い時空間分解能ですべてのガス使用の削減を共同最適化するヨーロッパのエネルギー システム モデルで化石ガス供給に制約を課すことで、このギャップに対処します。輸入依存を削減することは経済的に魅力的であることが証明されている。発電量と産業や建物の低温熱を節約することで、欧州は天然ガス消費量を年間160億ユーロで半減でき、需要を大陸の生産能力200bcmに合わせることができる。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：最近の価格ショックを受けて、欧州の化石ガス輸入依存を抑制するよう求める声が高まっているが、この目標にかかる費用や、それによって得られる消費者保護は依然として不透明だ。ここでは、高い時空間分解能ですべてのガス使用の削減を共同最適化するヨーロッパのエネルギー システム モデルで化石ガス供給に制約を課すことで、このギャップに対処します。輸入依存を削減することは経済的に魅力的であることが証明されている。発電量と産業や建物の低温熱を節約することで、欧州は天然ガス消費量を年間160億ユーロで半減でき、需要を大陸の生産能力200bcmに合わせることができる。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：最近の価格ショックを受けて、欧州の化石ガス輸入依存を抑制するよう求める声が高まっているが、この目標にかかる費用や、それによって得られる消費者保護は依然として不透明だ。ここでは、高い時空間分解能ですべてのガス使用の削減を共同最適化するヨーロッパのエネルギー システム モデルで化石ガス供給に制約を課すことで、このギャップに対処します。輸入依存を削減することは経済的に魅力的であることが証明されている。発電量と産業や建物の低温熱を節約することで、欧州は天然ガス消費量を年間160億ユーロで半減でき、需要を大陸の生産能力200bcmに合わせることができる。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：最近の価格ショックを受けて、欧州の化石ガス輸入依存を抑制するよう求める声が高まっているが、この目標にかかる費用や、それによって得られる消費者保護は依然として不透明だ。ここでは、高い時空間分解能ですべてのガス使用の削減を共同最適化するヨーロッパのエネルギー システム モデルで化石ガス供給に制約を課すことで、このギャップに対処します。輸入依存を削減することは経済的に魅力的であることが証明されている。発電量と産業や建物の低温熱を節約することで、欧州は天然ガス消費量を年間160億ユーロで半減でき、需要を大陸の生産能力200bcmに合わせることができる。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1dtv5fs",
+      "title": "Robostral Navigate",
+      "authors": [
+        "Arjun Majumdar",
+        "Avinash Sooriyarachchi",
+        "Benjamin Tibi",
+        "Chris Bamford",
+        "Elliot Chane-Sane",
+        "Guillaume Lample",
+        "Khyathi Raghavi Chandu",
+        "Ludovic Ho Fuh",
+        "Mathieu Poiree",
+        "Olivier Duchenne",
+        "Rosalie Millner",
+        "Srijan Mishra",
+        "Theo Cachet",
+        "Thomas Chabal"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20785v1",
+      "categories": [
+        "cs.RO",
+        "cs.AI"
+      ],
+      "summary": "ナビゲーション システムを大規模に展開するには、センサーの想定を最小限に抑え、ロボットの実施形態全体で一般化して、効率的にトレーニングするレシピが必要です。しかし、今日の最良のシステムは深度センサー、マルチカメラ リグ、または事前構築されたマップに依存しているため、サポートされるハードウェアが制限され、導入コストが増加します。このスケーラビリティ目標に基づいて構築された 8B ビジョン言語モデルである Robostral Navigate を紹介します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ナビゲーション システムを大規模に展開するには、センサーの想定を最小限に抑え、ロボットの実施形態全体で一般化して、効率的にトレーニングするレシピが必要です。しかし、今日の最良のシステムは深度センサー、マルチカメラ リグ、または事前構築されたマップに依存しているため、サポートされるハードウェアが制限され、導入コストが増加します。このスケーラビリティ目標に基づいて構築された 8B ビジョン言語モデルである Robostral Navigate を紹介します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ナビゲーション システムを大規模に展開するには、センサーの想定を最小限に抑え、ロボットの実施形態全体で一般化して、効率的にトレーニングするレシピが必要です。しかし、今日の最良のシステムは深度センサー、マルチカメラ リグ、または事前構築されたマップに依存しているため、サポートされるハードウェアが制限され、導入コストが増加します。このスケーラビリティ目標に基づいて構築された 8B ビジョン言語モデルである Robostral Navigate を紹介します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ナビゲーション システムを大規模に展開するには、センサーの想定を最小限に抑え、ロボットの実施形態全体で一般化して、効率的にトレーニングするレシピが必要です。しかし、今日の最良のシステムは深度センサー、マルチカメラ リグ、または事前構築されたマップに依存しているため、サポートされるハードウェアが制限され、導入コストが増加します。このスケーラビリティ目標に基づいて構築された 8B ビジョン言語モデルである Robostral Navigate を紹介します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-175ap8d",
+      "title": "LLMs Get Lost in Evolving User Intent",
+      "authors": [
+        "Jihoon Tack",
+        "Philippe Laban",
+        "Jennifer Neville"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20734v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "summary": "LLM の能力が高まるにつれて、共同エージェントとして導入されることが増え、反復的な対話を通じてユーザーから委任されたタスクを引き受けます。しかし、本物の対話は本質的に動的です。ユーザーが事前に意図を指定することはほとんどなく、会話の展開に応じてそれを開示、修正、再形成します。それにもかかわらず、LLM は依然として主に 1 ターンの完全に指定された設定で評価またはトレーニングされており、会話中に展開するユーザーの意図を LLM がどの程度うまく追跡し、それに応じて機能するのかという根本的な疑問が残されています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：LLM の能力が高まるにつれて、共同エージェントとして導入されることが増え、反復的な対話を通じてユーザーから委任されたタスクを引き受けます。しかし、本物の対話は本質的に動的です。ユーザーが事前に意図を指定することはほとんどなく、会話の展開に応じてそれを開示、修正、再形成します。それにもかかわらず、LLM は依然として主に 1 ターンの完全に指定された設定で評価またはトレーニングされており、会話中に展開するユーザーの意図を LLM がどの程度うまく追跡し、それに応じて機能するのかという根本的な疑問が残されています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：LLM の能力が高まるにつれて、共同エージェントとして導入されることが増え、反復的な対話を通じてユーザーから委任されたタスクを引き受けます。しかし、本物の対話は本質的に動的です。ユーザーが事前に意図を指定することはほとんどなく、会話の展開に応じてそれを開示、修正、再形成します。それにもかかわらず、LLM は依然として主に 1 ターンの完全に指定された設定で評価またはトレーニングされており、会話中に展開するユーザーの意図を LLM がどの程度うまく追跡し、それに応じて機能するのかという根本的な疑問が残されています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：LLM の能力が高まるにつれて、共同エージェントとして導入されることが増え、反復的な対話を通じてユーザーから委任されたタスクを引き受けます。しかし、本物の対話は本質的に動的です。ユーザーが事前に意図を指定することはほとんどなく、会話の展開に応じてそれを開示、修正、再形成します。それにもかかわらず、LLM は依然として主に 1 ターンの完全に指定された設定で評価またはトレーニングされており、会話中に展開するユーザーの意図を LLM がどの程度うまく追跡し、それに応じて機能するのかという根本的な疑問が残されています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-6a4iwv",
+      "title": "Homological sieve and Manin's conjecture",
+      "authors": [
+        "Sho Tanimoto"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-11",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2605.09896v1",
+      "categories": [
+        "math.AG",
+        "math.NT"
+      ],
+      "summary": "これは、2025年12月15日から19日まで京都大学数理解析研究所で開催されたRIMSワークショップ「代数的整数論と関連トピックス2025」での著者の講演の報告です。この調査論文では、ダス、レーマン、トステソン、および著者が提案したホモロジーふるい法と、そのマニン予想への応用について説明します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：これは、2025年12月15日から19日まで京都大学数理解析研究所で開催されたRIMSワークショップ「代数的整数論と関連トピックス2025」での著者の講演の報告です。この調査論文では、ダス、レーマン、トステソン、および著者が提案したホモロジーふるい法と、そのマニン予想への応用について説明します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：これは、2025年12月15日から19日まで京都大学数理解析研究所で開催されたRIMSワークショップ「代数的整数論と関連トピックス2025」での著者の講演の報告です。この調査論文では、ダス、レーマン、トステソン、および著者が提案したホモロジーふるい法と、そのマニン予想への応用について説明します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：これは、2025年12月15日から19日まで京都大学数理解析研究所で開催されたRIMSワークショップ「代数的整数論と関連トピックス2025」での著者の講演の報告です。この調査論文では、ダス、レーマン、トステソン、および著者が提案したホモロジーふるい法と、そのマニン予想への応用について説明します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1v375tt",
+      "title": "Introduction to Generalized Symmetries",
+      "authors": [
+        "Justin Kaidi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.08798v2",
+      "categories": [
+        "hep-th",
+        "cond-mat.str-el"
+      ],
+      "summary": "これらのノートは、北海道大学、名古屋大学、京都大学、九州大学で行われた一連の集中講義のために作成されました。 $(1+1)$ 次元系における非可逆対称性を紹介する前に、高次形式の対称性、異常、離散ゲージ理論の簡単なレビューから始めます。次に、離散ゲージングと表現理論のカテゴリ類似体の議論を含め、融合カテゴリの基本構造について説明します。続いて $(3+1)$ 次元理論に移り、非可逆対称性のいくつかの物理的応用について議論します。これらのメモは主に自己完結型であることを目的としており、共形場理論や格子モデルなどの主題について事前に理解している必要はありません。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：これらのノートは、北海道大学、名古屋大学、京都大学、九州大学で行われた一連の集中講義のために作成されました。 $(1+1)$ 次元系における非可逆対称性を紹介する前に、高次形式の対称性、異常、離散ゲージ理論の簡単なレビューから始めます。次に、離散ゲージングと表現理論のカテゴリ類似体の議論を含め、融合カテゴリの基本構造について説明します。続いて $(3+1)$ 次元理論に移り、非可逆対称性のいくつかの物理的応用について議論します。これらのメモは主に自己完結型であることを目的としており、共形場理論や格子モデルなどの主題について事前に理解している必要はありません。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：これらのノートは、北海道大学、名古屋大学、京都大学、九州大学で行われた一連の集中講義のために作成されました。 $(1+1)$ 次元系における非可逆対称性を紹介する前に、高次形式の対称性、異常、離散ゲージ理論の簡単なレビューから始めます。次に、離散ゲージングと表現理論のカテゴリ類似体の議論を含め、融合カテゴリの基本構造について説明します。続いて $(3+1)$ 次元理論に移り、非可逆対称性のいくつかの物理的応用について議論します。これらのメモは主に自己完結型であることを目的としており、共形場理論や格子モデルなどの主題について事前に理解している必要はありません。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：これらのノートは、北海道大学、名古屋大学、京都大学、九州大学で行われた一連の集中講義のために作成されました。 $(1+1)$ 次元系における非可逆対称性を紹介する前に、高次形式の対称性、異常、離散ゲージ理論の簡単なレビューから始めます。次に、離散ゲージングと表現理論のカテゴリ類似体の議論を含め、融合カテゴリの基本構造について説明します。続いて $(3+1)$ 次元理論に移り、非可逆対称性のいくつかの物理的応用について議論します。これらのメモは主に自己完結型であることを目的としており、共形場理論や格子モデルなどの主題について事前に理解している必要はありません。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-ljzzn0",
+      "title": "Radiation pressure instability: from heart-beat states in black hole binary systems to Quasars and Changing-Look AGN",
+      "authors": [
+        "Agnieszka Janiuk",
+        "Bozena Czerny",
+        "Pulkit Ojha",
+        "Yuri Cavecchi",
+        "Federico Vincentelli"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-12-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2512.08502v1",
+      "categories": [
+        "astro-ph.HE"
+      ],
+      "summary": "放射圧の不安定性は、シャクラ・スニャエフとノビコフ・ソーンの独創的な古典的降着円盤モデルの直後に特定されましたが、その完全な影響は依然として活発な研究分野です。これらのモデルは、コンパクトな天体への降着に関する理解のバックボーンを形成しており、高い質量降着率の領域におけるブラックホールと中性子星のX線連星、および発光活動銀河核（AGN）の現象学をうまく説明します。エディントン限界のかなりの部分に近づく光度 (L/LEdd > 0.1) では、標準的な薄いディスクは放射圧力の支配により熱的に不安定になることが予測されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：放射圧の不安定性は、シャクラ・スニャエフとノビコフ・ソーンの独創的な古典的降着円盤モデルの直後に特定されましたが、その完全な影響は依然として活発な研究分野です。これらのモデルは、コンパクトな天体への降着に関する理解のバックボーンを形成しており、高い質量降着率の領域におけるブラックホールと中性子星のX線連星、および発光活動銀河核（AGN）の現象学をうまく説明します。エディントン限界のかなりの部分に近づく光度 (L/LEdd > 0.1) では、標準的な薄いディスクは放射圧力の支配により熱的に不安定になることが予測されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：放射圧の不安定性は、シャクラ・スニャエフとノビコフ・ソーンの独創的な古典的降着円盤モデルの直後に特定されましたが、その完全な影響は依然として活発な研究分野です。これらのモデルは、コンパクトな天体への降着に関する理解のバックボーンを形成しており、高い質量降着率の領域におけるブラックホールと中性子星のX線連星、および発光活動銀河核（AGN）の現象学をうまく説明します。エディントン限界のかなりの部分に近づく光度 (L/LEdd > 0.1) では、標準的な薄いディスクは放射圧力の支配により熱的に不安定になることが予測されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：放射圧の不安定性は、シャクラ・スニャエフとノビコフ・ソーンの独創的な古典的降着円盤モデルの直後に特定されましたが、その完全な影響は依然として活発な研究分野です。これらのモデルは、コンパクトな天体への降着に関する理解のバックボーンを形成しており、高い質量降着率の領域におけるブラックホールと中性子星のX線連星、および発光活動銀河核（AGN）の現象学をうまく説明します。エディントン限界のかなりの部分に近づく光度 (L/LEdd > 0.1) では、標準的な薄いディスクは放射圧力の支配により熱的に不安定になることが予測されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1t8pf4y",
+      "title": "Stochastic Quantization as Optimal Control",
+      "authors": [
+        "Lingxiao Wang"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.21436v1",
+      "categories": [
+        "hep-lat",
+        "hep-th"
+      ],
+      "summary": "確率量子化では、ユークリッド量子場の理論を、ギブズ測度に漸近的に到達する架空時間ランジュバン力学の平衡として定義します。この量子化が有限時間の確率的最適制御問題として定式化できることを示します。利用可能な場合には自由理論によって自然に提供される扱いやすい参照プロセスは、オーンスタイン - ウーレンベックのダイナミクスを提供し、完全な相互作用は参照補正された最終コストとして入力されます。最適な制御は、指定された時間および指定されたノイズ振幅で、パス再重み付けされたターミナル アンサンブルをターゲットに向ける Doob 変換の力です。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：確率量子化では、ユークリッド量子場の理論を、ギブズ測度に漸近的に到達する架空時間ランジュバン力学の平衡として定義します。この量子化が有限時間の確率的最適制御問題として定式化できることを示します。利用可能な場合には自由理論によって自然に提供される扱いやすい参照プロセスは、オーンスタイン - ウーレンベックのダイナミクスを提供し、完全な相互作用は参照補正された最終コストとして入力されます。最適な制御は、指定された時間および指定されたノイズ振幅で、パス再重み付けされたターミナル アンサンブルをターゲットに向ける Doob 変換の力です。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：確率量子化では、ユークリッド量子場の理論を、ギブズ測度に漸近的に到達する架空時間ランジュバン力学の平衡として定義します。この量子化が有限時間の確率的最適制御問題として定式化できることを示します。利用可能な場合には自由理論によって自然に提供される扱いやすい参照プロセスは、オーンスタイン - ウーレンベックのダイナミクスを提供し、完全な相互作用は参照補正された最終コストとして入力されます。最適な制御は、指定された時間および指定されたノイズ振幅で、パス再重み付けされたターミナル アンサンブルをターゲットに向ける Doob 変換の力です。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：確率量子化では、ユークリッド量子場の理論を、ギブズ測度に漸近的に到達する架空時間ランジュバン力学の平衡として定義します。この量子化が有限時間の確率的最適制御問題として定式化できることを示します。利用可能な場合には自由理論によって自然に提供される扱いやすい参照プロセスは、オーンスタイン - ウーレンベックのダイナミクスを提供し、完全な相互作用は参照補正された最終コストとして入力されます。最適な制御は、指定された時間および指定されたノイズ振幅で、パス再重み付けされたターミナル アンサンブルをターゲットに向ける Doob 変換の力です。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1tj4ed6",
+      "title": "A lower bound on primordial power spectrum from halo substructure",
+      "authors": [
+        "Shin'ichiro Ando",
+        "Nagisa Hiroshima",
+        "Koji Ishiwata",
+        "Tomo Takahashi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20884v1",
+      "categories": [
+        "astro-ph.CO",
+        "astro-ph.GA",
+        "hep-ph"
+      ],
+      "summary": "私たちは、特定の波長スケールの原始曲率摂動がハローおよびサブハロー構造にどのような影響を与えるかを調査します。この論文で考慮される原始パワー スペクトルは、波数 $ k = \\mathcal{O}(1)~$Mpc$^{-1}$ でのカットオフと、より小さいスケールでの追加の対数正規バンプを持つほぼスケール不変の形式を特徴とします。ホストのハローの進化とサブハローの質量関数を計算します。星流の観測と重力レンズデータと一致させるために、通常、原始曲率摂動の $10^{-9}$ と同じかそれより大きいバンプの振幅は、$10$ - $30$ Mpc$^{-1}$ の波数に存在するはずです。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：私たちは、特定の波長スケールの原始曲率摂動がハローおよびサブハロー構造にどのような影響を与えるかを調査します。この論文で考慮される原始パワー スペクトルは、波数 $ k = \\mathcal{O}(1)~$Mpc$^{-1}$ でのカットオフと、より小さいスケールでの追加の対数正規バンプを持つほぼスケール不変の形式を特徴とします。ホストのハローの進化とサブハローの質量関数を計算します。星流の観測と重力レンズデータと一致させるために、通常、原始曲率摂動の $10^{-9}$ と同じかそれより大きいバンプの振幅は、$10$ - $30$ Mpc$^{-1}$ の波数に存在するはずです。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：私たちは、特定の波長スケールの原始曲率摂動がハローおよびサブハロー構造にどのような影響を与えるかを調査します。この論文で考慮される原始パワー スペクトルは、波数 $ k = \\mathcal{O}(1)~$Mpc$^{-1}$ でのカットオフと、より小さいスケールでの追加の対数正規バンプを持つほぼスケール不変の形式を特徴とします。ホストのハローの進化とサブハローの質量関数を計算します。星流の観測と重力レンズデータと一致させるために、通常、原始曲率摂動の $10^{-9}$ と同じかそれより大きいバンプの振幅は、$10$ - $30$ Mpc$^{-1}$ の波数に存在するはずです。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：私たちは、特定の波長スケールの原始曲率摂動がハローおよびサブハロー構造にどのような影響を与えるかを調査します。この論文で考慮される原始パワー スペクトルは、波数 $ k = \\mathcal{O}(1)~$Mpc$^{-1}$ でのカットオフと、より小さいスケールでの追加の対数正規バンプを持つほぼスケール不変の形式を特徴とします。ホストのハローの進化とサブハローの質量関数を計算します。星流の観測と重力レンズデータと一致させるために、通常、原始曲率摂動の $10^{-9}$ と同じかそれより大きいバンプの振幅は、$10$ - $30$ Mpc$^{-1}$ の波数に存在するはずです。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1j55uf4",
+      "title": "Unitary $k$-designs without Hamiltonian quenches",
+      "authors": [
+        "Pratik Nandy"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20640v1",
+      "categories": [
+        "quant-ph",
+        "cond-mat.quant-gas",
+        "cond-mat.stat-mech",
+        "cond-mat.str-el",
+        "hep-th"
+      ],
+      "summary": "ユニタリー設計は、指数関数的なリソースを必要とせずに Haar ランダム性をエミュレートする効率的な手段を提供します。最近、ハミルトニアン クエンチ プロトコルがそのような設計を生成することが示されていますが、これを達成するには、通常、時間的アンサンブルを介した場合でも、複数の独立したハミルトニアン クエンチが必要です。ここでは、ハミルトニアン クエンチが必要ないことを示します。単一のカオス ハミルトニアンは、近似ユニタリ $k$ 計画を生成するのに十分です。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ユニタリー設計は、指数関数的なリソースを必要とせずに Haar ランダム性をエミュレートする効率的な手段を提供します。最近、ハミルトニアン クエンチ プロトコルがそのような設計を生成することが示されていますが、これを達成するには、通常、時間的アンサンブルを介した場合でも、複数の独立したハミルトニアン クエンチが必要です。ここでは、ハミルトニアン クエンチが必要ないことを示します。単一のカオス ハミルトニアンは、近似ユニタリ $k$ 計画を生成するのに十分です。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ユニタリー設計は、指数関数的なリソースを必要とせずに Haar ランダム性をエミュレートする効率的な手段を提供します。最近、ハミルトニアン クエンチ プロトコルがそのような設計を生成することが示されていますが、これを達成するには、通常、時間的アンサンブルを介した場合でも、複数の独立したハミルトニアン クエンチが必要です。ここでは、ハミルトニアン クエンチが必要ないことを示します。単一のカオス ハミルトニアンは、近似ユニタリ $k$ 計画を生成するのに十分です。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ユニタリー設計は、指数関数的なリソースを必要とせずに Haar ランダム性をエミュレートする効率的な手段を提供します。最近、ハミルトニアン クエンチ プロトコルがそのような設計を生成することが示されていますが、これを達成するには、通常、時間的アンサンブルを介した場合でも、複数の独立したハミルトニアン クエンチが必要です。ここでは、ハミルトニアン クエンチが必要ないことを示します。単一のカオス ハミルトニアンは、近似ユニタリ $k$ 計画を生成するのに十分です。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-iknp1n",
+      "title": "Possible $K \\bar{K}^*$ and $D \\bar{D}^*$ resonances by solving Schrödinger equation",
+      "authors": [
+        "Bao-Xi Sun",
+        "Qin-Qin Cao",
+        "Ying-Tai Sun"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-11-13",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2511.10145v1",
+      "categories": [
+        "hep-ph",
+        "nucl-th"
+      ],
+      "summary": "カオンとベクトルアンチカオンの間の 1 パイオン交換相互作用は、S 波近似でシュレーディンガー方程式を解くことによって調べられます。粒子 $f_1(1285)$ に加えて、$K \\bar{K}^*$ の別の束縛状態が得られます。これは $K \\bar{K}^*$ の閾値より約 9 MeV 低く、この原稿では便宜上 $f_1(1378)$ とラベル付けされています。出射波条件下では、$K \\bar{K}^*$ の 2 つの共鳴状態が、それぞれ $f_1(1285)$ と $f_1(1378)$ の結合エネルギーで固定された異なる結合定数で生成されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：カオンとベクトルアンチカオンの間の 1 パイオン交換相互作用は、S 波近似でシュレーディンガー方程式を解くことによって調べられます。粒子 $f_1(1285)$ に加えて、$K \\bar{K}^*$ の別の束縛状態が得られます。これは $K \\bar{K}^*$ の閾値より約 9 MeV 低く、この原稿では便宜上 $f_1(1378)$ とラベル付けされています。出射波条件下では、$K \\bar{K}^*$ の 2 つの共鳴状態が、それぞれ $f_1(1285)$ と $f_1(1378)$ の結合エネルギーで固定された異なる結合定数で生成されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：カオンとベクトルアンチカオンの間の 1 パイオン交換相互作用は、S 波近似でシュレーディンガー方程式を解くことによって調べられます。粒子 $f_1(1285)$ に加えて、$K \\bar{K}^*$ の別の束縛状態が得られます。これは $K \\bar{K}^*$ の閾値より約 9 MeV 低く、この原稿では便宜上 $f_1(1378)$ とラベル付けされています。出射波条件下では、$K \\bar{K}^*$ の 2 つの共鳴状態が、それぞれ $f_1(1285)$ と $f_1(1378)$ の結合エネルギーで固定された異なる結合定数で生成されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：カオンとベクトルアンチカオンの間の 1 パイオン交換相互作用は、S 波近似でシュレーディンガー方程式を解くことによって調べられます。粒子 $f_1(1285)$ に加えて、$K \\bar{K}^*$ の別の束縛状態が得られます。これは $K \\bar{K}^*$ の閾値より約 9 MeV 低く、この原稿では便宜上 $f_1(1378)$ とラベル付けされています。出射波条件下では、$K \\bar{K}^*$ の 2 つの共鳴状態が、それぞれ $f_1(1285)$ と $f_1(1378)$ の結合エネルギーで固定された異なる結合定数で生成されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1is4pmy",
+      "title": "The $φp$ bound state in the unitary coupled-channel approximation",
+      "authors": [
+        "Bao-Xi Sun",
+        "Ying-Ying Fan",
+        "Qin-Qin Cao"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-10-30",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2510.26517v1",
+      "categories": [
+        "hep-ph"
+      ],
+      "summary": "$φ$ 中間子と陽子の引力相互作用は ALICE コラボレーションによって報告されており、対応する散乱長 $f_0$ は $Re(f_0)=0.85\\pm0.34(stat)\\pm0.14(syst)$ fm および $Im(f_0)=0.16\\pm0.10(stat)\\pm0.09(syst)$ fm として与えられます。実数部が虚数部と対照的に重要であるという事実は、弾性散乱の支配的な役割を示しているが、非弾性プロセスはそれほど重要ではない。この研究では、そのような散乱プロセスが、ベーテ・サルピーター方程式にヒントを得たユニタリ結合チャネル近似に基づいて検査されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：$φ$ 中間子と陽子の引力相互作用は ALICE コラボレーションによって報告されており、対応する散乱長 $f_0$ は $Re(f_0)=0.85\\pm0.34(stat)\\pm0.14(syst)$ fm および $Im(f_0)=0.16\\pm0.10(stat)\\pm0.09(syst)$ fm として与えられます。実数部が虚数部と対照的に重要であるという事実は、弾性散乱の支配的な役割を示しているが、非弾性プロセスはそれほど重要ではない。この研究では、そのような散乱プロセスが、ベーテ・サルピーター方程式にヒントを得たユニタリ結合チャネル近似に基づいて検査されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：$φ$ 中間子と陽子の引力相互作用は ALICE コラボレーションによって報告されており、対応する散乱長 $f_0$ は $Re(f_0)=0.85\\pm0.34(stat)\\pm0.14(syst)$ fm および $Im(f_0)=0.16\\pm0.10(stat)\\pm0.09(syst)$ fm として与えられます。実数部が虚数部と対照的に重要であるという事実は、弾性散乱の支配的な役割を示しているが、非弾性プロセスはそれほど重要ではない。この研究では、そのような散乱プロセスが、ベーテ・サルピーター方程式にヒントを得たユニタリ結合チャネル近似に基づいて検査されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：$φ$ 中間子と陽子の引力相互作用は ALICE コラボレーションによって報告されており、対応する散乱長 $f_0$ は $Re(f_0)=0.85\\pm0.34(stat)\\pm0.14(syst)$ fm および $Im(f_0)=0.16\\pm0.10(stat)\\pm0.09(syst)$ fm として与えられます。実数部が虚数部と対照的に重要であるという事実は、弾性散乱の支配的な役割を示しているが、非弾性プロセスはそれほど重要ではない。この研究では、そのような散乱プロセスが、ベーテ・サルピーター方程式にヒントを得たユニタリ結合チャネル近似に基づいて検査されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-eb25dn",
+      "title": "Doubly heavy hadron production in ultraperipheral collisions",
+      "authors": [
+        "Jun Jiang",
+        "Hao Yang",
+        "Xiao Liang",
+        "Zong-Guo Si",
+        "Cong-Feng Qiao",
+        "Bing-Wei Long",
+        "Yan-Rui Liu",
+        "Shi-Yuan Li"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-09-08",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2509.06258v2",
+      "categories": [
+        "hep-ph"
+      ],
+      "summary": "重イオン超周辺衝突(UPC)における擬スカラー重クアルコニア($η_c,\\, η_b,\\, B_c$)、二重重バリオン$Ξ_{QQ^\\prime}$($Q^{(\\prime)}=c,\\,b$ クォーク)、テトラクォーク$T_{QQ}$の包括的生成を研究した。数値結果は、$η_c,\\、Ξ_{cc}$、$T_{cc}$の実験的研究が今後のHL-LHCと将来のFCCで実現可能であることを示している。重イオン UPC は、これらの二重に重いハドロンの生成を研究するための別の道を開きます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：重イオン超周辺衝突(UPC)における擬スカラー重クアルコニア($η_c,\\, η_b,\\, B_c$)、二重重バリオン$Ξ_{QQ^\\prime}$($Q^{(\\prime)}=c,\\,b$ クォーク)、テトラクォーク$T_{QQ}$の包括的生成を研究した。数値結果は、$η_c,\\、Ξ_{cc}$、$T_{cc}$の実験的研究が今後のHL-LHCと将来のFCCで実現可能であることを示している。重イオン UPC は、これらの二重に重いハドロンの生成を研究するための別の道を開きます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：重イオン超周辺衝突(UPC)における擬スカラー重クアルコニア($η_c,\\, η_b,\\, B_c$)、二重重バリオン$Ξ_{QQ^\\prime}$($Q^{(\\prime)}=c,\\,b$ クォーク)、テトラクォーク$T_{QQ}$の包括的生成を研究した。数値結果は、$η_c,\\、Ξ_{cc}$、$T_{cc}$の実験的研究が今後のHL-LHCと将来のFCCで実現可能であることを示している。重イオン UPC は、これらの二重に重いハドロンの生成を研究するための別の道を開きます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：重イオン超周辺衝突(UPC)における擬スカラー重クアルコニア($η_c,\\, η_b,\\, B_c$)、二重重バリオン$Ξ_{QQ^\\prime}$($Q^{(\\prime)}=c,\\,b$ クォーク)、テトラクォーク$T_{QQ}$の包括的生成を研究した。数値結果は、$η_c,\\、Ξ_{cc}$、$T_{cc}$の実験的研究が今後のHL-LHCと将来のFCCで実現可能であることを示している。重イオン UPC は、これらの二重に重いハドロンの生成を研究するための別の道を開きます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1r1rtf6",
+      "title": "Effects of stochastic and natural seismic noise on the performance of waveform cross-correlation used to recover low-magnitude seismicity prior to the July 29, 2025, Kamchatka earthquake",
+      "authors": [
+        "Ivan Kitov"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-06-20",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.16226v1",
+      "categories": [
+        "physics.geo-ph",
+        "physics.soc-ph"
+      ],
+      "summary": "波形相互相関 (WCC) を地震アレイからのデータに適用すると、検出しきい値を約 1 桁下げることができます。 IMS のデータに適用すると、WCC で検出された最小のイベントは IDC が報告したものよりも少なくとも 1 マグニチュード単位低く、2025 年 7 月 29 日の地震前の低マグニチュードの活動パターンが 2013 年 5 月 24 日のオホーツク海地震前のパターンと類似していることが明らかになりました。カムチャツカ地震の再発曲線のコーナー値に近づく規模のイベントの数が一貫して増加していることは、巨大地震の準備の前兆指標として使用できる可能性があります。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：波形相互相関 (WCC) を地震アレイからのデータに適用すると、検出しきい値を約 1 桁下げることができます。 IMS のデータに適用すると、WCC で検出された最小のイベントは IDC が報告したものよりも少なくとも 1 マグニチュード単位低く、2025 年 7 月 29 日の地震前の低マグニチュードの活動パターンが 2013 年 5 月 24 日のオホーツク海地震前のパターンと類似していることが明らかになりました。カムチャツカ地震の再発曲線のコーナー値に近づく規模のイベントの数が一貫して増加していることは、巨大地震の準備の前兆指標として使用できる可能性があります。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：波形相互相関 (WCC) を地震アレイからのデータに適用すると、検出しきい値を約 1 桁下げることができます。 IMS のデータに適用すると、WCC で検出された最小のイベントは IDC が報告したものよりも少なくとも 1 マグニチュード単位低く、2025 年 7 月 29 日の地震前の低マグニチュードの活動パターンが 2013 年 5 月 24 日のオホーツク海地震前のパターンと類似していることが明らかになりました。カムチャツカ地震の再発曲線のコーナー値に近づく規模のイベントの数が一貫して増加していることは、巨大地震の準備の前兆指標として使用できる可能性があります。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：波形相互相関 (WCC) を地震アレイからのデータに適用すると、検出しきい値を約 1 桁下げることができます。 IMS のデータに適用すると、WCC で検出された最小のイベントは IDC が報告したものよりも少なくとも 1 マグニチュード単位低く、2025 年 7 月 29 日の地震前の低マグニチュードの活動パターンが 2013 年 5 月 24 日のオホーツク海地震前のパターンと類似していることが明らかになりました。カムチャツカ地震の再発曲線のコーナー値に近づく規模のイベントの数が一貫して増加していることは、巨大地震の準備の前兆指標として使用できる可能性があります。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-184vc9c",
+      "title": "Machine Intelligence that Understands Visual and Linguistic Information and Interacts with Humans and Environments",
+      "authors": [
+        "Van Quang Nguyen"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-20",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2605.24020v1",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "summary": "コンピュータ ビジョンと自然言語処理の交差点における進歩は、支援技術、マルチメディア クエリ、ロボット工学などのアプリケーションにとって非常に重要です。この論文では、画像キャプション、視覚的対話、対話型指示のフォローという 3 つの主要な視覚言語タスクにわたってインテリジェント エージェントを向上させるための新しいアーキテクチャを提案します。 まず、画像キャプションの視覚的表現における制限に対処します。従来のモデルは CNN 検出器の領域ベースの機能に依存していますが、グローバル コンテキストが欠如しており、高い計算オーバーヘッドが発生します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：コンピュータ ビジョンと自然言語処理の交差点における進歩は、支援技術、マルチメディア クエリ、ロボット工学などのアプリケーションにとって非常に重要です。この論文では、画像キャプション、視覚的対話、対話型指示のフォローという 3 つの主要な視覚言語タスクにわたってインテリジェント エージェントを向上させるための新しいアーキテクチャを提案します。 まず、画像キャプションの視覚的表現における制限に対処します。従来のモデルは CNN 検出器の領域ベースの機能に依存していますが、グローバル コンテキストが欠如しており、高い計算オーバーヘッドが発生します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：コンピュータ ビジョンと自然言語処理の交差点における進歩は、支援技術、マルチメディア クエリ、ロボット工学などのアプリケーションにとって非常に重要です。この論文では、画像キャプション、視覚的対話、対話型指示のフォローという 3 つの主要な視覚言語タスクにわたってインテリジェント エージェントを向上させるための新しいアーキテクチャを提案します。 まず、画像キャプションの視覚的表現における制限に対処します。従来のモデルは CNN 検出器の領域ベースの機能に依存していますが、グローバル コンテキストが欠如しており、高い計算オーバーヘッドが発生します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：コンピュータ ビジョンと自然言語処理の交差点における進歩は、支援技術、マルチメディア クエリ、ロボット工学などのアプリケーションにとって非常に重要です。この論文では、画像キャプション、視覚的対話、対話型指示のフォローという 3 つの主要な視覚言語タスクにわたってインテリジェント エージェントを向上させるための新しいアーキテクチャを提案します。 まず、画像キャプションの視覚的表現における制限に対処します。従来のモデルは CNN 検出器の領域ベースの機能に依存していますが、グローバル コンテキストが欠如しており、高い計算オーバーヘッドが発生します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1t3ezgv",
+      "title": "Why Mean Pooling Works: Quantifying Second-Order Collapse in Text Embeddings",
+      "authors": [
+        "Tomomasa Hara",
+        "Hiroto Kurita",
+        "Masaaki Imaizumi",
+        "Kentaro Inui",
+        "Sho Yokoi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-30",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.27398v1",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "テキスト埋め込みを構築する場合、トークン埋め込みを平均化する平均プーリングが標準的なアプローチです。この論文では、平均プーリングが実際のモデルで実際にうまく機能するかどうかを検証します。まず、平均プーリングにより、空間構造を捕捉する二次統計など、トークン埋め込みの一次統計を超える情報が崩壊する可能性があり、個別のトークン埋め込み分布を同様のテキスト埋め込みにマッピングする可能性があることに注意します。この懸念に動機付けられて、我々は平均プーリングによって誘発されるそのような崩壊を定量化するための簡単な指標を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：テキスト埋め込みを構築する場合、トークン埋め込みを平均化する平均プーリングが標準的なアプローチです。この論文では、平均プーリングが実際のモデルで実際にうまく機能するかどうかを検証します。まず、平均プーリングにより、空間構造を捕捉する二次統計など、トークン埋め込みの一次統計を超える情報が崩壊する可能性があり、個別のトークン埋め込み分布を同様のテキスト埋め込みにマッピングする可能性があることに注意します。この懸念に動機付けられて、我々は平均プーリングによって誘発されるそのような崩壊を定量化するための簡単な指標を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：テキスト埋め込みを構築する場合、トークン埋め込みを平均化する平均プーリングが標準的なアプローチです。この論文では、平均プーリングが実際のモデルで実際にうまく機能するかどうかを検証します。まず、平均プーリングにより、空間構造を捕捉する二次統計など、トークン埋め込みの一次統計を超える情報が崩壊する可能性があり、個別のトークン埋め込み分布を同様のテキスト埋め込みにマッピングする可能性があることに注意します。この懸念に動機付けられて、我々は平均プーリングによって誘発されるそのような崩壊を定量化するための簡単な指標を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：テキスト埋め込みを構築する場合、トークン埋め込みを平均化する平均プーリングが標準的なアプローチです。この論文では、平均プーリングが実際のモデルで実際にうまく機能するかどうかを検証します。まず、平均プーリングにより、空間構造を捕捉する二次統計など、トークン埋め込みの一次統計を超える情報が崩壊する可能性があり、個別のトークン埋め込み分布を同様のテキスト埋め込みにマッピングする可能性があることに注意します。この懸念に動機付けられて、我々は平均プーリングによって誘発されるそのような崩壊を定量化するための簡単な指標を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1ks4o90",
+      "title": "Conjugate Gradient Unrolled Network with PSF Conditioning for Non-Diagonal Data Fidelity in CASSI Reconstruction",
+      "authors": [
+        "Xiang Li",
+        "Qiuyu Yue",
+        "Yang Zhang",
+        "Zhenrong Zheng"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-22",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.20138v1",
+      "categories": [
+        "physics.optics"
+      ],
+      "summary": "ディープ アンフォールディング法は、符号化開口スナップショット スペクトル イメージング (CASSI) 再構成において最先端のパフォーマンスを実現しますが、通常は理想的な光学システムを前提とした閉形式のデータ忠実度の更新に依存します。実際の CASSI システムでは、フィールド依存および波長依存の点像分布関数 (PSF) により、正規方程式の対角構造を壊す畳み込み結合が導入され、閉形式の更新が適用できなくなります。我々は、次の 3 つの貢献を通じて、この基本的なアルゴリズムの課題に対処する深い展開フレームワークを提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ディープ アンフォールディング法は、符号化開口スナップショット スペクトル イメージング (CASSI) 再構成において最先端のパフォーマンスを実現しますが、通常は理想的な光学システムを前提とした閉形式のデータ忠実度の更新に依存します。実際の CASSI システムでは、フィールド依存および波長依存の点像分布関数 (PSF) により、正規方程式の対角構造を壊す畳み込み結合が導入され、閉形式の更新が適用できなくなります。我々は、次の 3 つの貢献を通じて、この基本的なアルゴリズムの課題に対処する深い展開フレームワークを提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ディープ アンフォールディング法は、符号化開口スナップショット スペクトル イメージング (CASSI) 再構成において最先端のパフォーマンスを実現しますが、通常は理想的な光学システムを前提とした閉形式のデータ忠実度の更新に依存します。実際の CASSI システムでは、フィールド依存および波長依存の点像分布関数 (PSF) により、正規方程式の対角構造を壊す畳み込み結合が導入され、閉形式の更新が適用できなくなります。我々は、次の 3 つの貢献を通じて、この基本的なアルゴリズムの課題に対処する深い展開フレームワークを提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ディープ アンフォールディング法は、符号化開口スナップショット スペクトル イメージング (CASSI) 再構成において最先端のパフォーマンスを実現しますが、通常は理想的な光学システムを前提とした閉形式のデータ忠実度の更新に依存します。実際の CASSI システムでは、フィールド依存および波長依存の点像分布関数 (PSF) により、正規方程式の対角構造を壊す畳み込み結合が導入され、閉形式の更新が適用できなくなります。我々は、次の 3 つの貢献を通じて、この基本的なアルゴリズムの課題に対処する深い展開フレームワークを提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-eceboe",
+      "title": "Splat-based 3D Scene Reconstruction with Extreme Motion-blur",
+      "authors": [
+        "Hyeonjoong Jang",
+        "Dongyoung Choi",
+        "Donggun Kim",
+        "Woohyun Kang",
+        "Min H. Kim"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-18",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.16926v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "我々は、低照度環境で頻繁に問題となる極端なモーションブラーを効果的に処理する、RGB-D 入力からのスプラットベースの 3D シーン再構成方法を提案します。薄暗い照明の下では、露光時間が延長されるため、RGB フレームに深刻なモーション ブラーが発生することが多く、COLMAP などの従来のカメラ姿勢推定方法が失敗します。その結果、カメラのポーズが不正確になり、色の入力がぼやけ、3D 再構成の品質が低下します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：我々は、低照度環境で頻繁に問題となる極端なモーションブラーを効果的に処理する、RGB-D 入力からのスプラットベースの 3D シーン再構成方法を提案します。薄暗い照明の下では、露光時間が延長されるため、RGB フレームに深刻なモーション ブラーが発生することが多く、COLMAP などの従来のカメラ姿勢推定方法が失敗します。その結果、カメラのポーズが不正確になり、色の入力がぼやけ、3D 再構成の品質が低下します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：我々は、低照度環境で頻繁に問題となる極端なモーションブラーを効果的に処理する、RGB-D 入力からのスプラットベースの 3D シーン再構成方法を提案します。薄暗い照明の下では、露光時間が延長されるため、RGB フレームに深刻なモーション ブラーが発生することが多く、COLMAP などの従来のカメラ姿勢推定方法が失敗します。その結果、カメラのポーズが不正確になり、色の入力がぼやけ、3D 再構成の品質が低下します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：我々は、低照度環境で頻繁に問題となる極端なモーションブラーを効果的に処理する、RGB-D 入力からのスプラットベースの 3D シーン再構成方法を提案します。薄暗い照明の下では、露光時間が延長されるため、RGB フレームに深刻なモーション ブラーが発生することが多く、COLMAP などの従来のカメラ姿勢推定方法が失敗します。その結果、カメラのポーズが不正確になり、色の入力がぼやけ、3D 再構成の品質が低下します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-13qybq8",
+      "title": "LDFE: Laplacian Decoupled Feature Enhancement Block for Dual-Stream CNN-based RGB-IR Object Detection",
+      "authors": [
+        "Wenhao Dong",
+        "Xiaoyan Luo",
+        "Linlin Yang",
+        "Haodong Zhu",
+        "Xiaorong Shi",
+        "Guodong Guo",
+        "Baochang Zhang"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.08076v1",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "summary": "RGB 画像と IR 画像間の補完的な情報により、極端な条件下での物体検出パフォーマンスが大幅に向上します。既存の方法は、特徴抽出のために YOLO に基づいて構築されたデュアルストリーム CNN バックボーンを好み、特徴融合の設計に重点を置いています。この論文では、デュアルストリーム CNN バックボーンのさまざまな段階からの機能を融合するためのラプラシアン分離機能拡張ブロック (LDFE) を紹介します。設計上、LDFE は、グローバル/ローカル分解、ノイズ除去、融合、および再構築を順番に使用することにより、特徴融合のためのモダリティと構造の特性を同時に考慮します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：RGB 画像と IR 画像間の補完的な情報により、極端な条件下での物体検出パフォーマンスが大幅に向上します。既存の方法は、特徴抽出のために YOLO に基づいて構築されたデュアルストリーム CNN バックボーンを好み、特徴融合の設計に重点を置いています。この論文では、デュアルストリーム CNN バックボーンのさまざまな段階からの機能を融合するためのラプラシアン分離機能拡張ブロック (LDFE) を紹介します。設計上、LDFE は、グローバル/ローカル分解、ノイズ除去、融合、および再構築を順番に使用することにより、特徴融合のためのモダリティと構造の特性を同時に考慮します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：RGB 画像と IR 画像間の補完的な情報により、極端な条件下での物体検出パフォーマンスが大幅に向上します。既存の方法は、特徴抽出のために YOLO に基づいて構築されたデュアルストリーム CNN バックボーンを好み、特徴融合の設計に重点を置いています。この論文では、デュアルストリーム CNN バックボーンのさまざまな段階からの機能を融合するためのラプラシアン分離機能拡張ブロック (LDFE) を紹介します。設計上、LDFE は、グローバル/ローカル分解、ノイズ除去、融合、および再構築を順番に使用することにより、特徴融合のためのモダリティと構造の特性を同時に考慮します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：RGB 画像と IR 画像間の補完的な情報により、極端な条件下での物体検出パフォーマンスが大幅に向上します。既存の方法は、特徴抽出のために YOLO に基づいて構築されたデュアルストリーム CNN バックボーンを好み、特徴融合の設計に重点を置いています。この論文では、デュアルストリーム CNN バックボーンのさまざまな段階からの機能を融合するためのラプラシアン分離機能拡張ブロック (LDFE) を紹介します。設計上、LDFE は、グローバル/ローカル分解、ノイズ除去、融合、および再構築を順番に使用することにより、特徴融合のためのモダリティと構造の特性を同時に考慮します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1x1tbu0",
+      "title": "Dynamical Modeling of the Broad-Line Region with High-Mass Active Galactic Nuclei and Constraints on the Virial Factor",
+      "authors": [
+        "Shu Wang",
+        "Jong-Hak Woo",
+        "Lizvette Villafaña",
+        "Tommaso Treu",
+        "Elena Gallo"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-27",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.24721v1",
+      "categories": [
+        "astro-ph.GA"
+      ],
+      "summary": "我々は、ソウル国立大学AGNモニタリングプロジェクトからの8つの高質量活動銀河核(AGN)について、BLRの幾何学と運動学、およびブラックホール(BH)の質量($M_{\\rm BH}$)を制約することによるブロードライン領域(BLR)力学モデリングの結果を紹介する。 H$β$を放出するBLRは、中間の傾斜から見た厚い円盤として説明するのが最も適切であり、放出はBLRの反対側から優先的に発生することがわかりました。 BLR 運動学は、回転成分、流入成分、流出成分の組み合わせを示します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：我々は、ソウル国立大学AGNモニタリングプロジェクトからの8つの高質量活動銀河核(AGN)について、BLRの幾何学と運動学、およびブラックホール(BH)の質量($M_{\\rm BH}$)を制約することによるブロードライン領域(BLR)力学モデリングの結果を紹介する。 H$β$を放出するBLRは、中間の傾斜から見た厚い円盤として説明するのが最も適切であり、放出はBLRの反対側から優先的に発生することがわかりました。 BLR 運動学は、回転成分、流入成分、流出成分の組み合わせを示します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：我々は、ソウル国立大学AGNモニタリングプロジェクトからの8つの高質量活動銀河核(AGN)について、BLRの幾何学と運動学、およびブラックホール(BH)の質量($M_{\\rm BH}$)を制約することによるブロードライン領域(BLR)力学モデリングの結果を紹介する。 H$β$を放出するBLRは、中間の傾斜から見た厚い円盤として説明するのが最も適切であり、放出はBLRの反対側から優先的に発生することがわかりました。 BLR 運動学は、回転成分、流入成分、流出成分の組み合わせを示します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：我々は、ソウル国立大学AGNモニタリングプロジェクトからの8つの高質量活動銀河核(AGN)について、BLRの幾何学と運動学、およびブラックホール(BH)の質量($M_{\\rm BH}$)を制約することによるブロードライン領域(BLR)力学モデリングの結果を紹介する。 H$β$を放出するBLRは、中間の傾斜から見た厚い円盤として説明するのが最も適切であり、放出はBLRの反対側から優先的に発生することがわかりました。 BLR 運動学は、回転成分、流入成分、流出成分の組み合わせを示します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-p3pkro",
+      "title": "Co-design for Trustworthy AI: An Interpretable and Explainable Tool for Type 2 Diabetes Prediction Using Genomic Polygenic Risk Scores",
+      "authors": [
+        "Ralf Beuthan",
+        "Megan Coffee",
+        "Heejin Kim",
+        "Na Yeon Kim",
+        "Pedro Kringen",
+        "Elisabeth Hildt",
+        "Haekyung Lee",
+        "Seunggeun Lee",
+        "Emilie Wiinblad Mathez",
+        "Sira Maliphol",
+        "Vadim Pak",
+        "Yuna Park",
+        "Stephan Sonnenberg",
+        "Jesmin Jahan Tithi",
+        "Magnus Westerlund",
+        "Roberto V. Zicari"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.08217v1",
+      "categories": [
+        "cs.CY"
+      ],
+      "summary": "多遺伝子リスク スコア (PRS) は、複雑な形質や臨床疾患に対する遺伝的素因を定量化するための重要な方法論として浮上しています。肥満、がん、2 型糖尿病 (T2DM) などの疾患への PRS の適用においては、大きな進歩が見られました。研究では、PRS が高リスクの個人を効果的に特定できるため、遺伝的素因を持つ疾患の早期スクリーニング、個別化された治療、および標的を絞った介入が可能になることが実証されています。ただし、PRS の現在の制限の 1 つは、解釈ツールが欠如していることです。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：多遺伝子リスク スコア (PRS) は、複雑な形質や臨床疾患に対する遺伝的素因を定量化するための重要な方法論として浮上しています。肥満、がん、2 型糖尿病 (T2DM) などの疾患への PRS の適用においては、大きな進歩が見られました。研究では、PRS が高リスクの個人を効果的に特定できるため、遺伝的素因を持つ疾患の早期スクリーニング、個別化された治療、および標的を絞った介入が可能になることが実証されています。ただし、PRS の現在の制限の 1 つは、解釈ツールが欠如していることです。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：多遺伝子リスク スコア (PRS) は、複雑な形質や臨床疾患に対する遺伝的素因を定量化するための重要な方法論として浮上しています。肥満、がん、2 型糖尿病 (T2DM) などの疾患への PRS の適用においては、大きな進歩が見られました。研究では、PRS が高リスクの個人を効果的に特定できるため、遺伝的素因を持つ疾患の早期スクリーニング、個別化された治療、および標的を絞った介入が可能になることが実証されています。ただし、PRS の現在の制限の 1 つは、解釈ツールが欠如していることです。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：多遺伝子リスク スコア (PRS) は、複雑な形質や臨床疾患に対する遺伝的素因を定量化するための重要な方法論として浮上しています。肥満、がん、2 型糖尿病 (T2DM) などの疾患への PRS の適用においては、大きな進歩が見られました。研究では、PRS が高リスクの個人を効果的に特定できるため、遺伝的素因を持つ疾患の早期スクリーニング、個別化された治療、および標的を絞った介入が可能になることが実証されています。ただし、PRS の現在の制限の 1 つは、解釈ツールが欠如していることです。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-dzq2xa",
+      "title": "SQUIDPOL: Seoul National University QUadruple Imaging Device for POLarimetry",
+      "authors": [
+        "Sunho Jin",
+        "Jooyeon Geem",
+        "Masateru Ishiguro",
+        "Woojin Park",
+        "Heeyoung Oh",
+        "Chan Park",
+        "Seungwon Choi",
+        "Yoonsoo P. Bach",
+        "Hyeonwoo Ju",
+        "Jinguk Seo",
+        "Bumhoo Lim",
+        "Myungshin Im"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-02-03",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2602.03233v1",
+      "categories": [
+        "astro-ph.IM"
+      ],
+      "summary": "我々は、回転半波長板、非偏光ビームスプリッター、および 4 つのワイヤーグリッドフィルターを使用して直線偏光測定を同時に実行する、低コストのマルチチャネル光学イメージング偏光計である SQUIDPOL を紹介します。既製の非偏光ビームスプリッターは測定可能な偏光依存系統を導入し、補正しないままにしておくと偏光測定に偏りが生じる可能性があることを示します。私たちは、透過ビームと反射ビームの両方についてこの影響を定量化し、補正スキームをデータ分析パイプラインに組み込みます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：我々は、回転半波長板、非偏光ビームスプリッター、および 4 つのワイヤーグリッドフィルターを使用して直線偏光測定を同時に実行する、低コストのマルチチャネル光学イメージング偏光計である SQUIDPOL を紹介します。既製の非偏光ビームスプリッターは測定可能な偏光依存系統を導入し、補正しないままにしておくと偏光測定に偏りが生じる可能性があることを示します。私たちは、透過ビームと反射ビームの両方についてこの影響を定量化し、補正スキームをデータ分析パイプラインに組み込みます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：我々は、回転半波長板、非偏光ビームスプリッター、および 4 つのワイヤーグリッドフィルターを使用して直線偏光測定を同時に実行する、低コストのマルチチャネル光学イメージング偏光計である SQUIDPOL を紹介します。既製の非偏光ビームスプリッターは測定可能な偏光依存系統を導入し、補正しないままにしておくと偏光測定に偏りが生じる可能性があることを示します。私たちは、透過ビームと反射ビームの両方についてこの影響を定量化し、補正スキームをデータ分析パイプラインに組み込みます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：我々は、回転半波長板、非偏光ビームスプリッター、および 4 つのワイヤーグリッドフィルターを使用して直線偏光測定を同時に実行する、低コストのマルチチャネル光学イメージング偏光計である SQUIDPOL を紹介します。既製の非偏光ビームスプリッターは測定可能な偏光依存系統を導入し、補正しないままにしておくと偏光測定に偏りが生じる可能性があることを示します。私たちは、透過ビームと反射ビームの両方についてこの影響を定量化し、補正スキームをデータ分析パイプラインに組み込みます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-ziaocv",
+      "title": "Transductive Generalization via Optimal Transport and Its Application to Graph Node Classification",
+      "authors": [
+        "MoonJeong Park",
+        "Seungbeom Lee",
+        "Kyungmin Kim",
+        "Jaeseung Heo",
+        "Seunghyuk Cho",
+        "Shouheng Li",
+        "Sangdon Park",
+        "Dongwoo Kim"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-10",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.09257v1",
+      "categories": [
+        "cs.LG",
+        "stat.ML"
+      ],
+      "summary": "既存の変換限界の多くは、計算的に扱いにくく、経験的な挙動と一致しないことが多い古典的な複雑さの尺度に依存しています。この研究では、学習された表現が依存しており、トレーニング中にテスト機能にアクセスできる、分布のない変換設定で新しい表現ベースの汎化境界を確立します。エンコードされた特徴分布間のワッサーシュタイン距離で表現される、最適なトランスポートを介してグローバルおよびクラスごとの境界を導出します。私たちは、境界が効率的に計算可能であり、グラフ ノード分類における経験的一般化と強く相関しており、古典的な複雑さの尺度を改善していることを示します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：既存の変換限界の多くは、計算的に扱いにくく、経験的な挙動と一致しないことが多い古典的な複雑さの尺度に依存しています。この研究では、学習された表現が依存しており、トレーニング中にテスト機能にアクセスできる、分布のない変換設定で新しい表現ベースの汎化境界を確立します。エンコードされた特徴分布間のワッサーシュタイン距離で表現される、最適なトランスポートを介してグローバルおよびクラスごとの境界を導出します。私たちは、境界が効率的に計算可能であり、グラフ ノード分類における経験的一般化と強く相関しており、古典的な複雑さの尺度を改善していることを示します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：既存の変換限界の多くは、計算的に扱いにくく、経験的な挙動と一致しないことが多い古典的な複雑さの尺度に依存しています。この研究では、学習された表現が依存しており、トレーニング中にテスト機能にアクセスできる、分布のない変換設定で新しい表現ベースの汎化境界を確立します。エンコードされた特徴分布間のワッサーシュタイン距離で表現される、最適なトランスポートを介してグローバルおよびクラスごとの境界を導出します。私たちは、境界が効率的に計算可能であり、グラフ ノード分類における経験的一般化と強く相関しており、古典的な複雑さの尺度を改善していることを示します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：既存の変換限界の多くは、計算的に扱いにくく、経験的な挙動と一致しないことが多い古典的な複雑さの尺度に依存しています。この研究では、学習された表現が依存しており、トレーニング中にテスト機能にアクセスできる、分布のない変換設定で新しい表現ベースの汎化境界を確立します。エンコードされた特徴分布間のワッサーシュタイン距離で表現される、最適なトランスポートを介してグローバルおよびクラスごとの境界を導出します。私たちは、境界が効率的に計算可能であり、グラフ ノード分類における経験的一般化と強く相関しており、古典的な複雑さの尺度を改善していることを示します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-xe02m3",
+      "title": "LLM Watermark Evasion via Bias Inversion",
+      "authors": [
+        "Jeongyeon Hwang",
+        "Sangdon Park",
+        "Jungseul Ok"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-09-27",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2509.23019v5",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "summary": "透かしは、LLM で生成されたコンテンツを検出するための有望なソリューションを提供しますが、現実的なクエリフリー (ブラックボックス) 回避下での堅牢性は未解決の課題のままです。既存のクエリフリー攻撃は、限定的な成功しか得られなかったり、セマンティックな意味を著しく歪めたりすることがよくあります。私たちは、書き換えベースの回避を理論的に分析することでこのギャップを埋め、緑のトークンをサンプリングする平均条件付き確率をわずかに下げると、検出確率が指数関数的に減衰することを実証しました。この洞察に基づいて、私たちは \\emph{バイアス反転書き換え攻撃} (BIRA) を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：透かしは、LLM で生成されたコンテンツを検出するための有望なソリューションを提供しますが、現実的なクエリフリー (ブラックボックス) 回避下での堅牢性は未解決の課題のままです。既存のクエリフリー攻撃は、限定的な成功しか得られなかったり、セマンティックな意味を著しく歪めたりすることがよくあります。私たちは、書き換えベースの回避を理論的に分析することでこのギャップを埋め、緑のトークンをサンプリングする平均条件付き確率をわずかに下げると、検出確率が指数関数的に減衰することを実証しました。この洞察に基づいて、私たちは \\emph{バイアス反転書き換え攻撃} (BIRA) を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：透かしは、LLM で生成されたコンテンツを検出するための有望なソリューションを提供しますが、現実的なクエリフリー (ブラックボックス) 回避下での堅牢性は未解決の課題のままです。既存のクエリフリー攻撃は、限定的な成功しか得られなかったり、セマンティックな意味を著しく歪めたりすることがよくあります。私たちは、書き換えベースの回避を理論的に分析することでこのギャップを埋め、緑のトークンをサンプリングする平均条件付き確率をわずかに下げると、検出確率が指数関数的に減衰することを実証しました。この洞察に基づいて、私たちは \\emph{バイアス反転書き換え攻撃} (BIRA) を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：透かしは、LLM で生成されたコンテンツを検出するための有望なソリューションを提供しますが、現実的なクエリフリー (ブラックボックス) 回避下での堅牢性は未解決の課題のままです。既存のクエリフリー攻撃は、限定的な成功しか得られなかったり、セマンティックな意味を著しく歪めたりすることがよくあります。私たちは、書き換えベースの回避を理論的に分析することでこのギャップを埋め、緑のトークンをサンプリングする平均条件付き確率をわずかに下げると、検出確率が指数関数的に減衰することを実証しました。この洞察に基づいて、私たちは \\emph{バイアス反転書き換え攻撃} (BIRA) を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1tt16pu",
+      "title": "ATLANTIS: AI-driven Threat Localization, Analysis, and Triage Intelligence System",
+      "authors": [
+        "Taesoo Kim",
+        "HyungSeok Han",
+        "Soyeon Park",
+        "Dae R. Jeong",
+        "Dohyeok Kim",
+        "Dongkwan Kim",
+        "Eunsoo Kim",
+        "Jiho Kim",
+        "Joshua Wang",
+        "Kangsu Kim",
+        "Sangwoo Ji",
+        "Woosun Song",
+        "Hanqing Zhao",
+        "Andrew Chin",
+        "Gyejin Lee",
+        "Kevin Stevens",
+        "Mansour Alharthi",
+        "Yizhuo Zhai",
+        "Cen Zhang",
+        "Joonun Jang",
+        "Yeongjin Jang",
+        "Ammar Askar",
+        "Dongju Kim",
+        "Fabian Fleischer",
+        "Jeongin Cho",
+        "Junsik Kim",
+        "Kyungjoon Ko",
+        "Insu Yun",
+        "Sangdon Park",
+        "Dowoo Baik",
+        "Haein Lee",
+        "Hyeon Heo",
+        "Minjae Gwon",
+        "Minjae Lee",
+        "Minwoo Baek",
+        "Seunggi Min",
+        "Wonyoung Kim",
+        "Yonghwi Jin",
+        "Younggi Park",
+        "Yunjae Choi",
+        "Jinho Jung",
+        "Gwanhyun Lee",
+        "Junyoung Jang",
+        "Kyuheon Kim",
+        "Yeonghyeon Cha",
+        "Youngjoon Kim"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-09-18",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2509.14589v1",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "summary": "DEF CON 33 (2025 年 8 月) の DARPA の AI サイバー チャレンジ (AIxCC) の最終コンペティションで 1 位を獲得した、チーム アトランタによって開発されたサイバー推論システムである ATLANTIS を紹介します。 AIxCC (2023-2025) は、最新のソフトウェアの速度と規模で脆弱性を発見してパッチを適用できる自律的なサイバー推論システムを構築するようチームに要求しました。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：DEF CON 33 (2025 年 8 月) の DARPA の AI サイバー チャレンジ (AIxCC) の最終コンペティションで 1 位を獲得した、チーム アトランタによって開発されたサイバー推論システムである ATLANTIS を紹介します。 AIxCC (2023-2025) は、最新のソフトウェアの速度と規模で脆弱性を発見してパッチを適用できる自律的なサイバー推論システムを構築するようチームに要求しました。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：DEF CON 33 (2025 年 8 月) の DARPA の AI サイバー チャレンジ (AIxCC) の最終コンペティションで 1 位を獲得した、チーム アトランタによって開発されたサイバー推論システムである ATLANTIS を紹介します。 AIxCC (2023-2025) は、最新のソフトウェアの速度と規模で脆弱性を発見してパッチを適用できる自律的なサイバー推論システムを構築するようチームに要求しました。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：DEF CON 33 (2025 年 8 月) の DARPA の AI サイバー チャレンジ (AIxCC) の最終コンペティションで 1 位を獲得した、チーム アトランタによって開発されたサイバー推論システムである ATLANTIS を紹介します。 AIxCC (2023-2025) は、最新のソフトウェアの速度と規模で脆弱性を発見してパッチを適用できる自律的なサイバー推論システムを構築するようチームに要求しました。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-lkrh1j",
+      "title": "SpectraDINO: Bridging the Spectral Gap in Vision Foundation Models via Lightweight Adapters",
+      "authors": [
+        "Yagiz Nalcakan",
+        "Hyeongjin Ju",
+        "Incheol Park",
+        "Sanghyeop Yeo",
+        "Youngwan Jin",
+        "Shiho Kim"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-04",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2605.02258v1",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "大規模な RGB データで事前トレーニングされた Vision Foundation Model (VFM) は、顕著な表現品質を実証していますが、近赤外線 (NIR)、短波長赤外線 (SWIR)、および長波長赤外線 (LWIR) にわたるマルチスペクトル イメージングへの適用性はほとんど解明されていません。これらのスペクトル モダリティは、悪条件下での堅牢な知覚に不可欠な補完的なセンシング機能を提供しますが、RGB 中心の事前トレーニング済みモデルと比較して基本的な領域のギャップが存在します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：大規模な RGB データで事前トレーニングされた Vision Foundation Model (VFM) は、顕著な表現品質を実証していますが、近赤外線 (NIR)、短波長赤外線 (SWIR)、および長波長赤外線 (LWIR) にわたるマルチスペクトル イメージングへの適用性はほとんど解明されていません。これらのスペクトル モダリティは、悪条件下での堅牢な知覚に不可欠な補完的なセンシング機能を提供しますが、RGB 中心の事前トレーニング済みモデルと比較して基本的な領域のギャップが存在します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：大規模な RGB データで事前トレーニングされた Vision Foundation Model (VFM) は、顕著な表現品質を実証していますが、近赤外線 (NIR)、短波長赤外線 (SWIR)、および長波長赤外線 (LWIR) にわたるマルチスペクトル イメージングへの適用性はほとんど解明されていません。これらのスペクトル モダリティは、悪条件下での堅牢な知覚に不可欠な補完的なセンシング機能を提供しますが、RGB 中心の事前トレーニング済みモデルと比較して基本的な領域のギャップが存在します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：大規模な RGB データで事前トレーニングされた Vision Foundation Model (VFM) は、顕著な表現品質を実証していますが、近赤外線 (NIR)、短波長赤外線 (SWIR)、および長波長赤外線 (LWIR) にわたるマルチスペクトル イメージングへの適用性はほとんど解明されていません。これらのスペクトル モダリティは、悪条件下での堅牢な知覚に不可欠な補完的なセンシング機能を提供しますが、RGB 中心の事前トレーニング済みモデルと比較して基本的な領域のギャップが存在します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-6g9nzz",
+      "title": "BaRA: Budget-constrained and Reliable Web Data Collection Agent",
+      "authors": [
+        "Soojeong Lee",
+        "Joseph Lee",
+        "Yongseong Cho",
+        "Sunjae Kim",
+        "Youngwoo Moon",
+        "Kyungwoo Song"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-02",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.00007v2",
+      "categories": [
+        "cs.IR",
+        "cs.AI"
+      ],
+      "summary": "大規模言語モデル (LLM) ベースの Web エージェントは、Web ナビゲーションとデータ収集を自動化します。ただし、ライブ Web データの収集には、タスクの完了を超えた機能が必要です。エージェントは、固定のインタラクション予算内でサイト内部のページを検出し、アクセス可能な形式でテキスト、画像、およびビデオの成果物を取得する必要があります。私たちはこの設定を予算に制約のあるサイトレベルのマルチモーダルな Web データ収集として定式化し、予算に制約のある信頼できるエージェント (BaRA) を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：大規模言語モデル (LLM) ベースの Web エージェントは、Web ナビゲーションとデータ収集を自動化します。ただし、ライブ Web データの収集には、タスクの完了を超えた機能が必要です。エージェントは、固定のインタラクション予算内でサイト内部のページを検出し、アクセス可能な形式でテキスト、画像、およびビデオの成果物を取得する必要があります。私たちはこの設定を予算に制約のあるサイトレベルのマルチモーダルな Web データ収集として定式化し、予算に制約のある信頼できるエージェント (BaRA) を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：大規模言語モデル (LLM) ベースの Web エージェントは、Web ナビゲーションとデータ収集を自動化します。ただし、ライブ Web データの収集には、タスクの完了を超えた機能が必要です。エージェントは、固定のインタラクション予算内でサイト内部のページを検出し、アクセス可能な形式でテキスト、画像、およびビデオの成果物を取得する必要があります。私たちはこの設定を予算に制約のあるサイトレベルのマルチモーダルな Web データ収集として定式化し、予算に制約のある信頼できるエージェント (BaRA) を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：大規模言語モデル (LLM) ベースの Web エージェントは、Web ナビゲーションとデータ収集を自動化します。ただし、ライブ Web データの収集には、タスクの完了を超えた機能が必要です。エージェントは、固定のインタラクション予算内でサイト内部のページを検出し、アクセス可能な形式でテキスト、画像、およびビデオの成果物を取得する必要があります。私たちはこの設定を予算に制約のあるサイトレベルのマルチモーダルな Web データ収集として定式化し、予算に制約のある信頼できるエージェント (BaRA) を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1md62u6",
+      "title": "MC-GenRef: Annotation-free mammography microcalcification segmentation with generative posterior refinement",
+      "authors": [
+        "Hyunwoo Cho",
+        "Yeeun Kwon",
+        "Min Jung Kim",
+        "Yangmo Yoo"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-06",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.04470v1",
+      "categories": [
+        "eess.IV",
+        "cs.AI"
+      ],
+      "summary": "微小石灰化（MC）分析は、マンモグラフィーのスクリーニングにおいて臨床的に重要です。なぜなら、クラスター化した涙点は悪性腫瘍の初期兆候である可能性があるからです。しかし、高密度のMCセグメンテーションは依然として困難です。ターゲットは非常に小さくまばらであり、高密度のピクセルレベルのラベルは高価で曖昧であり、クロスサイトシフトはテクスチャによる偽陽性や高密度組織での涙点の見逃しを引き起こすことがよくあります。我々は、高忠実度合成監視とテスト時生成事後リファインメント (TT-GPR) を組み合わせた真の高密度ラベルフリー フレームワークである MC-GenRef を提案します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：微小石灰化（MC）分析は、マンモグラフィーのスクリーニングにおいて臨床的に重要です。なぜなら、クラスター化した涙点は悪性腫瘍の初期兆候である可能性があるからです。しかし、高密度のMCセグメンテーションは依然として困難です。ターゲットは非常に小さくまばらであり、高密度のピクセルレベルのラベルは高価で曖昧であり、クロスサイトシフトはテクスチャによる偽陽性や高密度組織での涙点の見逃しを引き起こすことがよくあります。我々は、高忠実度合成監視とテスト時生成事後リファインメント (TT-GPR) を組み合わせた真の高密度ラベルフリー フレームワークである MC-GenRef を提案します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：微小石灰化（MC）分析は、マンモグラフィーのスクリーニングにおいて臨床的に重要です。なぜなら、クラスター化した涙点は悪性腫瘍の初期兆候である可能性があるからです。しかし、高密度のMCセグメンテーションは依然として困難です。ターゲットは非常に小さくまばらであり、高密度のピクセルレベルのラベルは高価で曖昧であり、クロスサイトシフトはテクスチャによる偽陽性や高密度組織での涙点の見逃しを引き起こすことがよくあります。我々は、高忠実度合成監視とテスト時生成事後リファインメント (TT-GPR) を組み合わせた真の高密度ラベルフリー フレームワークである MC-GenRef を提案します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：微小石灰化（MC）分析は、マンモグラフィーのスクリーニングにおいて臨床的に重要です。なぜなら、クラスター化した涙点は悪性腫瘍の初期兆候である可能性があるからです。しかし、高密度のMCセグメンテーションは依然として困難です。ターゲットは非常に小さくまばらであり、高密度のピクセルレベルのラベルは高価で曖昧であり、クロスサイトシフトはテクスチャによる偽陽性や高密度組織での涙点の見逃しを引き起こすことがよくあります。我々は、高忠実度合成監視とテスト時生成事後リファインメント (TT-GPR) を組み合わせた真の高密度ラベルフリー フレームワークである MC-GenRef を提案します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-nf7nz8",
+      "title": "A2SG:Adaptive and Asymmetric Surrogate Gradients for Training Deep Spiking Neural Networks",
+      "authors": [
+        "Yechan Kang",
+        "Yongjin Kweon",
+        "Mingyeong Seo",
+        "Sohee Park",
+        "Yeonguk Jeon",
+        "Jongkil Park",
+        "Hyun Jae Jang",
+        "Jaewook Kim",
+        "YeonJoo Jeong",
+        "Suyoun Lee",
+        "Seongsik Park"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-29",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2606.11236v1",
+      "categories": [
+        "cs.NE",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "summary": "ディープ スパイキング ニューラル ネットワーク (SNN) のトレーニングは、急激な損失状況とサロゲート勾配によって引き起こされる時間的不一致のため、依然として困難です。これらの課題に対処するために、適応的で非対称なサロゲート勾配 A2SG という統一フレームワークを提案します。適応勾配は、時空間適応のための有効ウィンドウを調整し、空間勾配の変動を低減し、時間の経過に伴う勾配の方向の一貫性を維持します。非対称勾配は、膜電位が高いニューロンに大きな勾配を割り当てることによってニューロンのダイナミクスを反映しており、対称サロゲートよりも変動が小さいことが証明されています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ディープ スパイキング ニューラル ネットワーク (SNN) のトレーニングは、急激な損失状況とサロゲート勾配によって引き起こされる時間的不一致のため、依然として困難です。これらの課題に対処するために、適応的で非対称なサロゲート勾配 A2SG という統一フレームワークを提案します。適応勾配は、時空間適応のための有効ウィンドウを調整し、空間勾配の変動を低減し、時間の経過に伴う勾配の方向の一貫性を維持します。非対称勾配は、膜電位が高いニューロンに大きな勾配を割り当てることによってニューロンのダイナミクスを反映しており、対称サロゲートよりも変動が小さいことが証明されています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ディープ スパイキング ニューラル ネットワーク (SNN) のトレーニングは、急激な損失状況とサロゲート勾配によって引き起こされる時間的不一致のため、依然として困難です。これらの課題に対処するために、適応的で非対称なサロゲート勾配 A2SG という統一フレームワークを提案します。適応勾配は、時空間適応のための有効ウィンドウを調整し、空間勾配の変動を低減し、時間の経過に伴う勾配の方向の一貫性を維持します。非対称勾配は、膜電位が高いニューロンに大きな勾配を割り当てることによってニューロンのダイナミクスを反映しており、対称サロゲートよりも変動が小さいことが証明されています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ディープ スパイキング ニューラル ネットワーク (SNN) のトレーニングは、急激な損失状況とサロゲート勾配によって引き起こされる時間的不一致のため、依然として困難です。これらの課題に対処するために、適応的で非対称なサロゲート勾配 A2SG という統一フレームワークを提案します。適応勾配は、時空間適応のための有効ウィンドウを調整し、空間勾配の変動を低減し、時間の経過に伴う勾配の方向の一貫性を維持します。非対称勾配は、膜電位が高いニューロンに大きな勾配を割り当てることによってニューロンのダイナミクスを反映しており、対称サロゲートよりも変動が小さいことが証明されています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1hjli6z",
+      "title": "Predicting Euler Characteristics and Constructing Topological Structure Using Machine Learning Techniques",
+      "authors": [
+        "Gyunghun Yu",
+        "Seong Min Park",
+        "Han Gyu Yoon",
+        "Tae Jung Moon",
+        "Jun Woo Choi",
+        "Hee Young Kwon",
+        "Changyeon Won"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-05-01",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2605.02947v1",
+      "categories": [
+        "cs.LG",
+        "cond-mat.mtrl-sci",
+        "cs.AI",
+        "physics.comp-ph"
+      ],
+      "summary": "この研究では、既存の大規模なデータセットに依存せず、単一の幾何学的画像を使用して、ニューラル ネットワークを使用して入力画像からトポロジー特性、特にオイラー特性を抽出する新しいアプローチを提案します。磁性構造のトポロジカル特性がスピン場解析から導出される固体物理学に触発された私たちのモデルは、スピン配置として解釈される単位ベクトル場を画像から生成します。次に、この生成されたスピン配置のスキルミオン数を計算することによって、オイラー特性が予測されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この研究では、既存の大規模なデータセットに依存せず、単一の幾何学的画像を使用して、ニューラル ネットワークを使用して入力画像からトポロジー特性、特にオイラー特性を抽出する新しいアプローチを提案します。磁性構造のトポロジカル特性がスピン場解析から導出される固体物理学に触発された私たちのモデルは、スピン配置として解釈される単位ベクトル場を画像から生成します。次に、この生成されたスピン配置のスキルミオン数を計算することによって、オイラー特性が予測されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この研究では、既存の大規模なデータセットに依存せず、単一の幾何学的画像を使用して、ニューラル ネットワークを使用して入力画像からトポロジー特性、特にオイラー特性を抽出する新しいアプローチを提案します。磁性構造のトポロジカル特性がスピン場解析から導出される固体物理学に触発された私たちのモデルは、スピン配置として解釈される単位ベクトル場を画像から生成します。次に、この生成されたスピン配置のスキルミオン数を計算することによって、オイラー特性が予測されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この研究では、既存の大規模なデータセットに依存せず、単一の幾何学的画像を使用して、ニューラル ネットワークを使用して入力画像からトポロジー特性、特にオイラー特性を抽出する新しいアプローチを提案します。磁性構造のトポロジカル特性がスピン場解析から導出される固体物理学に触発された私たちのモデルは、スピン配置として解釈される単位ベクトル場を画像から生成します。次に、この生成されたスピン配置のスキルミオン数を計算することによって、オイラー特性が予測されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-2x1kc5",
+      "title": "Surgical Video Understanding with Label Interpolation",
+      "authors": [
+        "Garam Kim",
+        "Tae Kyeong Jeong",
+        "Juyoun Park"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2025-09-23",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2509.18802v2",
+      "categories": [
+        "cs.CV"
+      ],
+      "summary": "ロボット支援手術 (RAS) は現代の外科において重要なパラダイムとなっており、低侵襲アプローチを通じて患者の回復を促進し、外科医の負担を軽減します。ただし、その可能性を最大限に発揮するには、外科手術中に生成される視覚データを正確に理解することが不可欠です。これまでの研究は主に単一タスクのアプローチに焦点を当ててきましたが、実際の手術現場には複雑な時間的ダイナミクスと多様な機器の相互作用が含まれており、包括的な理解を制限しています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：ロボット支援手術 (RAS) は現代の外科において重要なパラダイムとなっており、低侵襲アプローチを通じて患者の回復を促進し、外科医の負担を軽減します。ただし、その可能性を最大限に発揮するには、外科手術中に生成される視覚データを正確に理解することが不可欠です。これまでの研究は主に単一タスクのアプローチに焦点を当ててきましたが、実際の手術現場には複雑な時間的ダイナミクスと多様な機器の相互作用が含まれており、包括的な理解を制限しています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：ロボット支援手術 (RAS) は現代の外科において重要なパラダイムとなっており、低侵襲アプローチを通じて患者の回復を促進し、外科医の負担を軽減します。ただし、その可能性を最大限に発揮するには、外科手術中に生成される視覚データを正確に理解することが不可欠です。これまでの研究は主に単一タスクのアプローチに焦点を当ててきましたが、実際の手術現場には複雑な時間的ダイナミクスと多様な機器の相互作用が含まれており、包括的な理解を制限しています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：ロボット支援手術 (RAS) は現代の外科において重要なパラダイムとなっており、低侵襲アプローチを通じて患者の回復を促進し、外科医の負担を軽減します。ただし、その可能性を最大限に発揮するには、外科手術中に生成される視覚データを正確に理解することが不可欠です。これまでの研究は主に単一タスクのアプローチに焦点を当ててきましたが、実際の手術現場には複雑な時間的ダイナミクスと多様な機器の相互作用が含まれており、包括的な理解を制限しています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1np7qvl",
+      "title": "Corrigendum: order extreme points and solid convex hulls",
+      "authors": [
+        "Anastasiia Ianina",
+        "Timur Oikhberg",
+        "Mary Angelica Tursi"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-06-17",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2606.19415v1",
+      "categories": [
+        "math.FA"
+      ],
+      "summary": "[T. Oikhberg と M.A. Tursi、「極点と固体凸包の順序」、「The Mathematical Legacy of Victor Lomonosov」(R. Aron et.al. 編)、de Grewter、2020 年、297--315。]。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：[T. Oikhberg と M.A. Tursi、「極点と固体凸包の順序」、「The Mathematical Legacy of Victor Lomonosov」(R. Aron et.al. 編)、de Grewter、2020 年、297--315。]。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：[T. Oikhberg と M.A. Tursi、「極点と固体凸包の順序」、「The Mathematical Legacy of Victor Lomonosov」(R. Aron et.al. 編)、de Grewter、2020 年、297--315。]。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：[T. Oikhberg と M.A. Tursi、「極点と固体凸包の順序」、「The Mathematical Legacy of Victor Lomonosov」(R. Aron et.al. 編)、de Grewter、2020 年、297--315。]。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-12vjygs",
+      "title": "Sky background accounting in spectral infrared observations of extended objects at the Caucasus Mountain Observatory of the SAI MSU",
+      "authors": [
+        "A. S. Gusev",
+        "A. M. Tatarnikov",
+        "S. G. Zheltoukhov",
+        "M. S. Kirsanova"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-04-16",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.14863v1",
+      "categories": [
+        "astro-ph.IM"
+      ],
+      "summary": "モスクワ州立大学シュテルンベルク天文研究所のコーカサス山天文台は、ロシアで唯一であり、$λ$=1-2.5 $μ$mの近赤外線(IR)領域のスペクトルデータを取得できる世界でも数少ない天文台の1つである。ただし、角度寸法がスリットの長さ (4.5 分角) を超える拡張オブジェクトのスペクトルの処理には問題があります。 $λ$~2 $μ$m の明るい大気中のヒドロキシル線は、単一フレームの露光時間よりも短い時間で強度が大きく変化するため、そのような天体のすぐ近くの空のスペクトルを追加取得しても問題は解決しません。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：モスクワ州立大学シュテルンベルク天文研究所のコーカサス山天文台は、ロシアで唯一であり、$λ$=1-2.5 $μ$mの近赤外線(IR)領域のスペクトルデータを取得できる世界でも数少ない天文台の1つである。ただし、角度寸法がスリットの長さ (4.5 分角) を超える拡張オブジェクトのスペクトルの処理には問題があります。 $λ$~2 $μ$m の明るい大気中のヒドロキシル線は、単一フレームの露光時間よりも短い時間で強度が大きく変化するため、そのような天体のすぐ近くの空のスペクトルを追加取得しても問題は解決しません。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：モスクワ州立大学シュテルンベルク天文研究所のコーカサス山天文台は、ロシアで唯一であり、$λ$=1-2.5 $μ$mの近赤外線(IR)領域のスペクトルデータを取得できる世界でも数少ない天文台の1つである。ただし、角度寸法がスリットの長さ (4.5 分角) を超える拡張オブジェクトのスペクトルの処理には問題があります。 $λ$~2 $μ$m の明るい大気中のヒドロキシル線は、単一フレームの露光時間よりも短い時間で強度が大きく変化するため、そのような天体のすぐ近くの空のスペクトルを追加取得しても問題は解決しません。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：モスクワ州立大学シュテルンベルク天文研究所のコーカサス山天文台は、ロシアで唯一であり、$λ$=1-2.5 $μ$mの近赤外線(IR)領域のスペクトルデータを取得できる世界でも数少ない天文台の1つである。ただし、角度寸法がスリットの長さ (4.5 分角) を超える拡張オブジェクトのスペクトルの処理には問題があります。 $λ$~2 $μ$m の明るい大気中のヒドロキシル線は、単一フレームの露光時間よりも短い時間で強度が大きく変化するため、そのような天体のすぐ近くの空のスペクトルを追加取得しても問題は解決しません。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-n98bqn",
+      "title": "Parallel Version of CORSIKA Code with Cherenkov Option for SPHERE-3 Project",
+      "authors": [
+        "M. D. Ziva",
+        "V. I. Galkin",
+        "E. A. Bonvech",
+        "O. V. Cherkesova",
+        "D. V. Chernov",
+        "V. A. Ivanov",
+        "T. A. Kolodkin",
+        "N. O. Ovcharenko",
+        "D. A. Podgrudkov",
+        "T. M. Roganova"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.09021v1",
+      "categories": [
+        "astro-ph.IM"
+      ],
+      "summary": "私たちは、チェレンコフ光による大規模な空気シャワー イベントの生成にロモノーソフ 2 スーパーコンピューティング施設を使用していますが、これはかなり時間のかかる手順です。 100 PeV をわずかに下回る一次エネルギーでは、イベントのかなりの部分がキューの時間制限を超えて終了する前に強制終了されます。このため、私たちはコードのマルチスレッド バージョンを開発する必要がありました。ここでは、私たちの開発の主な特徴とその効率性の証拠をいくつか報告します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：私たちは、チェレンコフ光による大規模な空気シャワー イベントの生成にロモノーソフ 2 スーパーコンピューティング施設を使用していますが、これはかなり時間のかかる手順です。 100 PeV をわずかに下回る一次エネルギーでは、イベントのかなりの部分がキューの時間制限を超えて終了する前に強制終了されます。このため、私たちはコードのマルチスレッド バージョンを開発する必要がありました。ここでは、私たちの開発の主な特徴とその効率性の証拠をいくつか報告します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：私たちは、チェレンコフ光による大規模な空気シャワー イベントの生成にロモノーソフ 2 スーパーコンピューティング施設を使用していますが、これはかなり時間のかかる手順です。 100 PeV をわずかに下回る一次エネルギーでは、イベントのかなりの部分がキューの時間制限を超えて終了する前に強制終了されます。このため、私たちはコードのマルチスレッド バージョンを開発する必要がありました。ここでは、私たちの開発の主な特徴とその効率性の証拠をいくつか報告します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：私たちは、チェレンコフ光による大規模な空気シャワー イベントの生成にロモノーソフ 2 スーパーコンピューティング施設を使用していますが、これはかなり時間のかかる手順です。 100 PeV をわずかに下回る一次エネルギーでは、イベントのかなりの部分がキューの時間制限を超えて終了する前に強制終了されます。このため、私たちはコードのマルチスレッド バージョンを開発する必要がありました。ここでは、私たちの開発の主な特徴とその効率性の証拠をいくつか報告します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-3wbku7",
+      "title": "Long-term speckle interferometric monitoring of binary systems II: 2007-2025 positional measurements and improvement of orbits",
+      "authors": [
+        "Arina Mitrofanova",
+        "Vladimir Dyachenko",
+        "Anatoly Beskakotov",
+        "Alexander Maksimov",
+        "Margarita Butorina",
+        "Yuri Balega",
+        "Denis Rastegaev"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-09",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.08467v1",
+      "categories": [
+        "astro-ph.SR"
+      ],
+      "summary": "この記事は、観測データの分析と 8 つの天体の軌道解の改善に焦点を当てています。リストされた天体は、ロシア科学アカデミーの特別天体物理観測所の 6 メートル望遠鏡での長期監視のために編集された、近くにある約 300 (d < 100 pc) の複数システムのサンプルのメンバーです。スペックル干渉計による観測は 2007 年から現在まで実施されており、これはシステムの 19 年間の監視に相当します。したがって、新しい測定値は文献のものよりも多く、または文献のものと同等であり、これにより一連の観測をより完全にすることが可能になります。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この記事は、観測データの分析と 8 つの天体の軌道解の改善に焦点を当てています。リストされた天体は、ロシア科学アカデミーの特別天体物理観測所の 6 メートル望遠鏡での長期監視のために編集された、近くにある約 300 (d < 100 pc) の複数システムのサンプルのメンバーです。スペックル干渉計による観測は 2007 年から現在まで実施されており、これはシステムの 19 年間の監視に相当します。したがって、新しい測定値は文献のものよりも多く、または文献のものと同等であり、これにより一連の観測をより完全にすることが可能になります。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この記事は、観測データの分析と 8 つの天体の軌道解の改善に焦点を当てています。リストされた天体は、ロシア科学アカデミーの特別天体物理観測所の 6 メートル望遠鏡での長期監視のために編集された、近くにある約 300 (d < 100 pc) の複数システムのサンプルのメンバーです。スペックル干渉計による観測は 2007 年から現在まで実施されており、これはシステムの 19 年間の監視に相当します。したがって、新しい測定値は文献のものよりも多く、または文献のものと同等であり、これにより一連の観測をより完全にすることが可能になります。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この記事は、観測データの分析と 8 つの天体の軌道解の改善に焦点を当てています。リストされた天体は、ロシア科学アカデミーの特別天体物理観測所の 6 メートル望遠鏡での長期監視のために編集された、近くにある約 300 (d < 100 pc) の複数システムのサンプルのメンバーです。スペックル干渉計による観測は 2007 年から現在まで実施されており、これはシステムの 19 年間の監視に相当します。したがって、新しい測定値は文献のものよりも多く、または文献のものと同等であり、これにより一連の観測をより完全にすることが可能になります。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-2qfq1i",
+      "title": "Impact of Courant number on the results of numerical simulating of signal propagation in non-dispersive homogeneous media",
+      "authors": [
+        "P. A. Makarov",
+        "R. N. Skandakov",
+        "V. A. Ustyugov",
+        "V. I. Shcheglov"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-07",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.06707v1",
+      "categories": [
+        "physics.comp-ph",
+        "math-ph",
+        "physics.optics"
+      ],
+      "summary": "この論文は、真空とは光学的に異なる非分散均質媒体における電磁信号伝播の FDTD モデリングで生じる数値分散と 2D の場合のクーラン数の間の関係の研究に捧げられています。主な結果は、数値分散の性質、クーラン数の最適値、およびこの方法の制限を決定する多くの結果と注釈だけでなく、4 つのステートメントの形式で定式化されます。クーラン数を最適に選択すると数値分散が排除され、開発された数値アルゴリズムの機能が真空の屈折率よりも小さい屈折率の媒質や負の屈折率を持つ媒質にも拡張されることが証明されています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この論文は、真空とは光学的に異なる非分散均質媒体における電磁信号伝播の FDTD モデリングで生じる数値分散と 2D の場合のクーラン数の間の関係の研究に捧げられています。主な結果は、数値分散の性質、クーラン数の最適値、およびこの方法の制限を決定する多くの結果と注釈だけでなく、4 つのステートメントの形式で定式化されます。クーラン数を最適に選択すると数値分散が排除され、開発された数値アルゴリズムの機能が真空の屈折率よりも小さい屈折率の媒質や負の屈折率を持つ媒質にも拡張されることが証明されています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この論文は、真空とは光学的に異なる非分散均質媒体における電磁信号伝播の FDTD モデリングで生じる数値分散と 2D の場合のクーラン数の間の関係の研究に捧げられています。主な結果は、数値分散の性質、クーラン数の最適値、およびこの方法の制限を決定する多くの結果と注釈だけでなく、4 つのステートメントの形式で定式化されます。クーラン数を最適に選択すると数値分散が排除され、開発された数値アルゴリズムの機能が真空の屈折率よりも小さい屈折率の媒質や負の屈折率を持つ媒質にも拡張されることが証明されています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この論文は、真空とは光学的に異なる非分散均質媒体における電磁信号伝播の FDTD モデリングで生じる数値分散と 2D の場合のクーラン数の間の関係の研究に捧げられています。主な結果は、数値分散の性質、クーラン数の最適値、およびこの方法の制限を決定する多くの結果と注釈だけでなく、4 つのステートメントの形式で定式化されます。クーラン数を最適に選択すると数値分散が排除され、開発された数値アルゴリズムの機能が真空の屈折率よりも小さい屈折率の媒質や負の屈折率を持つ媒質にも拡張されることが証明されています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-4wv8tb",
+      "title": "OPTIMus - a survey of massive star-forming regions at OPTical, Infrared, and Millimeter wavelengths",
+      "authors": [
+        "M. S. Kirsanova",
+        "A. V. Moiseev",
+        "A. M. Tatarnikov",
+        "A. S. Gusev",
+        "A. D. Yarovova",
+        "D. S. Wiebe"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-04",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.04041v1",
+      "categories": [
+        "astro-ph.GA",
+        "astro-ph.IM"
+      ],
+      "summary": "この研究では、光学、赤外線、ミリ波の波長で大質量星形成領域を調査する OPTIMus (OPTical, Infrared, Millimeter Survey of Massive star-forming Companies) の科学的目標と目的について説明します。この調査は、観測と理論の両方の側面を組み合わせて、若い大質量星の近くにある多成分で構造的に複雑な星間物質の包括的な特性評価を構築することを目的としています。多波長の観測データを用いて三次元構造を再構築し、HII領域、光解離領域、周囲の分子雲の物理パラメータを決定します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この研究では、光学、赤外線、ミリ波の波長で大質量星形成領域を調査する OPTIMus (OPTical, Infrared, Millimeter Survey of Massive star-forming Companies) の科学的目標と目的について説明します。この調査は、観測と理論の両方の側面を組み合わせて、若い大質量星の近くにある多成分で構造的に複雑な星間物質の包括的な特性評価を構築することを目的としています。多波長の観測データを用いて三次元構造を再構築し、HII領域、光解離領域、周囲の分子雲の物理パラメータを決定します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この研究では、光学、赤外線、ミリ波の波長で大質量星形成領域を調査する OPTIMus (OPTical, Infrared, Millimeter Survey of Massive star-forming Companies) の科学的目標と目的について説明します。この調査は、観測と理論の両方の側面を組み合わせて、若い大質量星の近くにある多成分で構造的に複雑な星間物質の包括的な特性評価を構築することを目的としています。多波長の観測データを用いて三次元構造を再構築し、HII領域、光解離領域、周囲の分子雲の物理パラメータを決定します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この研究では、光学、赤外線、ミリ波の波長で大質量星形成領域を調査する OPTIMus (OPTical, Infrared, Millimeter Survey of Massive star-forming Companies) の科学的目標と目的について説明します。この調査は、観測と理論の両方の側面を組み合わせて、若い大質量星の近くにある多成分で構造的に複雑な星間物質の包括的な特性評価を構築することを目的としています。多波長の観測データを用いて三次元構造を再構築し、HII領域、光解離領域、周囲の分子雲の物理パラメータを決定します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1dkix7j",
+      "title": "Measurement-induced phase transition in space",
+      "authors": [
+        "Jia-Qiang Li",
+        "Liang-Jun Zhai",
+        "Shuo Liu",
+        "Shuai Yin"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-14",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.12386v1",
+      "categories": [
+        "cond-mat.str-el",
+        "cond-mat.stat-mech",
+        "quant-ph"
+      ],
+      "summary": "監視対象の量子回路における測定誘起相転移 (MIPT) は、通常、異なる均一な測定確率で定常状態を準備することによって特徴付けられます。ここでは、単一の監視対象クリフォードチェーンに決定論的な測定勾配を課すことにより、MIPT の空間的実現を導入します。結果として得られる定常状態には、共存する体積則領域、臨界領域、および面積則領域が含まれており、点 $p(x)=p_c$ が空間クリティカル カットとして機能します。このプロファイル全体でエンタングルメントの観測値をスキャンすることにより、遷移が空間スケーリング形式によって組織化されていることを示します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：監視対象の量子回路における測定誘起相転移 (MIPT) は、通常、異なる均一な測定確率で定常状態を準備することによって特徴付けられます。ここでは、単一の監視対象クリフォードチェーンに決定論的な測定勾配を課すことにより、MIPT の空間的実現を導入します。結果として得られる定常状態には、共存する体積則領域、臨界領域、および面積則領域が含まれており、点 $p(x)=p_c$ が空間クリティカル カットとして機能します。このプロファイル全体でエンタングルメントの観測値をスキャンすることにより、遷移が空間スケーリング形式によって組織化されていることを示します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：監視対象の量子回路における測定誘起相転移 (MIPT) は、通常、異なる均一な測定確率で定常状態を準備することによって特徴付けられます。ここでは、単一の監視対象クリフォードチェーンに決定論的な測定勾配を課すことにより、MIPT の空間的実現を導入します。結果として得られる定常状態には、共存する体積則領域、臨界領域、および面積則領域が含まれており、点 $p(x)=p_c$ が空間クリティカル カットとして機能します。このプロファイル全体でエンタングルメントの観測値をスキャンすることにより、遷移が空間スケーリング形式によって組織化されていることを示します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：監視対象の量子回路における測定誘起相転移 (MIPT) は、通常、異なる均一な測定確率で定常状態を準備することによって特徴付けられます。ここでは、単一の監視対象クリフォードチェーンに決定論的な測定勾配を課すことにより、MIPT の空間的実現を導入します。結果として得られる定常状態には、共存する体積則領域、臨界領域、および面積則領域が含まれており、点 $p(x)=p_c$ が空間クリティカル カットとして機能します。このプロファイル全体でエンタングルメントの観測値をスキャンすることにより、遷移が空間スケーリング形式によって組織化されていることを示します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1tyrup",
+      "title": "Cherednik integrable system: eigenfunctions at generic eigenvalues",
+      "authors": [
+        "A. Mironov",
+        "A. Morozov",
+        "A. Popolitov"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-10",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.09203v1",
+      "categories": [
+        "hep-th",
+        "math-ph",
+        "math.QA"
+      ],
+      "summary": "$n$ 変数の対称マクドナルド多項式は、特定の固有値における $N$-body 三角関数 Ruijsenaars-Schneider 可積分系の固有関数を提供します。任意の固有値を持つ固有関数を構築するために、能見正樹と白石純は、対称マクドナルド多項式に対して $N$ の再帰 (分岐規則) を使用し、それらを解析的に継続しました。これにより、トライアド (普遍解) の一部であるべき級数が生成されました。本論文では、同様の手順が、多項式固有関数として非対称マクドナルド多項式を持つ $A$ 型の DAHA に触発された別の可積分系である $N$ 体チェレドニク系でも利用できることを実証します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：$n$ 変数の対称マクドナルド多項式は、特定の固有値における $N$-body 三角関数 Ruijsenaars-Schneider 可積分系の固有関数を提供します。任意の固有値を持つ固有関数を構築するために、能見正樹と白石純は、対称マクドナルド多項式に対して $N$ の再帰 (分岐規則) を使用し、それらを解析的に継続しました。これにより、トライアド (普遍解) の一部であるべき級数が生成されました。本論文では、同様の手順が、多項式固有関数として非対称マクドナルド多項式を持つ $A$ 型の DAHA に触発された別の可積分系である $N$ 体チェレドニク系でも利用できることを実証します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：$n$ 変数の対称マクドナルド多項式は、特定の固有値における $N$-body 三角関数 Ruijsenaars-Schneider 可積分系の固有関数を提供します。任意の固有値を持つ固有関数を構築するために、能見正樹と白石純は、対称マクドナルド多項式に対して $N$ の再帰 (分岐規則) を使用し、それらを解析的に継続しました。これにより、トライアド (普遍解) の一部であるべき級数が生成されました。本論文では、同様の手順が、多項式固有関数として非対称マクドナルド多項式を持つ $A$ 型の DAHA に触発された別の可積分系である $N$ 体チェレドニク系でも利用できることを実証します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：$n$ 変数の対称マクドナルド多項式は、特定の固有値における $N$-body 三角関数 Ruijsenaars-Schneider 可積分系の固有関数を提供します。任意の固有値を持つ固有関数を構築するために、能見正樹と白石純は、対称マクドナルド多項式に対して $N$ の再帰 (分岐規則) を使用し、それらを解析的に継続しました。これにより、トライアド (普遍解) の一部であるべき級数が生成されました。本論文では、同様の手順が、多項式固有関数として非対称マクドナルド多項式を持つ $A$ 型の DAHA に触発された別の可積分系である $N$ 体チェレドニク系でも利用できることを実証します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-v5ck9u",
+      "title": "Integrable systems inspired by DAHA and DIM algebra: type $C^\\vee C$ versus type $A$",
+      "authors": [
+        "L. Bishler",
+        "A. Mironov",
+        "A. Popolitov"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-07-07",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2607.06738v1",
+      "categories": [
+        "hep-th",
+        "math-ph",
+        "math.QA"
+      ],
+      "summary": "Ding-Iohara-Miki (DIM) 代数 ($\\widehat{gl_1}$ の量子トロイダル代数) は、幅広い種類の量子多粒子可積分系に関連しており、典型的なものは、能見-白石べき級数、マクドナルド多項式、およびBaker-Akhiezer 多変数関数。このタイプの他の可積分システムは、Ruijsenaars システムをひねることによって得られます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：Ding-Iohara-Miki (DIM) 代数 ($\\widehat{gl_1}$ の量子トロイダル代数) は、幅広い種類の量子多粒子可積分系に関連しており、典型的なものは、能見-白石べき級数、マクドナルド多項式、およびBaker-Akhiezer 多変数関数。このタイプの他の可積分システムは、Ruijsenaars システムをひねることによって得られます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：Ding-Iohara-Miki (DIM) 代数 ($\\widehat{gl_1}$ の量子トロイダル代数) は、幅広い種類の量子多粒子可積分系に関連しており、典型的なものは、能見-白石べき級数、マクドナルド多項式、およびBaker-Akhiezer 多変数関数。このタイプの他の可積分システムは、Ruijsenaars システムをひねることによって得られます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：Ding-Iohara-Miki (DIM) 代数 ($\\widehat{gl_1}$ の量子トロイダル代数) は、幅広い種類の量子多粒子可積分系に関連しており、典型的なものは、能見-白石べき級数、マクドナルド多項式、およびBaker-Akhiezer 多変数関数。このタイプの他の可積分システムは、Ruijsenaars システムをひねることによって得られます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1sg0ru3",
+      "title": "Semantic Shifts of Psychological Concepts in Scientific and Popular Media Discourse: A Distributional Semantics Analysis of Russian-Language Corpora",
+      "authors": [
+        "Orlova Anastasia"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-10",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2604.00017v1",
+      "categories": [
+        "cs.CL"
+      ],
+      "summary": "この記事では、ロシア語コーパスに適用された分布意味論の方法を使用して、科学的および一般的なメディアの言説全体にわたる心理学的概念の意味論的変化を検証します。 2 つのコーパスが編集されました。それは、雑誌「Psychology」からの約 300 の研究論文の科学コーパスです。サンクトペテルブルク大学の高等経済学部とヴェストニクのジャーナル。心理学 (767,543 トークン) と、オンライン心理学プラットフォームの Yasno および Chistye kogntsii (1,199,150 トークン) のテキストで構成される人気科学コーパス。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この記事では、ロシア語コーパスに適用された分布意味論の方法を使用して、科学的および一般的なメディアの言説全体にわたる心理学的概念の意味論的変化を検証します。 2 つのコーパスが編集されました。それは、雑誌「Psychology」からの約 300 の研究論文の科学コーパスです。サンクトペテルブルク大学の高等経済学部とヴェストニクのジャーナル。心理学 (767,543 トークン) と、オンライン心理学プラットフォームの Yasno および Chistye kogntsii (1,199,150 トークン) のテキストで構成される人気科学コーパス。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この記事では、ロシア語コーパスに適用された分布意味論の方法を使用して、科学的および一般的なメディアの言説全体にわたる心理学的概念の意味論的変化を検証します。 2 つのコーパスが編集されました。それは、雑誌「Psychology」からの約 300 の研究論文の科学コーパスです。サンクトペテルブルク大学の高等経済学部とヴェストニクのジャーナル。心理学 (767,543 トークン) と、オンライン心理学プラットフォームの Yasno および Chistye kogntsii (1,199,150 トークン) のテキストで構成される人気科学コーパス。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この記事では、ロシア語コーパスに適用された分布意味論の方法を使用して、科学的および一般的なメディアの言説全体にわたる心理学的概念の意味論的変化を検証します。 2 つのコーパスが編集されました。それは、雑誌「Psychology」からの約 300 の研究論文の科学コーパスです。サンクトペテルブルク大学の高等経済学部とヴェストニクのジャーナル。心理学 (767,543 トークン) と、オンライン心理学プラットフォームの Yasno および Chistye kogntsii (1,199,150 トークン) のテキストで構成される人気科学コーパス。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-nsemcb",
+      "title": "Method of indirect estimation of default probability dynamics for industry-target segments according to the data of Bank of Russia",
+      "authors": [
+        "Mikhail Pomazanov"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2022-05-12",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2205.05984v1",
+      "categories": [
+        "q-fin.RM"
+      ],
+      "summary": "統計データが不足しているため、業界および対象企業セグメントごとのデフォルト率を直接計算する方法は不可能です。提案された論文では、ロシア銀行が提供する延滞債務の動態に関する間接データに基づいて、企業やその他の借り手のデフォルト確率の動態をフィルタリングするためのモデルを検討しています。このモデルは、合計債務と延滞債務の残高の方程式に基づいており、対応する時系列のミッシング リンクは、Hodrick_Prescott フィルター手法を使用して構築されます。小口融資部門 (住宅ローン、消費者金融) では、デフォルト統計が入手可能であり、信用調査機関によって提供されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：統計データが不足しているため、業界および対象企業セグメントごとのデフォルト率を直接計算する方法は不可能です。提案された論文では、ロシア銀行が提供する延滞債務の動態に関する間接データに基づいて、企業やその他の借り手のデフォルト確率の動態をフィルタリングするためのモデルを検討しています。このモデルは、合計債務と延滞債務の残高の方程式に基づいており、対応する時系列のミッシング リンクは、Hodrick_Prescott フィルター手法を使用して構築されます。小口融資部門 (住宅ローン、消費者金融) では、デフォルト統計が入手可能であり、信用調査機関によって提供されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：統計データが不足しているため、業界および対象企業セグメントごとのデフォルト率を直接計算する方法は不可能です。提案された論文では、ロシア銀行が提供する延滞債務の動態に関する間接データに基づいて、企業やその他の借り手のデフォルト確率の動態をフィルタリングするためのモデルを検討しています。このモデルは、合計債務と延滞債務の残高の方程式に基づいており、対応する時系列のミッシング リンクは、Hodrick_Prescott フィルター手法を使用して構築されます。小口融資部門 (住宅ローン、消費者金融) では、デフォルト統計が入手可能であり、信用調査機関によって提供されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：統計データが不足しているため、業界および対象企業セグメントごとのデフォルト率を直接計算する方法は不可能です。提案された論文では、ロシア銀行が提供する延滞債務の動態に関する間接データに基づいて、企業やその他の借り手のデフォルト確率の動態をフィルタリングするためのモデルを検討しています。このモデルは、合計債務と延滞債務の残高の方程式に基づいており、対応する時系列のミッシング リンクは、Hodrick_Prescott フィルター手法を使用して構築されます。小口融資部門 (住宅ローン、消費者金融) では、デフォルト統計が入手可能であり、信用調査機関によって提供されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-b7z9em",
+      "title": "Lectures on nonlinear integrable equations and their solutions",
+      "authors": [
+        "A. Zabrodin"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2018-12-31",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/1812.11830v1",
+      "categories": [
+        "math-ph",
+        "nlin.SI"
+      ],
+      "summary": "これは、モスクワ物理工科大学と高等経済学校の学生向けに行われた講義に基づいた、非線形可積分偏微分方程式と微分差分方程式の入門コースです。 Korteweg-de Vries (KdV)、Kadomtsev-Petviashvili (KP)、および Toda 格子方程式の典型的な例を詳細に研究します。これらの方程式の Lax 表現と擬似微分演算子または擬似差分演算子の階層、さらに有名なソリトン解を含むさまざまなクラスの解について詳細に説明します。タウ関数および広田双一次微分方程式および差分方程式に関する定式化についても説明します。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：これは、モスクワ物理工科大学と高等経済学校の学生向けに行われた講義に基づいた、非線形可積分偏微分方程式と微分差分方程式の入門コースです。 Korteweg-de Vries (KdV)、Kadomtsev-Petviashvili (KP)、および Toda 格子方程式の典型的な例を詳細に研究します。これらの方程式の Lax 表現と擬似微分演算子または擬似差分演算子の階層、さらに有名なソリトン解を含むさまざまなクラスの解について詳細に説明します。タウ関数および広田双一次微分方程式および差分方程式に関する定式化についても説明します。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：これは、モスクワ物理工科大学と高等経済学校の学生向けに行われた講義に基づいた、非線形可積分偏微分方程式と微分差分方程式の入門コースです。 Korteweg-de Vries (KdV)、Kadomtsev-Petviashvili (KP)、および Toda 格子方程式の典型的な例を詳細に研究します。これらの方程式の Lax 表現と擬似微分演算子または擬似差分演算子の階層、さらに有名なソリトン解を含むさまざまなクラスの解について詳細に説明します。タウ関数および広田双一次微分方程式および差分方程式に関する定式化についても説明します。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：これは、モスクワ物理工科大学と高等経済学校の学生向けに行われた講義に基づいた、非線形可積分偏微分方程式と微分差分方程式の入門コースです。 Korteweg-de Vries (KdV)、Kadomtsev-Petviashvili (KP)、および Toda 格子方程式の典型的な例を詳細に研究します。これらの方程式の Lax 表現と擬似微分演算子または擬似差分演算子の階層、さらに有名なソリトン解を含むさまざまなクラスの解について詳細に説明します。タウ関数および広田双一次微分方程式および差分方程式に関する定式化についても説明します。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1inoecz",
+      "title": "Applicability of Radiowave Anechoic Chambers for Acoustic Free-Field Measurements on the Example of the Chamber at ITMO University",
+      "authors": [
+        "Farid Bikmukhametov",
+        "Ksenia Razrezova",
+        "Roman Smolnitsky",
+        "Yuri Shchelokov",
+        "Nikolay Kanev",
+        "Mariia Krasikova"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-17",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.16556v1",
+      "categories": [
+        "physics.app-ph"
+      ],
+      "summary": "音響電波暗室を使用すると、調査中の効果の検証や開発中のデバイスの特性評価に必要な自由音場測定が可能になります。しかし、電波暗室の建設は多大な労力と多くの資源を必要とするため、このような施設はかなり希少です。電波室についても同様のことが言えます。同時に、電波吸収用の材料が音波も吸収する可能性があることが知られており、一部のチャンバーは電磁および音響の自由場測定の両方に利用できることが期待できます。この研究では、ITMO 大学 (ロシア、サンクトペテルブルク) の電波暗室の音響測定の実現可能性を検討します。チャンバーコーティングの音響特性は、測定と数値計算によって推定されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：音響電波暗室を使用すると、調査中の効果の検証や開発中のデバイスの特性評価に必要な自由音場測定が可能になります。しかし、電波暗室の建設は多大な労力と多くの資源を必要とするため、このような施設はかなり希少です。電波室についても同様のことが言えます。同時に、電波吸収用の材料が音波も吸収する可能性があることが知られており、一部のチャンバーは電磁および音響の自由場測定の両方に利用できることが期待できます。この研究では、ITMO 大学 (ロシア、サンクトペテルブルク) の電波暗室の音響測定の実現可能性を検討します。チャンバーコーティングの音響特性は、測定と数値計算によって推定されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：音響電波暗室を使用すると、調査中の効果の検証や開発中のデバイスの特性評価に必要な自由音場測定が可能になります。しかし、電波暗室の建設は多大な労力と多くの資源を必要とするため、このような施設はかなり希少です。電波室についても同様のことが言えます。同時に、電波吸収用の材料が音波も吸収する可能性があることが知られており、一部のチャンバーは電磁および音響の自由場測定の両方に利用できることが期待できます。この研究では、ITMO 大学 (ロシア、サンクトペテルブルク) の電波暗室の音響測定の実現可能性を検討します。チャンバーコーティングの音響特性は、測定と数値計算によって推定されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：音響電波暗室を使用すると、調査中の効果の検証や開発中のデバイスの特性評価に必要な自由音場測定が可能になります。しかし、電波暗室の建設は多大な労力と多くの資源を必要とするため、このような施設はかなり希少です。電波室についても同様のことが言えます。同時に、電波吸収用の材料が音波も吸収する可能性があることが知られており、一部のチャンバーは電磁および音響の自由場測定の両方に利用できることが期待できます。この研究では、ITMO 大学 (ロシア、サンクトペテルブルク) の電波暗室の音響測定の実現可能性を検討します。チャンバーコーティングの音響特性は、測定と数値計算によって推定されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-1t9u6j6",
+      "title": "Changing Pedagogical Paradigms: Integrating Generative AI in Mathematics to Enhance Digital Literacy through 'Mathematical Battles with AI'",
+      "authors": [
+        "Maria Moskalenko",
+        "Alexander Trifanov",
+        "Roman Popkov",
+        "Arina Tabieva",
+        "Maria Smirnova",
+        "Konstantin Pravdin",
+        "Daniil Bakalin"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-03-03",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2603.02955v1",
+      "categories": [
+        "cs.HC"
+      ],
+      "summary": "この論文では、数学教育における生成 AI の役割を再定義するために ITMO 大学で設計された革新的な競争形式である「Math Battles with AI」を紹介します。著者らは、純粋に防御的な立場から離れ、検証スキルを訓練するために、特定のモードで意図的に幻覚の可能性を高めた AI エージェントを提案しています。 3 段階のトーナメント構造と、盲目的な信頼ではなく重要な検証に報いる特別な評価システムについて説明します。初期の結果は、学生の考え方に大きな変化があり、デジタル衛生と迅速なエンジニアリングにおける重要なスキルを育成していることを示しています。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この論文では、数学教育における生成 AI の役割を再定義するために ITMO 大学で設計された革新的な競争形式である「Math Battles with AI」を紹介します。著者らは、純粋に防御的な立場から離れ、検証スキルを訓練するために、特定のモードで意図的に幻覚の可能性を高めた AI エージェントを提案しています。 3 段階のトーナメント構造と、盲目的な信頼ではなく重要な検証に報いる特別な評価システムについて説明します。初期の結果は、学生の考え方に大きな変化があり、デジタル衛生と迅速なエンジニアリングにおける重要なスキルを育成していることを示しています。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この論文では、数学教育における生成 AI の役割を再定義するために ITMO 大学で設計された革新的な競争形式である「Math Battles with AI」を紹介します。著者らは、純粋に防御的な立場から離れ、検証スキルを訓練するために、特定のモードで意図的に幻覚の可能性を高めた AI エージェントを提案しています。 3 段階のトーナメント構造と、盲目的な信頼ではなく重要な検証に報いる特別な評価システムについて説明します。初期の結果は、学生の考え方に大きな変化があり、デジタル衛生と迅速なエンジニアリングにおける重要なスキルを育成していることを示しています。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この論文では、数学教育における生成 AI の役割を再定義するために ITMO 大学で設計された革新的な競争形式である「Math Battles with AI」を紹介します。著者らは、純粋に防御的な立場から離れ、検証スキルを訓練するために、特定のモードで意図的に幻覚の可能性を高めた AI エージェントを提案しています。 3 段階のトーナメント構造と、盲目的な信頼ではなく重要な検証に報いる特別な評価システムについて説明します。初期の結果は、学生の考え方に大きな変化があり、デジタル衛生と迅速なエンジニアリングにおける重要なスキルを育成していることを示しています。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    },
+    {
+      "id": "rp-r1l326",
+      "title": "Automated Classification of Source Code Changes Based on Metrics Clustering in the Software Development Process",
+      "authors": [
+        "Evgenii Kniazev"
+      ],
+      "institution": null,
+      "countryCode": null,
+      "country": null,
+      "flag": null,
+      "published": "2026-02-16",
+      "source": "arXiv",
+      "link": "https://arxiv.org/abs/2602.14591v1",
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "summary": "この論文では、変更メトリクスのクラスタリングに基づいて、ソフトウェア開発プロセス中にソース コードの変更を分類するための自動化された方法を紹介します。この方法は 2 つのステップで構成されます。1 つはコード変更ごとに計算されたメトリック ベクトルのクラスタリングで、その後、結果として得られたクラスタを事前定義された変更クラスに専門家がマッピングします。クラスターへの変更の配布は自動的に実行され、クラスターからクラスへのマッピングは専門家によって実行されます。配布ステップの自動化により、コード変更レビューに必要な時間が大幅に短縮されます。",
+      "analysis": "要旨本文（課題・手法・結果の役割は未分類）：この論文では、変更メトリクスのクラスタリングに基づいて、ソフトウェア開発プロセス中にソース コードの変更を分類するための自動化された方法を紹介します。この方法は 2 つのステップで構成されます。1 つはコード変更ごとに計算されたメトリック ベクトルのクラスタリングで、その後、結果として得られたクラスタを事前定義された変更クラスに専門家がマッピングします。クラスターへの変更の配布は自動的に実行され、クラスターからクラスへのマッピングは専門家によって実行されます。配布ステップの自動化により、コード変更レビューに必要な時間が大幅に短縮されます。",
+      "prospects": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "problem": "公開要旨（役割未分類）：この論文では、変更メトリクスのクラスタリングに基づいて、ソフトウェア開発プロセス中にソース コードの変更を分類するための自動化された方法を紹介します。この方法は 2 つのステップで構成されます。1 つはコード変更ごとに計算されたメトリック ベクトルのクラスタリングで、その後、結果として得られたクラスタを事前定義された変更クラスに専門家がマッピングします。クラスターへの変更の配布は自動的に実行され、クラスターからクラスへのマッピングは専門家によって実行されます。配布ステップの自動化により、コード変更レビューに必要な時間が大幅に短縮されます。",
+      "methods": [
+        "公開要旨の文を、位置だけで「手法」と自動分類していません。",
+        "要旨本文（役割未分類）：この論文では、変更メトリクスのクラスタリングに基づいて、ソフトウェア開発プロセス中にソース コードの変更を分類するための自動化された方法を紹介します。この方法は 2 つのステップで構成されます。1 つはコード変更ごとに計算されたメトリック ベクトルのクラスタリングで、その後、結果として得られたクラスタを事前定義された変更クラスに専門家がマッピングします。クラスターへの変更の配布は自動的に実行され、クラスターからクラスへのマッピングは専門家によって実行されます。配布ステップの自動化により、コード変更レビューに必要な時間が大幅に短縮されます。",
+        "具体的な手順・条件は、原論文のMethodsを確認してください。"
+      ],
+      "result": "公開要旨から結果文を自動確定していません。原論文のResultsまたはConclusionを確認してください。",
+      "metric": null,
+      "impact": "公開要旨だけでは今後の検証条件を特定できません。原論文のLimitationsまたはFuture Workを確認してください。",
+      "viz": null,
+      "briefingGeneratedBy": "summary-unclassified",
+      "dataQuality": {
+        "complete": false,
+        "mode": "summary-unclassified",
+        "sourceSummary": true,
+        "sourceBriefing": false,
+        "sectionClassification": "unverified",
+        "verifiedAt": null,
+        "affiliationVerified": false
+      }
+    }
+  ]
+}

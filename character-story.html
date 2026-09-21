@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="ja" data-studio-version="character">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#3e2224" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#191410" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="ResearchPhantom Studio 甲版 — キャラクターと七場面で論文を読み解く、装丁された独立ビューア"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%233e2224'/%3E%3Crect x='9' y='9' width='46' height='46' fill='none' stroke='%23e3c583' stroke-width='1.4'/%3E%3Ctext x='32' y='42' font-size='26' font-family='serif' fill='%23e3c583' text-anchor='middle'%3E%E7%94%B2%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./src/shared/bookbinding.css" />
+    <link rel="stylesheet" href="./src/shared/edition-switcher.css" />
+    <link rel="stylesheet" href="./src/character/character-story.css" />
+    <title>甲版 キャラクター解説 — ResearchPhantom Studio</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#story-stage">解説へ移動</a>
+
+    <div class="app-shell" data-app-state="loading">
+      <header class="topbar">
+        <a class="brand" href="./character-story.html" aria-label="ResearchPhantom Studio Ver.A ホーム">
+          <span class="brand-mark" aria-hidden="true">RP</span>
+          <span>
+            <b>ResearchPhantom Studio</b>
+            <small>甲版 · CHARACTER STORY</small>
+          </span>
+        </a>
+
+        <nav class="edition-switcher" data-edition-switcher data-current-edition="extra" aria-label="表示モードを切り替える">
+          <a class="edition-switcher__link" href="./index.html" data-edition-target="light" aria-label="Light：書架と概要を開く"><b>Light</b><small>書架</small></a>
+          <a class="edition-switcher__link" href="./data-motion.html" data-edition-target="full" data-paper-handoff aria-label="Full：データ解析を開く"><b>Full</b><small>データ解析</small></a>
+          <a class="edition-switcher__link" href="./character-story.html" data-edition-target="extra" aria-current="page" aria-label="Extra：キャラクター実演を開く"><b>Extra</b><small>キャラ実演</small></a>
+        </nav>
+
+        <button class="library-toggle" type="button" data-library-toggle aria-controls="paper-library" aria-expanded="false">
+          論文を選ぶ
+        </button>
+      </header>
+
+      <div class="workspace">
+        <aside class="paper-library" id="paper-library" aria-label="論文ライブラリ">
+          <div class="library-heading">
+            <div>
+              <p class="eyebrow">Daily Research Feed</p>
+              <h1>論文目次</h1>
+            </div>
+            <button class="library-close" type="button" data-library-close aria-label="論文一覧を閉じる">×</button>
+          </div>
+
+          <label class="search-field" for="paper-search">
+            <span data-search-label>論文を検索</span>
+            <input id="paper-search" type="search" inputmode="search" placeholder="題名・著者・分野" autocomplete="off" />
+          </label>
+
+          <div class="library-stats" aria-live="polite">
+            <span><b data-result-count>0</b> 件</span>
+            <span><b data-favorite-count>0</b> お気に入り</span>
+            <span><b data-reviewed-count>0</b> 既読</span>
+          </div>
+
+          <div class="paper-list" data-paper-list role="listbox" aria-label="論文を選択"></div>
+          <p class="empty-state" data-empty-state hidden>条件に一致する論文がありません。</p>
+        </aside>
+
+        <main class="story-main" id="story-stage">
+          <section class="story-header" aria-labelledby="paper-title">
+            <div class="paper-meta">
+              <span data-paper-order>PAPER 01 / 75</span>
+              <span data-paper-source>ARXIV</span>
+              <span data-paper-date>—</span>
+            </div>
+            <h2 id="paper-title" data-paper-title>論文を読み込んでいます</h2>
+            <p class="paper-authors" data-paper-authors aria-label="著者"></p>
+            <p class="verification-disclosure" data-verification-disclosure aria-live="polite">
+              論文フィードのみ日次更新です。解説・音声・動画は原文確認とレビュー後に追加します。
+            </p>
+            <div class="paper-actions">
+              <button type="button" data-favorite-button aria-pressed="false">☆ お気に入り</button>
+              <button type="button" data-reviewed-button aria-pressed="false">○ 既読にする</button>
+              <a data-source-link href="#" target="_blank" rel="noreferrer">原文を確認 ↗</a>
+            </div>
+          </section>
+
+          <section class="viewer" aria-label="キャラクター論文解説">
+            <div class="view-switch" role="group" aria-label="視聴方式">
+              <p class="cast-scope">200名アーカイブ＋7名デモ案内</p>
+              <button type="button" data-view-mode="live" aria-pressed="true">ライブ紙芝居</button>
+              <button type="button" data-view-mode="video" aria-pressed="false">完成デモ動画</button>
+            </div>
+
+            <div class="live-story" data-live-story>
+              <ol class="scene-rail" data-scene-rail aria-label="7場面">
+                <li><button type="button" data-scene-index="0"><span>01</span>問い</button></li>
+                <li><button type="button" data-scene-index="1"><span>02</span>入力</button></li>
+                <li><button type="button" data-scene-index="2"><span>03</span>処理</button></li>
+                <li><button type="button" data-scene-index="3"><span>04</span>注意</button></li>
+                <li><button type="button" data-scene-index="4"><span>05</span>観測</button></li>
+                <li><button type="button" data-scene-index="5"><span>06</span>整理</button></li>
+                <li><button type="button" data-scene-index="6"><span>07</span>結論</button></li>
+              </ol>
+
+              <div class="paper-theater" data-paper-theater>
+                <div class="theater-grid" data-scene-card>
+                  <div class="guide-zone" aria-label="案内キャラクター">
+                    <div class="guide-aura" aria-hidden="true"></div>
+                    <div class="guide-frame">
+                      <img data-guide-image alt="" hidden />
+                      <div class="dom-guide" data-dom-guide aria-hidden="true">
+                        <span class="dom-guide-hair"></span>
+                        <span class="dom-guide-face">
+                          <i class="eye eye-left"></i>
+                          <i class="eye eye-right"></i>
+                          <i class="mouth"></i>
+                        </span>
+                        <span class="dom-guide-body"></span>
+                        <span class="dom-guide-arm"></span>
+                      </div>
+                    </div>
+
+                    <div class="guide-label">
+                      <strong data-guide-name>案内役</strong>
+                      <span data-guide-role>論文ナビゲーター</span>
+                    </div>
+
+                    <div class="prop-card" aria-label="場面の小物">
+                      <span class="prop-icon" data-prop-icon aria-hidden="true">✦</span>
+                      <span data-prop-name>小物</span>
+                    </div>
+                  </div>
+
+                  <article class="point-zone">
+                    <p class="scene-kicker" data-scene-kicker>SCENE 01 · QUESTION</p>
+                    <h3 data-scene-title>この論文は何を解こうとした？</h3>
+                    <p class="scene-point" data-scene-point aria-live="polite">読み込み中です。</p>
+                    <p class="scene-note" data-scene-note></p>
+
+                    <div class="experiment-flow" aria-label="実験の流れ">
+                      <span data-flow="input">入力</span>
+                      <i aria-hidden="true">→</i>
+                      <span data-flow="process">処理</span>
+                      <i aria-hidden="true">→</i>
+                      <span data-flow="caution">注意</span>
+                      <i aria-hidden="true">→</i>
+                      <span data-flow="observation">観測</span>
+                      <i aria-hidden="true">→</i>
+                      <span data-flow="interpretation">解釈</span>
+                      <i aria-hidden="true">→</i>
+                      <span data-flow="conclusion">結論</span>
+                    </div>
+
+                    <figure class="supporting-cast" data-supporting-cast hidden aria-label="場面理解を助ける比喩的な助演キャスト">
+                      <div class="supporting-cast-window">
+                        <img data-supporting-cast-image alt="" />
+                      </div>
+                      <figcaption>
+                        <span>助演キャスト · 図鑑200名より</span>
+                        <strong data-supporting-cast-label aria-live="polite">人物図鑑</strong>
+                        <small>論文著者ではなく、内容理解を助ける比喩役です。図版の小物も場面の手掛かりとして表示します。</small>
+                      </figcaption>
+                    </figure>
+                  </article>
+                </div>
+
+                <div class="subtitle" data-subtitle-box>
+                  <span>字幕</span>
+                  <p data-subtitle>字幕を読み込んでいます。</p>
+                </div>
+                <div class="scene-progress" aria-hidden="true"><i data-scene-progress></i></div>
+              </div>
+            </div>
+
+            <div class="video-story" data-video-story hidden>
+              <video
+                data-demo-video
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Ver.A キャラクター解説デモ動画"
+                poster="./public/assets/characters/character-demo-poster.svg"
+              >
+                <source src="./public/assets/video/character-demo.mp4" type="video/mp4" />
+              </video>
+              <div class="video-fallback" data-video-fallback hidden>
+                <strong>デモ動画を再生できませんでした。</strong>
+                <span>ライブ紙芝居なら、同じ7場面をそのまま視聴できます。</span>
+                <button type="button" data-fallback-live>ライブ紙芝居へ</button>
+              </div>
+              <p>先頭論文「Persistent Entropy Transform」専用の47秒・7場面の完成デモです。VOICEVOX:ずんだもんの事前生成音声と字幕で、一次資料で確認した範囲だけを案内します。登場する案内役は理解を助ける比喩的キャラクターであり、論文著者本人ではありません。ほかの論文はライブ紙芝居で案内します。</p>
+            </div>
+
+            <div class="playback-controls" aria-label="再生コントロール">
+              <button type="button" data-previous-scene aria-label="前の場面">←</button>
+              <button class="primary-control" type="button" data-play-button aria-pressed="false">▶ 再生</button>
+              <button type="button" data-next-scene aria-label="次の場面">→</button>
+
+              <label>
+                速度
+                <select data-speed-select>
+                  <option value="0.75">0.75×</option>
+                  <option value="1" selected>1.0×</option>
+                  <option value="1.25">1.25×</option>
+                  <option value="1.5">1.5×</option>
+                  <option value="2">2.0×</option>
+                </select>
+              </label>
+
+              <label class="switch-control">
+                <input type="checkbox" data-subtitle-toggle checked />
+                <span>字幕</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="media-settings" aria-label="音声とページ音">
+            <div class="setting-block">
+              <div>
+                <p class="eyebrow">NARRATION</p>
+                <h3>案内ボイス</h3>
+              </div>
+              <label>
+                音声
+                <select data-voice-select>
+                  <option value="voicevox">VOICEVOX:ずんだもん</option>
+                  <option value="openai" disabled>OpenAI Voice（素材未登録）</option>
+                  <option value="captions">字幕のみ</option>
+                </select>
+              </label>
+              <p data-voice-status>音声素材を確認しています。</p>
+              <small data-openai-availability>OpenAI Voice素材は未登録です。字幕で続けられます。公開済み音声が追加された場合のみ、鍵なしで選択できます。</small>
+            </div>
+
+            <div class="setting-block">
+              <div>
+                <p class="eyebrow">PAGE FOLEY</p>
+                <h3>ページをめくる音</h3>
+              </div>
+              <div class="sound-controls">
+                <label>
+                  選び方
+                  <select data-sound-mode>
+                    <option value="random">5種類からランダム</option>
+                    <option value="manual">任意選択</option>
+                  </select>
+                </label>
+                <label>
+                  素材
+                  <select data-sound-select disabled></select>
+                </label>
+                <label>
+                  音量 <output data-sound-volume-output>38%</output>
+                  <input data-sound-volume type="range" min="0" max="1" step="0.01" value="0.38" />
+                </label>
+                <button type="button" data-sound-preview>試聴</button>
+              </div>
+              <p data-sound-status>5種類のさらりとしたページ音を読み込んでいます。</p>
+            </div>
+          </section>
+
+          <section class="paper-navigation" aria-label="論文を移動">
+            <button type="button" data-previous-paper>← 前の論文</button>
+            <span data-paper-position>1 / 75</span>
+            <button type="button" data-next-paper>次の論文 →</button>
+          </section>
+
+          <div class="app-status" data-app-status role="status" aria-live="polite">論文データを準備しています。</div>
+        </main>
+      </div>
+    </div>
+
+    <noscript>このページの7場面解説を利用するにはJavaScriptを有効にしてください。</noscript>
+    <script type="module" src="./src/shared/edition-runtime.js"></script>
+    <script type="module" src="./src/character/character-story.js"></script>
+  </body>
+</html>
