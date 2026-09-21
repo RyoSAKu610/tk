@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Two static ResearchPhantom reading experiences for GitHub Pages.",
+  "description": "ResearchPhantom understanding experiences deployed on Cloudflare Workers.",
   "scripts": {
     "build": "node tools/build.mjs",
     "deploy": "npm run build && wrangler deploy",
