@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: research-feed-sync
@@ -17,52 +15,30 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.changes.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .node-version
           cache: npm
       - run: npm ci
       - name: Fetch and validate upstream data
         run: npm run sync:remote
       - name: Verify the complete static build
         run: npm test
-      - name: Detect a validated feed change
-        id: changes
+      - name: Commit only a validated feed change
         run: |
           if git diff --quiet -- public/data/research-feed.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "No validated feed change."
+            exit 0
           fi
-      - name: Commit only a validated change
-        if: steps.changes.outputs.changed == 'true'
-        run: |
           git config user.name "researchphantom-sync[bot]"
           git config user.email "researchphantom-sync[bot]@users.noreply.github.com"
           git add public/data/research-feed.json
           git commit -m "data: sync daily ResearchPhantom feed"
           git push
-      - uses: actions/configure-pages@v5
-        if: steps.changes.outputs.changed == 'true'
-      - uses: actions/upload-pages-artifact@v3
-        if: steps.changes.outputs.changed == 'true'
-        with:
-          path: dist
 
-  deploy:
-    if: needs.sync.outputs.changed == 'true'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: sync
-    steps:
-      - name: Deploy updated feed
-        id: deployment
-        uses: actions/deploy-pages@v4
+# Cloudflare Workers Builds watches main. A validated sync commit automatically
+# triggers the same production deployment used for application changes.
