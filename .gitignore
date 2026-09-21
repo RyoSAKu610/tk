@@ -1,0 +1,13 @@
+dist/
+.dist-staging-*/
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+.playwright-cli/
+output/
+.motion-jobs/
+.claude/settings.local.json

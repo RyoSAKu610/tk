@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "coverage": {
+    "firstId": 1,
+    "lastId": 200,
+    "charactersPerSheet": 10,
+    "sheetCount": 20
+  },
+  "rights": "user-supplied-and-authorized-for-this-project",
+  "provenanceFile": "./PROVENANCE.md",
+  "guides": [
+    { "id": "newton", "label": "Isaac Newton", "file": "./guide-newton.webp", "sourceSheet": "001-010" },
+    { "id": "ada", "label": "Ada Lovelace", "file": "./guide-ada.webp", "sourceSheet": "031-040" },
+    { "id": "pascal", "label": "Blaise Pascal", "file": "./guide-pascal.webp", "sourceSheet": "001-010" },
+    { "id": "curie", "label": "Marie Curie", "file": "./guide-curie.webp", "sourceSheet": "001-010" },
+    { "id": "galileo", "label": "Galileo Galilei", "file": "./guide-galileo.webp", "sourceSheet": "001-010" },
+    { "id": "socrates", "label": "Socrates", "file": "./guide-socrates.webp", "sourceSheet": "021-030" },
+    { "id": "darwin", "label": "Charles Darwin", "file": "./guide-darwin.webp", "sourceSheet": "091-100" }
+  ],
+  "sheets": [
+    { "range": "001-010", "file": "./sheets/001-010.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_33 (1).png", "sourceSha256": "7f3b006dd50048dd877a63908b30ac6bddab6617315e32ed2ba4abba4c0114b6" },
+    { "range": "011-020", "file": "./sheets/011-020.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_33 (2).png", "sourceSha256": "54d6809fd340d6c4d1c3dc4cb10d790eea4807e418920a9796794481587814ae" },
+    { "range": "021-030", "file": "./sheets/021-030.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_34 (3).png", "sourceSha256": "f9069b7a26558ad41bc467529a2134872aa7de5ee246c6442445bf8f05a077e7" },
+    { "range": "031-040", "file": "./sheets/031-040.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_34 (4).png", "sourceSha256": "636901bafc6d1990e43840bea5559356f9a183d820c8cf3f506a5b47d55fffe9" },
+    { "range": "041-050", "file": "./sheets/041-050.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_34 (5).png", "sourceSha256": "94f4aff35d9684e70bdcb74e6f3f668bd460da7ffe0856e99749b9a42060b0a1" },
+    { "range": "051-060", "file": "./sheets/051-060.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_35 (6).png", "sourceSha256": "8f64ae5c21fc29f3335d2650036b3030cf1dfe06e4d56fb68e73fa0447670b40" },
+    { "range": "061-070", "file": "./sheets/061-070.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_35 (7).png", "sourceSha256": "1764d8289f242ee6d8eccde5aaa3220b7a59a567395dcd80a0a4be7ec953a7cc" },
+    { "range": "071-080", "file": "./sheets/071-080.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_35 (8).png", "sourceSha256": "82f525f58cd442269dbf8289157e98777ac64e031abb595af7cb64584eef532b" },
+    { "range": "081-090", "file": "./sheets/081-090.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_36 (9).png", "sourceSha256": "cdba9a03a1978bf5f262d05a911156a7c84e2f161b67a069dfc7debe97f84500" },
+    { "range": "091-100", "file": "./sheets/091-100.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_12_36 (10).png", "sourceSha256": "d9d778c3909a2f1b10cc266e2bd11cac9d82e493b349ebcb2140884c254152bb" },
+    { "range": "101-110", "file": "./sheets/101-110.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_04 (1).png", "sourceSha256": "22067f9973c82253e906e813b42da72e887af5abb90f8a7124ed6b19f117e77c" },
+    { "range": "111-120", "file": "./sheets/111-120.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_04 (2).png", "sourceSha256": "4f82fabb332e58116b79c63b05bd06c3e587da0cccdf5717e0a5bff039eaaa6d" },
+    { "range": "121-130", "file": "./sheets/121-130.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_05 (3).png", "sourceSha256": "1cfc9f8f2d9916f5dfebf04074e6dfe42d86ef904a178a7fbc2b61d91477fa97" },
+    { "range": "131-140", "file": "./sheets/131-140.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_05 (4).png", "sourceSha256": "580002c5f8c8fede7bc30af86c1326258a409d0e9e281a51f5eb09c2f1e5996e" },
+    { "range": "141-150", "file": "./sheets/141-150.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_06 (5).png", "sourceSha256": "54f2f98de6949bd490e3730e8e0b6317bf11e8bfcbad01a330ae5e81d16e8113" },
+    { "range": "151-160", "file": "./sheets/151-160.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_06 (6).png", "sourceSha256": "60d76319a81bc84c535170e422241071ccef2173b65be93f7b3042854b165343" },
+    { "range": "161-170", "file": "./sheets/161-170.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_06 (7).png", "sourceSha256": "4972c60e1eb3be024a1770d2d6c511eb58cee80327239e54b0e62b78702409f9" },
+    { "range": "171-180", "file": "./sheets/171-180.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_07 (8).png", "sourceSha256": "6e062f828b253b47bd4d51a3b0ebda574d3b26534eeef52eac42fb8928addb44" },
+    { "range": "181-190", "file": "./sheets/181-190.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_07 (9).png", "sourceSha256": "5ea62f722976aff68771c809a10870bbe3c5feac313d184b8d70dff78052592f" },
+    { "range": "191-200", "file": "./sheets/191-200.webp", "sourceName": "ChatGPT Image 2026年7月27日 07_27_07 (10).png", "sourceSha256": "91c59285c5ce930014a9323abe52c4765961c8dcfcf4937a7ef9b8946c0aaaaf" }
+  ],
+  "provenance": "User-provided ResearchPhantom character encyclopedia artwork, resized and cropped for this static demo."
+}

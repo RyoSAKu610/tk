@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sounds": [
+    {
+      "id": "paper-01",
+      "label": "薄紙・軽やか",
+      "file": "./paper-01.mp3",
+      "gain": 1.05,
+      "durationMs": 650
+    },
+    {
+      "id": "paper-02",
+      "label": "古紙・しっとり",
+      "file": "./paper-02.mp3",
+      "gain": 0.9,
+      "durationMs": 1091
+    },
+    {
+      "id": "paper-03",
+      "label": "和紙・ささやき",
+      "file": "./paper-03.mp3",
+      "gain": 1.08,
+      "durationMs": 604
+    },
+    {
+      "id": "paper-04",
+      "label": "素早いフリック",
+      "file": "./paper-04.mp3",
+      "gain": 0.96,
+      "durationMs": 697
+    },
+    {
+      "id": "paper-05",
+      "label": "厚紙・重厚",
+      "file": "./paper-05.mp3",
+      "gain": 0.88,
+      "durationMs": 1126
+    }
+  ]
+}

@@ -1,0 +1,570 @@
+/* ==========================================================================
+   ResearchPhantom Studio — 装丁 (bookbinding) design system
+   --------------------------------------------------------------------------
+   3つの入口すべてが、ページ固有CSSより先にこの一枚を読み込みます。
+   ここでは「本」としての物性だけを定義します:
+     ・紙 (paper)   生成りの本文用紙、扉紙、図版台紙、小口
+     ・墨 (ink)     本文、ルビ相当の小字、罫
+     ・箔 (foil)    表紙・背の箔押し
+     ・クロス(cloth) 表紙の布と革
+     ・部品         花布・栞紐・帯・小口・ノンブル・柱・蔵書印・リーダー罫
+   既定は「紙」。prefers-color-scheme: dark では「革装・灯下」へ切り替えます。
+   外部フォント・外部画像は一切使いません（GitHub Pagesで自己完結）。
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---- 紙 ------------------------------------------------------------- */
+  --bb-paper: #f2ebdd;        /* 本文用紙・生成り */
+  --bb-paper-lit: #faf5ea;    /* 扉と見返しの明るい紙 */
+  --bb-paper-dim: #e8dcc6;    /* 図版の台紙 */
+  --bb-paper-edge: #d3c3a6;   /* 小口・断面 */
+  --bb-paper-shade: #c9b795;  /* 綴じ側の影 */
+
+  /* ---- 墨 ------------------------------------------------------------- */
+  --bb-ink: #2a2119;
+  --bb-ink-soft: #57493a;
+  --bb-ink-faint: #8a7a64;
+  --bb-ink-ghost: rgb(42 33 25 / 45%);
+  --bb-rule: rgb(42 33 25 / 16%);
+  --bb-rule-strong: rgb(42 33 25 / 34%);
+  --bb-rule-hair: rgb(42 33 25 / 9%);
+
+  /* ---- 箔 ------------------------------------------------------------- */
+  --bb-gold: #9d7c33;
+  --bb-gold-lit: #e3c583;
+  --bb-gold-deep: #654c17;
+
+  /* ---- クロス装（臙脂 / 藍） ------------------------------------------- */
+  --bb-cloth: #3e2224;
+  --bb-cloth-lit: #5b3436;
+  --bb-cloth-deep: #271416;
+  --bb-indigo: #1f3450;
+  --bb-indigo-lit: #35506e;
+  --bb-indigo-deep: #131f33;
+
+  /* ---- 差し色 ---------------------------------------------------------- */
+  --bb-seal: #a63a2b;         /* 蔵書印の朱 */
+  --bb-ribbon: #8d2b3a;       /* 栞紐 */
+  --bb-verdigris: #376a61;    /* 緑青 */
+
+  /* ---- 押し型（塗りつぶしのボタン） --------------------------------------
+     クロスの色は暗所でさらに沈むので、地と文字は必ずこの対で使う。 */
+  --bb-stamp-bg: var(--bb-cloth);
+  --bb-stamp-bg-hover: var(--bb-cloth-lit);
+  --bb-stamp-fg: #f5ead4;
+
+  /* ---- 組版 ------------------------------------------------------------ */
+  --bb-mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", YuMincho,
+    "Noto Serif JP", "Source Han Serif JP", "Songti SC", serif;
+  --bb-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+    Georgia, "Times New Roman", var(--bb-mincho);
+  --bb-gothic: "Hiragino Sans", "Yu Gothic", YuGothic, "Noto Sans JP", system-ui,
+    -apple-system, sans-serif;
+  --bb-lead: 1.95;            /* 本文の行送り */
+  --bb-measure: 33em;         /* 版面の一行字詰め */
+
+  /* ---- 物性 ------------------------------------------------------------ */
+  --bb-round: 2px;            /* 印刷物なので角はほぼ立てる */
+  --bb-round-lg: 4px;
+  --bb-shadow-page: 0 1px 0 rgb(255 255 255 / 55%), 0 10px 26px rgb(58 42 24 / 12%);
+  --bb-shadow-book: 0 2px 3px rgb(38 26 14 / 18%), 0 22px 48px rgb(38 26 14 / 22%);
+  --bb-shadow-inset: inset 0 0 0 1px rgb(255 255 255 / 34%);
+
+  /* ---- テクスチャ ------------------------------------------------------- */
+  /* 紙の繊維（フラクタルノイズ）。背景レイヤーとして重ね、本文の下に敷く */
+  --bb-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23g)' opacity='.3'/%3E%3C/svg%3E");
+  --bb-grain-blend: multiply;
+  /* 簀の目（laid lines）*/
+  --bb-laid:
+    repeating-linear-gradient(90deg, rgb(120 96 60 / 5%) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(0deg, rgb(120 96 60 / 7%) 0 1px, transparent 1px 34px);
+  /* 装丁クロスの織り目 */
+  --bb-weave:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 5%) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(0deg, rgb(0 0 0 / 16%) 0 1px, transparent 1px 3px);
+}
+
+/* -------------------------------------------------------------------------
+   革装・灯下 — 夜の書斎で同じ本を開いたときの見え方
+   ------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bb-paper: #191410;
+    --bb-paper-lit: #221a14;
+    --bb-paper-dim: #14100c;
+    --bb-paper-edge: #3a2e22;
+    --bb-paper-shade: #0d0a07;
+
+    --bb-ink: #ece0c9;
+    --bb-ink-soft: #bfae91;
+    --bb-ink-faint: #8d7d64;
+    --bb-ink-ghost: rgb(236 224 201 / 42%);
+    --bb-rule: rgb(226 197 131 / 17%);
+    --bb-rule-strong: rgb(226 197 131 / 34%);
+    --bb-rule-hair: rgb(226 197 131 / 9%);
+
+    --bb-gold: #c9a961;
+    --bb-gold-lit: #f0d79b;
+    --bb-gold-deep: #8a6a25;
+
+    --bb-cloth: #2c1618;
+    --bb-cloth-lit: #452224;
+    --bb-cloth-deep: #180c0d;
+    --bb-indigo: #16273c;
+    --bb-indigo-lit: #274059;
+    --bb-indigo-deep: #0b1421;
+
+    --bb-seal: #c9503c;
+    --bb-ribbon: #a53a48;
+    --bb-verdigris: #4f8a80;
+
+    --bb-stamp-bg: #5f3b3d;
+    --bb-stamp-bg-hover: #74494b;
+    --bb-stamp-fg: #fbf1dd;
+
+    --bb-shadow-page: 0 1px 0 rgb(255 236 200 / 6%), 0 12px 30px rgb(0 0 0 / 55%);
+    --bb-shadow-book: 0 2px 3px rgb(0 0 0 / 50%), 0 26px 60px rgb(0 0 0 / 60%);
+    --bb-shadow-inset: inset 0 0 0 1px rgb(255 236 200 / 7%);
+
+    --bb-laid:
+      repeating-linear-gradient(90deg, rgb(226 197 131 / 4%) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(0deg, rgb(226 197 131 / 5%) 0 1px, transparent 1px 34px);
+    --bb-grain-blend: soft-light;
+  }
+}
+
+/* ==========================================================================
+   紙面の基礎
+   ========================================================================== */
+
+/* 一枚の紙。断ち落としではなく、必ず地色の上に浮かせる。
+   繊維は本文の下に敷きたいので ::before の覆いではなく背景レイヤーで合成する。 */
+.bb-sheet {
+  position: relative;
+  background-color: var(--bb-paper-lit);
+  background-image: var(--bb-grain), var(--bb-laid);
+  background-blend-mode: var(--bb-grain-blend), normal, normal;
+  border: 1px solid var(--bb-rule);
+  border-radius: var(--bb-round);
+  box-shadow: var(--bb-shadow-page);
+}
+
+/* 綴じ側（ノド）の陰り。左右どちらの版面にも使える */
+.bb-sheet.bb-gutter-left {
+  background-image:
+    linear-gradient(90deg, rgb(120 92 52 / 17%), transparent 40px),
+    var(--bb-grain),
+    var(--bb-laid);
+  background-blend-mode: normal, var(--bb-grain-blend), normal, normal;
+}
+
+.bb-sheet.bb-gutter-right {
+  background-image:
+    linear-gradient(270deg, rgb(120 92 52 / 17%), transparent 40px),
+    var(--bb-grain),
+    var(--bb-laid);
+  background-blend-mode: normal, var(--bb-grain-blend), normal, normal;
+}
+
+/* ==========================================================================
+   箔押しと空押し
+   ========================================================================== */
+
+.bb-foil {
+  background-image: linear-gradient(
+    100deg,
+    var(--bb-gold-deep) 0%,
+    var(--bb-gold-lit) 20%,
+    #fff3ce 31%,
+    var(--bb-gold) 44%,
+    var(--bb-gold-deep) 58%,
+    var(--bb-gold-lit) 79%,
+    var(--bb-gold) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter:
+    drop-shadow(0 1px 0 rgb(0 0 0 / 42%))
+    drop-shadow(0 -1px 0 rgb(255 240 205 / 16%));
+}
+
+@supports not ((background-clip: text) or (-webkit-background-clip: text)) {
+  .bb-foil {
+    color: var(--bb-gold-lit);
+    -webkit-text-fill-color: currentcolor;
+    background-image: none;
+  }
+}
+
+/* 空押し（インクを使わない型押し）。クロスの上でだけ効く */
+.bb-emboss {
+  color: rgb(255 255 255 / 13%);
+  text-shadow:
+    0 1px 0 rgb(255 255 255 / 12%),
+    0 -1px 1px rgb(0 0 0 / 55%);
+}
+
+/* 活版のインク溜まり。本文見出しに極小量だけ */
+.bb-letterpress {
+  text-shadow: 0 0.02em 0 rgb(42 33 25 / 22%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bb-letterpress { text-shadow: 0 0.02em 0.02em rgb(0 0 0 / 60%); }
+}
+
+/* ==========================================================================
+   クロス装・革装の面
+   ========================================================================== */
+
+.bb-cloth {
+  position: relative;
+  color: #f3e6cd;
+  background-color: var(--bb-cloth);
+  background-image:
+    var(--bb-weave),
+    radial-gradient(120% 80% at 22% 8%, rgb(255 220 170 / 12%), transparent 62%);
+  box-shadow: var(--bb-shadow-book);
+}
+
+.bb-cloth-indigo {
+  color: #e7eef6;
+  background-color: var(--bb-indigo);
+  background-image:
+    var(--bb-weave),
+    radial-gradient(120% 80% at 22% 8%, rgb(190 220 255 / 13%), transparent 62%);
+}
+
+/* 表紙の罫押し（three-line fillet）。内側に金の細枠を回す */
+.bb-fillet::after {
+  position: absolute;
+  z-index: 1;
+  inset: clamp(10px, 1.6vw, 20px);
+  pointer-events: none;
+  content: "";
+  border: 1px solid rgb(226 197 131 / 42%);
+  box-shadow:
+    inset 0 0 0 3px rgb(0 0 0 / 22%),
+    inset 0 0 0 4px rgb(226 197 131 / 20%);
+}
+
+/* ==========================================================================
+   本の部品
+   ========================================================================== */
+
+/* 花布（ヘッドバンド）— 背の天地に覗く縞 */
+.bb-headband {
+  height: 7px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--bb-gold-lit) 0 3px,
+    var(--bb-cloth-deep) 3px 6px
+  );
+  box-shadow: inset 0 -2px 3px rgb(0 0 0 / 45%);
+}
+
+/* 小口（前小口の紙束）— 要素の右端に薄紙を重ねる */
+.bb-edges {
+  position: relative;
+}
+
+.bb-edges::after {
+  position: absolute;
+  z-index: 2;
+  top: 3px;
+  right: -7px;
+  bottom: 3px;
+  width: 7px;
+  pointer-events: none;
+  content: "";
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--bb-paper-edge) 0 1px,
+    var(--bb-paper-lit) 1px 3px
+  );
+  border-radius: 0 var(--bb-round) var(--bb-round) 0;
+  box-shadow: 1px 0 4px rgb(58 42 24 / 26%);
+}
+
+/* 栞紐（スピン）— 現在位置の目印 */
+.bb-ribbon {
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  width: 13px;
+  background-image: linear-gradient(
+    90deg,
+    #601c28,
+    var(--bb-ribbon) 38%,
+    #b25563 62%,
+    #6c2130
+  );
+  box-shadow: 0 3px 7px rgb(30 8 12 / 40%);
+}
+
+.bb-ribbon::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 12px;
+  content: "";
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 58%, 0 100%);
+}
+
+/* 帯（obi）— 表紙の下三分の一に巻く紙 */
+.bb-obi {
+  position: relative;
+  color: var(--bb-ink);
+  background-color: var(--bb-paper-dim);
+  background-image: var(--bb-grain);
+  background-blend-mode: var(--bb-grain-blend);
+  border-top: 1px solid rgb(0 0 0 / 22%);
+  box-shadow: 0 -3px 10px rgb(0 0 0 / 26%);
+}
+
+/* 蔵書印 — お気に入り済みの朱印 */
+.bb-seal {
+  display: inline-grid;
+  width: 2.15em;
+  height: 2.15em;
+  place-items: center;
+  color: var(--bb-seal);
+  font-family: var(--bb-mincho);
+  font-size: 0.72em;
+  line-height: 1;
+  border: 2px solid currentcolor;
+  border-radius: 2px;
+  opacity: 0.88;
+  transform: rotate(-6deg);
+}
+
+/* ==========================================================================
+   組版の部品
+   ========================================================================== */
+
+/* 柱（running head）— 版面の上に置く小さな見出し */
+.bb-running-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  color: var(--bb-ink-faint);
+  font-family: var(--bb-serif);
+  font-size: 0.68rem;
+  font-style: italic;
+  letter-spacing: 0.13em;
+  border-bottom: 1px solid var(--bb-rule);
+}
+
+/* ノンブル（folio）— 版面の地に置く頁付け */
+.bb-folio {
+  color: var(--bb-ink-faint);
+  font-family: var(--bb-serif);
+  font-size: 0.72rem;
+  font-variant-numeric: oldstyle-nums;
+  letter-spacing: 0.22em;
+}
+
+.bb-folio::before,
+.bb-folio::after {
+  color: var(--bb-ink-ghost);
+  content: "—";
+  padding: 0 0.55em;
+}
+
+/* 標題の肩見出し（小塊のスモールキャップ風） */
+.bb-caps {
+  margin: 0;
+  color: var(--bb-gold);
+  font-family: var(--bb-serif);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* 目次のリーダー罫（点線が頁番号まで伸びる） */
+.bb-leader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.bb-leader > :first-child { flex: 0 1 auto; }
+
+.bb-leader::after,
+.bb-leader > .bb-leader-fill {
+  height: 0;
+  flex: 1 1 auto;
+  min-width: 1.5rem;
+  align-self: baseline;
+  content: "";
+  border-bottom: 1px dotted var(--bb-ink-ghost);
+  transform: translateY(-0.28em);
+}
+
+.bb-leader:has(.bb-leader-fill)::after { content: none; }
+
+/* 飾り罫（花形） */
+.bb-ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--bb-gold);
+  font-size: 0.85rem;
+}
+
+.bb-ornament::before,
+.bb-ornament::after {
+  height: 1px;
+  flex: 1;
+  content: "";
+  background-image: linear-gradient(90deg, transparent, var(--bb-rule-strong), transparent);
+}
+
+/* 二重罫 */
+.bb-rule-double {
+  height: 3px;
+  border-top: 1px solid var(--bb-rule-strong);
+  border-bottom: 1px solid var(--bb-rule);
+}
+
+/* ドロップキャップ（本文冒頭の大文字） */
+.bb-dropcap::first-letter {
+  float: left;
+  margin: 0.06em 0.14em 0 0;
+  color: var(--bb-cloth);
+  font-family: var(--bb-serif);
+  font-size: 3.2em;
+  font-weight: 600;
+  line-height: 0.82;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bb-dropcap::first-letter { color: var(--bb-gold-lit); }
+}
+
+/* 図版（plate）— 台紙に貼り込んだ図とキャプション */
+.bb-plate {
+  background-color: var(--bb-paper-dim);
+  border: 1px solid var(--bb-rule-strong);
+  border-radius: var(--bb-round);
+  box-shadow: inset 0 0 0 6px var(--bb-paper-lit), var(--bb-shadow-page);
+}
+
+.bb-plate-caption {
+  margin: 0;
+  color: var(--bb-ink-faint);
+  font-family: var(--bb-mincho);
+  font-size: 0.72rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* 奥付（colophon）— 巻末の刊記 */
+.bb-colophon {
+  color: var(--bb-ink-soft);
+  font-family: var(--bb-mincho);
+  font-size: 0.74rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
+.bb-colophon dt {
+  color: var(--bb-ink-faint);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
+/* ==========================================================================
+   共通の操作部品 — 押し型のボタンと入力欄
+   ========================================================================== */
+
+.bb-stamp {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  padding: 0.5em 1em;
+  color: var(--bb-ink-soft);
+  font-family: var(--bb-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  background-color: transparent;
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 26%), transparent);
+  border: 1px solid var(--bb-rule-strong);
+  border-radius: var(--bb-round);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 120ms ease;
+}
+
+.bb-stamp:hover {
+  color: var(--bb-ink);
+  border-color: var(--bb-gold);
+  background-color: rgb(226 197 131 / 16%);
+}
+
+.bb-stamp:active { transform: translateY(1px); }
+
+.bb-stamp[aria-pressed="true"],
+.bb-stamp[aria-current="page"],
+.bb-stamp.is-current {
+  color: var(--bb-stamp-fg);
+  background-color: var(--bb-stamp-bg);
+  background-image: var(--bb-weave);
+  border-color: var(--bb-stamp-bg);
+}
+
+.bb-field {
+  width: 100%;
+  min-height: 42px;
+  padding: 0.5em 0.75em;
+  color: var(--bb-ink);
+  font-family: var(--bb-mincho);
+  background-color: var(--bb-paper-lit);
+  border: 1px solid var(--bb-rule-strong);
+  border-radius: var(--bb-round);
+  box-shadow: inset 0 1px 3px rgb(58 42 24 / 12%);
+}
+
+.bb-field::placeholder { color: var(--bb-ink-ghost); }
+
+.bb-field:focus-visible {
+  border-color: var(--bb-gold);
+  outline: 2px solid var(--bb-gold);
+  outline-offset: 1px;
+}
+
+/* ==========================================================================
+   印刷 — 実際に紙へ出したときも本文が読めるように
+   ========================================================================== */
+
+@media print {
+  :root {
+    --bb-paper: #fff;
+    --bb-paper-lit: #fff;
+    --bb-ink: #000;
+    --bb-grain: none;
+  }
+
+  .bb-ribbon,
+  .bb-headband,
+  .bb-edges::after { display: none; }
+
+  .bb-foil {
+    color: #000;
+    -webkit-text-fill-color: #000;
+    background-image: none;
+    filter: none;
+  }
+}

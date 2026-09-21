@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "freeTierGuarantee": false,
+    "message": "無料枠・日次上限・利用規約は各サービス側で変更されます。この設定は無料提供を保証しません。"
+  },
+  "providers": [
+    {
+      "id": "manual-web",
+      "kind": "manual-web",
+      "label": "Manual web generator",
+      "execution": "manual",
+      "costModel": "service-dependent",
+      "recurringFreeGuaranteed": false,
+      "notes": "Webサイトで生成した動画を、確認後に motion:import へ渡します。"
+    },
+    {
+      "id": "local-comfyui",
+      "kind": "local-comfyui",
+      "label": "Local ComfyUI",
+      "execution": "local",
+      "defaultEndpoint": "http://127.0.0.1:8188",
+      "workflowRequired": true,
+      "costModel": "local-hardware",
+      "recurringFreeGuaranteed": false,
+      "notes": "ローカルGPU・電力・モデルのライセンスは利用者が確認します。初期状態は dry-run です。"
+    },
+    {
+      "id": "api-costed",
+      "kind": "api-costed",
+      "label": "Cost-capped API (design only)",
+      "execution": "api",
+      "environmentKeyName": "MOTION_API_KEY",
+      "defaultCostCapUsd": 0,
+      "requiresDoubleConfirmation": true,
+      "costModel": "metered-api",
+      "recurringFreeGuaranteed": false,
+      "notes": "鍵の値は設定・キュー・ログに保存しません。課金APIの実呼出しはこのリポジトリでは行いません。"
+    }
+  ]
+}
