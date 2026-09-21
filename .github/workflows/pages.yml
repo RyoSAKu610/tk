@@ -2,7 +2,7 @@ name: Deploy static studio to GitHub Pages
 
 on:
   push:
-    branches: [main, arena/01a0ae7f-tk]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -26,8 +26,6 @@ jobs:
       - run: npm ci
       - run: npm test
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
