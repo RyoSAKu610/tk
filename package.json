@@ -6,6 +6,7 @@
   "description": "Two static ResearchPhantom reading experiences for GitHub Pages.",
   "scripts": {
     "build": "node tools/build.mjs",
+    "deploy": "npm run build && wrangler deploy",
     "dev": "npm run build && node tools/serve.mjs",
     "serve": "node tools/serve.mjs",
     "sync:content": "node tools/sync-content.mjs",
@@ -18,5 +19,8 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "wrangler": "^4.135.0"
   }
 }
