@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" data-skin="dash">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="description" content="Ticksmith console: live upstream status, market and wallet inspectors, request log and playground for the Hyperliquid data API.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/hyperdash/tokens.css">
+  <link rel="stylesheet" href="./src/hyperdash/shell.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
+  <link rel="stylesheet" href="./src/hyperdash/console.css">
+  <title>Console — Ticksmith</title>
+</head>
+<body class="app-body">
+  <header class="app-header">
+    <a class="brand" href="./index.html" aria-label="Ticksmith home">
+      <span class="brand__mark" aria-hidden="true">T</span>
+      <span class="brand__text">tick<b>console</b></span>
+    </a>
+    <div class="app-header__crumb" aria-hidden="true">/ <span data-base-host>—</span> / v1</div>
+    <div class="app-header__right">
+      <div class="skin-switch" role="group" aria-label="Design direction">
+        <button type="button" class="skin-switch__btn" data-skin-target="dash" aria-pressed="true"><span aria-hidden="true">◧</span> Dash</button>
+        <button type="button" class="skin-switch__btn" data-skin-target="terminal" aria-pressed="false"><span aria-hidden="true">▚</span> Terminal</button>
+      </div>
+      <a class="btn btn--ghost btn--sm hide-sm" href="./docs.html">Docs</a>
+      <a class="btn btn--ghost btn--sm hide-sm" href="./index.html">Site</a>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="app-side" aria-label="Console sections">
+      <nav class="app-nav">
+        <a href="#status" data-view-link="status"><span aria-hidden="true">◉</span> Status</a>
+        <a href="#market" data-view-link="market"><span aria-hidden="true">▤</span> Market inspector</a>
+        <a href="#wallet" data-view-link="wallet"><span aria-hidden="true">◈</span> Wallet inspector</a>
+        <a href="#playground" data-view-link="playground"><span aria-hidden="true">▶</span> Playground</a>
+        <a href="#log" data-view-link="log"><span aria-hidden="true">≋</span> Request log</a>
+      </nav>
+      <div class="app-side__card">
+        <p class="app-side__label">Upstream</p>
+        <p class="app-side__value" data-side-status>—</p>
+        <div class="meter meter--sm"><span data-side-meter></span></div>
+        <p class="app-side__note" data-side-note>weight budget used in the last minute</p>
+      </div>
+      <div class="app-side__foot">
+        <p><span class="pulse" data-live-dot></span> <span data-side-version>—</span></p>
+        <p class="mono" data-clock>—</p>
+      </div>
+    </aside>
+
+    <main class="app-main" id="app-main">
+      <!-- ================================ STATUS ================================ -->
+      <section class="app-view" id="status" data-view="status">
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">GET /v1/status · every 15 s</p>
+            <h1>Upstream status</h1>
+            <p class="app-view__lede">Each check makes an uncached <code>exchangeStatus</code> call to Hyperliquid through the backend and reports the backend’s retry, cache and weight-budget counters. Counters belong to the server instance that answered.</p>
+          </div>
+          <div class="app-view__actions"><button class="btn btn--primary" type="button" data-status-check>Check now</button></div>
+        </header>
+        <div class="stat-row">
+          <div class="stat"><span>Hyperliquid</span><b data-st-state>—</b><small data-st-time>—</small></div>
+          <div class="stat"><span>Upstream latency</span><b data-st-latency>—</b><small data-st-rtt>—</small></div>
+          <div class="stat"><span>Weight / min</span><b data-st-weight>—</b><small data-st-budget>—</small></div>
+          <div class="stat"><span>Cache hits</span><b data-st-cache>—</b><small data-st-calls>—</small></div>
+        </div>
+        <div data-status-error></div>
+        <div class="panel">
+          <header class="panel__head"><h2>Latency, this session</h2><span class="chip" data-st-count>0 checks</span></header>
+          <div class="panel__body panel__body--chart"><canvas data-st-chart role="img" aria-label="Upstream latency per check"></canvas></div>
+          <footer class="panel__foot" data-st-foot>Retries and failures appear here.</footer>
+        </div>
+      </section>
+
+      <!-- ============================ MARKET INSPECTOR ============================ -->
+      <section class="app-view" id="market" data-view="market" hidden>
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">markets · candles · book · trades · funding</p>
+            <h1>Market inspector</h1>
+            <p class="app-view__lede">Perps (<code>BTC</code>), HIP-3 perps (<code>xyz:XYZ100</code>) or spot (<code>HYPE/USDC</code>, <code>@107</code>). Refreshes every 5 s while this view is open.</p>
+          </div>
+          <form class="app-view__actions" data-market-form>
+            <input class="input input--mono" name="coin" value="BTC" aria-label="Market" list="coin-list" style="width:160px">
+            <datalist id="coin-list" data-coin-list></datalist>
+            <select class="select select--sm" name="interval" aria-label="Interval">
+              <option>1m</option><option>5m</option><option selected>15m</option><option>1h</option><option>4h</option><option>1d</option>
+            </select>
+            <button class="btn btn--primary" type="submit">Load</button>
+          </form>
+        </header>
+        <div class="stat-row" data-mk-stats>
+          <div class="stat"><span>Mark</span><b data-mk-mark>—</b><small data-mk-change>—</small></div>
+          <div class="stat"><span>Funding / 1h</span><b data-mk-funding>—</b><small data-mk-premium>—</small></div>
+          <div class="stat"><span>Open interest</span><b data-mk-oi>—</b><small data-mk-oi-base>—</small></div>
+          <div class="stat"><span>Spread</span><b data-mk-spread>—</b><small data-mk-bbo>—</small></div>
+        </div>
+        <div data-mk-error></div>
+        <div class="panel">
+          <header class="panel__head"><h2 data-mk-title>Candles</h2><span class="chip" data-mk-candle-meta>—</span></header>
+          <div class="panel__body" style="height:320px"><canvas data-mk-candles role="img" aria-label="Candles"></canvas></div>
+        </div>
+        <div class="usage-top">
+          <div class="panel">
+            <header class="panel__head"><h2>Order book</h2><span class="chip" data-mk-book-meta>—</span></header>
+            <div class="panel__body" style="height:220px"><canvas data-mk-depth role="img" aria-label="Depth"></canvas></div>
+          </div>
+          <div class="panel">
+            <header class="panel__head"><h2>Funding history (24 h)</h2><span class="chip" data-mk-funding-meta>—</span></header>
+            <div class="panel__body" style="height:220px"><canvas data-mk-fundchart role="img" aria-label="Funding history"></canvas></div>
+          </div>
+        </div>
+        <div class="panel">
+          <header class="panel__head"><h2>Latest trades</h2><span class="chip" data-mk-trades-meta>—</span></header>
+          <div class="table-wrap table-wrap--flat">
+            <table class="table table--log">
+              <thead><tr><th>Time (UTC)</th><th>Side</th><th class="num">Price</th><th class="num">Size</th><th class="num">Notional</th><th>Buyer</th><th>Seller</th></tr></thead>
+              <tbody data-mk-trades></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ WALLET INSPECTOR ============================ -->
+      <section class="app-view" id="wallet" data-view="wallet" hidden>
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">accounts · positions · orders · fills · portfolio</p>
+            <h1>Wallet inspector</h1>
+            <p class="app-view__lede">Any public Hyperliquid address. Nothing is signed and nothing is stored.</p>
+          </div>
+          <form class="app-view__actions" data-wallet-form>
+            <input class="input input--mono" name="address" placeholder="0x…" aria-label="Wallet address" style="width:min(400px,80vw)" autocomplete="off" spellcheck="false">
+            <button class="btn btn--primary" type="submit">Inspect</button>
+            <button class="btn btn--ghost btn--sm" type="button" data-wallet-sample>Use a wallet from the latest BTC trade</button>
+          </form>
+        </header>
+        <div data-wl-error></div>
+        <div class="stat-row">
+          <div class="stat"><span>Account value</span><b data-wl-value>—</b><small data-wl-withdrawable>—</small></div>
+          <div class="stat"><span>Notional</span><b data-wl-notional>—</b><small data-wl-positions>—</small></div>
+          <div class="stat"><span>Margin used</span><b data-wl-margin>—</b><small data-wl-maint>—</small></div>
+          <div class="stat"><span>Spot balances</span><b data-wl-spot>—</b><small data-wl-spot-note>—</small></div>
+        </div>
+        <div class="panel">
+          <header class="panel__head">
+            <h2>Account value</h2>
+            <div class="panel__tools">
+              <select class="select select--sm" data-wl-window aria-label="Window">
+                <option value="day">day</option><option value="week">week</option><option value="month" selected>month</option><option value="allTime">all time</option>
+              </select>
+              <span class="chip" data-wl-portfolio-meta>—</span>
+            </div>
+          </header>
+          <div class="panel__body" style="height:220px"><canvas data-wl-chart role="img" aria-label="Account value history"></canvas></div>
+        </div>
+        <div class="panel">
+          <header class="panel__head"><h2>Positions</h2><span class="chip" data-wl-pos-meta>—</span></header>
+          <div class="table-wrap table-wrap--flat">
+            <table class="table table--log">
+              <thead><tr><th>Coin</th><th>Side</th><th class="num">Size</th><th class="num">Entry</th><th class="num">Mark</th><th class="num">Value</th><th class="num">uPnL</th><th class="num">Liq. px</th><th class="num">Lev.</th></tr></thead>
+              <tbody data-wl-positions-rows></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="usage-top">
+          <div class="panel">
+            <header class="panel__head"><h2>Open orders</h2><span class="chip" data-wl-orders-meta>—</span></header>
+            <div class="table-wrap table-wrap--flat" style="max-height:340px;overflow:auto">
+              <table class="table table--log">
+                <thead><tr><th>Coin</th><th>Side</th><th>Type</th><th class="num">Price</th><th class="num">Size</th></tr></thead>
+                <tbody data-wl-orders></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel">
+            <header class="panel__head"><h2>Recent fills</h2><span class="chip" data-wl-fills-meta>—</span></header>
+            <div class="table-wrap table-wrap--flat" style="max-height:340px;overflow:auto">
+              <table class="table table--log">
+                <thead><tr><th>Time</th><th>Coin</th><th>Dir.</th><th class="num">Price</th><th class="num">Size</th><th class="num">PnL</th><th class="num">Fee</th></tr></thead>
+                <tbody data-wl-fills></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== PLAYGROUND ============================== -->
+      <section class="app-view" id="playground" data-view="playground" hidden>
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">Playground</p>
+            <h1>Send any request</h1>
+            <p class="app-view__lede">Real GET requests to the backend. Each one also appears in the request log.</p>
+          </div>
+        </header>
+        <div class="playground pg2">
+          <aside class="pg-list pg2__list">
+            <label class="pg-search">
+              <span class="visually-hidden">Search endpoints</span>
+              <input class="input" type="search" placeholder="Search endpoints…" data-pg-search autocomplete="off">
+            </label>
+            <div class="pg-groups" data-pg-groups></div>
+          </aside>
+          <div class="pg-main pg2__main">
+            <div class="pg-route">
+              <span class="method" data-pg-method>GET</span>
+              <input class="pg-route__path" data-pg-path spellcheck="false" aria-label="Request path" value="/v1/markets?limit=10">
+              <button class="btn btn--primary btn--sm" type="button" data-pg-send>Send <kbd>⌘⏎</kbd></button>
+            </div>
+            <p class="pg-summary" data-pg-summary></p>
+            <div class="pg-params" data-pg-params></div>
+            <div class="pg-toolbar">
+              <div class="seg" role="group" aria-label="Response view">
+                <button type="button" class="is-on" data-pg-tab="body">Body</button>
+                <button type="button" data-pg-tab="chart">Chart</button>
+                <button type="button" data-pg-tab="headers">Headers</button>
+                <button type="button" data-pg-tab="curl">curl</button>
+              </div>
+              <div class="pg-toolbar__right"><button class="btn btn--ghost btn--sm" type="button" data-pg-copy>Copy</button></div>
+            </div>
+            <div class="pg-output">
+              <div class="pg-output__status" data-pg-status>Ready</div>
+              <pre class="code-block" data-pg-body tabindex="0"><code>Send a request to see the response.</code></pre>
+              <div class="pg-chart" data-pg-chart-view hidden><canvas data-pg-chart></canvas></div>
+              <pre class="code-block" data-pg-headers hidden><code></code></pre>
+              <pre class="code-block" data-pg-curl hidden><code></code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== REQUEST LOG ============================== -->
+      <section class="app-view" id="log" data-view="log" hidden>
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">This browser session</p>
+            <h1>Request log</h1>
+            <p class="app-view__lede">Every request this console made: status, client-side latency, cache state, upstream fetch time and request id (match it against the server’s JSON logs).</p>
+          </div>
+          <div class="app-view__actions"><button class="btn btn--ghost" type="button" data-log-clear>Clear</button></div>
+        </header>
+        <div class="stat-row">
+          <div class="stat"><span>Requests</span><b data-log-total>0</b><small>this session</small></div>
+          <div class="stat"><span>Errors</span><b data-log-errors>0</b><small>non-2xx or network</small></div>
+          <div class="stat"><span>Median latency</span><b data-log-median>—</b><small>browser → backend → back</small></div>
+          <div class="stat"><span>Cache hits</span><b data-log-hits>—</b><small>of successful requests</small></div>
+        </div>
+        <div class="panel">
+          <div class="table-wrap table-wrap--flat">
+            <table class="table table--log">
+              <thead><tr><th>Time</th><th>Path</th><th class="num">Status</th><th class="num">ms</th><th>Cache</th><th>Upstream fetched</th><th>Request id / error</th></tr></thead>
+              <tbody data-log-rows><tr><td colspan="7" class="muted">No requests yet.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/hyperdash/console.js"></script>
+</body>
+</html>

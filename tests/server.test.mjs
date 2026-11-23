@@ -8,7 +8,7 @@ function waitForReady(child, timeoutMs = 8_000) {
   return new Promise((resolve, reject) => {
     const timer = setTimeout(() => reject(new Error('static server did not start')), timeoutMs);
     const onData = (chunk) => {
-      if (!String(chunk).includes('ResearchPhantom Studio:')) return;
+      if (!String(chunk).includes('Static site + data API')) return;
       clearTimeout(timer);
       child.stdout.off('data', onData);
       resolve();
@@ -35,7 +35,17 @@ test('local server serves HTML, byte ranges and rejects mutation methods', async
   const index = await fetch(`${base}/`);
   assert.equal(index.status, 200);
   assert.match(index.headers.get('content-type'), /^text\/html/);
-  assert.match(await index.text(), /ResearchPhantom Studio/);
+  assert.match(await index.text(), /Ticksmith/);
+
+  const preflight = await fetch(`${base}/v1/markets`, { method: "OPTIONS" });
+  assert.equal(preflight.status, 204);
+  assert.equal(preflight.headers.get("access-control-allow-origin"), "*");
+  const catalogue = await fetch(`${base}/v1/endpoints`);
+  assert.equal(catalogue.status, 200);
+  assert.ok((await catalogue.json()).data.endpoints.length >= 15);
+  for (const page of ['docs.html', 'console.html', 'researchphantom.html']) {
+    assert.equal((await fetch(`${base}/${page}`)).status, 200);
+  }
 
   const range = await fetch(`${base}/public/assets/video/data-demo.mp4`, { headers: { range: 'bytes=0-31' } });
   assert.equal(range.status, 206);

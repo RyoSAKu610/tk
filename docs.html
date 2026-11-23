@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" data-skin="dash">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="description" content="Ticksmith documentation: quickstart, response format, errors, rate limits, configuration and the full endpoint reference for the Hyperliquid data API.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/hyperdash/tokens.css">
+  <link rel="stylesheet" href="./src/hyperdash/shell.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
+  <link rel="stylesheet" href="./src/hyperdash/docs.css">
+  <title>Docs — Ticksmith</title>
+</head>
+<body class="doc-body">
+  <a class="skip-link" href="#doc-main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="./index.html" aria-label="Ticksmith home">
+        <span class="brand__mark" aria-hidden="true">T</span>
+        <span class="brand__text">tick<b>docs</b></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./index.html#markets">Markets</a>
+        <a href="./index.html#endpoints">Endpoints</a>
+        <a href="./index.html#playground">Playground</a>
+        <a href="./console.html">Console</a>
+      </nav>
+      <div class="site-header__tools">
+        <div class="skin-switch" role="group" aria-label="Design direction">
+          <button type="button" class="skin-switch__btn" data-skin-target="dash" aria-pressed="true"><span aria-hidden="true">◧</span> Dash</button>
+          <button type="button" class="skin-switch__btn" data-skin-target="terminal" aria-pressed="false"><span aria-hidden="true">▚</span> Terminal</button>
+        </div>
+        <a class="btn btn--ghost btn--sm hide-sm" href="./index.html">← Site</a>
+        <a class="btn btn--primary btn--sm" href="./console.html">Open console</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="doc-shell wrap">
+    <aside class="doc-side" aria-label="Documentation navigation">
+      <label class="doc-search">
+        <span class="visually-hidden">Filter endpoint reference</span>
+        <input type="search" placeholder="Filter endpoints…" data-doc-search autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <nav class="doc-nav" data-doc-nav>
+        <div class="doc-nav__group">
+          <h3>Get started</h3>
+          <a href="#overview">Overview</a>
+          <a href="#quickstart">Quickstart</a>
+        </div>
+        <div class="doc-nav__group">
+          <h3>Using the API</h3>
+          <a href="#responses">Responses</a>
+          <a href="#errors">Errors</a>
+          <a href="#limits">Rate limits and caching</a>
+        </div>
+        <div class="doc-nav__group">
+          <h3>Reference</h3>
+          <a href="#reference">Endpoint reference</a>
+          <a href="#unavailable">Unavailable data</a>
+          <a href="#operations">Configuration and deploy</a>
+        </div>
+      </nav>
+      <div class="doc-side__foot">
+        <p class="doc-side__live"><span class="pulse" data-live-dot></span> <span data-doc-live>checking upstream…</span></p>
+        <p class="doc-side__note">Every “Send request” on this page calls the live backend, which calls Hyperliquid.</p>
+      </div>
+    </aside>
+
+    <main class="doc-main" id="doc-main">
+      <div class="doc-status-strip">
+        <span data-doc-endpoints>— endpoints</span>
+        <span data-doc-markets>— perp markets</span>
+        <span data-doc-version>api —</span>
+        <span class="doc-status-strip__right mono" data-clock>—</span>
+      </div>
+
+      <!-- ============================== OVERVIEW ============================== -->
+      <section class="doc-section" id="overview">
+        <p class="eyebrow">Get started</p>
+        <h1>Ticksmith data API</h1>
+        <p class="doc-lede">A read-only REST API for Hyperliquid. Each request is answered from the official info endpoint (<code>POST https://api.hyperliquid.xyz/info</code>), normalised into stable snake_case JSON with numeric values, and annotated with where and when the data was fetched.</p>
+
+        <div class="table-wrap">
+          <table class="table table--kv">
+            <tbody>
+              <tr><th scope="row">Base URL</th><td><code data-base-url>—</code> — every path starts with <code>/v1</code></td></tr>
+              <tr><th scope="row">Upstream</th><td><code data-upstream>https://api.hyperliquid.xyz/info</code></td></tr>
+              <tr><th scope="row">Auth</th><td>None. Public, read-only, rate limited per client IP.</td></tr>
+              <tr><th scope="row">Catalogue</th><td><code>GET /v1/endpoints</code> — every route, its parameters, the upstream request types it uses, and what is unavailable</td></tr>
+              <tr><th scope="row">Health</th><td><code>GET /v1/status</code> — uncached round trip to Hyperliquid</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What you can query</h2>
+        <ul class="doc-list">
+          <li><b>Markets.</b> Every perp market on the main dex and on HIP-3 dexs with mark, oracle, mid, 1 h funding, open interest and 24 h volume; spot pairs; mids; L2 order books; the latest trades; OHLCV candles; funding history.</li>
+          <li><b>Accounts.</b> For any public wallet: margin summary and spot balances, open positions with liquidation price, open and trigger orders, fills, funding payments, ledger events, and account-value / PnL history.</li>
+        </ul>
+        <div class="doc-callout">
+          <b>Nothing is simulated.</b> If Hyperliquid can’t be reached, the API returns a 502/503/504 problem response that names the upstream error. Datasets the official API doesn’t expose — exchange-wide liquidations, leaderboards, open-interest history and so on — are listed under <a href="#unavailable">Unavailable data</a> rather than approximated.
+        </div>
+      </section>
+
+      <!-- ============================= QUICKSTART ============================= -->
+      <section class="doc-section" id="quickstart">
+        <p class="eyebrow">Get started</p>
+        <h1>Quickstart</h1>
+        <p class="doc-lede">Request the last 24 hourly BTC candles. No key, no signup.</p>
+
+        <div class="code-tabs" data-code-tabs>
+          <div class="code-tabs__bar" role="tablist" aria-label="Language">
+            <button type="button" role="tab" aria-selected="true" class="is-on" data-lang="curl">curl</button>
+            <button type="button" role="tab" aria-selected="false" data-lang="node">Node</button>
+            <button type="button" role="tab" aria-selected="false" data-lang="python">Python</button>
+            <button type="button" class="code-tabs__copy" data-copy-code>Copy</button>
+          </div>
+          <pre class="code-block" data-code-block><code></code></pre>
+        </div>
+
+        <div class="try-bar">
+          <div><b>Try it</b><span>Sends the same request to the live backend and shows the real response.</span></div>
+          <button class="btn btn--primary btn--sm" type="button" data-try="/v1/markets/BTC/candles?interval=1h&amp;limit=24">Send request</button>
+        </div>
+        <pre class="code-block" data-try-output hidden><code></code></pre>
+      </section>
+
+      <!-- ============================== RESPONSES ============================== -->
+      <section class="doc-section" id="responses">
+        <p class="eyebrow">Using the API</p>
+        <h1>Responses</h1>
+        <p class="doc-lede">Successful responses are <code>application/json</code> with two keys: <code>data</code> (an object or array) and <code>meta</code>.</p>
+        <div class="table-wrap">
+          <table class="table table--kv">
+            <tbody>
+              <tr><th scope="row">source</th><td>The upstream URL the data came from.</td></tr>
+              <tr><th scope="row">upstream_types</th><td>The Hyperliquid info request types behind this endpoint.</td></tr>
+              <tr><th scope="row">fetched_at</th><td>ISO time the oldest upstream response used here was received.</td></tr>
+              <tr><th scope="row">cached / age_ms</th><td>Whether every upstream response came from the short-lived cache, and how old the oldest one is.</td></tr>
+              <tr><th scope="row">upstream_ms</th><td>Upstream round-trip time of the slowest request (0 when cached).</td></tr>
+              <tr><th scope="row">count</th><td>Number of rows in <code>data</code>.</td></tr>
+              <tr><th scope="row">request_id</th><td>Also in the <code>x-request-id</code> header; quote it when reporting a problem.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Conventions</h2>
+        <ul class="doc-list">
+          <li><b>Numbers.</b> Prices, sizes and USD values are JSON numbers parsed from Hyperliquid’s decimal strings (IEEE-754 doubles). Funding is the hourly rate as a fraction (<code>0.0000125</code> = 0.00125 %/h).</li>
+          <li><b>Times.</b> Unix milliseconds, UTC. Query parameters <code>start_time</code> / <code>end_time</code> use the same unit.</li>
+          <li><b>Markets.</b> Perps use Hyperliquid names (<code>BTC</code>, <code>kPEPE</code>), HIP-3 perps use <code>dex:NAME</code> (<code>xyz:XYZ100</code>). Spot accepts the pair (<code>HYPE/USDC</code>) or the spot id (<code>@107</code>). Matching is case-insensitive.</li>
+          <li><b>Headers.</b> <code>x-cache: HIT|MISS</code>, <code>x-upstream-fetched-at</code>, <code>ratelimit-limit</code>, <code>ratelimit-remaining</code>, <code>ratelimit-reset</code>. CORS is open for GET.</li>
+        </ul>
+      </section>
+
+      <!-- ================================ ERRORS ================================ -->
+      <section class="doc-section" id="errors">
+        <p class="eyebrow">Using the API</p>
+        <h1>Errors</h1>
+        <p class="doc-lede">Errors are RFC 9457 <code>application/problem+json</code> with a stable <code>code</code>. Upstream failures include <code>upstream_status</code> and the number of <code>attempts</code> made.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Status</th><th scope="col">code</th><th scope="col">Meaning</th></tr></thead>
+            <tbody>
+              <tr id="error-invalid_parameter"><td class="mono">400</td><td class="mono">invalid_parameter</td><td>A parameter is missing, malformed or out of range. Not retried.</td></tr>
+              <tr id="error-not_found"><td class="mono">404</td><td class="mono">not_found</td><td>Unknown route, market or dex. Markets are checked against Hyperliquid’s own metadata.</td></tr>
+              <tr id="error-method_not_allowed"><td class="mono">405</td><td class="mono">method_not_allowed</td><td>Only GET (and OPTIONS for CORS) is supported.</td></tr>
+              <tr id="error-rate_limited"><td class="mono">429</td><td class="mono">rate_limited</td><td>Client rate limit exceeded. Wait for <code>retry-after</code> seconds.</td></tr>
+              <tr id="error-upstream_error"><td class="mono">502</td><td class="mono">upstream_error</td><td>Hyperliquid answered with a non-2xx status after retries.</td></tr>
+              <tr id="error-upstream_unreachable"><td class="mono">502</td><td class="mono">upstream_unreachable</td><td>Network failure reaching Hyperliquid after retries.</td></tr>
+              <tr id="error-upstream_invalid"><td class="mono">502</td><td class="mono">upstream_invalid</td><td>Hyperliquid returned a body that isn’t JSON.</td></tr>
+              <tr id="error-upstream_rate_limited"><td class="mono">503</td><td class="mono">upstream_rate_limited</td><td>Hyperliquid returned 429 after retries.</td></tr>
+              <tr id="error-upstream_budget"><td class="mono">503</td><td class="mono">upstream_budget</td><td>This server’s own Hyperliquid weight budget is spent; <code>retry-after</code> says when it frees up.</td></tr>
+              <tr id="error-upstream_timeout"><td class="mono">504</td><td class="mono">upstream_timeout</td><td>Hyperliquid did not answer within the timeout on every attempt.</td></tr>
+              <tr id="error-config_error"><td class="mono">500</td><td class="mono">config_error</td><td>The deployment has an invalid environment variable; the detail names it.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="try-bar">
+          <div><b>See a real error</b><span>Ask for a market that doesn’t exist.</span></div>
+          <button class="btn btn--outline btn--sm" type="button" data-try="/v1/markets/NOTACOIN/book">Send request</button>
+        </div>
+        <pre class="code-block" data-try-output hidden><code></code></pre>
+      </section>
+
+      <!-- ================================ LIMITS ================================ -->
+      <section class="doc-section" id="limits">
+        <p class="eyebrow">Using the API</p>
+        <h1>Rate limits and caching</h1>
+        <p class="doc-lede">Two limits protect the service: a per-client token bucket, and a weight budget that keeps this server inside Hyperliquid’s documented 1200 weight per minute per IP.</p>
+        <div class="table-wrap">
+          <table class="table table--kv">
+            <tbody data-limits><tr><td>Loading limits…</td></tr></tbody>
+          </table>
+        </div>
+        <h2>Upstream weights</h2>
+        <p>Per Hyperliquid’s documentation: <code>l2Book</code>, <code>allMids</code>, <code>clearinghouseState</code>, <code>spotClearinghouseState</code> and <code>exchangeStatus</code> weigh 2; other info requests weigh 20; <code>recentTrades</code>, <code>userFills</code>, <code>fundingHistory</code>, <code>userFunding</code> and similar add 1 per 20 rows returned; <code>candleSnapshot</code> adds 1 per 60 candles.</p>
+        <h2>Cache lifetimes</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Data</th><th scope="col" class="num">TTL</th></tr></thead>
+            <tbody>
+              <tr><td>Mids, order books, trades</td><td class="num mono">1 s</td></tr>
+              <tr><td>Account state, positions, open orders</td><td class="num mono">2 s</td></tr>
+              <tr><td>Perp market contexts, fills</td><td class="num mono">3 s</td></tr>
+              <tr><td>Candles, spot markets</td><td class="num mono">5 s</td></tr>
+              <tr><td>Funding history, user funding, ledger, portfolio</td><td class="num mono">30 s</td></tr>
+              <tr><td>Perp dexs</td><td class="num mono">60 s</td></tr>
+              <tr><td>Market metadata used to validate coin names</td><td class="num mono">5 min</td></tr>
+              <tr><td><code>/v1/status</code></td><td class="num mono">never</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout"><b>Per isolate.</b> On Cloudflare Workers the cache, the client bucket and the weight budget live in each isolate’s memory, so they are approximate across a busy deployment. Add a Cloudflare rate-limiting rule for a hard global limit.</div>
+      </section>
+
+      <!-- ============================== REFERENCE ============================== -->
+      <section class="doc-section" id="reference">
+        <p class="eyebrow">Reference</p>
+        <h1>Endpoint reference</h1>
+        <p class="doc-lede">Generated from <code>GET /v1/endpoints</code>. Open an endpoint to see its parameters and send a live request.</p>
+        <div class="ref-controls"><span class="ref-controls__count" data-ref-count>—</span></div>
+        <div class="ref-list" data-ref-list><p class="muted">Loading the catalogue…</p></div>
+      </section>
+
+      <!-- ============================= UNAVAILABLE ============================= -->
+      <section class="doc-section" id="unavailable">
+        <p class="eyebrow">Reference</p>
+        <h1>Unavailable data</h1>
+        <p class="doc-lede">These datasets can’t be produced from the official info API alone. They are intentionally absent rather than estimated.</p>
+        <div class="unavailable" data-unavailable></div>
+      </section>
+
+      <!-- ============================= OPERATIONS ============================= -->
+      <section class="doc-section" id="operations">
+        <p class="eyebrow">Reference</p>
+        <h1>Configuration and deploy</h1>
+        <p class="doc-lede">The backend is one Cloudflare Worker (<code>src/worker/index.js</code>) that serves <code>/v1/*</code> and the static site. All settings are environment variables; invalid values make every API call return <code>500 config_error</code> naming the variable.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">HL_INFO_URL</td><td class="mono">https://api.hyperliquid.xyz/info</td><td>Upstream info endpoint (https only).</td></tr>
+              <tr><td class="mono">HL_TIMEOUT_MS</td><td class="mono">8000</td><td>Timeout per upstream attempt.</td></tr>
+              <tr><td class="mono">HL_MAX_RETRIES</td><td class="mono">2</td><td>Retries for network errors, timeouts, 429 and 5xx.</td></tr>
+              <tr><td class="mono">HL_RETRY_BASE_MS</td><td class="mono">250</td><td>Base for exponential backoff with jitter.</td></tr>
+              <tr><td class="mono">HL_WEIGHT_BUDGET_PER_MIN</td><td class="mono">900</td><td>Upstream weight budget (Hyperliquid allows 1200/min/IP).</td></tr>
+              <tr><td class="mono">HL_WEIGHT_MAX_WAIT_MS</td><td class="mono">3000</td><td>How long a request may wait for budget before 503.</td></tr>
+              <tr><td class="mono">CLIENT_RATE_PER_SEC</td><td class="mono">5</td><td>Token refill rate per client IP.</td></tr>
+              <tr><td class="mono">CLIENT_BURST</td><td class="mono">20</td><td>Bucket size per client IP.</td></tr>
+              <tr><td class="mono">CACHE_MAX_ENTRIES</td><td class="mono">500</td><td>LRU size of the response cache (0 disables it).</td></tr>
+              <tr><td class="mono">CORS_ALLOW_ORIGIN</td><td class="mono">*</td><td>Value of <code>access-control-allow-origin</code>.</td></tr>
+              <tr><td class="mono">LOG_LEVEL</td><td class="mono">info</td><td>debug, info, warn or error. Logs are one JSON object per line.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Deploy</h2>
+        <pre class="code-block"><code>npm install
+npm test                 # unit tests + build
+npx wrangler login       # once, in your browser
+npx wrangler deploy      # builds dist/ and uploads the Worker
+npm run verify:live -- https://&lt;your-worker&gt;.workers.dev</code></pre>
+        <h2>Run locally</h2>
+        <pre class="code-block"><code>npm run dev              # build + http://127.0.0.1:4173 with the same /v1 backend</code></pre>
+      </section>
+    </main>
+
+    <aside class="doc-toc" aria-label="On this page">
+      <p class="doc-toc__label">On this page</p>
+      <nav data-toc></nav>
+    </aside>
+  </div>
+
+  <script type="module" src="./src/hyperdash/docs.js"></script>
+</body>
+</html>

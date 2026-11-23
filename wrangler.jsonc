@@ -1,13 +1,31 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "tk",
+  "main": "src/worker/index.js",
   "compatibility_date": "2026-09-21",
   "build": {
     "command": "npm run build"
   },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
-    "not_found_handling": "404-page"
+    "not_found_handling": "404-page",
+    // The data API must answer /v1/* even if a static file ever shadows the path.
+    "run_worker_first": ["/v1/*"]
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Non-secret settings. The API needs no keys: Hyperliquid's info endpoint is public.
+  // Every value is validated at startup; see src/server/config.js and docs.html#operations.
+  "vars": {
+    "HL_INFO_URL": "https://api.hyperliquid.xyz/info",
+    "HL_TIMEOUT_MS": "8000",
+    "HL_MAX_RETRIES": "2",
+    "HL_WEIGHT_BUDGET_PER_MIN": "900",
+    "CLIENT_RATE_PER_SEC": "5",
+    "CLIENT_BURST": "20",
+    "LOG_LEVEL": "info"
   }
 }
