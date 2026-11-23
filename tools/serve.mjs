@@ -10,7 +10,7 @@ const host = process.env.HOST ?? '127.0.0.1';
 const startPage = process.env.START_PAGE ?? 'index.html';
 if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) throw new Error('PORT must be between 1 and 65535');
 if (!['127.0.0.1', '0.0.0.0'].includes(host)) throw new Error('HOST must be 127.0.0.1 or 0.0.0.0');
-if (!['index.html', 'cast-lab.html', 'character-story.html', 'data-motion.html'].includes(startPage)) throw new Error('START_PAGE must be a public HTML entrypoint');
+if (!['index.html', 'researchphantom.html', 'cast-lab.html', 'character-story.html', 'data-motion.html'].includes(startPage)) throw new Error('START_PAGE must be a public HTML entrypoint');
 
 const mimeTypes = new Map([
   ['.css', 'text/css; charset=utf-8'], ['.html', 'text/html; charset=utf-8'],

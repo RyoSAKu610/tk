@@ -1,261 +1,448 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en" data-skin="dash">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#3e2224" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#191410" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="ResearchPhantom Studio — 論文を一冊の本として読む。Light・Full・Extra、三つの読み方。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%233e2224'/%3E%3Crect x='9' y='9' width='46' height='46' fill='none' stroke='%23e3c583' stroke-width='1.4'/%3E%3Cpath d='M20 22h24M20 30h24M20 38h16' stroke='%23e3c583' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./src/shared/bookbinding.css">
-  <link rel="stylesheet" href="./src/shared/edition-switcher.css">
-  <link rel="stylesheet" href="./src/shared/landing.css">
-  <title>ResearchPhantom Studio — 論文を一冊の本として読む</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0d0d0d">
+  <meta name="description" content="Live and historical data for Hyperliquid. Every wallet, fill, liquidation, candle and tick on Hyperliquid in one API — REST, WebSocket streams and an MCP server for AI agents.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hyperdash Data API — Live and historical data for Hyperliquid">
+  <meta property="og:description" content="Trades, order books, funding and liquidations for every market. Fills, positions and PnL for every wallet. 380+ endpoints, streams, and a hosted MCP server.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M18 46V18h8v11h12V18h8v28h-8V36H26v10z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/hyperdash/tokens.css">
+  <link rel="stylesheet" href="./src/hyperdash/shell.css">
+  <link rel="stylesheet" href="./src/hyperdash/landing.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
+  <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
+  <title>Hyperdash Data API — Live and historical data for Hyperliquid</title>
 </head>
 <body>
-  <a class="skip-link" href="#contents">目次まで移動</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ===================== 表紙 ===================== -->
-  <header class="cover bb-cloth bb-fillet" id="cover">
-    <div class="cover-headband bb-headband" aria-hidden="true"></div>
-    <div class="cover-spine" aria-hidden="true">
-      <span class="spine-title bb-foil">RESEARCH PHANTOM</span>
-      <span class="spine-mark bb-emboss">RP</span>
-    </div>
-    <div class="cover-ribbon bb-ribbon" aria-hidden="true"></div>
+  <div class="ticker" data-ticker aria-label="Live market ticker" data-live-region="ticker"></div>
 
-    <div class="cover-nav">
-      <a class="cover-brand" href="./index.html" aria-label="ResearchPhantom Studio ホーム">
-        <span class="brand-crest" aria-hidden="true">RP</span>
-        <span class="brand-name">ResearchPhantom <b>Studio</b></span>
+  <header class="site-header" data-header>
+    <div class="wrap site-header__inner">
+      <a class="brand" href="./index.html" aria-label="Hyperdash Data API home">
+        <span class="brand__mark" aria-hidden="true">H</span>
+        <span class="brand__text">hyperdash<b>data</b></span>
       </a>
-      <nav class="edition-switcher" data-edition-switcher data-current-edition="light" aria-label="表示モードを切り替える">
-        <a class="edition-switcher__link" href="./index.html" data-edition-target="light" aria-current="page" aria-label="Light：書架と概要を開く"><b>Light</b><small>書架</small></a>
-        <a class="edition-switcher__link" href="./data-motion.html" data-edition-target="full" aria-label="Full：データ解析を開く"><b>Full</b><small>データ解析</small></a>
-        <a class="edition-switcher__link" href="./character-story.html" data-edition-target="extra" aria-label="Extra：キャラクター実演を開く"><b>Extra</b><small>キャラ実演</small></a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#datasets">Datasets</a>
+        <a href="#playground">Playground</a>
+        <a href="#pricing">Pricing</a>
+        <a href="./docs.html">Docs</a>
+        <a href="./console.html">Console</a>
+        <a href="#faq">FAQ</a>
       </nav>
-      <a class="cover-lab-link" href="./cast-lab.html"><span>実験室</span><b>CAST LAB</b></a>
-      <p class="cover-imprint">日々更新される論文書架</p>
-    </div>
 
-    <div class="cover-plate">
-      <p class="cover-series bb-emboss">RESEARCH PHANTOM STUDIO · 第一版</p>
-      <h1 class="cover-title">
-        <span class="cover-title-ja bb-foil">意思ある賢者たちへ</span>
-        <span class="cover-title-en bb-foil">Reading Papers as a Bound Volume</span>
-      </h1>
-      <p class="cover-subtitle">論文を、装丁された一冊として読む。</p>
-      <div class="cover-fleuron" aria-hidden="true">❦</div>
-      <p class="cover-publisher bb-emboss">RESEARCH PHANTOM 書房 · 東京</p>
+      <div class="site-header__tools">
+        <div class="skin-switch" role="group" aria-label="Design direction">
+          <button type="button" class="skin-switch__btn" data-skin-target="dash" aria-pressed="true"><span aria-hidden="true">◧</span> Dash</button>
+          <button type="button" class="skin-switch__btn" data-skin-target="terminal" aria-pressed="false"><span aria-hidden="true">▚</span> Terminal</button>
+        </div>
+        <a class="btn btn--ghost btn--sm hide-sm" href="./docs.html">Read docs</a>
+        <a class="btn btn--primary btn--sm" href="./console.html#keys">Get an API key</a>
+        <button class="menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
-
-    <div class="cover-obi bb-obi">
-      <dl class="obi-stats" aria-live="polite">
-        <div>
-          <dt>収録</dt>
-          <dd id="paper-count">論文を読込中</dd>
-        </div>
-        <div>
-          <dt>手動確認</dt>
-          <dd id="verified-count">確認状況を読込中</dd>
-        </div>
-        <div>
-          <dt>あなたの書架</dt>
-          <dd id="library-count">本棚 0冊</dd>
-        </div>
-        <div>
-          <dt>造本</dt>
-          <dd>三態・上製・角背</dd>
-        </div>
-      </dl>
-      <p class="sync-notice" id="sync-notice" aria-live="polite">
-        日次更新は論文フィードのみです。音声・動画は原文確認とレビュー後に追加します。
-      </p>
-      <a class="obi-cta bb-stamp" href="#contents">扉をひらく <span aria-hidden="true">▸</span></a>
-    </div>
+    <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
+      <a href="#datasets">Datasets</a>
+      <a href="#playground">Playground</a>
+      <a href="#pricing">Pricing</a>
+      <a href="./docs.html">Docs</a>
+      <a href="./console.html">Console</a>
+      <a href="#faq">FAQ</a>
+    </nav>
   </header>
 
-  <main class="book">
-    <!-- ===================== 扉（title page） ===================== -->
-    <section class="frontispiece bb-sheet" aria-labelledby="frontispiece-title">
-      <p class="bb-running-head"><span>序</span><span>ResearchPhantom Studio</span></p>
-      <div class="frontispiece-body">
-        <p class="bb-caps">Preface</p>
-        <h2 id="frontispiece-title" class="bb-letterpress">同じ研究を、三つの読み方で。</h2>
-        <p class="frontispiece-lede bb-dropcap">
-          毎日届く論文フィードを、読み流さずに一冊の本として組み直しました。
-          問い・入力・手法・観測・結果・意味という骨格はそのままに、
-          軽く探す<b>Light</b>、文字とデータ図形で切り込む<b>Full</b>、
-          キャラクターが場面を演じる<b>Extra</b>の三通りです。どこから入っても、
-          お気に入りも読了の記録も同じ書架に残ります。
-        </p>
-        <p class="frontispiece-disclosure">
-          <b>更新範囲：</b>毎日自動で更新するのは論文フィードです。解説の役割分け、音声、完成動画、AIモーションは自動確定せず、原文確認と人のレビューを経て追加します。
-        </p>
-        <p class="bb-ornament" aria-hidden="true">❦</p>
-        <dl class="frontispiece-spec bb-colophon">
-          <div><dt>造本</dt><dd>完全静的・外部CDN不使用</dd></div>
-          <div><dt>用紙</dt><dd>相対パスのみ / サブパス公開対応</dd></div>
-          <div><dt>付物</dt><dd>実録ページ音 五種・人物図鑑 二百名</dd></div>
-        </dl>
-      </div>
-      <p class="bb-folio"><span>i</span></p>
-    </section>
-
-    <!-- ===================== 目次 ===================== -->
-    <section class="contents bb-sheet" id="contents" aria-labelledby="contents-title">
-      <p class="bb-running-head"><span>目次</span><span>Contents</span></p>
-      <h2 id="contents-title" class="section-title bb-letterpress">目　次</h2>
-      <ol class="contents-list">
-        <li>
-          <a class="bb-leader" href="#editions">
-            <span><b>甲</b>キャラクター解説 ― 紙芝居ラボ</span>
-            <i class="bb-leader-fill" aria-hidden="true"></i>
-            <span class="bb-folio-plain">一</span>
-          </a>
-        </li>
-        <li>
-          <a class="bb-leader" href="#editions">
-            <span><b>乙</b>データモーション ― 解析室</span>
-            <i class="bb-leader-fill" aria-hidden="true"></i>
-            <span class="bb-folio-plain">二</span>
-          </a>
-        </li>
-        <li>
-          <a class="bb-leader" href="#foley">
-            <span><b>附</b>ページをめくる音 ― 実録五種</span>
-            <i class="bb-leader-fill" aria-hidden="true"></i>
-            <span class="bb-folio-plain">三</span>
-          </a>
-        </li>
-        <li>
-          <a class="bb-leader" href="#cast">
-            <span><b>図</b>人物図鑑 ― 二百名の書き割り</span>
-            <i class="bb-leader-fill" aria-hidden="true"></i>
-            <span class="bb-folio-plain">四</span>
-          </a>
-        </li>
-      </ol>
-      <p class="bb-folio"><span>ii</span></p>
-    </section>
-
-    <!-- ===================== 二冊 ===================== -->
-    <section class="editions" id="editions" aria-labelledby="editions-title">
-      <div class="section-heading">
-        <p class="bb-caps">Two Editions · One Shelf</p>
-        <h2 id="editions-title" class="section-title bb-letterpress">今日の読み方を選ぶ</h2>
-        <p class="section-lede">どちらの版から入っても、同じ論文・同じお気に入り・同じ振り返りの記録へ戻れます。</p>
-      </div>
-
-      <div class="edition-grid">
-        <article class="volume volume-a">
-          <div class="volume-spine" aria-hidden="true">
-            <span class="volume-headband bb-headband"></span>
-            <span class="volume-spine-title bb-foil">甲 CHARACTER STORY</span>
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="pulse" data-live-dot></span> Live now · <span data-ticker-status>streaming</span> · <span data-clock>—</span></p>
+          <h1 class="hero__title">
+            <span data-copy="hero.line1">Live and historical data</span>
+            <span class="accent" data-copy="hero.line2">for Hyperliquid.</span>
+          </h1>
+          <p class="hero__lede" data-copy="hero.lede">Every wallet, fill, liquidation, candle and tick on Hyperliquid in one API. Traders, funds and developers connect market intelligence into their own tools and agents.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="./console.html#keys">
+              Create your first API key
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn btn--outline" href="#playground">Try the API in the browser</a>
           </div>
-          <div class="volume-board bb-cloth bb-fillet">
-            <img src="./public/assets/characters/guide-ada.webp" alt="人物図鑑より、エイダ・ラブレスの書き割り">
-            <span class="volume-mark bb-foil">甲</span>
-            <span class="volume-board-caption bb-emboss">CHARACTER STORY</span>
-          </div>
-          <div class="volume-text bb-sheet bb-gutter-left">
-            <p class="bb-caps">Edition A</p>
-            <h3 class="bb-letterpress">研究者たちと歩く、<br>紙芝居ラボ</h3>
-            <p>七名の案内役が、問い・入力・実験・結果を演じ分けます。同期字幕と実レンダーPV、二百名分の人物図鑑を添えた「ゆっくり理解する」版です。</p>
-            <ul class="volume-features" aria-label="甲版の特徴">
-              <li>七場面の章立て</li>
-              <li>二百名の人物図鑑</li>
-              <li>音声がなくても字幕で完結</li>
-            </ul>
-            <a class="volume-link bb-stamp" href="./character-story.html" data-paper-link="extra">甲版をひらく <span aria-hidden="true">▸</span></a>
-          </div>
-        </article>
-
-        <article class="volume volume-b">
-          <div class="volume-spine" aria-hidden="true">
-            <span class="volume-headband bb-headband"></span>
-            <span class="volume-spine-title bb-foil">乙 DATA MOTION</span>
-          </div>
-          <div class="volume-board bb-cloth bb-cloth-indigo bb-fillet">
-            <div class="board-diagram" aria-hidden="true">
-              <span class="diagram-ring"></span>
-              <span class="diagram-bars"><i></i><i></i><i></i><i></i><i></i></span>
-            </div>
-            <span class="volume-mark bb-foil">乙</span>
-            <span class="volume-board-caption bb-emboss">DATA MOTION</span>
-          </div>
-          <div class="volume-text bb-sheet bb-gutter-left">
-            <p class="bb-caps">Edition B</p>
-            <h3 class="bb-letterpress">文字と数値で切り込む、<br>モーション解析室</h3>
-            <p>人物に頼らず、課題・手法・観測・結論をタイポグラフィとデータ図形で素早く比較する版です。</p>
-            <ul class="volume-features" aria-label="乙版の特徴">
-              <li>結果を先に置く六段構成</li>
-              <li>滑らかなタイムライン操作</li>
-              <li>実レンダー動画を同梱</li>
-            </ul>
-            <a class="volume-link bb-stamp" href="./data-motion.html" data-paper-link="full">乙版をひらく <span aria-hidden="true">▸</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ===================== 附録・音 ===================== -->
-    <section class="foley bb-sheet" id="foley" aria-labelledby="foley-title">
-      <p class="bb-running-head"><span>附録</span><span>Page Foley · CC0</span></p>
-      <div class="foley-copy">
-        <p class="bb-caps">Real Page Foley</p>
-        <h2 id="foley-title" class="section-title bb-letterpress">紙の手触りも、選べます。</h2>
-        <p>StarNinjas による本の実録音を五テイク収録しました。ランダムは同じ音の連続を避け、任意の選択と音量はこの端末に残ります。</p>
-      </div>
-      <div class="foley-console bb-plate">
-        <label class="foley-label" for="sound-choice">ページ音</label>
-        <select class="bb-field" id="sound-choice" disabled><option>読込中…</option></select>
-        <button class="bb-stamp" id="sound-preview" type="button" disabled>試聴する</button>
-        <output class="foley-status" id="sound-status" aria-live="polite">準備中</output>
-      </div>
-      <p class="bb-folio"><span>三</span></p>
-    </section>
-
-    <!-- ===================== 図版 ===================== -->
-    <section class="cast bb-sheet" id="cast" aria-labelledby="cast-title">
-      <p class="bb-running-head"><span>図版</span><span>Historical Cast 001—200</span></p>
-      <div class="section-heading compact">
-        <p class="bb-caps">Plates · 001—200</p>
-        <h2 id="cast-title" class="section-title bb-letterpress">人物図鑑 二百名、<span class="nobr">動く案内役は七名</span></h2>
-        <p class="section-lede">元の図鑑シート二十枚を軽量化して全二百名を収め、うち七名を甲版の動く解説にあてています。</p>
-        <a class="cast-lab-cta bb-stamp" href="./cast-lab.html">任意の対象をキャラクター化する CAST LABへ <span aria-hidden="true">▸</span></a>
-      </div>
-      <figure class="plate-strip">
-        <div class="plate-row">
-          <img src="./public/assets/characters/guide-pascal.webp" alt="ブレーズ・パスカル">
-          <img src="./public/assets/characters/guide-curie.webp" alt="マリー・キュリー">
-          <img src="./public/assets/characters/guide-galileo.webp" alt="ガリレオ・ガリレイ">
-          <img src="./public/assets/characters/guide-socrates.webp" alt="ソクラテス">
-          <img src="./public/assets/characters/guide-darwin.webp" alt="チャールズ・ダーウィン">
+          <dl class="hero__stats" aria-label="API at a glance">
+            <div><dt>Endpoints</dt><dd data-stat="endpoints">—</dd></div>
+            <div><dt>Markets</dt><dd data-stat="markets">—</dd></div>
+            <div><dt>History</dt><dd data-stat="history">2023</dd></div>
+            <div><dt>Median latency</dt><dd data-stat="latency">21 ms</dd></div>
+          </dl>
+          <p class="hero__note">No key yet? Every panel below runs a full local replica of the API in your browser. <a href="./docs.html#quickstart">Read the quickstart</a>.</p>
         </div>
-        <figcaption class="bb-plate-caption">図版一 ― 案内役より五名。左からパスカル、キュリー、ガリレオ、ソクラテス、ダーウィン。</figcaption>
-      </figure>
-      <p class="bb-folio"><span>四</span></p>
+
+        <div class="hero__panel">
+          <div class="quote-card" data-quote-card>
+            <header class="quote-card__head">
+              <div class="quote-card__pair">
+                <select class="select select--bare" data-hero-coin aria-label="Market"></select>
+                <span class="quote-card__badge" data-quote-dex>PERP</span>
+              </div>
+              <div class="quote-card__tabs">
+                <button type="button" data-hero-interval="1m">1m</button>
+                <button type="button" data-hero-interval="15m">15m</button>
+                <button type="button" data-hero-interval="1h" aria-pressed="true" class="is-on">1h</button>
+                <button type="button" data-hero-interval="4h">4h</button>
+                <button type="button" data-hero-interval="1d">1d</button>
+              </div>
+            </header>
+            <div class="quote-card__price">
+              <span class="quote-card__last" data-quote-last>—</span>
+              <span class="quote-card__change" data-quote-change>—</span>
+              <span class="quote-card__meta" data-quote-meta>—</span>
+            </div>
+            <div class="chart" data-hero-chart-wrap>
+              <canvas data-hero-chart role="img" aria-label="Candlestick chart"></canvas>
+              <div class="chart-tip" data-hero-tip hidden></div>
+            </div>
+            <div class="quote-card__stats">
+              <div><dt>Funding / 1h</dt><dd data-quote-funding>—</dd></div>
+              <div><dt>Open interest</dt><dd data-quote-oi>—</dd></div>
+              <div><dt>24h volume</dt><dd data-quote-volume>—</dd></div>
+              <div><dt>Oracle</dt><dd data-quote-oracle>—</dd></div>
+            </div>
+          </div>
+
+          <div class="live-feed" data-live-feed aria-live="off">
+            <div class="live-feed__head">
+              <span class="live-feed__label"><span class="pulse" data-live-dot></span> stream · trades · BTC</span>
+              <span class="live-feed__hint">1 credit per acked event</span>
+            </div>
+            <div class="live-feed__rows" data-live-feed-rows></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TRUST STRIP ============================ -->
+    <section class="trust">
+      <div class="wrap trust__inner">
+        <p class="trust__label">Powering desks, funds and agents</p>
+        <ul class="trust__list" aria-label="What runs on Hyperdash Data">
+          <li>Market-making desks</li>
+          <li>Systematic funds</li>
+          <li>AI trading agents</li>
+          <li>Copy-trade platforms</li>
+          <li>Research notebooks</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================== DATASETS ============================== -->
+    <section class="section" id="datasets">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Datasets and delivery</p>
+          <h2 data-copy="datasets.title">One API for the whole exchange</h2>
+          <p class="section__lede" data-copy="datasets.lede">Fill, position and liquidation history for every wallet. Trades, order books, liquidations, open interest and funding rate streams. Delivered over REST, WebSocket streams and an MCP server for AI agents.</p>
+        </header>
+
+        <div class="dataset-tabs" role="tablist" aria-label="Dataset view">
+          <button type="button" role="tab" aria-selected="true" class="is-on" data-dataset-tab="historical">Historical</button>
+          <button type="button" role="tab" aria-selected="false" data-dataset-tab="now">Now</button>
+          <span class="dataset-tabs__bar" aria-hidden="true"></span>
+        </div>
+
+        <div class="dataset-grid" data-dataset-panel="historical">
+          <article class="dataset-card">
+            <header><h3>Fills</h3><span class="chip">grouped by trade</span></header>
+            <p>Every fill of one wallet across perps, spot and HIP-3, from our fill history.</p>
+            <div class="dataset-card__rows" data-dataset-rows="fills"></div>
+            <footer><code>GET /v1/accounts/{address}/fills</code><span>max 1,000 rows</span></footer>
+          </article>
+          <article class="dataset-card">
+            <header><h3>Orders</h3><span class="chip">per wallet</span></header>
+            <p>Open orders with TP/SL triggers, order history and the fills behind each order.</p>
+            <div class="dataset-card__rows" data-dataset-rows="orders"></div>
+            <footer><code>GET /v1/accounts/{address}/open-orders</code><span>max 2,000 rows</span></footer>
+          </article>
+          <article class="dataset-card">
+            <header><h3>Positions</h3><span class="chip">changes and TWAPs</span></header>
+            <p>Live positions and margin, position changes, and every running TWAP slice.</p>
+            <div class="dataset-card__rows" data-dataset-rows="positions"></div>
+            <footer><code>GET /v1/accounts/{address}/positions</code><span>live</span></footer>
+          </article>
+          <article class="dataset-card">
+            <header><h3>Liquidations</h3><span class="chip">with closed PnL</span></header>
+            <p>Every liquidation with wallet, side, price, notional, realized PnL and mark.</p>
+            <div class="dataset-card__rows" data-dataset-rows="liquidations"></div>
+            <footer><code>GET /v1/liquidations</code><span>max 2,000 rows</span></footer>
+          </article>
+          <article class="dataset-card">
+            <header><h3>Funding</h3><span class="chip">hourly</span></header>
+            <p>Realized funding rates per market, plus each wallet’s funding payments.</p>
+            <div class="dataset-card__rows" data-dataset-rows="funding"></div>
+            <footer><code>GET /v1/markets/{coin}/funding-rates</code><span>max 5,000 rows</span></footer>
+          </article>
+          <article class="dataset-card dataset-card--lazy">
+            <header><h3>Everything else</h3><span class="chip chip--alt">380+ endpoints</span></header>
+            <p>Candles, CVD, footprint, cohort positioning, leaderboards, network revenue, staking, vouchers and more.</p>
+            <div class="dataset-card__rows" data-dataset-rows="more"></div>
+            <footer><a href="./docs.html#reference">Browse the endpoint index →</a></footer>
+          </article>
+        </div>
+
+        <!-- Now: the dataset table with group filters and a preview -->
+        <div class="dataset-live" data-dataset-panel="now" hidden>
+          <div class="dataset-live__filters" role="group" aria-label="Filter datasets">
+            <button type="button" class="chip-btn is-on" data-dataset-filter="all">All</button>
+            <button type="button" class="chip-btn" data-dataset-filter="live">Live</button>
+            <button type="button" class="chip-btn" data-dataset-filter="seconds">Seconds behind</button>
+            <button type="button" class="chip-btn" data-dataset-filter="history">History</button>
+            <button type="button" class="chip-btn" data-dataset-filter="derived">Derived</button>
+          </div>
+          <div class="dataset-live__grid">
+            <div class="table-wrap">
+              <table class="table table--datasets">
+                <thead>
+                  <tr><th scope="col">Dataset</th><th scope="col">Freshness</th><th scope="col">Coverage</th><th scope="col">Plans</th><th scope="col" class="num">As of</th></tr>
+                </thead>
+                <tbody data-dataset-table></tbody>
+              </table>
+            </div>
+            <aside class="dataset-preview" data-dataset-preview>
+              <p class="dataset-preview__empty">Select a dataset to preview live rows from the local API replica.</p>
+            </aside>
+          </div>
+        </div>
+
+        <div class="delivery">
+          <article><h3>REST</h3><p>JSON, CSV or NDJSON. Cursor pagination, <code>X-Credits-Charged</code> on every response.</p><code class="inline">https://data.hyperdash.com/v1</code></article>
+          <article><h3>Streams</h3><p>Ack-based WebSocket delivery with replay cursors and gap messages, billed per acknowledged event.</p><code class="inline">wss://data.hyperdash.com/v1/stream</code></article>
+          <article><h3>MCP server</h3><p>One tool per endpoint for Claude, ChatGPT, Cursor and any MCP client.</p><code class="inline">https://data.hyperdash.com/mcp</code></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= PLAYGROUND ============================= -->
+    <section class="section section--alt" id="playground">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Interactive demo</p>
+          <h2 data-copy="playground.title">Query the API right here</h2>
+          <p class="section__lede">This runs the documented contract locally: real parameters, real validation, real rate limits, real credit accounting. Swap to the console to create a key and watch usage build up.</p>
+        </header>
+
+        <div class="playground">
+          <aside class="pg-list">
+            <label class="pg-search">
+              <span class="visually-hidden">Search endpoints</span>
+              <input type="search" placeholder="Search 380 endpoints…" data-pg-search autocomplete="off">
+            </label>
+            <div class="pg-groups" data-pg-groups></div>
+          </aside>
+
+          <div class="pg-main">
+            <div class="pg-route">
+              <span class="method" data-pg-method>GET</span>
+              <input class="pg-route__path" data-pg-path spellcheck="false" aria-label="Request path" value="/v1/markets/BTC/candles">
+              <button class="btn btn--primary btn--sm" type="button" data-pg-send>Send <kbd>⌘⏎</kbd></button>
+            </div>
+            <p class="pg-summary" data-pg-summary>OHLCV candles for one market from 1 second to 1 month.</p>
+
+            <div class="pg-params" data-pg-params></div>
+
+            <div class="pg-toolbar">
+              <div class="seg" role="group" aria-label="Response body">
+                <button type="button" class="is-on" data-pg-tab="body">Body</button>
+                <button type="button" data-pg-tab="chart">Chart</button>
+                <button type="button" data-pg-tab="headers">Headers</button>
+                <button type="button" data-pg-tab="curl">curl</button>
+              </div>
+              <div class="pg-toolbar__right">
+                <select class="select select--sm" data-pg-accept aria-label="Accept">
+                  <option value="application/json">JSON</option>
+                  <option value="text/csv">CSV</option>
+                  <option value="application/x-ndjson">NDJSON</option>
+                </select>
+                <button class="btn btn--ghost btn--sm" type="button" data-pg-copy>Copy</button>
+              </div>
+            </div>
+
+            <div class="pg-output">
+              <div class="pg-output__status" data-pg-status>Ready</div>
+              <pre class="code-block" data-pg-body tabindex="0"><code>Send a request to see the response.</code></pre>
+              <div class="pg-chart" data-pg-chart-view hidden><canvas data-pg-chart></canvas></div>
+              <pre class="code-block" data-pg-headers hidden><code></code></pre>
+              <pre class="code-block" data-pg-curl hidden><code></code></pre>
+            </div>
+            <p class="pg-footnote">Running locally with a demo key scoped to <code>markets:read</code>, <code>accounts:read</code>, <code>liquidations:read</code>, <code>analytics:read</code>. <a href="./console.html#keys">Create a real key →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= WORKFLOWS ============================= -->
+    <section class="section" id="workflows">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Built for</p>
+          <h2>Track flows. Read positioning. Backtest.</h2>
+          <p class="section__lede">Three ways teams use the API on day one.</p>
+        </header>
+        <div class="workflows">
+          <article class="workflow">
+            <div class="workflow__demo" data-workflow="flow"></div>
+            <div class="workflow__body">
+              <h3>Market flows</h3>
+              <p>Follow taker flow, liquidation cascades and funding shifts market by market. Each row is precise, from our own nodes.</p>
+              <pre class="code-mini"><code>GET /v1/markets/BTC/trade-bars?interval=1h&amp;limit=24</code></pre>
+            </div>
+          </article>
+          <article class="workflow">
+            <div class="workflow__demo" data-workflow="positioning"></div>
+            <div class="workflow__body">
+              <h3>Trader positioning</h3>
+              <p>Top-trader consensus, cohort positioning and net positioning across every market, rebuilt every 12 minutes.</p>
+              <pre class="code-mini"><code>GET /v1/cohorts/consensus</code></pre>
+            </div>
+          </article>
+          <article class="workflow">
+            <div class="workflow__demo" data-workflow="agents"></div>
+            <div class="workflow__body">
+              <h3>Agents and backtests</h3>
+              <p>The hosted MCP server gives an AI agent every endpoint as a tool. Bulk history pages cleanly with cursors into a backtest.</p>
+              <pre class="code-mini"><code>claude mcp add --transport http hyperdash https://data.hyperdash.com/mcp</code></pre>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ PLANS ================================ -->
+    <section class="section section--alt" id="pricing">
+      <div class="wrap">
+        <header class="section__head section__head--split">
+          <div>
+            <p class="eyebrow">Plans and pricing</p>
+            <h2>Every plan includes real-time data for every market.</h2>
+            <p class="section__lede">Upgrade at any time. There is no free plan: every API key needs an active plan.</p>
+          </div>
+          <div class="billing-toggle" role="group" aria-label="Billing period">
+            <button type="button" class="is-on" data-billing="monthly">Monthly</button>
+            <button type="button" data-billing="yearly">Yearly <span class="save-badge">2 months free</span></button>
+          </div>
+        </header>
+
+        <div class="plans" data-plans></div>
+
+        <div class="credit-explainer">
+          <div>
+            <p class="eyebrow">Credits</p>
+            <h3>One unit for every kind of work</h3>
+            <p>Each successful request costs a whole number of credits based on the work behind it and, on most list endpoints, how many rows it returns. Failed requests are free.</p>
+            <pre class="code-mini"><code>credits = multiplier × (base + rows × per_row) + node_read_cost × node_reads</code></pre>
+          </div>
+          <div class="credit-calc">
+            <label class="field">
+              <span>Endpoint</span>
+              <select class="select" data-calc-endpoint></select>
+            </label>
+            <label class="field">
+              <span>Rows returned</span>
+              <input class="input" type="number" min="0" max="100000" step="10" value="200" data-calc-rows>
+            </label>
+            <output class="credit-calc__out" data-calc-out aria-live="polite">—</output>
+            <p class="credit-calc__meta" data-calc-meta></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ COMPARISON ============================ -->
+    <section class="section" id="compare">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Compare plans</p>
+          <h2>Everything, side by side</h2>
+        </header>
+        <div class="table-wrap">
+          <table class="table table--compare" data-compare-table>
+            <caption class="visually-hidden">Plan limits</caption>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================= FAQ ================================= -->
+    <section class="section section--alt" id="faq">
+      <div class="wrap faq">
+        <header class="section__head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+        </header>
+        <div class="accordion" data-faq></div>
+        <p class="faq__more"><a href="./docs.html">More in the documentation →</a></p>
+      </div>
+    </section>
+
+    <!-- ================================= CTA ================================= -->
+    <section class="cta">
+      <div class="wrap cta__inner">
+        <div>
+          <h2>Trade smarter with Hyperdash Data.</h2>
+          <p>Every wallet, every fill, every liquidation — in one API. Plans start at $99 a month.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--primary" href="./console.html#keys">Create an API key</a>
+          <a class="btn btn--outline" href="./docs.html#quickstart">Read the quickstart</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- ===================== 奥付 ===================== -->
-  <footer class="colophon" aria-labelledby="colophon-title">
-    <div class="bb-rule-double" aria-hidden="true"></div>
-    <h2 id="colophon-title" class="colophon-title">奥　付</h2>
-    <dl class="bb-colophon colophon-grid">
-      <div><dt>書名</dt><dd>ResearchPhantom Studio</dd></div>
-      <div><dt>読み方</dt><dd><span class="nobr">Light 書架</span> / <span class="nobr">Full データモーション</span> / <span class="nobr">Extra キャラクター解説</span></dd></div>
-      <div><dt>更新</dt><dd id="latest-paper">データ同期を確認中…</dd></div>
-      <div><dt>原本</dt><dd><a href="https://howly23v.github.io/ResearchPhantom/" rel="noreferrer">ResearchPhantom ↗</a></dd></div>
-      <div><dt>音</dt><dd>10 Book Page Flips — StarNinjas (CC0)</dd></div>
-      <div><dt>造本</dt><dd>完全静的・外部依存なし</dd></div>
-    </dl>
-    <p class="colophon-seal"><span class="bb-seal">蔵</span></p>
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" href="./index.html"><span class="brand__mark" aria-hidden="true">H</span><span class="brand__text">hyperdash<b>data</b></span></a>
+        <p>Market intelligence for Hyperliquid. REST, streams and MCP.</p>
+      </div>
+      <nav aria-label="Product">
+        <h3>Product</h3>
+        <a href="#datasets">Datasets</a>
+        <a href="#playground">Playground</a>
+        <a href="#pricing">Pricing</a>
+        <a href="./console.html">Console</a>
+      </nav>
+      <nav aria-label="Developers">
+        <h3>Developers</h3>
+        <a href="./docs.html#quickstart">Quickstart</a>
+        <a href="./docs.html#conventions">Conventions</a>
+        <a href="./docs.html#credits">Credits</a>
+        <a href="./docs.html#streams">Streams</a>
+        <a href="./docs.html#errors">Errors</a>
+      </nav>
+      <nav aria-label="Reference">
+        <h3>Reference</h3>
+        <a href="./docs.html#reference">Endpoint index</a>
+        <a href="./console.html#lab">Concepts lab</a>
+        <a href="./console.html#streams-lab">Stream lab</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+    <div class="wrap site-footer__base">
+      <p>© 2026 Hyperdash. Prices, limits and endpoint names follow the public Hyperdash Data API documentation. This page runs a local simulation of that contract.</p>
+      <p class="site-footer__status"><span class="pulse"></span> All systems operational</p>
+    </div>
   </footer>
 
-  <script type="module" src="./src/shared/edition-runtime.js"></script>
-  <script type="module" src="./src/shared/landing.js"></script>
+  <script type="module" src="./src/hyperdash/landing.js"></script>
 </body>
 </html>

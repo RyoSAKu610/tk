@@ -35,7 +35,10 @@ test('local server serves HTML, byte ranges and rejects mutation methods', async
   const index = await fetch(`${base}/`);
   assert.equal(index.status, 200);
   assert.match(index.headers.get('content-type'), /^text\/html/);
-  assert.match(await index.text(), /ResearchPhantom Studio/);
+  assert.match(await index.text(), /Hyperdash Data API/);
+  for (const page of ['docs.html', 'console.html', 'researchphantom.html']) {
+    assert.equal((await fetch(`${base}/${page}`)).status, 200);
+  }
 
   const range = await fetch(`${base}/public/assets/video/data-demo.mp4`, { headers: { range: 'bytes=0-31' } });
   assert.equal(range.status, 206);

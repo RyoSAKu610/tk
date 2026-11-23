@@ -21,8 +21,8 @@ function localReferences(contents) {
   return references;
 }
 
-test('all four independent HTML entrypoints are present and use relative local paths', async () => {
-  for (const file of ['index.html', 'character-story.html', 'data-motion.html', 'cast-lab.html']) {
+test('all seven independent HTML entrypoints are present and use relative local paths', async () => {
+  for (const file of ['index.html', 'docs.html', 'console.html', 'researchphantom.html', 'character-story.html', 'data-motion.html', 'cast-lab.html']) {
     const path = join(dist, file);
     const html = await readFile(path, 'utf8');
     assert.match(html, /<meta[^>]+name=["']viewport["']/i);
@@ -131,7 +131,7 @@ test('paper, sound, narration, motion and 200-character manifests match their as
 });
 
 test('landing and character views disclose the limited daily-sync scope', async () => {
-  const landing = await readFile(join(dist, 'index.html'), 'utf8');
+  const landing = await readFile(join(dist, 'researchphantom.html'), 'utf8');
   const landingScript = await readFile(join(dist, 'src/shared/landing.js'), 'utf8');
   const character = await readFile(join(dist, 'character-story.html'), 'utf8');
   const characterScript = await readFile(join(dist, 'src/character/character-story.js'), 'utf8');

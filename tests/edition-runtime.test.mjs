@@ -14,7 +14,7 @@ import {
 const root = resolve(new URL('../', import.meta.url).pathname);
 
 test('Light, Full and Extra routes preserve only a valid selected paper id', () => {
-  assert.equal(editionHref('light', 'rp-uk37f0'), './index.html?paper=rp-uk37f0');
+  assert.equal(editionHref('light', 'rp-uk37f0'), './researchphantom.html?paper=rp-uk37f0');
   assert.equal(editionHref('full', 'rp-uk37f0'), './data-motion.html?paper=rp-uk37f0');
   assert.equal(editionHref('extra', 'rp-uk37f0'), './character-story.html?paper=rp-uk37f0');
   assert.equal(normalizePaperId(' RP-UK37F0 '), 'RP-UK37F0');
@@ -24,7 +24,7 @@ test('Light, Full and Extra routes preserve only a valid selected paper id', () 
 });
 test('all three entrypoints expose one accessible Light, Full and Extra switcher', async () => {
   const entries = [
-    ['index.html', 'light'],
+    ['researchphantom.html', 'light'],
     ['data-motion.html', 'full'],
     ['character-story.html', 'extra'],
   ];
@@ -37,7 +37,7 @@ test('all three entrypoints expose one accessible Light, Full and Extra switcher
     assert.equal([...html.matchAll(/aria-current=["']page["']/gu)].length, 1);
     assert.match(html, /aria-label=["']表示モードを切り替える["']/u);
   }
-  const index = await readFile(resolve(root, 'index.html'), 'utf8');
+  const index = await readFile(resolve(root, 'researchphantom.html'), 'utf8');
   assert.match(index, /data-paper-link=["']full["']/u);
   assert.match(index, /data-paper-link=["']extra["']/u);
 });

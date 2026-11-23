@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Skin A — "Dash": the product look.
+   Near-black canvas, orange accent, soft elevation, geometric sans.
+   ========================================================================== */
+
+[data-skin="dash"] {
+  --bg: #0d0d0d;
+  --bg-elevated: #121212;
+  --bg-sunken: #090909;
+  --panel: #141414;
+  --panel-2: #1a1a1a;
+  --panel-hover: #202020;
+  --line: #262626;
+  --line-strong: #3a3a3a;
+  --line-soft: #1b1b1b;
+
+  --text: #f4f4f4;
+  --text-dim: #b6b6b6;
+  --muted: #8b8b8b;
+  --faint: #5f5f5f;
+
+  --accent: #fd592b;
+  --accent-hover: #ff7048;
+  --accent-ink: #170906;
+  --accent-soft: rgb(253 89 43 / 13%);
+  --accent-line: rgb(253 89 43 / 32%);
+
+  --radius-sm: 7px;
+  --radius: 11px;
+  --radius-lg: 18px;
+
+  --shadow: 0 10px 30px rgb(0 0 0 / 36%);
+  --shadow-lg: 0 32px 90px rgb(0 0 0 / 52%);
+  --glow: radial-gradient(62% 55% at 50% -6%, rgb(253 89 43 / 20%), transparent 68%);
+  --grid-line: rgb(255 255 255 / 4%);
+  --font: var(--font-sans);
+  --font-display: var(--font-sans);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-skin="dash"] .hero__title {
+  background: linear-gradient(180deg, #fff 12%, #bfbfbf 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-skin="dash"] .hero__title .accent {
+  background: linear-gradient(96deg, #ff7a4d, #fd592b 45%, #ff9a6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-skin="dash"] .brand__mark {
+  box-shadow: 0 3px 14px rgb(253 89 43 / 36%);
+}
+
+[data-skin="dash"] .quote-card {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 2.6%), transparent 42%),
+    var(--panel);
+}
+[data-skin="dash"] .dataset-card:hover {
+  box-shadow: 0 18px 44px rgb(0 0 0 / 34%), inset 0 1px rgb(255 255 255 / 4%);
+}
+[data-skin="dash"] .plan.is-popular::after {
+  content: "";
+  position: absolute;
+  inset: auto 18% -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* Floating, clipped hero chart for depth */
+[data-skin="dash"] .chart canvas { border-radius: 10px; }
+
+/* Softer section edges */
+[data-skin="dash"] .section--alt {
+  background:
+    linear-gradient(180deg, var(--bg-sunken), #0b0b0b);
+}
+[data-skin="dash"] .trust__list li { opacity: 0.85; }
+
+/* Buttons get a tinted sheen */
+[data-skin="dash"] .btn--primary {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 14%), transparent 55%);
+  box-shadow: 0 6px 22px rgb(253 89 43 / 22%);
+}
+[data-skin="dash"] .btn--primary:hover { box-shadow: 0 8px 26px rgb(253 89 43 / 30%); }
+
+[data-skin="dash"] .code-block { background: #080808; }
+[data-skin="dash"] .toast { backdrop-filter: blur(10px); }

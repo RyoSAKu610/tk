@@ -1,5 +1,5 @@
 const EDITION_DEFINITIONS = Object.freeze({
-  light: Object.freeze({ route: './index.html', label: 'Light', description: '書架と概要' }),
+  light: Object.freeze({ route: './researchphantom.html', label: 'Light', description: '書架と概要' }),
   full: Object.freeze({ route: './data-motion.html', label: 'Full', description: 'データ解析' }),
   extra: Object.freeze({ route: './character-story.html', label: 'Extra', description: 'キャラクター実演' }),
 });

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#3e2224" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#191410" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="ResearchPhantom Studio — 論文を一冊の本として読む。Light・Full・Extra、三つの読み方。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='4' fill='%233e2224'/%3E%3Crect x='9' y='9' width='46' height='46' fill='none' stroke='%23e3c583' stroke-width='1.4'/%3E%3Cpath d='M20 22h24M20 30h24M20 38h16' stroke='%23e3c583' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./src/shared/bookbinding.css">
+  <link rel="stylesheet" href="./src/shared/edition-switcher.css">
+  <link rel="stylesheet" href="./src/shared/landing.css">
+  <title>ResearchPhantom Studio — 論文を一冊の本として読む</title>
+</head>
+<body>
+  <a class="skip-link" href="#contents">目次まで移動</a>
+
+  <!-- ===================== 表紙 ===================== -->
+  <header class="cover bb-cloth bb-fillet" id="cover">
+    <div class="cover-headband bb-headband" aria-hidden="true"></div>
+    <div class="cover-spine" aria-hidden="true">
+      <span class="spine-title bb-foil">RESEARCH PHANTOM</span>
+      <span class="spine-mark bb-emboss">RP</span>
+    </div>
+    <div class="cover-ribbon bb-ribbon" aria-hidden="true"></div>
+
+    <div class="cover-nav">
+      <a class="cover-brand" href="./index.html" aria-label="ResearchPhantom Studio ホーム">
+        <span class="brand-crest" aria-hidden="true">RP</span>
+        <span class="brand-name">ResearchPhantom <b>Studio</b></span>
+      </a>
+      <nav class="edition-switcher" data-edition-switcher data-current-edition="light" aria-label="表示モードを切り替える">
+        <a class="edition-switcher__link" href="./index.html" data-edition-target="light" aria-current="page" aria-label="Light：書架と概要を開く"><b>Light</b><small>書架</small></a>
+        <a class="edition-switcher__link" href="./data-motion.html" data-edition-target="full" aria-label="Full：データ解析を開く"><b>Full</b><small>データ解析</small></a>
+        <a class="edition-switcher__link" href="./character-story.html" data-edition-target="extra" aria-label="Extra：キャラクター実演を開く"><b>Extra</b><small>キャラ実演</small></a>
+      </nav>
+      <a class="cover-lab-link" href="./cast-lab.html"><span>実験室</span><b>CAST LAB</b></a>
+      <p class="cover-imprint">日々更新される論文書架</p>
+    </div>
+
+    <div class="cover-plate">
+      <p class="cover-series bb-emboss">RESEARCH PHANTOM STUDIO · 第一版</p>
+      <h1 class="cover-title">
+        <span class="cover-title-ja bb-foil">意思ある賢者たちへ</span>
+        <span class="cover-title-en bb-foil">Reading Papers as a Bound Volume</span>
+      </h1>
+      <p class="cover-subtitle">論文を、装丁された一冊として読む。</p>
+      <div class="cover-fleuron" aria-hidden="true">❦</div>
+      <p class="cover-publisher bb-emboss">RESEARCH PHANTOM 書房 · 東京</p>
+    </div>
+
+    <div class="cover-obi bb-obi">
+      <dl class="obi-stats" aria-live="polite">
+        <div>
+          <dt>収録</dt>
+          <dd id="paper-count">論文を読込中</dd>
+        </div>
+        <div>
+          <dt>手動確認</dt>
+          <dd id="verified-count">確認状況を読込中</dd>
+        </div>
+        <div>
+          <dt>あなたの書架</dt>
+          <dd id="library-count">本棚 0冊</dd>
+        </div>
+        <div>
+          <dt>造本</dt>
+          <dd>三態・上製・角背</dd>
+        </div>
+      </dl>
+      <p class="sync-notice" id="sync-notice" aria-live="polite">
+        日次更新は論文フィードのみです。音声・動画は原文確認とレビュー後に追加します。
+      </p>
+      <a class="obi-cta bb-stamp" href="#contents">扉をひらく <span aria-hidden="true">▸</span></a>
+    </div>
+  </header>
+
+  <main class="book">
+    <!-- ===================== 扉（title page） ===================== -->
+    <section class="frontispiece bb-sheet" aria-labelledby="frontispiece-title">
+      <p class="bb-running-head"><span>序</span><span>ResearchPhantom Studio</span></p>
+      <div class="frontispiece-body">
+        <p class="bb-caps">Preface</p>
+        <h2 id="frontispiece-title" class="bb-letterpress">同じ研究を、三つの読み方で。</h2>
+        <p class="frontispiece-lede bb-dropcap">
+          毎日届く論文フィードを、読み流さずに一冊の本として組み直しました。
+          問い・入力・手法・観測・結果・意味という骨格はそのままに、
+          軽く探す<b>Light</b>、文字とデータ図形で切り込む<b>Full</b>、
+          キャラクターが場面を演じる<b>Extra</b>の三通りです。どこから入っても、
+          お気に入りも読了の記録も同じ書架に残ります。
+        </p>
+        <p class="frontispiece-disclosure">
+          <b>更新範囲：</b>毎日自動で更新するのは論文フィードです。解説の役割分け、音声、完成動画、AIモーションは自動確定せず、原文確認と人のレビューを経て追加します。
+        </p>
+        <p class="bb-ornament" aria-hidden="true">❦</p>
+        <dl class="frontispiece-spec bb-colophon">
+          <div><dt>造本</dt><dd>完全静的・外部CDN不使用</dd></div>
+          <div><dt>用紙</dt><dd>相対パスのみ / サブパス公開対応</dd></div>
+          <div><dt>付物</dt><dd>実録ページ音 五種・人物図鑑 二百名</dd></div>
+        </dl>
+      </div>
+      <p class="bb-folio"><span>i</span></p>
+    </section>
+
+    <!-- ===================== 目次 ===================== -->
+    <section class="contents bb-sheet" id="contents" aria-labelledby="contents-title">
+      <p class="bb-running-head"><span>目次</span><span>Contents</span></p>
+      <h2 id="contents-title" class="section-title bb-letterpress">目　次</h2>
+      <ol class="contents-list">
+        <li>
+          <a class="bb-leader" href="#editions">
+            <span><b>甲</b>キャラクター解説 ― 紙芝居ラボ</span>
+            <i class="bb-leader-fill" aria-hidden="true"></i>
+            <span class="bb-folio-plain">一</span>
+          </a>
+        </li>
+        <li>
+          <a class="bb-leader" href="#editions">
+            <span><b>乙</b>データモーション ― 解析室</span>
+            <i class="bb-leader-fill" aria-hidden="true"></i>
+            <span class="bb-folio-plain">二</span>
+          </a>
+        </li>
+        <li>
+          <a class="bb-leader" href="#foley">
+            <span><b>附</b>ページをめくる音 ― 実録五種</span>
+            <i class="bb-leader-fill" aria-hidden="true"></i>
+            <span class="bb-folio-plain">三</span>
+          </a>
+        </li>
+        <li>
+          <a class="bb-leader" href="#cast">
+            <span><b>図</b>人物図鑑 ― 二百名の書き割り</span>
+            <i class="bb-leader-fill" aria-hidden="true"></i>
+            <span class="bb-folio-plain">四</span>
+          </a>
+        </li>
+      </ol>
+      <p class="bb-folio"><span>ii</span></p>
+    </section>
+
+    <!-- ===================== 二冊 ===================== -->
+    <section class="editions" id="editions" aria-labelledby="editions-title">
+      <div class="section-heading">
+        <p class="bb-caps">Two Editions · One Shelf</p>
+        <h2 id="editions-title" class="section-title bb-letterpress">今日の読み方を選ぶ</h2>
+        <p class="section-lede">どちらの版から入っても、同じ論文・同じお気に入り・同じ振り返りの記録へ戻れます。</p>
+      </div>
+
+      <div class="edition-grid">
+        <article class="volume volume-a">
+          <div class="volume-spine" aria-hidden="true">
+            <span class="volume-headband bb-headband"></span>
+            <span class="volume-spine-title bb-foil">甲 CHARACTER STORY</span>
+          </div>
+          <div class="volume-board bb-cloth bb-fillet">
+            <img src="./public/assets/characters/guide-ada.webp" alt="人物図鑑より、エイダ・ラブレスの書き割り">
+            <span class="volume-mark bb-foil">甲</span>
+            <span class="volume-board-caption bb-emboss">CHARACTER STORY</span>
+          </div>
+          <div class="volume-text bb-sheet bb-gutter-left">
+            <p class="bb-caps">Edition A</p>
+            <h3 class="bb-letterpress">研究者たちと歩く、<br>紙芝居ラボ</h3>
+            <p>七名の案内役が、問い・入力・実験・結果を演じ分けます。同期字幕と実レンダーPV、二百名分の人物図鑑を添えた「ゆっくり理解する」版です。</p>
+            <ul class="volume-features" aria-label="甲版の特徴">
+              <li>七場面の章立て</li>
+              <li>二百名の人物図鑑</li>
+              <li>音声がなくても字幕で完結</li>
+            </ul>
+            <a class="volume-link bb-stamp" href="./character-story.html" data-paper-link="extra">甲版をひらく <span aria-hidden="true">▸</span></a>
+          </div>
+        </article>
+
+        <article class="volume volume-b">
+          <div class="volume-spine" aria-hidden="true">
+            <span class="volume-headband bb-headband"></span>
+            <span class="volume-spine-title bb-foil">乙 DATA MOTION</span>
+          </div>
+          <div class="volume-board bb-cloth bb-cloth-indigo bb-fillet">
+            <div class="board-diagram" aria-hidden="true">
+              <span class="diagram-ring"></span>
+              <span class="diagram-bars"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <span class="volume-mark bb-foil">乙</span>
+            <span class="volume-board-caption bb-emboss">DATA MOTION</span>
+          </div>
+          <div class="volume-text bb-sheet bb-gutter-left">
+            <p class="bb-caps">Edition B</p>
+            <h3 class="bb-letterpress">文字と数値で切り込む、<br>モーション解析室</h3>
+            <p>人物に頼らず、課題・手法・観測・結論をタイポグラフィとデータ図形で素早く比較する版です。</p>
+            <ul class="volume-features" aria-label="乙版の特徴">
+              <li>結果を先に置く六段構成</li>
+              <li>滑らかなタイムライン操作</li>
+              <li>実レンダー動画を同梱</li>
+            </ul>
+            <a class="volume-link bb-stamp" href="./data-motion.html" data-paper-link="full">乙版をひらく <span aria-hidden="true">▸</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 附録・音 ===================== -->
+    <section class="foley bb-sheet" id="foley" aria-labelledby="foley-title">
+      <p class="bb-running-head"><span>附録</span><span>Page Foley · CC0</span></p>
+      <div class="foley-copy">
+        <p class="bb-caps">Real Page Foley</p>
+        <h2 id="foley-title" class="section-title bb-letterpress">紙の手触りも、選べます。</h2>
+        <p>StarNinjas による本の実録音を五テイク収録しました。ランダムは同じ音の連続を避け、任意の選択と音量はこの端末に残ります。</p>
+      </div>
+      <div class="foley-console bb-plate">
+        <label class="foley-label" for="sound-choice">ページ音</label>
+        <select class="bb-field" id="sound-choice" disabled><option>読込中…</option></select>
+        <button class="bb-stamp" id="sound-preview" type="button" disabled>試聴する</button>
+        <output class="foley-status" id="sound-status" aria-live="polite">準備中</output>
+      </div>
+      <p class="bb-folio"><span>三</span></p>
+    </section>
+
+    <!-- ===================== 図版 ===================== -->
+    <section class="cast bb-sheet" id="cast" aria-labelledby="cast-title">
+      <p class="bb-running-head"><span>図版</span><span>Historical Cast 001—200</span></p>
+      <div class="section-heading compact">
+        <p class="bb-caps">Plates · 001—200</p>
+        <h2 id="cast-title" class="section-title bb-letterpress">人物図鑑 二百名、<span class="nobr">動く案内役は七名</span></h2>
+        <p class="section-lede">元の図鑑シート二十枚を軽量化して全二百名を収め、うち七名を甲版の動く解説にあてています。</p>
+        <a class="cast-lab-cta bb-stamp" href="./cast-lab.html">任意の対象をキャラクター化する CAST LABへ <span aria-hidden="true">▸</span></a>
+      </div>
+      <figure class="plate-strip">
+        <div class="plate-row">
+          <img src="./public/assets/characters/guide-pascal.webp" alt="ブレーズ・パスカル">
+          <img src="./public/assets/characters/guide-curie.webp" alt="マリー・キュリー">
+          <img src="./public/assets/characters/guide-galileo.webp" alt="ガリレオ・ガリレイ">
+          <img src="./public/assets/characters/guide-socrates.webp" alt="ソクラテス">
+          <img src="./public/assets/characters/guide-darwin.webp" alt="チャールズ・ダーウィン">
+        </div>
+        <figcaption class="bb-plate-caption">図版一 ― 案内役より五名。左からパスカル、キュリー、ガリレオ、ソクラテス、ダーウィン。</figcaption>
+      </figure>
+      <p class="bb-folio"><span>四</span></p>
+    </section>
+  </main>
+
+  <!-- ===================== 奥付 ===================== -->
+  <footer class="colophon" aria-labelledby="colophon-title">
+    <div class="bb-rule-double" aria-hidden="true"></div>
+    <h2 id="colophon-title" class="colophon-title">奥　付</h2>
+    <dl class="bb-colophon colophon-grid">
+      <div><dt>書名</dt><dd>ResearchPhantom Studio</dd></div>
+      <div><dt>読み方</dt><dd><span class="nobr">Light 書架</span> / <span class="nobr">Full データモーション</span> / <span class="nobr">Extra キャラクター解説</span></dd></div>
+      <div><dt>更新</dt><dd id="latest-paper">データ同期を確認中…</dd></div>
+      <div><dt>原本</dt><dd><a href="https://howly23v.github.io/ResearchPhantom/" rel="noreferrer">ResearchPhantom ↗</a></dd></div>
+      <div><dt>音</dt><dd>10 Book Page Flips — StarNinjas (CC0)</dd></div>
+      <div><dt>造本</dt><dd>完全静的・外部依存なし</dd></div>
+    </dl>
+    <p class="colophon-seal"><span class="bb-seal">蔵</span></p>
+  </footer>
+
+  <script type="module" src="./src/shared/edition-runtime.js"></script>
+  <script type="module" src="./src/shared/landing.js"></script>
+</body>
+</html>
