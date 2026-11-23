@@ -193,3 +193,43 @@
   .site-footer__brand { grid-column: 1 / -1; }
   .hide-sm { display: none !important; }
 }
+
+/* ---------------------------------------------------- live data states */
+
+.error-banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px;
+  margin-top: 10px; padding: 10px 12px;
+  border: 1px solid rgb(234 57 67 / 40%); border-radius: var(--radius-sm);
+  background: var(--down-soft); color: var(--text);
+  font-size: 12.5px; line-height: 1.45;
+}
+.error-banner b { color: var(--down); font-weight: 650; }
+.error-banner span { flex: 1 1 260px; font-family: var(--font-mono); font-size: 11.5px; color: var(--text-dim); word-break: break-word; }
+.provenance { margin-top: 8px; color: var(--faint); font-family: var(--font-mono); font-size: 10.5px; line-height: 1.5; }
+.provenance:empty { display: none; }
+.pulse.is-down, .pulse.is-down::after { background: var(--down) !important; animation: none !important; }
+.field-inline { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12px; }
+.markets-controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.table--markets td, .table--markets th { padding: 9px 12px; font-size: 12.5px; white-space: nowrap; }
+
+.endpoint-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.endpoint-card { padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+.endpoint-card h3 { margin-bottom: 10px; font-size: 14px; }
+.endpoint-card ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.endpoint-card code { display: block; color: var(--text); font-family: var(--font-mono); font-size: 12px; word-break: break-all; }
+.endpoint-card p { margin-top: 3px; color: var(--text-dim); font-size: 12.5px; line-height: 1.5; }
+.endpoint-card small { color: var(--faint); font-family: var(--font-mono); font-size: 10.5px; }
+.unavailable { margin-top: 22px; padding: 16px 18px; border: 1px dashed var(--line-strong); border-radius: var(--radius); }
+.unavailable:empty { display: none; }
+.unavailable h3 { margin-bottom: 10px; font-size: 14px; }
+.unavailable ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.unavailable li { display: grid; gap: 2px; font-size: 12.5px; }
+.unavailable li b { color: var(--text); font-weight: 600; }
+.unavailable li span { color: var(--muted); line-height: 1.5; }
+.quote-card > .provenance, .quote-card > [data-hero-error] { padding: 0 16px; }
+.quote-card > .provenance { padding-bottom: 12px; }
+.quote-card > [data-hero-error]:not(:empty) { padding-bottom: 12px; }
+.ref-try { margin-top: 10px; }
+.ref-try pre { max-height: 360px; overflow: auto; }
+.ref-params { width: 100%; margin-top: 8px; font-size: 12px; }
+.ref-params th, .ref-params td { padding: 6px 10px; }

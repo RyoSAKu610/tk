@@ -11,3 +11,4 @@ coverage/
 output/
 .motion-jobs/
 .claude/settings.local.json
+.wrangler/

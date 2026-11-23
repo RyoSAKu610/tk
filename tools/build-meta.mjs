@@ -1,14 +1,16 @@
 import { createHash } from 'node:crypto';
 import { access, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { createApi, API_VERSION } from '../src/server/api.js';
+import { silentLogger } from '../src/server/logger.js';
 
 const dist = new URL('../dist/', import.meta.url);
 
-/** Public entrypoints that run without an application server. */
+/** Public entrypoints. The three data-API pages need the /v1 backend (Worker or tools/serve.mjs). */
 const ENTRIES = [
-  ['index.html', 'landing', 'Hyperdash Data API — landing page (dash + terminal skins)'],
-  ['docs.html', 'docs', 'Documentation: quickstart, conventions, credits, plans, streams, errors'],
-  ['console.html', 'console', 'Console: API keys, usage, bills, concepts lab, playground, stream lab'],
+  ['index.html', 'landing', 'Ticksmith — Hyperliquid data API landing page (dash + terminal skins)'],
+  ['docs.html', 'docs', 'Documentation: quickstart, responses, errors, limits, endpoint reference'],
+  ['console.html', 'console', 'Console: upstream status, market and wallet inspectors, request log, playground'],
   ['researchphantom.html', 'researchphantom', 'ResearchPhantom Studio — Light edition'],
   ['data-motion.html', 'datamotion', 'ResearchPhantom Studio — Full edition'],
   ['character-story.html', 'characterstory', 'ResearchPhantom Studio — Extra edition'],
@@ -17,75 +19,23 @@ const ENTRIES = [
 
 const exists = async (path) => access(path).then(() => true, () => false);
 
-/* ---------------------------------------------------------------- content */
-
-function parseDatasets(source) {
-  const block = source.slice(source.indexOf('const MARKET_CONFIG = ['), source.indexOf('/** Candle intervals'));
-  const rows = [];
-  for (const match of block.matchAll(/^\s*\[(.+)\],$/gm)) {
-    const parts = [...match[1].matchAll(/'([^']*)'|(-?[\d_.]+)/g)].map((item) => (item[1] !== undefined ? item[1] : Number(item[2].replace(/_/g, ''))));
-    rows.push(parts);
-  }
-  const scopes = [...source.matchAll(/'([a-z]+:read)'/g)].map((m) => m[1]);
-  const intervals = [...source.matchAll(/^\s*'([0-9]+[smhdwM]|1M)': ([\d_]+),$/gm)].map((m) => [m[1], Number(m[2].replace(/_/g, ''))]);
-  return { rows, scopes: [...new Set(scopes)], intervals };
-}
-
-function parseEndpoints(source) {
-  const endpoints = [];
-  for (const match of source.matchAll(/endpoint\(\{\s*([\s\S]*?)\n {4}\}\),/g)) {
-    const block = match[1];
-    const read = (key) => new RegExp(`${key}: '([^']+)'`).exec(block)?.[1] ?? null;
-    const numeric = (key) => {
-      const found = new RegExp(`${key}: ([\\d_]+)`).exec(block);
-      return found ? Number(found[1].replace(/_/g, '')) : null;
-    };
-    if (!read('path')) continue;
-    endpoints.push({
-      method: read('method') ?? 'GET',
-      path: read('path'),
-      group: read('group'),
-      scope: /scope: null/.test(block) ? null : read('scope'),
-      base: numeric('base'),
-      perRow: numeric('perRow'),
-      maxLimit: numeric('maxLimit'),
-      feature: read('feature'),
-      summary: read('summary'),
-    });
-  }
-  const plans = [...source.matchAll(/(\w+): Object\.freeze\(\{\s*id: '(\w+)', name: '([^']+)', priceMonthly: ([\d_]+|null),/g)]
-    .map((m) => ({ id: m[2], name: m[3] }));
-  return { endpoints, plans };
-}
-
 /* ------------------------------------------------------------------ build */
 
-const root = new URL('../', import.meta.url);
-const engineSource = await readFile(new URL('src/hyperdash/market-engine.js', root), 'utf8');
-const apiSource = await readFile(new URL('src/hyperdash/data-api.js', root), 'utf8');
-
-const datasets = parseDatasets(engineSource);
-const { endpoints, plans } = parseEndpoints(apiSource);
-
-if (datasets.rows.length < 20) throw new Error('dataset extraction failed');
-if (endpoints.length < 40) throw new Error(`endpoint extraction failed (${endpoints.length})`);
-if (plans.length !== 4) throw new Error('plan extraction failed');
+// The catalogue is static route metadata; building it makes no network calls.
+const api = createApi({ env: {}, fetchImpl: () => { throw new Error('build must not fetch'); }, logger: silentLogger });
+const { endpoints, unavailable } = api.catalog;
+if (endpoints.length < 10) throw new Error(`endpoint catalogue looks empty (${endpoints.length})`);
 
 const payload = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   generatedAt: new Date().toISOString(),
-  apiVersion: '2026-11-17',
-  baseUrl: 'https://data.hyperdash.com',
-  streamUrl: 'wss://data.hyperdash.com/v1/stream',
-  markets: datasets.rows.length,
-  intervals: datasets.intervals,
-  scopes: datasets.scopes,
-  plans,
-  endpoints,
-  files: {},
+  apiVersion: API_VERSION,
+  upstream: api.config.infoUrl,
+  endpoints: endpoints.map(({ path, group, upstream }) => ({ method: 'GET', path, group, upstream })),
+  unavailable: unavailable.map(({ topic }) => topic),
 };
 
-const script = `window.__HYPERDASH_BUILD__ = ${JSON.stringify({ ...payload, endpoints, markets: payload.markets })};\n`;
+const script = `window.__SITE_BUILD__ = ${JSON.stringify(payload)};\n`;
 
 /* ------------------------------------------------------------- integrity */
 
@@ -122,4 +72,4 @@ for (const file of files) {
 }
 await writeFile(new URL('build-manifest.json', dist), `${JSON.stringify({ schemaVersion: 1, apiVersion: payload.apiVersion, files: manifest }, null, 2)}\n`, 'utf8');
 
-console.log(`Hyperdash build metadata: ${endpoints.length} endpoints, ${payload.markets} markets, ${manifest.length} files`);
+console.log(`Build metadata: ${endpoints.length} API endpoints, ${manifest.length} files`);

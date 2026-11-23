@@ -5,34 +5,34 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0d0d0d">
-  <meta name="description" content="Live and historical data for Hyperliquid. Every wallet, fill, liquidation, candle and tick on Hyperliquid in one API — REST, WebSocket streams and an MCP server for AI agents.">
+  <meta name="description" content="A read-only REST API for Hyperliquid market and wallet data, served straight from the official Hyperliquid info endpoint. Live prices, funding, open interest, order books, candles, trades, positions, fills and PnL history.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Hyperdash Data API — Live and historical data for Hyperliquid">
-  <meta property="og:description" content="Trades, order books, funding and liquidations for every market. Fills, positions and PnL for every wallet. 380+ endpoints, streams, and a hosted MCP server.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M18 46V18h8v11h12V18h8v28h-8V36H26v10z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <meta property="og:title" content="Ticksmith — Hyperliquid data API">
+  <meta property="og:description" content="Live Hyperliquid markets and wallets through one clean REST API, sourced from the official info endpoint.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%230d0d0d'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./src/hyperdash/tokens.css">
   <link rel="stylesheet" href="./src/hyperdash/shell.css">
   <link rel="stylesheet" href="./src/hyperdash/landing.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
-  <title>Hyperdash Data API — Live and historical data for Hyperliquid</title>
+  <title>Ticksmith — Hyperliquid data API</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="ticker" data-ticker aria-label="Live market ticker" data-live-region="ticker"></div>
+  <div class="ticker" data-ticker aria-label="Perp markets by 24 h volume"></div>
 
   <header class="site-header" data-header>
     <div class="wrap site-header__inner">
-      <a class="brand" href="./index.html" aria-label="Hyperdash Data API home">
-        <span class="brand__mark" aria-hidden="true">H</span>
-        <span class="brand__text">hyperdash<b>data</b></span>
+      <a class="brand" href="./index.html" aria-label="Ticksmith home">
+        <span class="brand__mark" aria-hidden="true">T</span>
+        <span class="brand__text">tick<b>smith</b></span>
       </a>
 
       <nav class="site-nav" aria-label="Primary">
-        <a href="#datasets">Datasets</a>
+        <a href="#markets">Markets</a>
+        <a href="#endpoints">Endpoints</a>
         <a href="#playground">Playground</a>
-        <a href="#pricing">Pricing</a>
         <a href="./docs.html">Docs</a>
         <a href="./console.html">Console</a>
         <a href="#faq">FAQ</a>
@@ -44,16 +44,16 @@
           <button type="button" class="skin-switch__btn" data-skin-target="terminal" aria-pressed="false"><span aria-hidden="true">▚</span> Terminal</button>
         </div>
         <a class="btn btn--ghost btn--sm hide-sm" href="./docs.html">Read docs</a>
-        <a class="btn btn--primary btn--sm" href="./console.html#keys">Get an API key</a>
+        <a class="btn btn--primary btn--sm" href="./console.html">Open console</a>
         <button class="menu-btn" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
           <span></span><span></span>
         </button>
       </div>
     </div>
     <nav class="mobile-nav" id="mobile-nav" data-mobile-nav aria-label="Mobile">
-      <a href="#datasets">Datasets</a>
+      <a href="#markets">Markets</a>
+      <a href="#endpoints">Endpoints</a>
       <a href="#playground">Playground</a>
-      <a href="#pricing">Pricing</a>
       <a href="./docs.html">Docs</a>
       <a href="./console.html">Console</a>
       <a href="#faq">FAQ</a>
@@ -66,26 +66,26 @@
       <div class="hero__grid" aria-hidden="true"></div>
       <div class="wrap hero__inner">
         <div class="hero__copy">
-          <p class="eyebrow"><span class="pulse" data-live-dot></span> Live now · <span data-ticker-status>streaming</span> · <span data-clock>—</span></p>
+          <p class="eyebrow"><span class="pulse" data-live-dot></span> <span data-upstream-status>checking Hyperliquid…</span> · <span data-clock>—</span></p>
           <h1 class="hero__title">
-            <span data-copy="hero.line1">Live and historical data</span>
-            <span class="accent" data-copy="hero.line2">for Hyperliquid.</span>
+            <span>Hyperliquid data,</span>
+            <span class="accent">one clean REST API.</span>
           </h1>
-          <p class="hero__lede" data-copy="hero.lede">Every wallet, fill, liquidation, candle and tick on Hyperliquid in one API. Traders, funds and developers connect market intelligence into their own tools and agents.</p>
+          <p class="hero__lede">Markets, order books, candles, funding, trades, positions, fills and PnL history — normalised into stable JSON and served straight from the official Hyperliquid info endpoint. Every response says what it was fetched from and when.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="./console.html#keys">
-              Create your first API key
+            <a class="btn btn--primary" href="#playground">
+              Send a live request
               <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 3.5 13 8l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a class="btn btn--outline" href="#playground">Try the API in the browser</a>
+            <a class="btn btn--outline" href="./docs.html#quickstart">Read the quickstart</a>
           </div>
           <dl class="hero__stats" aria-label="API at a glance">
             <div><dt>Endpoints</dt><dd data-stat="endpoints">—</dd></div>
-            <div><dt>Markets</dt><dd data-stat="markets">—</dd></div>
-            <div><dt>History</dt><dd data-stat="history">2023</dd></div>
-            <div><dt>Median latency</dt><dd data-stat="latency">21 ms</dd></div>
+            <div><dt>Perp markets</dt><dd data-stat="markets">—</dd></div>
+            <div><dt>Spot pairs</dt><dd data-stat="spot">—</dd></div>
+            <div><dt>Upstream latency</dt><dd data-stat="latency">—</dd></div>
           </dl>
-          <p class="hero__note">No key yet? Every panel below runs a full local replica of the API in your browser. <a href="./docs.html#quickstart">Read the quickstart</a>.</p>
+          <p class="hero__note">No API key needed. Data comes from <code>api.hyperliquid.xyz/info</code>; if Hyperliquid can’t be reached you’ll see the error, never stand-in numbers.</p>
         </div>
 
         <div class="hero__panel">
@@ -118,133 +118,87 @@
               <div><dt>24h volume</dt><dd data-quote-volume>—</dd></div>
               <div><dt>Oracle</dt><dd data-quote-oracle>—</dd></div>
             </div>
+            <p class="provenance" data-hero-provenance></p>
+            <div data-hero-error></div>
           </div>
 
           <div class="live-feed" data-live-feed aria-live="off">
             <div class="live-feed__head">
-              <span class="live-feed__label"><span class="pulse" data-live-dot></span> stream · trades · BTC</span>
-              <span class="live-feed__hint">1 credit per acked event</span>
+              <span class="live-feed__label"><span class="pulse"></span> latest trades · <span data-feed-coin>BTC</span></span>
+              <span class="live-feed__hint">GET /v1/markets/{coin}/trades · every 3 s</span>
             </div>
             <div class="live-feed__rows" data-live-feed-rows></div>
+            <div data-feed-error></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================ TRUST STRIP ============================ -->
-    <section class="trust">
-      <div class="wrap trust__inner">
-        <p class="trust__label">Powering desks, funds and agents</p>
-        <ul class="trust__list" aria-label="What runs on Hyperdash Data">
-          <li>Market-making desks</li>
-          <li>Systematic funds</li>
-          <li>AI trading agents</li>
-          <li>Copy-trade platforms</li>
-          <li>Research notebooks</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================== DATASETS ============================== -->
-    <section class="section" id="datasets">
+    <!-- ============================== MARKETS ============================== -->
+    <section class="section" id="markets">
       <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow">Datasets and delivery</p>
-          <h2 data-copy="datasets.title">One API for the whole exchange</h2>
-          <p class="section__lede" data-copy="datasets.lede">Fill, position and liquidation history for every wallet. Trades, order books, liquidations, open interest and funding rate streams. Delivered over REST, WebSocket streams and an MCP server for AI agents.</p>
+        <header class="section__head section__head--split">
+          <div>
+            <p class="eyebrow">GET /v1/markets</p>
+            <h2>Every perp market, live</h2>
+            <p class="section__lede">Mark, oracle, 1 h funding, open interest and 24 h volume for each market on the selected perp dex, refreshed every 10 seconds through this site’s backend.</p>
+          </div>
+          <div class="markets-controls">
+            <label class="field-inline"><span>Dex</span><select class="select select--sm" data-markets-dex aria-label="Perp dex"><option value="">Hyperliquid</option></select></label>
+            <label class="field-inline"><span>Sort</span>
+              <select class="select select--sm" data-markets-sort aria-label="Sort by">
+                <option value="volume">24h volume</option>
+                <option value="open_interest">Open interest</option>
+                <option value="change">24h change</option>
+                <option value="funding">Funding</option>
+              </select>
+            </label>
+          </div>
         </header>
-
-        <div class="dataset-tabs" role="tablist" aria-label="Dataset view">
-          <button type="button" role="tab" aria-selected="true" class="is-on" data-dataset-tab="historical">Historical</button>
-          <button type="button" role="tab" aria-selected="false" data-dataset-tab="now">Now</button>
-          <span class="dataset-tabs__bar" aria-hidden="true"></span>
+        <div class="table-wrap">
+          <table class="table table--markets">
+            <thead>
+              <tr>
+                <th scope="col">Market</th><th scope="col" class="num">Mark</th><th scope="col" class="num">24h</th>
+                <th scope="col" class="num">Funding / 1h</th><th scope="col" class="num">Open interest</th>
+                <th scope="col" class="num">24h volume</th><th scope="col" class="num hide-sm">Max lev.</th>
+              </tr>
+            </thead>
+            <tbody data-markets-rows><tr><td colspan="7" class="muted">Loading from Hyperliquid…</td></tr></tbody>
+          </table>
         </div>
-
-        <div class="dataset-grid" data-dataset-panel="historical">
-          <article class="dataset-card">
-            <header><h3>Fills</h3><span class="chip">grouped by trade</span></header>
-            <p>Every fill of one wallet across perps, spot and HIP-3, from our fill history.</p>
-            <div class="dataset-card__rows" data-dataset-rows="fills"></div>
-            <footer><code>GET /v1/accounts/{address}/fills</code><span>max 1,000 rows</span></footer>
-          </article>
-          <article class="dataset-card">
-            <header><h3>Orders</h3><span class="chip">per wallet</span></header>
-            <p>Open orders with TP/SL triggers, order history and the fills behind each order.</p>
-            <div class="dataset-card__rows" data-dataset-rows="orders"></div>
-            <footer><code>GET /v1/accounts/{address}/open-orders</code><span>max 2,000 rows</span></footer>
-          </article>
-          <article class="dataset-card">
-            <header><h3>Positions</h3><span class="chip">changes and TWAPs</span></header>
-            <p>Live positions and margin, position changes, and every running TWAP slice.</p>
-            <div class="dataset-card__rows" data-dataset-rows="positions"></div>
-            <footer><code>GET /v1/accounts/{address}/positions</code><span>live</span></footer>
-          </article>
-          <article class="dataset-card">
-            <header><h3>Liquidations</h3><span class="chip">with closed PnL</span></header>
-            <p>Every liquidation with wallet, side, price, notional, realized PnL and mark.</p>
-            <div class="dataset-card__rows" data-dataset-rows="liquidations"></div>
-            <footer><code>GET /v1/liquidations</code><span>max 2,000 rows</span></footer>
-          </article>
-          <article class="dataset-card">
-            <header><h3>Funding</h3><span class="chip">hourly</span></header>
-            <p>Realized funding rates per market, plus each wallet’s funding payments.</p>
-            <div class="dataset-card__rows" data-dataset-rows="funding"></div>
-            <footer><code>GET /v1/markets/{coin}/funding-rates</code><span>max 5,000 rows</span></footer>
-          </article>
-          <article class="dataset-card dataset-card--lazy">
-            <header><h3>Everything else</h3><span class="chip chip--alt">380+ endpoints</span></header>
-            <p>Candles, CVD, footprint, cohort positioning, leaderboards, network revenue, staking, vouchers and more.</p>
-            <div class="dataset-card__rows" data-dataset-rows="more"></div>
-            <footer><a href="./docs.html#reference">Browse the endpoint index →</a></footer>
-          </article>
-        </div>
-
-        <!-- Now: the dataset table with group filters and a preview -->
-        <div class="dataset-live" data-dataset-panel="now" hidden>
-          <div class="dataset-live__filters" role="group" aria-label="Filter datasets">
-            <button type="button" class="chip-btn is-on" data-dataset-filter="all">All</button>
-            <button type="button" class="chip-btn" data-dataset-filter="live">Live</button>
-            <button type="button" class="chip-btn" data-dataset-filter="seconds">Seconds behind</button>
-            <button type="button" class="chip-btn" data-dataset-filter="history">History</button>
-            <button type="button" class="chip-btn" data-dataset-filter="derived">Derived</button>
-          </div>
-          <div class="dataset-live__grid">
-            <div class="table-wrap">
-              <table class="table table--datasets">
-                <thead>
-                  <tr><th scope="col">Dataset</th><th scope="col">Freshness</th><th scope="col">Coverage</th><th scope="col">Plans</th><th scope="col" class="num">As of</th></tr>
-                </thead>
-                <tbody data-dataset-table></tbody>
-              </table>
-            </div>
-            <aside class="dataset-preview" data-dataset-preview>
-              <p class="dataset-preview__empty">Select a dataset to preview live rows from the local API replica.</p>
-            </aside>
-          </div>
-        </div>
-
-        <div class="delivery">
-          <article><h3>REST</h3><p>JSON, CSV or NDJSON. Cursor pagination, <code>X-Credits-Charged</code> on every response.</p><code class="inline">https://data.hyperdash.com/v1</code></article>
-          <article><h3>Streams</h3><p>Ack-based WebSocket delivery with replay cursors and gap messages, billed per acknowledged event.</p><code class="inline">wss://data.hyperdash.com/v1/stream</code></article>
-          <article><h3>MCP server</h3><p>One tool per endpoint for Claude, ChatGPT, Cursor and any MCP client.</p><code class="inline">https://data.hyperdash.com/mcp</code></article>
-        </div>
+        <p class="provenance" data-markets-provenance></p>
+        <div data-markets-error></div>
       </div>
     </section>
 
-    <!-- ============================= PLAYGROUND ============================= -->
-    <section class="section section--alt" id="playground">
+    <!-- ============================= ENDPOINTS ============================= -->
+    <section class="section section--alt" id="endpoints">
       <div class="wrap">
         <header class="section__head">
-          <p class="eyebrow">Interactive demo</p>
-          <h2 data-copy="playground.title">Query the API right here</h2>
-          <p class="section__lede">This runs the documented contract locally: real parameters, real validation, real rate limits, real credit accounting. Swap to the console to create a key and watch usage build up.</p>
+          <p class="eyebrow">GET /v1/endpoints</p>
+          <h2>What you can query — and what you can’t</h2>
+          <p class="section__lede">Each endpoint maps to one or two official info requests. Data the official API doesn’t expose is listed as unavailable rather than estimated.</p>
+        </header>
+        <div class="endpoint-grid" data-endpoint-grid><p class="muted">Loading endpoint catalogue…</p></div>
+        <div class="unavailable" data-unavailable></div>
+      </div>
+    </section>
+
+    <!-- ============================ PLAYGROUND ============================ -->
+    <section class="section" id="playground">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="eyebrow">Playground</p>
+          <h2>Query the API right here</h2>
+          <p class="section__lede">Requests go to this site’s <code>/v1</code> backend, which calls Hyperliquid. What you see is the real response: body, headers and timing.</p>
         </header>
 
         <div class="playground">
           <aside class="pg-list">
             <label class="pg-search">
               <span class="visually-hidden">Search endpoints</span>
-              <input type="search" placeholder="Search 380 endpoints…" data-pg-search autocomplete="off">
+              <input type="search" placeholder="Search endpoints…" data-pg-search autocomplete="off">
             </label>
             <div class="pg-groups" data-pg-groups></div>
           </aside>
@@ -252,26 +206,21 @@
           <div class="pg-main">
             <div class="pg-route">
               <span class="method" data-pg-method>GET</span>
-              <input class="pg-route__path" data-pg-path spellcheck="false" aria-label="Request path" value="/v1/markets/BTC/candles">
+              <input class="pg-route__path" data-pg-path spellcheck="false" aria-label="Request path" value="/v1/markets/BTC/candles?interval=1h&amp;limit=48">
               <button class="btn btn--primary btn--sm" type="button" data-pg-send>Send <kbd>⌘⏎</kbd></button>
             </div>
-            <p class="pg-summary" data-pg-summary>OHLCV candles for one market from 1 second to 1 month.</p>
+            <p class="pg-summary" data-pg-summary>OHLCV candles.</p>
 
             <div class="pg-params" data-pg-params></div>
 
             <div class="pg-toolbar">
-              <div class="seg" role="group" aria-label="Response body">
+              <div class="seg" role="group" aria-label="Response view">
                 <button type="button" class="is-on" data-pg-tab="body">Body</button>
                 <button type="button" data-pg-tab="chart">Chart</button>
                 <button type="button" data-pg-tab="headers">Headers</button>
                 <button type="button" data-pg-tab="curl">curl</button>
               </div>
               <div class="pg-toolbar__right">
-                <select class="select select--sm" data-pg-accept aria-label="Accept">
-                  <option value="application/json">JSON</option>
-                  <option value="text/csv">CSV</option>
-                  <option value="application/x-ndjson">NDJSON</option>
-                </select>
                 <button class="btn btn--ghost btn--sm" type="button" data-pg-copy>Copy</button>
               </div>
             </div>
@@ -283,100 +232,8 @@
               <pre class="code-block" data-pg-headers hidden><code></code></pre>
               <pre class="code-block" data-pg-curl hidden><code></code></pre>
             </div>
-            <p class="pg-footnote">Running locally with a demo key scoped to <code>markets:read</code>, <code>accounts:read</code>, <code>liquidations:read</code>, <code>analytics:read</code>. <a href="./console.html#keys">Create a real key →</a></p>
+            <p class="pg-footnote">Rate limit per client IP is shown in the <code>ratelimit-*</code> headers. Account endpoints take any public wallet address.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================= WORKFLOWS ============================= -->
-    <section class="section" id="workflows">
-      <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow">Built for</p>
-          <h2>Track flows. Read positioning. Backtest.</h2>
-          <p class="section__lede">Three ways teams use the API on day one.</p>
-        </header>
-        <div class="workflows">
-          <article class="workflow">
-            <div class="workflow__demo" data-workflow="flow"></div>
-            <div class="workflow__body">
-              <h3>Market flows</h3>
-              <p>Follow taker flow, liquidation cascades and funding shifts market by market. Each row is precise, from our own nodes.</p>
-              <pre class="code-mini"><code>GET /v1/markets/BTC/trade-bars?interval=1h&amp;limit=24</code></pre>
-            </div>
-          </article>
-          <article class="workflow">
-            <div class="workflow__demo" data-workflow="positioning"></div>
-            <div class="workflow__body">
-              <h3>Trader positioning</h3>
-              <p>Top-trader consensus, cohort positioning and net positioning across every market, rebuilt every 12 minutes.</p>
-              <pre class="code-mini"><code>GET /v1/cohorts/consensus</code></pre>
-            </div>
-          </article>
-          <article class="workflow">
-            <div class="workflow__demo" data-workflow="agents"></div>
-            <div class="workflow__body">
-              <h3>Agents and backtests</h3>
-              <p>The hosted MCP server gives an AI agent every endpoint as a tool. Bulk history pages cleanly with cursors into a backtest.</p>
-              <pre class="code-mini"><code>claude mcp add --transport http hyperdash https://data.hyperdash.com/mcp</code></pre>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================ PLANS ================================ -->
-    <section class="section section--alt" id="pricing">
-      <div class="wrap">
-        <header class="section__head section__head--split">
-          <div>
-            <p class="eyebrow">Plans and pricing</p>
-            <h2>Every plan includes real-time data for every market.</h2>
-            <p class="section__lede">Upgrade at any time. There is no free plan: every API key needs an active plan.</p>
-          </div>
-          <div class="billing-toggle" role="group" aria-label="Billing period">
-            <button type="button" class="is-on" data-billing="monthly">Monthly</button>
-            <button type="button" data-billing="yearly">Yearly <span class="save-badge">2 months free</span></button>
-          </div>
-        </header>
-
-        <div class="plans" data-plans></div>
-
-        <div class="credit-explainer">
-          <div>
-            <p class="eyebrow">Credits</p>
-            <h3>One unit for every kind of work</h3>
-            <p>Each successful request costs a whole number of credits based on the work behind it and, on most list endpoints, how many rows it returns. Failed requests are free.</p>
-            <pre class="code-mini"><code>credits = multiplier × (base + rows × per_row) + node_read_cost × node_reads</code></pre>
-          </div>
-          <div class="credit-calc">
-            <label class="field">
-              <span>Endpoint</span>
-              <select class="select" data-calc-endpoint></select>
-            </label>
-            <label class="field">
-              <span>Rows returned</span>
-              <input class="input" type="number" min="0" max="100000" step="10" value="200" data-calc-rows>
-            </label>
-            <output class="credit-calc__out" data-calc-out aria-live="polite">—</output>
-            <p class="credit-calc__meta" data-calc-meta></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ COMPARISON ============================ -->
-    <section class="section" id="compare">
-      <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow">Compare plans</p>
-          <h2>Everything, side by side</h2>
-        </header>
-        <div class="table-wrap">
-          <table class="table table--compare" data-compare-table>
-            <caption class="visually-hidden">Plan limits</caption>
-          </table>
         </div>
       </div>
     </section>
@@ -392,54 +249,38 @@
         <p class="faq__more"><a href="./docs.html">More in the documentation →</a></p>
       </div>
     </section>
-
-    <!-- ================================= CTA ================================= -->
-    <section class="cta">
-      <div class="wrap cta__inner">
-        <div>
-          <h2>Trade smarter with Hyperdash Data.</h2>
-          <p>Every wallet, every fill, every liquidation — in one API. Plans start at $99 a month.</p>
-        </div>
-        <div class="cta__actions">
-          <a class="btn btn--primary" href="./console.html#keys">Create an API key</a>
-          <a class="btn btn--outline" href="./docs.html#quickstart">Read the quickstart</a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
       <div class="site-footer__brand">
-        <a class="brand" href="./index.html"><span class="brand__mark" aria-hidden="true">H</span><span class="brand__text">hyperdash<b>data</b></span></a>
-        <p>Market intelligence for Hyperliquid. REST, streams and MCP.</p>
+        <a class="brand" href="./index.html"><span class="brand__mark" aria-hidden="true">T</span><span class="brand__text">tick<b>smith</b></span></a>
+        <p>A read-only REST API over the official Hyperliquid info endpoint.</p>
       </div>
       <nav aria-label="Product">
         <h3>Product</h3>
-        <a href="#datasets">Datasets</a>
+        <a href="#markets">Markets</a>
+        <a href="#endpoints">Endpoints</a>
         <a href="#playground">Playground</a>
-        <a href="#pricing">Pricing</a>
         <a href="./console.html">Console</a>
       </nav>
       <nav aria-label="Developers">
         <h3>Developers</h3>
         <a href="./docs.html#quickstart">Quickstart</a>
-        <a href="./docs.html#conventions">Conventions</a>
-        <a href="./docs.html#credits">Credits</a>
-        <a href="./docs.html#streams">Streams</a>
+        <a href="./docs.html#responses">Responses</a>
         <a href="./docs.html#errors">Errors</a>
+        <a href="./docs.html#limits">Rate limits</a>
       </nav>
       <nav aria-label="Reference">
         <h3>Reference</h3>
-        <a href="./docs.html#reference">Endpoint index</a>
-        <a href="./console.html#lab">Concepts lab</a>
-        <a href="./console.html#streams-lab">Stream lab</a>
-        <a href="#faq">FAQ</a>
+        <a href="./docs.html#reference">Endpoint reference</a>
+        <a href="./docs.html#unavailable">Unavailable data</a>
+        <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint" rel="noopener">Hyperliquid info API</a>
       </nav>
     </div>
     <div class="wrap site-footer__base">
-      <p>© 2026 Hyperdash. Prices, limits and endpoint names follow the public Hyperdash Data API documentation. This page runs a local simulation of that contract.</p>
-      <p class="site-footer__status"><span class="pulse"></span> All systems operational</p>
+      <p>Not affiliated with Hyperliquid. Market data is provided as returned by the Hyperliquid info API, without warranty. Not investment advice.</p>
+      <p class="site-footer__status"><span class="pulse" data-live-dot></span> <span data-footer-status>checking…</span></p>
     </div>
   </footer>
 

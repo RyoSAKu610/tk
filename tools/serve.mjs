@@ -3,6 +3,7 @@ import { stat } from 'node:fs/promises';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createApi } from '../src/server/api.js';
 
 const root = resolve(fileURLToPath(new URL('../dist/', import.meta.url)));
 const port = Number.parseInt(process.env.PORT ?? '4173', 10);
@@ -51,7 +52,33 @@ function parseRange(header, size) {
   return { start, end: Math.min(end, size - 1) };
 }
 
+// Same data API as the Cloudflare Worker, configured from process.env.
+const api = createApi({ env: process.env });
+
+async function handleApi(request, response) {
+  const url = new URL(request.url ?? '/', `http://${request.headers.host ?? 'localhost'}`);
+  const headers = new Headers();
+  for (const [name, value] of Object.entries(request.headers)) {
+    if (typeof value === 'string') headers.set(name, value);
+  }
+  if (!headers.has('x-forwarded-for')) headers.set('x-forwarded-for', request.socket.remoteAddress ?? 'local');
+  const result = await api.handle(new Request(url, { method: request.method, headers }));
+  if (!result) return false;
+  response.writeHead(result.status, Object.fromEntries(result.headers));
+  response.end(Buffer.from(await result.arrayBuffer()));
+  return true;
+}
+
 const server = createServer(async (request, response) => {
+  if ((request.url ?? '').startsWith('/v1')) {
+    try {
+      if (await handleApi(request, response)) return;
+    } catch (error) {
+      console.error(JSON.stringify({ ts: new Date().toISOString(), level: 'error', event: 'serve.api_exception', detail: String(error?.stack || error) }));
+      response.writeHead(500, { 'content-type': 'application/problem+json' }).end(JSON.stringify({ status: 500, code: 'internal_error', detail: 'Unexpected server error' }));
+      return;
+    }
+  }
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     response.writeHead(405, { allow: 'GET, HEAD' }).end();
     return;
@@ -98,5 +125,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`ResearchPhantom Studio: http://${host}:${port}`);
+  console.log(`Static site + data API (upstream ${api.config.infoUrl}): http://${host}:${port}`);
 });

@@ -1,3 +1,29 @@
+# Ticksmith — Hyperliquid データAPI(`index.html` / `docs.html` / `console.html`)
+
+Hyperliquid公式の info API(`POST https://api.hyperliquid.xyz/info`)だけを情報源にする、読み取り専用のREST APIとそのサイトです。シミュレーション・サンプル値・偽レスポンスは含みません。上流に接続できないときは 502/503/504 の problem+json を返し、画面にもそのエラーを表示します。
+
+- **バックエンド**: `src/server/`(Cloudflare Worker `src/worker/index.js` と、ローカル用 `tools/serve.mjs` が同じハンドラを使う)
+  - `hyperliquid.js` — タイムアウト、指数バックオフ+ジッターの再試行(ネットワーク/タイムアウト/429/5xx のみ)、公式ドキュメントどおりの重み計算による上流レート制限(既定 900/分 < 公式 1200/分)、短TTLキャッシュ、同一リクエストの合流
+  - `api.js` — `/v1/*` ルーティング、正規化、コイン名を上流メタデータで検証(存在しないコインは上流に投げず404)、クライアントIPごとのトークンバケット、RFC 9457エラー、`meta.fetched_at` などの出所情報
+  - `config.js` — 環境変数の検証(不正値は `500 config_error` で変数名を明示)/ `logger.js` — 1行1JSONの構造化ログ
+- **フロント**: `src/hyperdash/landing.js`・`docs.js`・`console.js`・`playground.js`・`api-client.js`・`common.js`。Dash / Terminal の2スキンは維持
+- **エンドポイント**(17): status, markets, markets/mids, markets/{coin}, book, trades, candles, funding, spot/markets, dexs, accounts/{address}, positions, open-orders, fills, funding, ledger, portfolio。一覧は `GET /v1/endpoints`
+- **利用不可(作らない)**: 取引所全体の清算フィード/清算マップ、市場別ポジション一覧、リーダーボード/コホート、直近以外のトレード履歴、OI履歴/CVD、5000本より古いローソク足、WebSocket配信、APIキー/課金。理由は `/v1/endpoints` の `unavailable` と docs に記載
+
+```bash
+npm install
+npm test                  # ユニットテスト(上流fetchのスタブはテスト内のみ)+ビルド
+npm run dev               # http://127.0.0.1:4173 で静的サイト+/v1
+npm run verify:live       # 実APIでE2E検証(引数にデプロイ先URLを渡せる)
+npx wrangler login        # 手元PCで一度だけ
+npx wrangler deploy
+npm run verify:live -- https://<worker>.workers.dev
+```
+
+設定は `wrangler.jsonc` の `vars`(キー不要)。項目と既定値は `docs.html#operations` を参照。
+
+---
+
 # ResearchPhantom Studio
 
 ResearchPhantomの論文フィードを、**装丁された一冊の本**として読む純静的サイトです。3つの版はどのページからも切り替えられ、選択中の論文を引き継ぎます。

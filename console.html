@@ -5,24 +5,22 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0d0d0d">
-  <meta name="description" content="Hyperdash Data console: create API keys, watch credits and usage, inspect requests, and test the API contract.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M18 46V18h8v11h12V18h8v28h-8V36H26v10z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <meta name="description" content="Ticksmith console: live upstream status, market and wallet inspectors, request log and playground for the Hyperliquid data API.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%230d0d0d'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./src/hyperdash/tokens.css">
   <link rel="stylesheet" href="./src/hyperdash/shell.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
   <link rel="stylesheet" href="./src/hyperdash/console.css">
-  <title>Console — Hyperdash Data</title>
+  <title>Console — Ticksmith</title>
 </head>
 <body class="app-body">
-  <a class="skip-link" href="#app-main">Skip to content</a>
-
   <header class="app-header">
-    <a class="brand" href="./index.html" aria-label="Hyperdash Data API home">
-      <span class="brand__mark" aria-hidden="true">H</span>
-      <span class="brand__text">hyperdash<b>console</b></span>
+    <a class="brand" href="./index.html" aria-label="Ticksmith home">
+      <span class="brand__mark" aria-hidden="true">T</span>
+      <span class="brand__text">tick<b>console</b></span>
     </a>
-    <div class="app-header__crumb" aria-hidden="true">/ <span data-workspace>acme-quant</span> / <span data-project>production</span></div>
+    <div class="app-header__crumb" aria-hidden="true">/ <span data-base-host>—</span> / v1</div>
     <div class="app-header__right">
       <div class="skin-switch" role="group" aria-label="Design direction">
         <button type="button" class="skin-switch__btn" data-skin-target="dash" aria-pressed="true"><span aria-hidden="true">◧</span> Dash</button>
@@ -30,381 +28,240 @@
       </div>
       <a class="btn btn--ghost btn--sm hide-sm" href="./docs.html">Docs</a>
       <a class="btn btn--ghost btn--sm hide-sm" href="./index.html">Site</a>
-      <span class="avatar" aria-hidden="true" title="demo@acme-quant">AQ</span>
     </div>
   </header>
 
   <div class="app-shell">
     <aside class="app-side" aria-label="Console sections">
       <nav class="app-nav">
-        <a href="#keys" data-view-link="keys"><span aria-hidden="true">⚿</span> API keys</a>
-        <a href="#usage" data-view-link="usage"><span aria-hidden="true">▤</span> Usage and bills</a>
+        <a href="#status" data-view-link="status"><span aria-hidden="true">◉</span> Status</a>
+        <a href="#market" data-view-link="market"><span aria-hidden="true">▤</span> Market inspector</a>
+        <a href="#wallet" data-view-link="wallet"><span aria-hidden="true">◈</span> Wallet inspector</a>
         <a href="#playground" data-view-link="playground"><span aria-hidden="true">▶</span> Playground</a>
-        <a href="#streams-lab" data-view-link="streams-lab"><span aria-hidden="true">≋</span> Stream lab</a>
-        <a href="#lab" data-view-link="lab"><span aria-hidden="true">⌗</span> Concepts lab</a>
-        <a href="#plan" data-view-link="plan"><span aria-hidden="true">◈</span> Plan</a>
+        <a href="#log" data-view-link="log"><span aria-hidden="true">≋</span> Request log</a>
       </nav>
       <div class="app-side__card">
-        <p class="app-side__label">Credits left</p>
-        <p class="app-side__value" data-side-credits>—</p>
+        <p class="app-side__label">Upstream</p>
+        <p class="app-side__value" data-side-status>—</p>
         <div class="meter meter--sm"><span data-side-meter></span></div>
-        <p class="app-side__note" data-side-plan>—</p>
-        <a class="btn btn--outline btn--sm btn--block" href="#plan">Change plan</a>
+        <p class="app-side__note" data-side-note>weight budget used in the last minute</p>
       </div>
       <div class="app-side__foot">
-        <p><span class="pulse"></span> Local replica · v2026-11-17</p>
-        <button class="link-btn" type="button" data-reset>Reset demo workspace</button>
+        <p><span class="pulse" data-live-dot></span> <span data-side-version>—</span></p>
+        <p class="mono" data-clock>—</p>
       </div>
     </aside>
 
     <main class="app-main" id="app-main">
-      <!-- ================================ KEYS ================================ -->
-      <section class="app-view" id="keys" data-view="keys">
+      <!-- ================================ STATUS ================================ -->
+      <section class="app-view" id="status" data-view="status">
         <header class="app-view__head">
           <div>
-            <p class="eyebrow">Project {production}</p>
-            <h1>API keys</h1>
-            <p class="app-view__lede">Keys belong to a project inside the workspace, so usage is attributed to the key, the project and the workspace. A key is shown once, then only its prefix.</p>
+            <p class="eyebrow">GET /v1/status · every 15 s</p>
+            <h1>Upstream status</h1>
+            <p class="app-view__lede">Each check makes an uncached <code>exchangeStatus</code> call to Hyperliquid through the backend and reports the backend’s retry, cache and weight-budget counters. Counters belong to the server instance that answered.</p>
           </div>
-          <button class="btn btn--primary" type="button" data-key-new>Create API key</button>
+          <div class="app-view__actions"><button class="btn btn--primary" type="button" data-status-check>Check now</button></div>
         </header>
-
         <div class="stat-row">
-          <div class="stat"><span>Active keys</span><b data-key-count>0</b><small>of 20 demo slots</small></div>
-          <div class="stat"><span>Calls this session</span><b data-key-calls>0</b><small>all keys</small></div>
-          <div class="stat"><span>Credits charged</span><b data-key-credits>0</b><small>by keys</small></div>
-          <div class="stat"><span>Rate limit</span><b data-key-rate>25 rps</b><small data-key-burst>burst 50</small></div>
+          <div class="stat"><span>Hyperliquid</span><b data-st-state>—</b><small data-st-time>—</small></div>
+          <div class="stat"><span>Upstream latency</span><b data-st-latency>—</b><small data-st-rtt>—</small></div>
+          <div class="stat"><span>Weight / min</span><b data-st-weight>—</b><small data-st-budget>—</small></div>
+          <div class="stat"><span>Cache hits</span><b data-st-cache>—</b><small data-st-calls>—</small></div>
         </div>
-
-        <div class="key-table-wrap table-wrap">
-          <table class="table table--keys">
-            <thead>
-              <tr><th scope="col">Name</th><th scope="col">Key</th><th scope="col">Scopes</th><th scope="col">Created</th><th scope="col">Last used</th><th scope="col" class="num">Calls</th><th scope="col" class="num">Credits</th><th scope="col"></th></tr>
-            </thead>
-            <tbody data-key-rows></tbody>
-          </table>
-        </div>
-
-        <div class="panel" data-key-detail hidden>
-          <header class="panel__head">
-            <h2 data-key-detail-name>Key</h2>
-            <button class="btn btn--ghost btn--sm" type="button" data-key-detail-close>Close</button>
-          </header>
-          <div class="panel__body key-detail" data-key-detail-body></div>
-        </div>
-
+        <div data-status-error></div>
         <div class="panel">
-          <header class="panel__head"><h2>Scopes</h2><span class="chip">enforced server-side</span></header>
-          <div class="panel__body scope-grid" data-scope-grid></div>
+          <header class="panel__head"><h2>Latency, this session</h2><span class="chip" data-st-count>0 checks</span></header>
+          <div class="panel__body panel__body--chart"><canvas data-st-chart role="img" aria-label="Upstream latency per check"></canvas></div>
+          <footer class="panel__foot" data-st-foot>Retries and failures appear here.</footer>
         </div>
       </section>
 
-      <!-- =============================== USAGE =============================== -->
-      <section class="app-view" id="usage" data-view="usage" hidden>
+      <!-- ============================ MARKET INSPECTOR ============================ -->
+      <section class="app-view" id="market" data-view="market" hidden>
         <header class="app-view__head">
           <div>
-            <p class="eyebrow">Billing period · November 2026</p>
-            <h1>Usage and bills</h1>
-            <p class="app-view__lede">Every request records its route, status, credits and latency. Failed requests are free. Plan credits reset each period; purchased credits last 12 months.</p>
+            <p class="eyebrow">markets · candles · book · trades · funding</p>
+            <h1>Market inspector</h1>
+            <p class="app-view__lede">Perps (<code>BTC</code>), HIP-3 perps (<code>xyz:XYZ100</code>) or spot (<code>HYPE/USDC</code>, <code>@107</code>). Refreshes every 5 s while this view is open.</p>
           </div>
-          <div class="app-view__actions">
-            <button class="btn btn--outline" type="button" data-simulate-burst>Simulate 40 requests</button>
-            <button class="btn btn--primary" type="button" data-buy-credits>Buy 100 USD of credits</button>
-          </div>
+          <form class="app-view__actions" data-market-form>
+            <input class="input input--mono" name="coin" value="BTC" aria-label="Market" list="coin-list" style="width:160px">
+            <datalist id="coin-list" data-coin-list></datalist>
+            <select class="select select--sm" name="interval" aria-label="Interval">
+              <option>1m</option><option>5m</option><option selected>15m</option><option>1h</option><option>4h</option><option>1d</option>
+            </select>
+            <button class="btn btn--primary" type="submit">Load</button>
+          </form>
         </header>
-
+        <div class="stat-row" data-mk-stats>
+          <div class="stat"><span>Mark</span><b data-mk-mark>—</b><small data-mk-change>—</small></div>
+          <div class="stat"><span>Funding / 1h</span><b data-mk-funding>—</b><small data-mk-premium>—</small></div>
+          <div class="stat"><span>Open interest</span><b data-mk-oi>—</b><small data-mk-oi-base>—</small></div>
+          <div class="stat"><span>Spread</span><b data-mk-spread>—</b><small data-mk-bbo>—</small></div>
+        </div>
+        <div data-mk-error></div>
+        <div class="panel">
+          <header class="panel__head"><h2 data-mk-title>Candles</h2><span class="chip" data-mk-candle-meta>—</span></header>
+          <div class="panel__body" style="height:320px"><canvas data-mk-candles role="img" aria-label="Candles"></canvas></div>
+        </div>
         <div class="usage-top">
-          <div class="panel panel--credits">
-            <div class="panel__body">
-              <div class="credit-hero">
-                <div>
-                  <p class="app-side__label">Credits remaining</p>
-                  <p class="credit-hero__value" data-usage-remaining>—</p>
-                  <p class="credit-hero__meta" data-usage-meta>—</p>
-                </div>
-                <div class="credit-hero__ring" data-usage-ring aria-hidden="true"></div>
-              </div>
-              <div class="meter"><span data-usage-meter></span></div>
-              <dl class="usage-breakdown" data-usage-breakdown></dl>
+          <div class="panel">
+            <header class="panel__head"><h2>Order book</h2><span class="chip" data-mk-book-meta>—</span></header>
+            <div class="panel__body" style="height:220px"><canvas data-mk-depth role="img" aria-label="Depth"></canvas></div>
+          </div>
+          <div class="panel">
+            <header class="panel__head"><h2>Funding history (24 h)</h2><span class="chip" data-mk-funding-meta>—</span></header>
+            <div class="panel__body" style="height:220px"><canvas data-mk-fundchart role="img" aria-label="Funding history"></canvas></div>
+          </div>
+        </div>
+        <div class="panel">
+          <header class="panel__head"><h2>Latest trades</h2><span class="chip" data-mk-trades-meta>—</span></header>
+          <div class="table-wrap table-wrap--flat">
+            <table class="table table--log">
+              <thead><tr><th>Time (UTC)</th><th>Side</th><th class="num">Price</th><th class="num">Size</th><th class="num">Notional</th><th>Buyer</th><th>Seller</th></tr></thead>
+              <tbody data-mk-trades></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ WALLET INSPECTOR ============================ -->
+      <section class="app-view" id="wallet" data-view="wallet" hidden>
+        <header class="app-view__head">
+          <div>
+            <p class="eyebrow">accounts · positions · orders · fills · portfolio</p>
+            <h1>Wallet inspector</h1>
+            <p class="app-view__lede">Any public Hyperliquid address. Nothing is signed and nothing is stored.</p>
+          </div>
+          <form class="app-view__actions" data-wallet-form>
+            <input class="input input--mono" name="address" placeholder="0x…" aria-label="Wallet address" style="width:min(400px,80vw)" autocomplete="off" spellcheck="false">
+            <button class="btn btn--primary" type="submit">Inspect</button>
+            <button class="btn btn--ghost btn--sm" type="button" data-wallet-sample>Use a wallet from the latest BTC trade</button>
+          </form>
+        </header>
+        <div data-wl-error></div>
+        <div class="stat-row">
+          <div class="stat"><span>Account value</span><b data-wl-value>—</b><small data-wl-withdrawable>—</small></div>
+          <div class="stat"><span>Notional</span><b data-wl-notional>—</b><small data-wl-positions>—</small></div>
+          <div class="stat"><span>Margin used</span><b data-wl-margin>—</b><small data-wl-maint>—</small></div>
+          <div class="stat"><span>Spot balances</span><b data-wl-spot>—</b><small data-wl-spot-note>—</small></div>
+        </div>
+        <div class="panel">
+          <header class="panel__head">
+            <h2>Account value</h2>
+            <div class="panel__tools">
+              <select class="select select--sm" data-wl-window aria-label="Window">
+                <option value="day">day</option><option value="week">week</option><option value="month" selected>month</option><option value="allTime">all time</option>
+              </select>
+              <span class="chip" data-wl-portfolio-meta>—</span>
+            </div>
+          </header>
+          <div class="panel__body" style="height:220px"><canvas data-wl-chart role="img" aria-label="Account value history"></canvas></div>
+        </div>
+        <div class="panel">
+          <header class="panel__head"><h2>Positions</h2><span class="chip" data-wl-pos-meta>—</span></header>
+          <div class="table-wrap table-wrap--flat">
+            <table class="table table--log">
+              <thead><tr><th>Coin</th><th>Side</th><th class="num">Size</th><th class="num">Entry</th><th class="num">Mark</th><th class="num">Value</th><th class="num">uPnL</th><th class="num">Liq. px</th><th class="num">Lev.</th></tr></thead>
+              <tbody data-wl-positions-rows></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="usage-top">
+          <div class="panel">
+            <header class="panel__head"><h2>Open orders</h2><span class="chip" data-wl-orders-meta>—</span></header>
+            <div class="table-wrap table-wrap--flat" style="max-height:340px;overflow:auto">
+              <table class="table table--log">
+                <thead><tr><th>Coin</th><th>Side</th><th>Type</th><th class="num">Price</th><th class="num">Size</th></tr></thead>
+                <tbody data-wl-orders></tbody>
+              </table>
             </div>
           </div>
           <div class="panel">
-            <header class="panel__head"><h2>Burn rate</h2><span class="chip" data-burn-label>last 40 requests</span></header>
-            <div class="panel__body panel__body--chart">
-              <canvas data-burn-chart role="img" aria-label="Credits burned per request"></canvas>
+            <header class="panel__head"><h2>Recent fills</h2><span class="chip" data-wl-fills-meta>—</span></header>
+            <div class="table-wrap table-wrap--flat" style="max-height:340px;overflow:auto">
+              <table class="table table--log">
+                <thead><tr><th>Time</th><th>Coin</th><th>Dir.</th><th class="num">Price</th><th class="num">Size</th><th class="num">PnL</th><th class="num">Fee</th></tr></thead>
+                <tbody data-wl-fills></tbody>
+              </table>
             </div>
-            <footer class="panel__foot" data-burn-foot>—</footer>
-          </div>
-        </div>
-
-        <div class="panel">
-          <header class="panel__head">
-            <h2>Request log</h2>
-            <div class="panel__tools">
-              <div class="seg" role="group" aria-label="Filter by status">
-                <button type="button" class="is-on" data-log-filter="all">All</button>
-                <button type="button" data-log-filter="ok">2xx</button>
-                <button type="button" data-log-filter="err">4xx</button>
-                <button type="button" data-log-filter="free">free</button>
-              </div>
-              <span class="chip" data-log-retention>7-day retention</span>
-            </div>
-          </header>
-          <div class="table-wrap table-wrap--flat">
-            <table class="table table--log">
-              <thead><tr><th scope="col">Time</th><th scope="col">Method</th><th scope="col">Path</th><th scope="col">Status</th><th scope="col" class="num">Credits</th><th scope="col" class="num">Latency</th><th scope="col">Request ID</th></tr></thead>
-              <tbody data-log-rows></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="panel">
-          <header class="panel__head"><h2>Invoices</h2><span class="chip">Stripe test mode</span></header>
-          <div class="table-wrap table-wrap--flat">
-            <table class="table">
-              <thead><tr><th scope="col">Invoice</th><th scope="col">Period</th><th scope="col">Plan</th><th scope="col">Billing</th><th scope="col" class="num">Amount</th><th scope="col">Status</th></tr></thead>
-              <tbody data-invoice-rows></tbody>
-            </table>
           </div>
         </div>
       </section>
 
-      <!-- ============================= PLAYGROUND ============================= -->
+      <!-- ============================== PLAYGROUND ============================== -->
       <section class="app-view" id="playground" data-view="playground" hidden>
         <header class="app-view__head">
           <div>
-            <p class="eyebrow">Request builder</p>
-            <h1>Playground</h1>
-            <p class="app-view__lede">Send a real request through the local replica with one of your keys. Headers, credits and errors are produced by the same code paths as the streams and the docs.</p>
-          </div>
-          <div class="app-view__actions">
-            <label class="inline-field">
-              <span>Key</span>
-              <select class="select select--sm" data-pg-key aria-label="API key"></select>
-            </label>
-            <label class="inline-field">
-              <span>Accept</span>
-              <select class="select select--sm" data-pg-accept aria-label="Accept header">
-                <option value="application/json">JSON</option>
-                <option value="text/csv">CSV</option>
-                <option value="application/x-ndjson">NDJSON</option>
-              </select>
-            </label>
+            <p class="eyebrow">Playground</p>
+            <h1>Send any request</h1>
+            <p class="app-view__lede">Real GET requests to the backend. Each one also appears in the request log.</p>
           </div>
         </header>
-
-        <div class="pg2">
-          <aside class="pg2__list">
-            <input class="input" type="search" placeholder="Filter endpoints…" data-pg2-search aria-label="Filter endpoints">
-            <div class="pg-groups" data-pg2-groups></div>
+        <div class="playground pg2">
+          <aside class="pg-list pg2__list">
+            <label class="pg-search">
+              <span class="visually-hidden">Search endpoints</span>
+              <input class="input" type="search" placeholder="Search endpoints…" data-pg-search autocomplete="off">
+            </label>
+            <div class="pg-groups" data-pg-groups></div>
           </aside>
-          <div class="pg2__main">
+          <div class="pg-main pg2__main">
             <div class="pg-route">
-              <span class="method" data-pg2-method>GET</span>
-              <input class="pg-route__path" data-pg2-path spellcheck="false" aria-label="Request path" value="/v1/markets/BTC/candles">
-              <button class="btn btn--primary btn--sm" type="button" data-pg2-send>Send</button>
+              <span class="method" data-pg-method>GET</span>
+              <input class="pg-route__path" data-pg-path spellcheck="false" aria-label="Request path" value="/v1/markets?limit=10">
+              <button class="btn btn--primary btn--sm" type="button" data-pg-send>Send <kbd>⌘⏎</kbd></button>
             </div>
-            <p class="pg-summary" data-pg2-summary></p>
-            <div class="pg-params" data-pg2-params></div>
+            <p class="pg-summary" data-pg-summary></p>
+            <div class="pg-params" data-pg-params></div>
             <div class="pg-toolbar">
               <div class="seg" role="group" aria-label="Response view">
-                <button type="button" class="is-on" data-pg2-tab="body">Body</button>
-                <button type="button" data-pg2-tab="chart">Chart</button>
-                <button type="button" data-pg2-tab="headers">Headers</button>
-                <button type="button" data-pg2-tab="curl">curl</button>
-                <button type="button" data-pg2-tab="timing">Pipeline</button>
+                <button type="button" class="is-on" data-pg-tab="body">Body</button>
+                <button type="button" data-pg-tab="chart">Chart</button>
+                <button type="button" data-pg-tab="headers">Headers</button>
+                <button type="button" data-pg-tab="curl">curl</button>
               </div>
-              <div class="pg-toolbar__right">
-                <button class="btn btn--ghost btn--sm" type="button" data-pg2-copy>Copy</button>
-              </div>
+              <div class="pg-toolbar__right"><button class="btn btn--ghost btn--sm" type="button" data-pg-copy>Copy</button></div>
             </div>
             <div class="pg-output">
-              <div class="pg-output__status" data-pg2-status>Ready</div>
-              <pre class="code-block" data-pg2-body tabindex="0"><code>Send a request.</code></pre>
-              <div class="pg-chart" data-pg2-chart-view hidden><canvas data-pg2-chart></canvas></div>
-              <pre class="code-block" data-pg2-headers hidden><code></code></pre>
-              <pre class="code-block" data-pg2-curl hidden><code></code></pre>
-              <div class="pipeline" data-pg2-timing hidden></div>
+              <div class="pg-output__status" data-pg-status>Ready</div>
+              <pre class="code-block" data-pg-body tabindex="0"><code>Send a request to see the response.</code></pre>
+              <div class="pg-chart" data-pg-chart-view hidden><canvas data-pg-chart></canvas></div>
+              <pre class="code-block" data-pg-headers hidden><code></code></pre>
+              <pre class="code-block" data-pg-curl hidden><code></code></pre>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ============================ STREAM LAB ============================ -->
-      <section class="app-view" id="streams-lab" data-view="streams-lab" hidden>
+      <!-- ============================== REQUEST LOG ============================== -->
+      <section class="app-view" id="log" data-view="log" hidden>
         <header class="app-view__head">
           <div>
-            <p class="eyebrow">wss://data.hyperdash.com/v1/stream</p>
-            <h1>Stream lab</h1>
-            <p class="app-view__lede">A simulated connection with the documented message order: <code>ready</code> → <code>subscribe</code> → <code>subscribed</code> → <code>data</code> → <code>ack</code>. Stop acknowledging to watch <code>ack_timeout</code> close the subscription.</p>
+            <p class="eyebrow">This browser session</p>
+            <h1>Request log</h1>
+            <p class="app-view__lede">Every request this console made: status, client-side latency, cache state, upstream fetch time and request id (match it against the server’s JSON logs).</p>
           </div>
-          <div class="app-view__actions">
-            <button class="btn btn--primary" type="button" data-stream-connect>Connect</button>
-            <button class="btn btn--outline" type="button" data-stream-disconnect disabled>Disconnect</button>
-          </div>
+          <div class="app-view__actions"><button class="btn btn--ghost" type="button" data-log-clear>Clear</button></div>
         </header>
-
-        <div class="stream-grid">
-          <div class="panel">
-            <header class="panel__head"><h2>Subscribe</h2><span class="chip" data-stream-state>disconnected</span></header>
-            <div class="panel__body stream-form">
-              <label class="field">
-                <span>Channel</span>
-                <select class="select" data-stream-channel></select>
-              </label>
-              <label class="field">
-                <span>Coin / address</span>
-                <input class="input input--mono" data-stream-target value="BTC" aria-label="Target">
-              </label>
-              <label class="field" data-stream-interval-field hidden>
-                <span>Interval</span>
-                <select class="select" data-stream-interval>
-                  <option value="1m">1m</option>
-                  <option value="5m" selected>5m</option>
-                  <option value="15m">15m</option>
-                  <option value="1h">1h</option>
-                  <option value="4h">4h</option>
-                  <option value="1d">1d</option>
-                </select>
-              </label>
-              <label class="field">
-                <span>Key</span>
-                <select class="select" data-stream-key aria-label="Key"></select>
-              </label>
-              <button class="btn btn--primary btn--block" type="button" data-stream-subscribe disabled>Subscribe</button>
-              <button class="btn btn--outline btn--block" type="button" data-stream-unsubscribe disabled>Unsubscribe</button>
-              <div class="stream-form__auto">
-                <label class="switch"><input type="checkbox" data-stream-auto checked><span></span> Auto-acknowledge</label>
-                <p>With auto-ack off, batches pile up until you acknowledge them or 10 seconds pass.</p>
-              </div>
-            </div>
-            <footer class="panel__foot">
-              <div class="stream-stats">
-                <div><span>Batches</span><b data-stream-batches>0</b></div>
-                <div><span>Acked</span><b data-stream-acked>0</b></div>
-                <div><span>Events</span><b data-stream-events>0</b></div>
-                <div><span>Credits</span><b data-stream-credits>0</b></div>
-              </div>
-            </footer>
-          </div>
-
-          <div class="panel panel--log">
-            <header class="panel__head">
-              <h2>Message log</h2>
-              <div class="panel__tools">
-                <button class="btn btn--ghost btn--sm" type="button" data-stream-ack data-stream-ack>Send ack for latest</button>
-                <button class="btn btn--ghost btn--sm" type="button" data-stream-clear>Clear</button>
-              </div>
-            </header>
-            <div class="stream-log" data-stream-log aria-live="polite"></div>
-          </div>
+        <div class="stat-row">
+          <div class="stat"><span>Requests</span><b data-log-total>0</b><small>this session</small></div>
+          <div class="stat"><span>Errors</span><b data-log-errors>0</b><small>non-2xx or network</small></div>
+          <div class="stat"><span>Median latency</span><b data-log-median>—</b><small>browser → backend → back</small></div>
+          <div class="stat"><span>Cache hits</span><b data-log-hits>—</b><small>of successful requests</small></div>
         </div>
-      </section>
-
-      <!-- ============================= CONCEPTS ============================= -->
-      <section class="app-view" id="lab" data-view="lab" hidden>
-        <header class="app-view__head">
-          <div>
-            <p class="eyebrow">Concepts lab</p>
-            <h1>Watch a request pass every gate</h1>
-            <p class="app-view__lede">Every request is authenticated, scoped, plan-checked, rate-limited, history-checked, priced and reserved before a handler runs. Pick a scenario and step through it.</p>
-          </div>
-        </header>
-
-        <div class="lab-grid">
-          <div class="panel">
-            <header class="panel__head"><h2>Scenario</h2><span class="chip">7 gates</span></header>
-            <div class="panel__body lab-form">
-              <div class="lab-scenarios" data-lab-scenarios></div>
-              <label class="field">
-                <span>Planned limit (rows)</span>
-                <input class="input" type="number" min="1" max="5000" value="1000" data-lab-limit>
-              </label>
-              <label class="field">
-                <span>X-Max-Credits (optional)</span>
-                <input class="input" type="number" min="1" placeholder="omit to disable" data-lab-max-credits>
-              </label>
-              <button class="btn btn--primary btn--block" type="button" data-lab-run>Run scenario</button>
-              <p class="lab-form__note" data-lab-note></p>
-            </div>
-          </div>
-
-          <div class="panel">
-            <header class="panel__head"><h2>Gates</h2><span class="chip" data-lab-verdict>idle</span></header>
-            <ol class="gates" data-lab-gates></ol>
-          </div>
-        </div>
-
         <div class="panel">
-          <header class="panel__head"><h2>Response</h2><button class="btn btn--ghost btn--sm" type="button" data-lab-copy>Copy</button></header>
-          <div class="panel__body panel__body--flush">
-            <pre class="code-block" data-lab-output><code>Choose a scenario and run it.</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================================ PLAN ================================ -->
-      <section class="app-view" id="plan" data-view="plan" hidden>
-        <header class="app-view__head">
-          <div>
-            <p class="eyebrow">Workspace settings</p>
-            <h1>Plan</h1>
-            <p class="app-view__lede">Plan limits are checked before a query runs, and a refused request costs nothing. Switching plans here changes the limits this demo enforces immediately.</p>
-          </div>
-        </header>
-
-        <div class="plan-switch" data-plan-switch></div>
-
-        <div class="panel">
-          <header class="panel__head"><h2>What this workspace enforces</h2><span class="chip" data-plan-chip>starter</span></header>
           <div class="table-wrap table-wrap--flat">
-            <table class="table table--kv"><tbody data-plan-limits></tbody></table>
-          </div>
-        </div>
-
-        <div class="panel">
-          <header class="panel__head"><h2>Data access</h2></header>
-          <div class="table-wrap table-wrap--flat">
-            <table class="table"><thead><tr><th scope="col">Feature</th><th scope="col">Included</th><th scope="col">Endpoint</th></tr></thead><tbody data-plan-features></tbody></table>
+            <table class="table table--log">
+              <thead><tr><th>Time</th><th>Path</th><th class="num">Status</th><th class="num">ms</th><th>Cache</th><th>Upstream fetched</th><th>Request id / error</th></tr></thead>
+              <tbody data-log-rows><tr><td colspan="7" class="muted">No requests yet.</td></tr></tbody>
+            </table>
           </div>
         </div>
       </section>
     </main>
   </div>
-
-  <!-- key creation dialog -->
-  <dialog class="dialog" data-key-dialog>
-    <form method="dialog" class="dialog__form" data-key-form>
-      <header class="dialog__head">
-        <h2>Create API key</h2>
-        <button class="dialog__close" type="button" data-key-dialog-close aria-label="Close">×</button>
-      </header>
-      <div class="dialog__body">
-        <label class="field">
-          <span>Name</span>
-          <input class="input" name="name" value="Desk ingestion" maxlength="48" required>
-        </label>
-        <fieldset class="fieldset">
-          <legend>Scopes</legend>
-          <div class="scope-checks" data-scope-checks></div>
-        </fieldset>
-        <label class="field">
-          <span>Expires in</span>
-          <select class="select" name="expiry">
-            <option value="30">30 days</option>
-            <option value="90" selected>90 days</option>
-            <option value="365">1 year</option>
-            <option value="0">Never</option>
-          </select>
-        </label>
-        <p class="dialog__note">The secret is shown once. This demo keeps it in your browser's local storage so the playground and stream lab can use it.</p>
-      </div>
-      <footer class="dialog__foot">
-        <button class="btn btn--outline" type="button" data-key-dialog-close>Cancel</button>
-        <button class="btn btn--primary" type="submit">Create key</button>
-      </footer>
-    </form>
-  </dialog>
 
   <script type="module" src="./src/hyperdash/console.js"></script>
 </body>

@@ -1,4 +1,28 @@
-# ResearchPhantom Studio — handoff
+# Handoff
+
+## 2026-11-23 Hyperliquid データAPIを本番データへ移行(ブランチ `arena/263f378a-tk`)
+
+`b15ece8` のシミュレーション(`market-engine.js`・`data-api.js`)を削除し、公式 info API に直接つなぐバックエンドへ置き換えました。
+
+- 名称を「Hyperdash Data API」から **Ticksmith** に変更。実在サービス(Hyperdash)の名前・料金表・ドメイン(data.hyperdash.com)を本番サイトで名乗らないため。デザイン(Dash / Terminal の2スキン)は維持。名称は `index.html`・`docs.html`・`console.html` のブランド表記を差し替えれば変更可能
+- 料金プラン・APIキー・クレジット・MCP・WebSocket配信は実体がないため削除し、docs と `/v1/endpoints` に「利用不可」として理由付きで掲載
+- Console は「ステータス / 市場インスペクタ / ウォレットインスペクタ / Playground / リクエストログ」に作り直し
+- `tools/build-meta.mjs` はシミュレーションの解析をやめ、実APIのカタログから生成
+
+### 検証済み(2026-11-23 07:4x–07:5x UTC、このクラウド環境から実API)
+- `npm test` 76件 pass
+- `npm run verify:live`(ローカル `tools/serve.mjs` 経由で実API): 22/22 pass。BTCマークをHyperliquidへの直接 `allMids` と突合し差 0.014%
+- Playwright で landing / docs / console を実データ表示、ウォレットインスペクタ(最新BTC約定の買い手アドレス)と Playground 送信を確認
+- 上流到達不能(`HL_INFO_URL=https://127.0.0.1:9/info`)で 502 `upstream_unreachable` と各パネルのエラー表示を確認(偽値なし)
+- `wrangler deploy --dry-run` でWorkerのバンドル・バインディングを確認。`wrangler dev`(workerd)では静的配信と `/v1` ルーティングは動作、上流呼び出しはサンドボックスのプロキシ制約で到達できず 502 を正しく返すことを確認
+
+### 未検証
+- **Cloudflareへの実デプロイと、デプロイ済みWorkerから api.hyperliquid.xyz への接続**(この環境にCloudflare認証なし)。手元PCで `npx wrangler login` → `npx wrangler deploy` → `npm run verify:live -- https://<worker>.workers.dev`
+- Workers上ではキャッシュ・クライアント制限・上流重み予算がアイソレート単位。グローバルな厳密制限が必要ならCloudflareのRate Limitingルールを追加
+- Cloudflare の送信元IPを他テナントと共有するため、Hyperliquid の IP単位制限(1200/分)に他者の利用が影響する可能性(未計測)
+
+---
+
 
 更新日: 2026-09-17 (Asia/Tokyo)
 

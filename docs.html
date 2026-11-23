@@ -5,30 +5,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0d0d0d">
-  <meta name="description" content="Hyperdash Data API documentation: quickstart, authentication, conventions, credits, plans and limits, streams, errors and the full endpoint reference.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M18 46V18h8v11h12V18h8v28h-8V36H26v10z' fill='%230d0d0d'/%3E%3C/svg%3E">
+  <meta name="description" content="Ticksmith documentation: quickstart, response format, errors, rate limits, configuration and the full endpoint reference for the Hyperliquid data API.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FD592B'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%230d0d0d'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./src/hyperdash/tokens.css">
   <link rel="stylesheet" href="./src/hyperdash/shell.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-dash.css">
   <link rel="stylesheet" href="./src/hyperdash/skin-terminal.css">
   <link rel="stylesheet" href="./src/hyperdash/docs.css">
-  <title>Docs — Hyperdash Data API</title>
+  <title>Docs — Ticksmith</title>
 </head>
 <body class="doc-body">
   <a class="skip-link" href="#doc-main">Skip to content</a>
 
   <header class="site-header">
     <div class="wrap site-header__inner">
-      <a class="brand" href="./index.html" aria-label="Hyperdash Data API home">
-        <span class="brand__mark" aria-hidden="true">H</span>
-        <span class="brand__text">hyperdash<b>docs</b></span>
+      <a class="brand" href="./index.html" aria-label="Ticksmith home">
+        <span class="brand__mark" aria-hidden="true">T</span>
+        <span class="brand__text">tick<b>docs</b></span>
       </a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="./index.html#datasets">Datasets</a>
+        <a href="./index.html#markets">Markets</a>
+        <a href="./index.html#endpoints">Endpoints</a>
         <a href="./index.html#playground">Playground</a>
-        <a href="./index.html#pricing">Pricing</a>
         <a href="./console.html">Console</a>
-        <a href="./index.html#faq">FAQ</a>
       </nav>
       <div class="site-header__tools">
         <div class="skin-switch" role="group" aria-label="Design direction">
@@ -36,7 +35,7 @@
           <button type="button" class="skin-switch__btn" data-skin-target="terminal" aria-pressed="false"><span aria-hidden="true">▚</span> Terminal</button>
         </div>
         <a class="btn btn--ghost btn--sm hide-sm" href="./index.html">← Site</a>
-        <a class="btn btn--primary btn--sm" href="./console.html#keys">Get an API key</a>
+        <a class="btn btn--primary btn--sm" href="./console.html">Open console</a>
       </div>
     </div>
   </header>
@@ -44,8 +43,8 @@
   <div class="doc-shell wrap">
     <aside class="doc-side" aria-label="Documentation navigation">
       <label class="doc-search">
-        <span class="visually-hidden">Filter documentation</span>
-        <input type="search" placeholder="Search docs…" data-doc-search autocomplete="off">
+        <span class="visually-hidden">Filter endpoint reference</span>
+        <input type="search" placeholder="Filter endpoints…" data-doc-search autocomplete="off">
         <kbd>/</kbd>
       </label>
       <nav class="doc-nav" data-doc-nav>
@@ -53,83 +52,59 @@
           <h3>Get started</h3>
           <a href="#overview">Overview</a>
           <a href="#quickstart">Quickstart</a>
-          <a href="#authentication">Authentication</a>
-          <a href="#conventions">Conventions</a>
         </div>
         <div class="doc-nav__group">
           <h3>Using the API</h3>
-          <a href="#credits">Credits</a>
-          <a href="#plans">Plans and limits</a>
-          <a href="#streams">Streams</a>
+          <a href="#responses">Responses</a>
           <a href="#errors">Errors</a>
-          <a href="#ai-agents">AI agents and MCP</a>
+          <a href="#limits">Rate limits and caching</a>
         </div>
         <div class="doc-nav__group">
           <h3>Reference</h3>
-          <a href="#reference">Endpoint index</a>
-          <a href="#response-formats">Response formats</a>
-          <a href="#status">Status and changelog</a>
+          <a href="#reference">Endpoint reference</a>
+          <a href="#unavailable">Unavailable data</a>
+          <a href="#operations">Configuration and deploy</a>
         </div>
       </nav>
       <div class="doc-side__foot">
-        <p class="doc-side__live"><span class="pulse"></span> <span data-doc-live>connected</span></p>
-        <p class="doc-side__note">Every example on this page runs against the local replica — same parameters, same errors, same headers.</p>
+        <p class="doc-side__live"><span class="pulse" data-live-dot></span> <span data-doc-live>checking upstream…</span></p>
+        <p class="doc-side__note">Every “Send request” on this page calls the live backend, which calls Hyperliquid.</p>
       </div>
     </aside>
 
     <main class="doc-main" id="doc-main">
       <div class="doc-status-strip">
-        <span data-doc-endpoints>380+ endpoints</span>
-        <span data-doc-markets>— markets</span>
-        <span data-doc-version>api 2026-11-17</span>
+        <span data-doc-endpoints>— endpoints</span>
+        <span data-doc-markets>— perp markets</span>
+        <span data-doc-version>api —</span>
         <span class="doc-status-strip__right mono" data-clock>—</span>
       </div>
 
       <!-- ============================== OVERVIEW ============================== -->
       <section class="doc-section" id="overview">
         <p class="eyebrow">Get started</p>
-        <h1>Hyperdash Data API</h1>
-        <p class="doc-lede">The Hyperdash Data API serves live Hyperliquid market and account state from our own nodes, and history from a verified history store. Every endpoint is read-only and returns JSON by default. Every REST response reports its cost in credits.</p>
+        <h1>Ticksmith data API</h1>
+        <p class="doc-lede">A read-only REST API for Hyperliquid. Each request is answered from the official info endpoint (<code>POST https://api.hyperliquid.xyz/info</code>), normalised into stable snake_case JSON with numeric values, and annotated with where and when the data was fetched.</p>
 
-        <div class="doc-cards">
-          <a class="doc-card" href="#quickstart"><b>Quickstart</b><span>Create a key and make your first request.</span></a>
-          <a class="doc-card" href="#reference"><b>API reference</b><span>Every endpoint with parameters, scopes and pricing.</span></a>
-          <a class="doc-card" href="#streams"><b>Streams</b><span>WebSocket channels, acknowledgement and replay.</span></a>
-          <a class="doc-card" href="#ai-agents"><b>AI agents</b><span>Connect Claude, ChatGPT or Cursor over MCP.</span></a>
-        </div>
-
-        <h2>Resources</h2>
         <div class="table-wrap">
           <table class="table table--kv">
             <tbody>
-              <tr><th scope="row">Base URL</th><td><code>https://data.hyperdash.com</code> — all paths start with <code>/v1</code></td></tr>
-              <tr><th scope="row">Streams</th><td><code>wss://data.hyperdash.com/v1/stream</code></td></tr>
-              <tr><th scope="row">MCP server</th><td><code>https://data.hyperdash.com/mcp</code></td></tr>
-              <tr><th scope="row">OpenAPI spec</th><td><code>https://data.hyperdash.com/openapi.json</code></td></tr>
-              <tr><th scope="row">Endpoint index</th><td><code>https://data.hyperdash.com/llms.txt</code> — the same index in one file, for models</td></tr>
-              <tr><th scope="row">Console</th><td><a href="./console.html">console</a> — keys, usage, billing, playground</td></tr>
+              <tr><th scope="row">Base URL</th><td><code data-base-url>—</code> — every path starts with <code>/v1</code></td></tr>
+              <tr><th scope="row">Upstream</th><td><code data-upstream>https://api.hyperliquid.xyz/info</code></td></tr>
+              <tr><th scope="row">Auth</th><td>None. Public, read-only, rate limited per client IP.</td></tr>
+              <tr><th scope="row">Catalogue</th><td><code>GET /v1/endpoints</code> — every route, its parameters, the upstream request types it uses, and what is unavailable</td></tr>
+              <tr><th scope="row">Health</th><td><code>GET /v1/status</code> — uncached round trip to Hyperliquid</td></tr>
             </tbody>
           </table>
         </div>
 
         <h2>What you can query</h2>
         <ul class="doc-list">
-          <li><b>Markets.</b> Perp, spot and HIP-3 markets with live mark, oracle and mid prices, funding, open interest, order books (including the order-level L4 book) and candles from 1 second to 1 month.</li>
-          <li><b>Accounts.</b> Live positions, margin, open orders, balances, fees and sub-accounts for any wallet, plus fill, funding, ledger and trade history, and batch reads across many wallets.</li>
-          <li><b>Liquidations.</b> Every liquidation event, plus summaries, cascades and maps of liquidation and stop levels.</li>
-          <li><b>Analytics.</b> Leaderboards, cohort positioning and flows, trader statistics, network revenue and fees, staking, lending, prediction market outcomes and priority fee flow.</li>
-          <li><b>Streams.</b> WebSocket channels for trades, liquidations, fills, orders, books and more, billed per event you acknowledge.</li>
+          <li><b>Markets.</b> Every perp market on the main dex and on HIP-3 dexs with mark, oracle, mid, 1 h funding, open interest and 24 h volume; spot pairs; mids; L2 order books; the latest trades; OHLCV candles; funding history.</li>
+          <li><b>Accounts.</b> For any public wallet: margin summary and spot balances, open positions with liquidation price, open and trigger orders, fills, funding payments, ledger events, and account-value / PnL history.</li>
         </ul>
-
-        <h2>How it works</h2>
-        <ol class="doc-steps">
-          <li><b>Workspaces and projects.</b> Sign in to the console, create a workspace and pick a plan. Keys belong to a project inside the workspace, so usage is attributed to the key, the project and the workspace.</li>
-          <li><b>Keys.</b> Every request carries an API key. Keys read production data and are billed in credits.</li>
-          <li><b>Credits.</b> Each request costs a whole number of credits based on the work behind it and the rows it returns. Your plan includes a monthly allowance and you can buy more.</li>
-          <li><b>Plan limits.</b> Your plan sets history depth, rate limits, batch sizes and stream connections. They are checked before a query runs, and a refused request costs nothing.</li>
-        </ol>
         <div class="doc-callout">
-          <b>This site is a local replica.</b> The domain in these examples is real, but every request from this page is answered by an in-browser implementation of the same contract, with the same validation, limits and headers. Nothing leaves your browser and no key is required.
+          <b>Nothing is simulated.</b> If Hyperliquid can’t be reached, the API returns a 502/503/504 problem response that names the upstream error. Datasets the official API doesn’t expose — exchange-wide liquidations, leaderboards, open-interest history and so on — are listed under <a href="#unavailable">Unavailable data</a> rather than approximated.
         </div>
       </section>
 
@@ -137,14 +112,7 @@
       <section class="doc-section" id="quickstart">
         <p class="eyebrow">Get started</p>
         <h1>Quickstart</h1>
-        <p class="doc-lede">Create a key, then request the last 24 hours of hourly BTC candles. The playground below is live: it uses a demo key with the same scopes a Starter key gets.</p>
-
-        <ol class="doc-steps">
-          <li><b>Create a workspace.</b> Sign in to the console and create a workspace. This also creates your first project.</li>
-          <li><b>Choose a plan.</b> Pick Starter, Growth or Scale at checkout, or contact sales for Enterprise. You need an active plan before you can create a key.</li>
-          <li><b>Create an API key.</b> Open <b>API Keys</b> and select <b>Create API key</b>. Copy the secret right away: it is shown only once. <a href="./console.html#keys">Create one in the console →</a></li>
-          <li><b>Make your first request.</b> Export the key, then request the last 24 hours of hourly BTC candles.</li>
-        </ol>
+        <p class="doc-lede">Request the last 24 hourly BTC candles. No key, no signup.</p>
 
         <div class="code-tabs" data-code-tabs>
           <div class="code-tabs__bar" role="tablist" aria-label="Language">
@@ -156,367 +124,150 @@
           <pre class="code-block" data-code-block><code></code></pre>
         </div>
 
-        <h2>The response</h2>
-        <p>List endpoints return <code>data</code>, <code>has_more</code>, <code>next_cursor</code> and <code>meta</code>. Prices and sizes are decimal strings, so no precision is lost.</p>
-        <pre class="code-block" data-live-example="candles"><code>Loading a live response from the local replica…</code></pre>
-        <p>Every REST response also states what it cost:</p>
-        <pre class="code-block" data-live-example="headers"><code>Loading response headers…</code></pre>
-
-        <h2>Next steps</h2>
-        <ul class="doc-list">
-          <li><b>Check the key:</b> call <code>GET /v1/me</code> for its scopes and your remaining credits (free; the balance needs the <code>usage:read</code> scope).</li>
-          <li><b>Paginate and choose a format:</b> see <a href="#conventions">Conventions</a>.</li>
-          <li><b>See history depth, batch size and stream limits:</b> see <a href="#plans">Plans and limits</a>.</li>
-          <li><b>Subscribe to live events:</b> see <a href="#streams">Streams</a>.</li>
-        </ul>
-
         <div class="try-bar">
-          <div><b>Try it</b><span>Run this endpoint against the local replica with your current demo key.</span></div>
-          <button class="btn btn--primary btn--sm" type="button" data-try="GET /v1/markets/BTC/candles?interval=1h&limit=24">Send request</button>
+          <div><b>Try it</b><span>Sends the same request to the live backend and shows the real response.</span></div>
+          <button class="btn btn--primary btn--sm" type="button" data-try="/v1/markets/BTC/candles?interval=1h&amp;limit=24">Send request</button>
         </div>
         <pre class="code-block" data-try-output hidden><code></code></pre>
       </section>
 
-      <!-- =========================== AUTHENTICATION =========================== -->
-      <section class="doc-section" id="authentication">
-        <p class="eyebrow">Get started</p>
-        <h1>Authentication</h1>
-        <p class="doc-lede">Every request carries an API key in the <code>Authorization</code> header. Keys are created in the console, belong to a project, and are scoped.</p>
-
-        <pre class="code-block"><code>Authorization: Bearer hdk_sk_...</code></pre>
-
-        <h2>Scopes</h2>
-        <p>A key carries scopes. A request that needs a scope the key does not have returns <code>403 insufficient_scope</code> and costs nothing.</p>
-        <div class="table-wrap">
-          <table class="table">
-            <thead><tr><th scope="col">Scope</th><th scope="col">Grants</th></tr></thead>
-            <tbody data-doc-scopes></tbody>
-          </table>
-        </div>
-
-        <h2>Key lifecycle</h2>
-        <ul class="doc-list">
-          <li><b>Shown once.</b> The secret is displayed at creation and never again. The console keeps only a prefix and the last four characters.</li>
-          <li><b>Revocable.</b> A revoked key returns <code>401 revoked_key</code> immediately, including on open stream connections, which are re-checked every 5 seconds.</li>
-          <li><b>Expiry.</b> Keys can expire; an expired key returns <code>401 expired_key</code>.</li>
-          <li><b>Agent keys.</b> Agent keys and MCP connections default to 5 requests per second with a burst of 10.</li>
-        </ul>
-
-        <h2>Errors you will see here</h2>
-        <div class="error-samples" data-auth-errors></div>
-      </section>
-
-      <!-- ============================ CONVENTIONS ============================ -->
-      <section class="doc-section" id="conventions">
-        <p class="eyebrow">Get started</p>
-        <h1>Conventions</h1>
-        <p class="doc-lede">Times, numbers, identifiers, pagination, response formats and async jobs.</p>
-
+      <!-- ============================== RESPONSES ============================== -->
+      <section class="doc-section" id="responses">
+        <p class="eyebrow">Using the API</p>
+        <h1>Responses</h1>
+        <p class="doc-lede">Successful responses are <code>application/json</code> with two keys: <code>data</code> (an object or array) and <code>meta</code>.</p>
         <div class="table-wrap">
           <table class="table table--kv">
-            <thead><tr><th scope="col">Topic</th><th scope="col">Rule</th></tr></thead>
             <tbody>
-              <tr><th scope="row">Time</th><td>Integers in Unix milliseconds, UTC. <code>start_time</code> is always included; whether <code>end_time</code> is included is stated per endpoint.</td></tr>
-              <tr><th scope="row">Numbers</th><td>Prices, sizes and money are decimal strings (<code>"108733.0"</code>). Parse them as decimals: the same value may appear with extra trailing zeros. Counts are integers.</td></tr>
-              <tr><th scope="row">Coins</th><td>Hyperliquid names: <code>BTC</code>, spot pairs such as <code>@107</code>, HIP-3 markets such as <code>xyz:TSLA</code> (URL-encode the colon as <code>%3A</code>), HIP-4 outcome coins such as <code>#232960</code> (<code>%23</code>).</td></tr>
-              <tr><th scope="row">Addresses</th><td><code>0x</code> followed by 40 hex characters.</td></tr>
-              <tr><th scope="row">Field names</th><td><code>snake_case</code>. Series rows use short keys (<code>t o h l c v q n</code>).</td></tr>
-              <tr><th scope="row">Caching</th><td>Authenticated responses carry <code>Cache-Control: private, no-store</code>.</td></tr>
-              <tr><th scope="row">Request IDs</th><td>Every response carries an <code>X-Request-Id</code> (a UUIDv7). Quote it when you contact support.</td></tr>
+              <tr><th scope="row">source</th><td>The upstream URL the data came from.</td></tr>
+              <tr><th scope="row">upstream_types</th><td>The Hyperliquid info request types behind this endpoint.</td></tr>
+              <tr><th scope="row">fetched_at</th><td>ISO time the oldest upstream response used here was received.</td></tr>
+              <tr><th scope="row">cached / age_ms</th><td>Whether every upstream response came from the short-lived cache, and how old the oldest one is.</td></tr>
+              <tr><th scope="row">upstream_ms</th><td>Upstream round-trip time of the slowest request (0 when cached).</td></tr>
+              <tr><th scope="row">count</th><td>Number of rows in <code>data</code>.</td></tr>
+              <tr><th scope="row">request_id</th><td>Also in the <code>x-request-id</code> header; quote it when reporting a problem.</td></tr>
             </tbody>
           </table>
         </div>
-
-        <h2>Time ranges</h2>
-        <p>Ranges use <code>start_time</code> and <code>end_time</code>. Leave out <code>start_time</code> to get the endpoint’s default window, often the last 24 hours. The default window never reaches past your plan’s history depth.</p>
-
-        <h2>Response metadata</h2>
-        <div class="table-wrap">
-          <table class="table">
-            <thead><tr><th scope="col">Field</th><th scope="col">Header</th><th scope="col">Meaning</th></tr></thead>
-            <tbody>
-              <tr><td><code>as_of</code></td><td><code>X-As-Of</code></td><td>When the data was read, in Unix milliseconds.</td></tr>
-              <tr><td><code>complete_to</code></td><td><code>X-Complete-To</code></td><td>The end of the verified history. Anything later comes from the live feed.</td></tr>
-              <tr><td><code>truncated</code>, <code>max_rows</code></td><td><code>X-Truncated</code>, <code>X-Max-Rows</code></td><td>The result was cut at your plan’s wallet-list cap.</td></tr>
-              <tr><td><code>incomplete</code></td><td><code>X-Incomplete</code></td><td>Parts of the result could not be served.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Pagination</h2>
-        <p>List endpoints use cursors. Pass <code>limit</code> and follow <code>next_cursor</code> until <code>has_more</code> is <code>false</code>. A cursor is signed, bound to your workspace and the exact query, and valid for 24 hours. An expired or mismatched cursor returns <code>400 invalid_parameter</code>.</p>
-        <div class="pager-demo" data-pager-demo>
-          <div class="pager-demo__head">
-            <span class="field-label">Cursor walker · GET /v1/liquidations</span>
-            <button class="btn btn--outline btn--sm" type="button" data-pager-next>Fetch next page</button>
-          </div>
-          <div class="pager-demo__body">
-            <pre class="code-block" data-pager-output><code>Press “Fetch next page” to walk the cursor.</code></pre>
-            <aside class="pager-demo__side">
-              <dl>
-                <div><dt>pages</dt><dd data-pager-pages>0</dd></div>
-                <div><dt>rows</dt><dd data-pager-rows>0</dd></div>
-                <div><dt>credits</dt><dd data-pager-credits>0</dd></div>
-                <div><dt>has_more</dt><dd data-pager-has-more>—</dd></div>
-              </dl>
-              <p>Responses are capped at 2 MiB. A request that would exceed the cap returns <code>400 range_too_large</code>: lower <code>limit</code> and page through.</p>
-            </aside>
-          </div>
-        </div>
-
-        <h2 id="response-formats">Response formats</h2>
-        <p>List endpoints return JSON by default. Send <code>Accept: text/csv</code> for CSV, or <code>Accept: application/x-ndjson</code> for newline-delimited JSON. In CSV and NDJSON, pagination moves to the <code>X-Has-More</code> and <code>X-Next-Cursor</code> headers.</p>
-        <div class="try-bar">
-          <div><b>Same rows, three formats</b><span>Compare JSON, CSV and NDJSON for the same query.</span></div>
-          <div class="seg" role="group" aria-label="Format">
-            <button type="button" class="is-on" data-format="application/json">JSON</button>
-            <button type="button" data-format="text/csv">CSV</button>
-            <button type="button" data-format="application/x-ndjson">NDJSON</button>
-          </div>
-          <button class="btn btn--primary btn--sm" type="button" data-format-run>Send</button>
-        </div>
-        <pre class="code-block" data-format-output hidden><code></code></pre>
-
-        <h2>Async jobs</h2>
-        <p>Async jobs run computations that take too long for a normal request and are available on Growth and up. POST a job with an <code>Idempotency-Key</code>, poll <code>GET /v1/jobs/{id}</code>, then read <code>/v1/jobs/{id}/result</code>. The only job kind today is <code>account_fills_summary</code>.</p>
-      </section>
-
-      <!-- =============================== CREDITS =============================== -->
-      <section class="doc-section" id="credits">
-        <p class="eyebrow">Using the API</p>
-        <h1>Credits</h1>
-        <p class="doc-lede">Each successful request costs a whole number of credits. The cost reflects the work behind the query and, on most list endpoints, how many rows it returns.</p>
-
-        <pre class="code-block"><code>credits = multiplier × (base + rows × per_row) + node_read_cost × node_reads</code></pre>
-
-        <div class="table-wrap">
-          <table class="table">
-            <thead><tr><th scope="col">Term</th><th scope="col">Meaning</th></tr></thead>
-            <tbody>
-              <tr><td><code>base</code></td><td>Fixed cost of the endpoint.</td></tr>
-              <tr><td><code>per_row</code></td><td>Charged per row actually returned, not per row you asked for.</td></tr>
-              <tr><td><code>multiplier</code></td><td>On endpoints priced by range, a factor that grows with the range you request (for example ×1 to 1d, ×2 to 7d). A range beyond the endpoint’s maximum returns <code>400 range_too_large</code>.</td></tr>
-              <tr><td><code>node_read_cost</code></td><td>Live endpoints that read our nodes add a cost per node read. A read served from cache costs nothing.</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Reservation</h2>
-        <p>Before a query runs, we reserve its maximum cost against your remaining credits and limits. On most endpoints that maximum is priced at the <code>limit</code> you asked for, plus the maximum node reads. When the query finishes, we charge only what it returned and release the rest. If the maximum does not fit, the request is refused with <code>403 credits_exhausted</code> and costs nothing.</p>
-
-        <h2>Controlling spend</h2>
+        <h2>Conventions</h2>
         <ul class="doc-list">
-          <li><b>Quote.</b> <code>GET /v1/quote?route=GET /v1/markets/BTC/trades&amp;limit=1000</code> returns <code>max_credits</code> and <code>price_version</code>. It is free and runs nothing.</li>
-          <li><b>Per request.</b> Send <code>X-Max-Credits</code> with the most you accept for one request. A larger request is refused with <code>403 max_credits_exceeded</code>, free.</li>
-          <li><b>Price lock.</b> Send <code>X-Credit-Price-Version</code>. If the price changed since, the request fails with <code>409 price_changed</code> instead of running.</li>
-          <li><b>Per project and per connection.</b> A project can carry a credit budget, and an MCP connection can carry a day or month budget. The tightest limit wins.</li>
+          <li><b>Numbers.</b> Prices, sizes and USD values are JSON numbers parsed from Hyperliquid’s decimal strings (IEEE-754 doubles). Funding is the hourly rate as a fraction (<code>0.0000125</code> = 0.00125 %/h).</li>
+          <li><b>Times.</b> Unix milliseconds, UTC. Query parameters <code>start_time</code> / <code>end_time</code> use the same unit.</li>
+          <li><b>Markets.</b> Perps use Hyperliquid names (<code>BTC</code>, <code>kPEPE</code>), HIP-3 perps use <code>dex:NAME</code> (<code>xyz:XYZ100</code>). Spot accepts the pair (<code>HYPE/USDC</code>) or the spot id (<code>@107</code>). Matching is case-insensitive.</li>
+          <li><b>Headers.</b> <code>x-cache: HIT|MISS</code>, <code>x-upstream-fetched-at</code>, <code>ratelimit-limit</code>, <code>ratelimit-remaining</code>, <code>ratelimit-reset</code>. CORS is open for GET.</li>
         </ul>
-
-        <div class="try-bar">
-          <div><b>Free quote</b><span>Price a request without running it.</span></div>
-          <input class="input input--mono" data-quote-input value="GET /v1/markets/BTC/trades?limit=1000" aria-label="Route to quote">
-          <button class="btn btn--primary btn--sm" type="button" data-quote-run>Quote</button>
-        </div>
-        <pre class="code-block" data-quote-output hidden><code></code></pre>
-
-        <h2>What is free</h2>
-        <ul class="doc-list">
-          <li>Every failed request (any 4xx or 5xx), including throttled requests and timeouts.</li>
-          <li><code>GET /v1/me</code> and <code>GET /v1/quote</code>.</li>
-          <li>The public catalog and status endpoints: <code>/v1/datasets</code>, <code>/v1/status</code>, <code>/v1/changelog</code>, <code>/openapi.json</code>, <code>/llms.txt</code>.</li>
-          <li>Creating, listing, polling and cancelling async jobs. Reading a job’s result is billed.</li>
-        </ul>
-
-        <h2>Endpoint pricing</h2>
-        <p>Every endpoint in the reference, with its base cost and per-row price. The calculator uses the same formula as the API.</p>
-        <div class="table-wrap">
-          <table class="table" data-credit-table>
-            <thead><tr><th scope="col">Endpoint</th><th scope="col" class="num">Base</th><th scope="col" class="num">Per row</th><th scope="col" class="num">Max limit</th><th scope="col" class="num">Cost at max</th></tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </section>
-
-      <!-- ================================ PLANS ================================ -->
-      <section class="doc-section" id="plans">
-        <p class="eyebrow">Using the API</p>
-        <h1>Plans and limits</h1>
-        <p class="doc-lede">Prices, limits and features of each plan. Limits are checked before a query runs. A request outside your plan costs nothing.</p>
-
-        <div class="table-wrap">
-          <table class="table table--plans" data-plan-table>
-            <thead></thead><tbody></tbody>
-          </table>
-        </div>
-
-        <h2>Rate limits</h2>
-        <p>Each workspace has a request rate, a burst allowance and a cap on concurrent requests. The rate works as a token bucket: the bucket holds up to the burst size and refills at the request rate. Data responses carry the policy: the burst, then <code>w</code>, the seconds the bucket takes to refill.</p>
-        <pre class="code-block"><code>ratelimit-policy: 50;w=2</code></pre>
-        <p>Requests over the limit return <code>429 rate_limited</code> and cost nothing.</p>
-
-        <h3>Concurrent requests count by size</h3>
-        <p>A request uses one slot per 1,000 rows its <code>limit</code> allows, rounded up. On bar endpoints with several rows per bar, it is <code>limit</code> times the rows per bar. Requests of up to 1,000 rows, and most endpoints without a <code>limit</code>, use one slot.</p>
-
-        <h2>Features by plan</h2>
-        <div class="table-wrap">
-          <table class="table" data-feature-table><thead></thead><tbody></tbody></table>
-        </div>
-
-        <h2>Bulk extraction limits</h2>
-        <p>Each plan caps how many new wallets a workspace can look up, how many wallets its list and snapshot results can name over 30 days, and how many trade tape rows it can read over 30 days. Going over returns <code>429 extraction_limit</code>: <code>detail</code> says when the request fits again.</p>
-
-        <h2>Billing periods</h2>
-        <ul class="doc-list">
-          <li>Yearly plans are billed once a year and receive their credits in monthly slices.</li>
-          <li>Plan credits reset each period, and unused plan credits do not roll over. Purchased credits last 12 months.</li>
-          <li>Upgrades add the difference in credits as soon as the upgrade invoice is paid. Downgrades apply from the next period.</li>
-          <li>There is no free plan: every API key needs an active plan.</li>
-        </ul>
-      </section>
-
-      <!-- =============================== STREAMS =============================== -->
-      <section class="doc-section" id="streams">
-        <p class="eyebrow">Using the API</p>
-        <h1>Streams</h1>
-        <p class="doc-lede">One WebSocket connection carries up to 20 subscriptions. Authenticate with your key in the <code>Authorization</code> header of the upgrade request. Streams are billed per event you acknowledge.</p>
-
-        <pre class="code-block"><code>wss://data.hyperdash.com/v1/stream</code></pre>
-
-        <div class="code-tabs" data-code-tabs>
-          <div class="code-tabs__bar" role="tablist" aria-label="Language">
-            <button type="button" role="tab" aria-selected="true" class="is-on" data-lang="node">Node</button>
-            <button type="button" role="tab" aria-selected="false" data-lang="python">Python</button>
-            <button type="button" role="tab" aria-selected="false" data-lang="curl">websocat</button>
-            <button type="button" class="code-tabs__copy" data-copy-code>Copy</button>
-          </div>
-          <pre class="code-block" data-code-block><code></code></pre>
-        </div>
-
-        <h2>Channels</h2>
-        <div class="table-wrap">
-          <table class="table">
-            <thead><tr><th scope="col">Channel</th><th scope="col">Target</th><th scope="col" class="num">Credits / event</th><th scope="col">Data</th></tr></thead>
-            <tbody data-channel-table></tbody>
-          </table>
-        </div>
-
-        <h2>Messages</h2>
-        <div class="table-wrap">
-          <table class="table table--kv">
-            <thead><tr><th scope="col">From</th><th scope="col"><code>op</code></th><th scope="col">Fields</th></tr></thead>
-            <tbody>
-              <tr><td>You</td><td><code>subscribe</code></td><td><code>channel</code>, <code>address</code> or <code>coin</code>, optional <code>interval</code> on <code>candles</code>, optional <code>cursor</code></td></tr>
-              <tr><td>You</td><td><code>ack</code></td><td><code>sub</code>, <code>batch</code></td></tr>
-              <tr><td>You</td><td><code>unsubscribe</code></td><td><code>sub</code></td></tr>
-              <tr><td>Server</td><td><code>ready</code></td><td><code>key_id</code>, <code>environment</code></td></tr>
-              <tr><td>Server</td><td><code>subscribed</code></td><td><code>sub</code>, <code>channel</code>, target, <code>cursor</code></td></tr>
-              <tr><td>Server</td><td><code>data</code></td><td><code>sub</code>, <code>batch</code>, <code>cursor</code>, <code>events</code>, <code>credits</code></td></tr>
-              <tr><td>Server</td><td><code>acked</code></td><td><code>sub</code>, <code>batch</code>, <code>credits_charged</code></td></tr>
-              <tr><td>Server</td><td><code>gap</code></td><td><code>sub</code>, <code>from</code>, <code>to</code>, <code>detail</code></td></tr>
-              <tr><td>Server</td><td><code>error</code></td><td><code>code</code>, <code>detail</code>, optional <code>sub</code> and <code>retry_after_s</code></td></tr>
-              <tr><td>Server</td><td><code>ping</code></td><td>Sent every 5 seconds</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2>Delivery and billing</h2>
-        <ul class="doc-list">
-          <li>Events arrive in <code>data</code> batches of up to 100. The next batch waits until you acknowledge the previous one.</li>
-          <li>If you do not acknowledge a batch within 10 seconds, the subscription ends with <code>ack_timeout</code>. Resubscribe from your last cursor.</li>
-          <li>Each acknowledged event costs the channel’s price: 1 credit, or 5 on <code>markets</code>. Replays of events you already paid for are free.</li>
-        </ul>
-
-        <h2>Resuming</h2>
-        <p>Keep the <code>cursor</code> from each <code>data</code> message. After a reconnect, subscribe with it to continue after your last acknowledged batch. Events stay available for about 15 minutes, or about 5 minutes on <code>mids</code> and <code>markets</code>. If what you need is older you get a <code>gap</code> message naming the missing range so you can backfill over REST.</p>
-
-        <div class="doc-callout doc-callout--accent">
-          <b>Try the protocol.</b> The <a href="./console.html#streams-lab">stream lab</a> opens a simulated connection with the same message sequence, including a deliberate missed acknowledgement so you can see <code>ack_timeout</code> and the resulting credit accounting.
-        </div>
       </section>
 
       <!-- ================================ ERRORS ================================ -->
       <section class="doc-section" id="errors">
         <p class="eyebrow">Using the API</p>
         <h1>Errors</h1>
-        <p class="doc-lede">Errors use RFC 9457 problem details (<code>application/problem+json</code>) with a stable <code>code</code>. Branch on <code>code</code>, never on <code>title</code> or <code>detail</code>.</p>
-
-        <pre class="code-block" data-error-sample><code></code></pre>
-
+        <p class="doc-lede">Errors are RFC 9457 <code>application/problem+json</code> with a stable <code>code</code>. Upstream failures include <code>upstream_status</code> and the number of <code>attempts</code> made.</p>
         <div class="table-wrap">
           <table class="table">
-            <thead><tr><th scope="col" class="num">Status</th><th scope="col">Code</th><th scope="col">Meaning and fix</th></tr></thead>
-            <tbody data-error-table></tbody>
+            <thead><tr><th scope="col">Status</th><th scope="col">code</th><th scope="col">Meaning</th></tr></thead>
+            <tbody>
+              <tr id="error-invalid_parameter"><td class="mono">400</td><td class="mono">invalid_parameter</td><td>A parameter is missing, malformed or out of range. Not retried.</td></tr>
+              <tr id="error-not_found"><td class="mono">404</td><td class="mono">not_found</td><td>Unknown route, market or dex. Markets are checked against Hyperliquid’s own metadata.</td></tr>
+              <tr id="error-method_not_allowed"><td class="mono">405</td><td class="mono">method_not_allowed</td><td>Only GET (and OPTIONS for CORS) is supported.</td></tr>
+              <tr id="error-rate_limited"><td class="mono">429</td><td class="mono">rate_limited</td><td>Client rate limit exceeded. Wait for <code>retry-after</code> seconds.</td></tr>
+              <tr id="error-upstream_error"><td class="mono">502</td><td class="mono">upstream_error</td><td>Hyperliquid answered with a non-2xx status after retries.</td></tr>
+              <tr id="error-upstream_unreachable"><td class="mono">502</td><td class="mono">upstream_unreachable</td><td>Network failure reaching Hyperliquid after retries.</td></tr>
+              <tr id="error-upstream_invalid"><td class="mono">502</td><td class="mono">upstream_invalid</td><td>Hyperliquid returned a body that isn’t JSON.</td></tr>
+              <tr id="error-upstream_rate_limited"><td class="mono">503</td><td class="mono">upstream_rate_limited</td><td>Hyperliquid returned 429 after retries.</td></tr>
+              <tr id="error-upstream_budget"><td class="mono">503</td><td class="mono">upstream_budget</td><td>This server’s own Hyperliquid weight budget is spent; <code>retry-after</code> says when it frees up.</td></tr>
+              <tr id="error-upstream_timeout"><td class="mono">504</td><td class="mono">upstream_timeout</td><td>Hyperliquid did not answer within the timeout on every attempt.</td></tr>
+              <tr id="error-config_error"><td class="mono">500</td><td class="mono">config_error</td><td>The deployment has an invalid environment variable; the detail names it.</td></tr>
+            </tbody>
           </table>
         </div>
-
-        <h2>Rate limits and retries</h2>
-        <p>Requests over a rate limit return <code>429</code> with a <code>Retry-After</code> header in whole seconds, and <code>retry_after_s</code> in the body. Wait for <code>Retry-After</code>, then double the wait on each further <code>429</code>, adding random jitter, up to 30 seconds.</p>
-        <pre class="code-block" data-429-sample><code></code></pre>
-
-        <h2>Reproduce one live</h2>
-        <div class="error-buttons" data-error-buttons></div>
-        <pre class="code-block" data-error-output hidden><code></code></pre>
-      </section>
-
-      <!-- =============================== AI AGENTS =============================== -->
-      <section class="doc-section" id="ai-agents">
-        <p class="eyebrow">Using the API</p>
-        <h1>AI agents and MCP</h1>
-        <p class="doc-lede">The hosted MCP server exposes one tool per endpoint, plus <code>time_window</code> and <code>give_feedback</code>. Connect with OAuth (Claude, ChatGPT custom connectors) or send an API key as <code>Authorization: Bearer hdk_sk_…</code>.</p>
-
-        <div class="code-tabs" data-code-tabs>
-          <div class="code-tabs__bar" role="tablist" aria-label="Client">
-            <button type="button" role="tab" aria-selected="true" class="is-on" data-lang="claude">Claude Code / Desktop</button>
-            <button type="button" role="tab" aria-selected="false" data-lang="json">Cursor / generic JSON</button>
-            <button type="button" role="tab" aria-selected="false" data-lang="node">SDK</button>
-            <button type="button" class="code-tabs__copy" data-copy-code>Copy</button>
-          </div>
-          <pre class="code-block" data-code-block><code></code></pre>
+        <div class="try-bar">
+          <div><b>See a real error</b><span>Ask for a market that doesn’t exist.</span></div>
+          <button class="btn btn--outline btn--sm" type="button" data-try="/v1/markets/NOTACOIN/book">Send request</button>
         </div>
-
-        <h2>Tools exposed</h2>
-        <p>Every endpoint in the <a href="#reference">reference</a> becomes a tool named after its resource and action. Results that name accounts carry <code>hyperdash_links</code> mapping an address to <code>https://hyperdash.com/address/&lt;address&gt;</code>.</p>
-        <div class="tool-grid" data-mcp-tools></div>
-
-        <h2>Budgeting</h2>
-        <p>An MCP connection can carry a credit budget per day or per month, so an agent cannot spend a workspace’s whole allowance. Exhausted budgets return <code>403 credits_exhausted</code>.</p>
+        <pre class="code-block" data-try-output hidden><code></code></pre>
       </section>
 
-      <!-- =============================== REFERENCE =============================== -->
+      <!-- ================================ LIMITS ================================ -->
+      <section class="doc-section" id="limits">
+        <p class="eyebrow">Using the API</p>
+        <h1>Rate limits and caching</h1>
+        <p class="doc-lede">Two limits protect the service: a per-client token bucket, and a weight budget that keeps this server inside Hyperliquid’s documented 1200 weight per minute per IP.</p>
+        <div class="table-wrap">
+          <table class="table table--kv">
+            <tbody data-limits><tr><td>Loading limits…</td></tr></tbody>
+          </table>
+        </div>
+        <h2>Upstream weights</h2>
+        <p>Per Hyperliquid’s documentation: <code>l2Book</code>, <code>allMids</code>, <code>clearinghouseState</code>, <code>spotClearinghouseState</code> and <code>exchangeStatus</code> weigh 2; other info requests weigh 20; <code>recentTrades</code>, <code>userFills</code>, <code>fundingHistory</code>, <code>userFunding</code> and similar add 1 per 20 rows returned; <code>candleSnapshot</code> adds 1 per 60 candles.</p>
+        <h2>Cache lifetimes</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Data</th><th scope="col" class="num">TTL</th></tr></thead>
+            <tbody>
+              <tr><td>Mids, order books, trades</td><td class="num mono">1 s</td></tr>
+              <tr><td>Account state, positions, open orders</td><td class="num mono">2 s</td></tr>
+              <tr><td>Perp market contexts, fills</td><td class="num mono">3 s</td></tr>
+              <tr><td>Candles, spot markets</td><td class="num mono">5 s</td></tr>
+              <tr><td>Funding history, user funding, ledger, portfolio</td><td class="num mono">30 s</td></tr>
+              <tr><td>Perp dexs</td><td class="num mono">60 s</td></tr>
+              <tr><td>Market metadata used to validate coin names</td><td class="num mono">5 min</td></tr>
+              <tr><td><code>/v1/status</code></td><td class="num mono">never</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="doc-callout"><b>Per isolate.</b> On Cloudflare Workers the cache, the client bucket and the weight budget live in each isolate’s memory, so they are approximate across a busy deployment. Add a Cloudflare rate-limiting rule for a hard global limit.</div>
+      </section>
+
+      <!-- ============================== REFERENCE ============================== -->
       <section class="doc-section" id="reference">
         <p class="eyebrow">Reference</p>
-        <h1>Endpoint index</h1>
-        <p class="doc-lede">Every documented endpoint, grouped by resource. Scopes and prices are the same values the local replica enforces.</p>
-
-        <div class="ref-controls">
-          <input class="input" type="search" placeholder="Filter by path, group or summary…" data-ref-search aria-label="Filter endpoints">
-          <div class="seg" role="group" aria-label="Scope filter">
-            <button type="button" class="is-on" data-ref-scope="all">All</button>
-            <button type="button" data-ref-scope="markets:read">markets</button>
-            <button type="button" data-ref-scope="accounts:read">accounts</button>
-            <button type="button" data-ref-scope="analytics:read">analytics</button>
-            <button type="button" data-ref-scope="liquidations:read">liquidations</button>
-          </div>
-          <span class="ref-controls__count" data-ref-count></span>
-        </div>
-        <div class="ref-list" data-ref-list></div>
+        <h1>Endpoint reference</h1>
+        <p class="doc-lede">Generated from <code>GET /v1/endpoints</code>. Open an endpoint to see its parameters and send a live request.</p>
+        <div class="ref-controls"><span class="ref-controls__count" data-ref-count>—</span></div>
+        <div class="ref-list" data-ref-list><p class="muted">Loading the catalogue…</p></div>
       </section>
 
-      <!-- ================================ STATUS ================================ -->
-      <section class="doc-section" id="status">
+      <!-- ============================= UNAVAILABLE ============================= -->
+      <section class="doc-section" id="unavailable">
         <p class="eyebrow">Reference</p>
-        <h1>Status and changelog</h1>
-        <p class="doc-lede">Public, free and unauthenticated. Data frontiers tell you how fresh each dataset is.</p>
-        <div class="status-grid" data-status-grid></div>
-        <div class="status-frontier" data-status-frontier></div>
-        <h2>Changelog</h2>
-        <ol class="changelog" data-changelog></ol>
+        <h1>Unavailable data</h1>
+        <p class="doc-lede">These datasets can’t be produced from the official info API alone. They are intentionally absent rather than estimated.</p>
+        <div class="unavailable" data-unavailable></div>
       </section>
 
-      <nav class="doc-pager" aria-label="Documentation pages">
-        <a href="#overview">← Overview</a>
-        <a href="./console.html">Open the console →</a>
-      </nav>
+      <!-- ============================= OPERATIONS ============================= -->
+      <section class="doc-section" id="operations">
+        <p class="eyebrow">Reference</p>
+        <h1>Configuration and deploy</h1>
+        <p class="doc-lede">The backend is one Cloudflare Worker (<code>src/worker/index.js</code>) that serves <code>/v1/*</code> and the static site. All settings are environment variables; invalid values make every API call return <code>500 config_error</code> naming the variable.</p>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th scope="col">Variable</th><th scope="col">Default</th><th scope="col">Meaning</th></tr></thead>
+            <tbody>
+              <tr><td class="mono">HL_INFO_URL</td><td class="mono">https://api.hyperliquid.xyz/info</td><td>Upstream info endpoint (https only).</td></tr>
+              <tr><td class="mono">HL_TIMEOUT_MS</td><td class="mono">8000</td><td>Timeout per upstream attempt.</td></tr>
+              <tr><td class="mono">HL_MAX_RETRIES</td><td class="mono">2</td><td>Retries for network errors, timeouts, 429 and 5xx.</td></tr>
+              <tr><td class="mono">HL_RETRY_BASE_MS</td><td class="mono">250</td><td>Base for exponential backoff with jitter.</td></tr>
+              <tr><td class="mono">HL_WEIGHT_BUDGET_PER_MIN</td><td class="mono">900</td><td>Upstream weight budget (Hyperliquid allows 1200/min/IP).</td></tr>
+              <tr><td class="mono">HL_WEIGHT_MAX_WAIT_MS</td><td class="mono">3000</td><td>How long a request may wait for budget before 503.</td></tr>
+              <tr><td class="mono">CLIENT_RATE_PER_SEC</td><td class="mono">5</td><td>Token refill rate per client IP.</td></tr>
+              <tr><td class="mono">CLIENT_BURST</td><td class="mono">20</td><td>Bucket size per client IP.</td></tr>
+              <tr><td class="mono">CACHE_MAX_ENTRIES</td><td class="mono">500</td><td>LRU size of the response cache (0 disables it).</td></tr>
+              <tr><td class="mono">CORS_ALLOW_ORIGIN</td><td class="mono">*</td><td>Value of <code>access-control-allow-origin</code>.</td></tr>
+              <tr><td class="mono">LOG_LEVEL</td><td class="mono">info</td><td>debug, info, warn or error. Logs are one JSON object per line.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>Deploy</h2>
+        <pre class="code-block"><code>npm install
+npm test                 # unit tests + build
+npx wrangler login       # once, in your browser
+npx wrangler deploy      # builds dist/ and uploads the Worker
+npm run verify:live -- https://&lt;your-worker&gt;.workers.dev</code></pre>
+        <h2>Run locally</h2>
+        <pre class="code-block"><code>npm run dev              # build + http://127.0.0.1:4173 with the same /v1 backend</code></pre>
+      </section>
     </main>
 
     <aside class="doc-toc" aria-label="On this page">

@@ -453,3 +453,12 @@
   .app-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .app-header__crumb { display: none; }
 }
+
+/* Sidebar: keep nav and card compact; the footer sits at the bottom. */
+.app-side { grid-template-rows: auto auto 1fr; align-content: start; }
+.app-side__foot { align-self: end; }
+.app-side__card { align-content: start; }
+form.app-view__actions { align-items: center; }
+form.app-view__actions .select { width: auto; }
+form.app-view__actions .input { min-height: 38px; }
+.panel__tools .select { width: auto; }
