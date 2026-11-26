@@ -16,7 +16,9 @@
     "motion:provider": "node tools/motion-provider.mjs",
     "voice:openai": "node tools/generate-openai-voice.mjs",
     "test": "npm run build && node --test tests/*.test.mjs src/data/motion-model.test.mjs",
-    "verify:live": "node tools/verify-live.mjs"
+    "verify:live": "node tools/verify-live.mjs",
+    "start": "node tools/serve.mjs",
+    "setup:vm": "bash deploy/vm/setup.sh"
   },
   "engines": {
     "node": ">=22"

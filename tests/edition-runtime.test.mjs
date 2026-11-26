@@ -34,6 +34,8 @@ test('all three entrypoints expose one accessible Light, Full and Extra switcher
     assert.match(html, /src\/shared\/edition-runtime\.js/u, `${file} is missing the shared switcher runtime`);
     assert.match(html, new RegExp(`data-current-edition=["']${current}["']`, 'u'));
     assert.equal([...html.matchAll(/data-edition-target=["'](light|full|extra)["']/gu)].length, 3);
+    // index.html is the data API landing page now; Light must stay inside ResearchPhantom.
+    assert.match(html, /href=["']\.\/researchphantom\.html["'][^>]*data-edition-target=["']light["']/u, `${file} Light link leaves ResearchPhantom`);
     assert.equal([...html.matchAll(/aria-current=["']page["']/gu)].length, 1);
     assert.match(html, /aria-label=["']表示モードを切り替える["']/u);
   }

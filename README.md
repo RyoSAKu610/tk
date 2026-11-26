@@ -10,17 +10,20 @@ Hyperliquid公式の info API(`POST https://api.hyperliquid.xyz/info`)だけを�
 - **エンドポイント**(17): status, markets, markets/mids, markets/{coin}, book, trades, candles, funding, spot/markets, dexs, accounts/{address}, positions, open-orders, fills, funding, ledger, portfolio。一覧は `GET /v1/endpoints`
 - **利用不可(作らない)**: 取引所全体の清算フィード/清算マップ、市場別ポジション一覧、リーダーボード/コホート、直近以外のトレード履歴、OI履歴/CVD、5000本より古いローソク足、WebSocket配信、APIキー/課金。理由は `/v1/endpoints` の `unavailable` と docs に記載
 
+- **本番**: https://tk.monokuma3910.workers.dev (Cloudflare Workers、main への push で自動ビルド)。2026-11-24 に本番で `verify:live` 22/22
+- **引き継ぎ**: 最新の状態・残課題は `HANDOFF.md`、Cloud VM での動かし方は `deploy/vm/README.md`
+
 ```bash
 npm install
 npm test                  # ユニットテスト(上流fetchのスタブはテスト内のみ)+ビルド
 npm run dev               # http://127.0.0.1:4173 で静的サイト+/v1
 npm run verify:live       # 実APIでE2E検証(引数にデプロイ先URLを渡せる)
-npx wrangler login        # 手元PCで一度だけ
-npx wrangler deploy
-npm run verify:live -- https://<worker>.workers.dev
+npm run setup:vm          # Cloud VM: 依存・テスト・ビルド・上流到達確認(deploy/vm/README.md)
+npx wrangler deploy       # Cloudflare へ手動デプロイする場合(要 wrangler login)
+npm run verify:live -- https://tk.monokuma3910.workers.dev
 ```
 
-設定は `wrangler.jsonc` の `vars`(キー不要)。項目と既定値は `docs.html#operations` を参照。
+設定はすべて環境変数(キー不要)。Workers は `wrangler.jsonc` の `vars`、VM は `deploy/vm/ticksmith.env.example`。項目と既定値は `docs.html#operations`。
 
 ---
 
@@ -28,7 +31,7 @@ npm run verify:live -- https://<worker>.workers.dev
 
 ResearchPhantomの論文フィードを、**装丁された一冊の本**として読む純静的サイトです。3つの版はどのページからも切り替えられ、選択中の論文を引き継ぎます。
 
-- **Light / `index.html`** — 軽量な表紙・目次・本棚。日々の論文を探す入口
+- **Light / `researchphantom.html`** — 軽量な表紙・目次・本棚。日々の論文を探す入口
 - **Full / `data-motion.html`** — キャラクターに依存せず、課題、入力、手法、観測、結果、意味をデータ図形とタイポグラフィで追う
 - **Extra / `character-story.html`** — 7場面の紙芝居、自然な口パク・視線・小物・感情モーション、事前生成音声と同期字幕でゆっくり理解する
 - **Shared Studio** — 75件の論文、5種類の実録ページ音、200名の支援キャスト、お気に入り・既読・振り返り用の本棚を全版で共有する
@@ -64,7 +67,7 @@ ResearchPhantomの論文フィードを、**装丁された一冊の本**とし�
 
 各版の見立て:
 
-- 入口 `index.html` — 函から出した表紙。背・花布・栞紐・帯・扉・目次・奥付
+- 入口 `researchphantom.html` — 函から出した表紙。背・花布・栞紐・帯・扉・目次・奥付
 - Extra — 見開き。左丁が目次と索引、右丁が版面（柱・図版・脚注の字幕・ノンブル）
 - Full — 図版の巻。藍クロスの背に、方眼へ刷った銅版図（主線=藍・比較線=朱・結果=緑青）と組表を綴じる
 
@@ -229,7 +232,8 @@ remoteモードは `https://howly23v.github.io/ResearchPhantom/index.html` だ�
 ## 構成
 
 ```text
-index.html                    Studio入口（表紙・扉・目次・奥付）
+index.html                    Ticksmith データAPIのランディング(docs.html / console.html と同系)
+researchphantom.html          Studio入口（表紙・扉・目次・奥付）
 character-story.html          甲版 独立入口
 data-motion.html              乙版 独立入口
 cast-lab.html                 任意対象の擬人化実験室

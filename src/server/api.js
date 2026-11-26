@@ -92,13 +92,28 @@ function parseDex(query) {
   return raw;
 }
 
-function timeRange(query, { defaultSpan, maxSpan = null, now }) {
-  const end = parseTime(query, 'end_time') ?? now;
-  const start = parseTime(query, 'start_time') ?? Math.max(0, end - defaultSpan);
+/**
+ * Resolve start_time / end_time. When the client gives neither, the default
+ * window is aligned to `align` ms so repeated requests produce the same
+ * upstream body and therefore share the cache and in-flight request.
+ * With `openEnd`, the default window has no end (up to now): end is null.
+ */
+function timeRange(query, { defaultSpan, now, align = 1, openEnd = false, maxSpan = null }) {
+  const rawStart = parseTime(query, 'start_time');
+  const rawEnd = parseTime(query, 'end_time');
+  if (rawStart === undefined && rawEnd === undefined) {
+    if (openEnd) return { start: Math.max(0, Math.floor((now - defaultSpan) / align) * align), end: null };
+    const end = Math.ceil(now / align) * align;
+    return { start: Math.max(0, end - defaultSpan), end };
+  }
+  const end = rawEnd ?? now;
+  const start = rawStart ?? Math.max(0, end - defaultSpan);
   if (start > end) throw invalid('start_time must be before end_time');
   if (maxSpan && end - start > maxSpan) throw invalid(`range must be at most ${Math.round(maxSpan / DAY)} d`);
   return { start, end };
 }
+
+const HOUR = 3_600_000;
 
 /* ----------------------------------------------------------------------------
    Normalisers — map upstream strings to numbers and stable snake_case fields
@@ -226,26 +241,39 @@ function routes({ hl, now }) {
     const r = await hl.info(dex ? { type: 'meta', dex } : { type: 'meta' }, { ttlMs: 300_000 });
     return r.data;
   }
+  /** Names of every perp dex Hyperliquid lists ('' is the main dex). */
+  async function dexNames() {
+    const r = await hl.info({ type: 'perpDexs' }, { ttlMs: 300_000 });
+    return new Set(r.data.map((d) => (d === null ? '' : d.name)));
+  }
+
+  /** ?dex= validated against Hyperliquid's own dex list (unknown dex: 404, not an upstream 500). */
+  async function dexParam(query) {
+    const dex = parseDex(query);
+    if (dex && !(await dexNames()).has(dex)) throw new ApiProblem('not_found', `Unknown perp dex ${dex}. List dexs with /v1/dexs.`);
+    return dex;
+  }
+
   async function spotMeta() {
     const r = await hl.info({ type: 'spotMeta' }, { ttlMs: 300_000 });
     return r.data;
   }
 
   async function resolveCoin(raw) {
-    const input = decodeURIComponent(raw).trim();
+    let input;
+    try {
+      input = decodeURIComponent(raw).trim();
+    } catch {
+      throw invalid('coin is not valid URL encoding');
+    }
     if (!input || input.length > 40) throw invalid('coin is required');
     const lower = input.toLowerCase();
     const colon = input.indexOf(':');
     if (colon > 0) {
       const dex = input.slice(0, colon);
       if (!/^[a-z0-9]{1,16}$/i.test(dex)) throw new ApiProblem('not_found', `Unknown market ${input}`);
-      let meta;
-      try {
-        meta = await perpMeta(dex.toLowerCase());
-      } catch (error) {
-        if (error instanceof UpstreamError && error.upstreamStatus && error.upstreamStatus < 500) throw new ApiProblem('not_found', `Unknown perp dex ${dex}`);
-        throw error;
-      }
+      if (!(await dexNames()).has(dex.toLowerCase())) throw new ApiProblem('not_found', `Unknown perp dex ${dex}. List dexs with /v1/dexs.`);
+      const meta = await perpMeta(dex.toLowerCase());
       const hit = meta.universe.find((a) => a.name.toLowerCase() === lower);
       if (!hit) throw new ApiProblem('not_found', `Unknown market ${input} on dex ${dex}`);
       return { coin: hit.name, kind: 'perp', dex: dex.toLowerCase(), asset: hit };
@@ -280,7 +308,7 @@ function routes({ hl, now }) {
         { name: 'limit', in: 'query', description: '1–1000, default 1000' },
       ],
       async handler({ query }) {
-        const dex = parseDex(query);
+        const dex = await dexParam(query);
         const sort = query.get('sort') || 'volume';
         const sorters = {
           volume: (a, b) => (b.volume_24h_usd ?? -1) - (a.volume_24h_usd ?? -1),
@@ -291,7 +319,7 @@ function routes({ hl, now }) {
         };
         if (!sorters[sort]) throw invalid(`sort must be one of ${Object.keys(sorters).join(', ')}`);
         const limit = parseLimit(query, 1000, 1000);
-        const r = await hl.info(dex ? { type: 'metaAndAssetCtxs', dex } : { type: 'metaAndAssetCtxs' }, { ttlMs: 3_000 });
+        const r = await hl.info(dex ? { type: 'metaAndAssetCtxs', dex } : { type: 'metaAndAssetCtxs' }, { ttlMs: 5_000 });
         const [meta, ctxs] = r.data;
         let rows = meta.universe.map((asset, i) => perpRow(asset, ctxs[i], dex));
         if (query.get('include_delisted') !== 'true') rows = rows.filter((row) => !row.delisted);
@@ -303,7 +331,7 @@ function routes({ hl, now }) {
       path: '/v1/markets/mids', group: 'Markets', summary: 'Mid price of every perp and spot market.',
       upstream: ['allMids'], params: [{ name: 'dex', in: 'query', description: 'HIP-3 perp dex name. Empty = main dex (includes spot @N mids).' }],
       async handler({ query }) {
-        const dex = parseDex(query);
+        const dex = await dexParam(query);
         const r = await hl.info(dex ? { type: 'allMids', dex } : { type: 'allMids' }, { ttlMs: 1_000 });
         const data = Object.fromEntries(Object.entries(r.data).map(([coin, px]) => [coin, num(px)]));
         return { data, sources: [r], count: Object.keys(data).length };
@@ -315,7 +343,7 @@ function routes({ hl, now }) {
       async handler({ params }) {
         const market = await resolveCoin(params.coin);
         if (market.kind !== 'perp') throw invalid(`${market.coin} is a spot market; use /v1/spot/markets`);
-        const r = await hl.info(market.dex ? { type: 'metaAndAssetCtxs', dex: market.dex } : { type: 'metaAndAssetCtxs' }, { ttlMs: 3_000 });
+        const r = await hl.info(market.dex ? { type: 'metaAndAssetCtxs', dex: market.dex } : { type: 'metaAndAssetCtxs' }, { ttlMs: 5_000 });
         const index = r.data[0].universe.findIndex((a) => a.name === market.coin);
         if (index < 0) throw new ApiProblem('not_found', `Market ${market.coin} is not listed any more`);
         return { data: perpRow(r.data[0].universe[index], r.data[1][index], market.dex), sources: [r] };
@@ -361,7 +389,7 @@ function routes({ hl, now }) {
       upstream: ['recentTrades'], params: [{ name: 'coin', in: 'path', required: true, example: 'BTC' }],
       async handler({ params }) {
         const market = await resolveCoin(params.coin);
-        const r = await hl.info({ type: 'recentTrades', coin: market.coin }, { ttlMs: 1_000 });
+        const r = await hl.info({ type: 'recentTrades', coin: market.coin }, { ttlMs: 3_000 });
         const rows = r.data.map(tradeRow).sort((a, b) => b.time - a.time);
         return { data: rows, sources: [r] };
       },
@@ -382,8 +410,8 @@ function routes({ hl, now }) {
         const step = CANDLE_INTERVALS[interval];
         if (!step) throw invalid(`interval must be one of ${Object.keys(CANDLE_INTERVALS).join(', ')}`);
         const limit = parseLimit(query, 200, 5000);
-        const { start, end } = timeRange(query, { defaultSpan: step * limit, now: now() });
-        const r = await hl.info({ type: 'candleSnapshot', req: { coin: market.coin, interval, startTime: start, endTime: end } }, { ttlMs: 5_000 });
+        const { start, end } = timeRange(query, { defaultSpan: step * limit, align: step, now: now() });
+        const r = await hl.info({ type: 'candleSnapshot', req: { coin: market.coin, interval, startTime: start, endTime: end } }, { ttlMs: 10_000, expectedItems: Math.ceil((end - start) / step) + 1 });
         const rows = r.data.map(candleRow).sort((a, b) => a.time_open - b.time_open).slice(-limit);
         return { data: rows, sources: [r], extra: { coin: market.coin, interval, start_time: start, end_time: end } };
       },
@@ -399,8 +427,10 @@ function routes({ hl, now }) {
       async handler({ params, query }) {
         const market = await resolveCoin(params.coin);
         if (market.kind !== 'perp') throw invalid('funding exists only for perp markets');
-        const { start, end } = timeRange(query, { defaultSpan: DAY, now: now() });
-        const r = await hl.info({ type: 'fundingHistory', coin: market.coin, startTime: start, endTime: end }, { ttlMs: 30_000 });
+        const { start, end } = timeRange(query, { defaultSpan: DAY, align: HOUR, openEnd: true, now: now() });
+        const body = { type: 'fundingHistory', coin: market.coin, startTime: start };
+        if (end !== null) body.endTime = end;
+        const r = await hl.info(body, { ttlMs: 60_000 });
         const rows = r.data.map((f) => ({ time: f.time, coin: f.coin, funding_rate_1h: num(f.fundingRate), premium: num(f.premium) }));
         return { data: rows, sources: [r], extra: { start_time: start, end_time: end } };
       },
@@ -410,7 +440,7 @@ function routes({ hl, now }) {
       upstream: ['spotMetaAndAssetCtxs'], params: [{ name: 'limit', in: 'query', description: '1–5000, default 5000' }],
       async handler({ query }) {
         const limit = parseLimit(query, 5000, 5000);
-        const r = await hl.info({ type: 'spotMetaAndAssetCtxs' }, { ttlMs: 5_000 });
+        const r = await hl.info({ type: 'spotMetaAndAssetCtxs' }, { ttlMs: 10_000 });
         const [meta, ctxs] = r.data;
         const pairs = spotPairs(meta);
         const byCoin = new Map(ctxs.map((ctx) => [ctx.coin, ctx]));
@@ -432,7 +462,7 @@ function routes({ hl, now }) {
       path: '/v1/dexs', group: 'Markets', summary: 'Perp dexs (the main dex plus HIP-3 builder-deployed dexs).',
       upstream: ['perpDexs'], params: [],
       async handler() {
-        const r = await hl.info({ type: 'perpDexs' }, { ttlMs: 60_000 });
+        const r = await hl.info({ type: 'perpDexs' }, { ttlMs: 300_000 });
         const rows = r.data.map((d) => (d === null
           ? { name: '', full_name: 'Hyperliquid', deployer: null, fee_recipient: null }
           : { name: d.name, full_name: d.fullName, deployer: d.deployer ?? null, fee_recipient: d.feeRecipient ?? null }));
@@ -448,10 +478,10 @@ function routes({ hl, now }) {
       ],
       async handler({ params, query }) {
         const user = parseAddress(params.address);
-        const dex = parseDex(query);
+        const dex = await dexParam(query);
         const [perp, spot] = await Promise.all([
-          hl.info(dex ? { type: 'clearinghouseState', user, dex } : { type: 'clearinghouseState', user }, { ttlMs: 2_000 }),
-          hl.info({ type: 'spotClearinghouseState', user }, { ttlMs: 2_000 }),
+          hl.info(dex ? { type: 'clearinghouseState', user, dex } : { type: 'clearinghouseState', user }, { ttlMs: 3_000 }),
+          hl.info({ type: 'spotClearinghouseState', user }, { ttlMs: 3_000 }),
         ]);
         const m = perp.data.marginSummary;
         return {
@@ -472,8 +502,8 @@ function routes({ hl, now }) {
       params: [{ name: 'address', in: 'path', required: true, example: '0x…' }, { name: 'dex', in: 'query', description: 'HIP-3 perp dex. Empty = main dex.' }],
       async handler({ params, query }) {
         const user = parseAddress(params.address);
-        const dex = parseDex(query);
-        const r = await hl.info(dex ? { type: 'clearinghouseState', user, dex } : { type: 'clearinghouseState', user }, { ttlMs: 2_000 });
+        const dex = await dexParam(query);
+        const r = await hl.info(dex ? { type: 'clearinghouseState', user, dex } : { type: 'clearinghouseState', user }, { ttlMs: 3_000 });
         const rows = r.data.assetPositions.map(positionRow).sort((a, b) => Math.abs(b.position_value_usd ?? 0) - Math.abs(a.position_value_usd ?? 0));
         return { data: rows, sources: [r] };
       },
@@ -484,8 +514,8 @@ function routes({ hl, now }) {
       params: [{ name: 'address', in: 'path', required: true, example: '0x…' }, { name: 'dex', in: 'query', description: 'HIP-3 perp dex. Empty = main dex.' }],
       async handler({ params, query }) {
         const user = parseAddress(params.address);
-        const dex = parseDex(query);
-        const r = await hl.info(dex ? { type: 'frontendOpenOrders', user, dex } : { type: 'frontendOpenOrders', user }, { ttlMs: 2_000 });
+        const dex = await dexParam(query);
+        const r = await hl.info(dex ? { type: 'frontendOpenOrders', user, dex } : { type: 'frontendOpenOrders', user }, { ttlMs: 3_000 });
         return { data: r.data.map(orderRow).sort((a, b) => b.time - a.time), sources: [r] };
       },
     },
@@ -511,7 +541,7 @@ function routes({ hl, now }) {
           if (end !== undefined) throw invalid('end_time requires start_time');
           body = { type: 'userFills', user };
         }
-        const r = await hl.info(body, { ttlMs: 3_000 });
+        const r = await hl.info(body, { ttlMs: 10_000 });
         const rows = r.data.map(fillRow).sort((a, b) => b.time - a.time);
         return { data: rows.slice(0, limit), sources: [r], extra: { upstream_rows: rows.length } };
       },
@@ -526,8 +556,10 @@ function routes({ hl, now }) {
       ],
       async handler({ params, query }) {
         const user = parseAddress(params.address);
-        const { start, end } = timeRange(query, { defaultSpan: 7 * DAY, now: now() });
-        const r = await hl.info({ type: 'userFunding', user, startTime: start, endTime: end }, { ttlMs: 30_000 });
+        const { start, end } = timeRange(query, { defaultSpan: 7 * DAY, align: HOUR, openEnd: true, now: now() });
+        const body = { type: 'userFunding', user, startTime: start };
+        if (end !== null) body.endTime = end;
+        const r = await hl.info(body, { ttlMs: 60_000 });
         const rows = r.data.filter((u) => u.delta?.type === 'funding').map((u) => ({
           time: u.time, coin: u.delta.coin, usdc: num(u.delta.usdc), szi: num(u.delta.szi), funding_rate_1h: num(u.delta.fundingRate),
         })).sort((a, b) => b.time - a.time);
@@ -544,8 +576,10 @@ function routes({ hl, now }) {
       ],
       async handler({ params, query }) {
         const user = parseAddress(params.address);
-        const { start, end } = timeRange(query, { defaultSpan: 30 * DAY, now: now() });
-        const r = await hl.info({ type: 'userNonFundingLedgerUpdates', user, startTime: start, endTime: end }, { ttlMs: 30_000 });
+        const { start, end } = timeRange(query, { defaultSpan: 30 * DAY, align: HOUR, openEnd: true, now: now() });
+        const body = { type: 'userNonFundingLedgerUpdates', user, startTime: start };
+        if (end !== null) body.endTime = end;
+        const r = await hl.info(body, { ttlMs: 60_000 });
         const rows = r.data.map((u) => ({ time: u.time, hash: u.hash, type: u.delta?.type ?? null, usdc_value: num(u.delta?.usdcValue ?? u.delta?.usdc), delta: u.delta }))
           .sort((a, b) => b.time - a.time);
         return { data: rows, sources: [r], extra: { start_time: start, end_time: end } };
@@ -562,7 +596,7 @@ function routes({ hl, now }) {
         const user = parseAddress(params.address);
         const window = query.get('window') || 'month';
         if (!PORTFOLIO_WINDOWS.includes(window)) throw invalid(`window must be one of ${PORTFOLIO_WINDOWS.join(', ')}`);
-        const r = await hl.info({ type: 'portfolio', user }, { ttlMs: 30_000 });
+        const r = await hl.info({ type: 'portfolio', user }, { ttlMs: 60_000 });
         const entry = r.data.find(([name]) => name === window);
         if (!entry) throw new ApiProblem('not_found', `Window ${window} is not present upstream`);
         const series = entry[1];
@@ -652,6 +686,7 @@ export function createApi({ env = {}, fetchImpl = globalThis.fetch, now = () => 
       'cache-control': 'no-store',
       'x-request-id': id,
       'x-api-version': API_VERSION,
+      'x-content-type-options': 'nosniff',
     };
   }
 

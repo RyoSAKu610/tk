@@ -342,7 +342,8 @@ async function boot() {
   loadMarkets();
   loadCandles();
   loadTrades();
-  every(10_000, async () => {
+  // Intervals are sized to the backend's Hyperliquid weight budget (see docs.html#limits).
+  every(15_000, async () => {
     const dex = $('[data-markets-dex]').value;
     const sort = $('[data-markets-sort]').value;
     if (dex || sort !== 'volume') {
@@ -356,9 +357,9 @@ async function boot() {
     }
     loadMarkets();
   });
-  every(15_000, loadCandles);
-  every(3_000, loadTrades);
-  every(30_000, loadStatus);
+  every(30_000, loadCandles);
+  every(5_000, loadTrades);
+  every(60_000, loadStatus);
 }
 
 boot();

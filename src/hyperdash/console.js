@@ -14,7 +14,7 @@ const VIEWS = ['status', 'market', 'wallet', 'playground', 'log'];
 const state = {
   view: 'status',
   latencies: [],
-  market: { coin: 'BTC', interval: '15m', candles: [], book: null, funding: [] },
+  market: { coin: 'BTC', interval: '15m', candles: [], book: null, funding: [], fundingFor: null, fundingAt: 0 },
   wallet: { address: null, history: [] },
   log: [],
   playgroundMounted: false,
@@ -86,12 +86,14 @@ async function loadMarket() {
   const enc = encodeURIComponent(coin);
   const errorHost = $('[data-mk-error]');
   $('[data-mk-title]').textContent = `${coin} · ${interval} candles`;
+  // Funding prints once an hour: refetch it on a coin change or every 5 min, not on every refresh.
+  const refreshFunding = state.market.fundingFor !== coin || Date.now() - state.market.fundingAt > 300_000;
   const [ctx, candles, book, trades, funding] = await Promise.allSettled([
     apiGet(`/v1/markets/${enc}`),
     apiGet(`/v1/markets/${enc}/candles`, { query: { interval, limit: 160 } }),
     apiGet(`/v1/markets/${enc}/book`),
     apiGet(`/v1/markets/${enc}/trades`),
-    apiGet(`/v1/markets/${enc}/funding`),
+    refreshFunding ? apiGet(`/v1/markets/${enc}/funding`) : Promise.resolve(null),
   ]);
   if (coin !== state.market.coin || interval !== state.market.interval) return;
   const failures = [ctx, candles, book, trades, funding].filter((r) => r.status === 'rejected')
@@ -138,11 +140,14 @@ async function loadMarket() {
     $('[data-mk-book-meta]').textContent = book.reason.message;
   }
 
-  if (funding.status === 'fulfilled') {
+  if (funding.status === 'fulfilled' && funding.value) {
     state.market.funding = funding.value.data.map((f) => ({ ...f, pct: f.funding_rate_1h * 100 }));
-    $('[data-mk-funding-meta]').textContent = `${funding.value.data.length} hourly prints`;
-  } else {
+    state.market.fundingFor = coin;
+    state.market.fundingAt = Date.now();
+    $('[data-mk-funding-meta]').textContent = `${funding.value.data.length} hourly prints · fetched ${funding.value.meta.fetched_at?.slice(11, 19) ?? '—'} UTC`;
+  } else if (funding.status === 'rejected') {
     state.market.funding = [];
+    state.market.fundingFor = null;
     $('[data-mk-funding-meta]').textContent = funding.reason.message;
   }
 
@@ -383,9 +388,10 @@ function boot() {
   showView(location.hash.slice(1) || 'status');
   checkStatus();
   loadCoinList();
-  every(15_000, checkStatus);
-  every(5_000, () => { if (state.view === 'market') loadMarket(); });
-  every(10_000, () => { if (state.view === 'wallet' && state.wallet.address) loadWallet(); });
+  // Intervals are sized to the backend's Hyperliquid weight budget (see docs.html#limits).
+  every(30_000, checkStatus);
+  every(10_000, () => { if (state.view === 'market') loadMarket(); });
+  every(30_000, () => { if (state.view === 'wallet' && state.wallet.address) loadWallet(); });
 }
 
 boot();

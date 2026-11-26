@@ -12,6 +12,8 @@ const startPage = process.env.START_PAGE ?? 'index.html';
 if (!Number.isSafeInteger(port) || port < 1 || port > 65_535) throw new Error('PORT must be between 1 and 65535');
 if (!['127.0.0.1', '0.0.0.0'].includes(host)) throw new Error('HOST must be 127.0.0.1 or 0.0.0.0');
 if (!['index.html', 'researchphantom.html', 'cast-lab.html', 'character-story.html', 'data-motion.html'].includes(startPage)) throw new Error('START_PAGE must be a public HTML entrypoint');
+if (!['', '0', '1'].includes(process.env.TRUST_PROXY ?? '')) throw new Error('TRUST_PROXY must be 0 or 1');
+const trustProxy = process.env.TRUST_PROXY === '1';
 
 const mimeTypes = new Map([
   ['.css', 'text/css; charset=utf-8'], ['.html', 'text/html; charset=utf-8'],
@@ -61,7 +63,11 @@ async function handleApi(request, response) {
   for (const [name, value] of Object.entries(request.headers)) {
     if (typeof value === 'string') headers.set(name, value);
   }
-  if (!headers.has('x-forwarded-for')) headers.set('x-forwarded-for', request.socket.remoteAddress ?? 'local');
+  // The API rate-limits per client IP. Only trust a forwarded address when a
+  // reverse proxy we control sits in front (TRUST_PROXY=1); otherwise a client
+  // could pick its own identity and bypass the limit.
+  headers.delete('cf-connecting-ip');
+  if (!trustProxy || !headers.has('x-forwarded-for')) headers.set('x-forwarded-for', request.socket.remoteAddress ?? 'local');
   const result = await api.handle(new Request(url, { method: request.method, headers }));
   if (!result) return false;
   response.writeHead(result.status, Object.fromEntries(result.headers));
@@ -127,3 +133,12 @@ const server = createServer(async (request, response) => {
 server.listen(port, host, () => {
   console.log(`Static site + data API (upstream ${api.config.infoUrl}): http://${host}:${port}`);
 });
+
+// systemd and Docker stop with SIGTERM: finish in-flight requests, then exit.
+for (const signal of ['SIGTERM', 'SIGINT']) {
+  process.once(signal, () => {
+    console.log(JSON.stringify({ ts: new Date().toISOString(), level: 'info', event: 'serve.shutdown', signal }));
+    server.close(() => process.exit(0));
+    setTimeout(() => process.exit(0), 10_000).unref();
+  });
+}

@@ -1,5 +1,48 @@
 # Handoff
 
+## 2026-11-26 Cloud VM への引き継ぎ準備と調整(ブランチ `handoff/cloud-vm`)
+
+### 現在の状態
+- **本番**: https://tk.monokuma3910.workers.dev(Cloudflare Workers `tk`)。main への push で Workers Builds が自動デプロイ。ビルド設定は Build command `npm run build` / Deploy command `npx wrangler deploy`(以前は `YOLO` が入っていて全ビルドが失敗していた)
+- **本番の実データ検証(2026-11-24 06:14 UTC)**: `npm run verify:live -- https://tk.monokuma3910.workers.dev` 22/22。BTC を公式 `allMids` と突合し差 0.001%。ブラウザで landing / console / ウォレット / Playground を本番URLで確認。記録: `docs/verification/2026-11-24-production.txt`
+- Cloud VM で動かす手順は `deploy/vm/README.md`。次の Claude セッション向けの前提とルールは `CLAUDE.md`
+
+### この回の修正
+1. **上流の重み予算(Codex レビュー指摘 2件)**
+   - 待機明けに空きを再確認していなかった。同時に待った複数リクエストが同じ空きを使って予算を超えられた。待機後に毎回再確認するよう修正
+   - 件数に応じた追加の重み(例: ローソク足5000本で +83、約定2000件で +100)を送信後に足していた。送信前に最大見込み分を確保し、応答後に実際の値へ精算するよう修正
+2. **ResearchPhantom の Light リンク(Codex 指摘)**: `researchphantom.html` の Light とロゴが、データAPIになった `index.html` を指していた。`researchphantom.html` に修正し、テストを追加
+3. **キャッシュが効いていなかった**: ローソク足・資金調達履歴・ユーザー資金調達・入出金は、既定の期間を「今」のミリ秒から作っていたため、毎回キャッシュキーが変わっていた。既定期間を区切り(ローソク足は足の長さ、他は1時間)に揃え、同じ「最新」要求が1回の上流呼び出しを共有するようにした
+4. **ポーリングと TTL の見直し**: 修正前はコンソールの市場画面1つで約 800 weight/分(予算 900)。TTL(約定 3秒、相場 5秒、ローソク足・約定履歴 10秒、資金調達系 60秒、dex 一覧 5分)と画面の更新間隔(コンソール市場 10秒・資金調達 5分ごと、ウォレット 30秒、ランディング約定 5秒)を調整。実測で**ランディング約 390/分、コンソール市場画面約 320/分**
+5. **エラーの正しさ**: 存在しない dex は 404(以前は上流の `500 null` を再試行して 502)。不正な URL エンコードは 400(以前は 500)。API 応答に `x-content-type-options: nosniff`
+6. **VM 向け**: `tools/serve.mjs` に `TRUST_PROXY`(直接公開時は `X-Forwarded-For` を無視してレート制限の偽装回避を防ぐ)と SIGTERM での正常終了。`npm start` / `npm run setup:vm`、`deploy/vm/`(setup.sh・systemd unit・env 例・Caddyfile 例・手順書)
+7. **依存の脆弱性**: `npm audit fix` で 4件(開発用 wrangler 経由の sharp / undici)を解消し 0件。wrangler は 4.168.0
+8. README の古い記述(ResearchPhantom の入口が `index.html` のまま)を修正
+
+### 検証(2026-11-26、この環境から実 API)
+- `npm test` 80/80 pass(追加: 予算の待機競合、追加重みの事前確保、既定期間の整列とキャッシュ共有、未知 dex と不正エンコード、Light リンク)
+- `bash deploy/vm/setup.sh`(サービス化なし): Node 確認 → Hyperliquid 到達 → `npm ci` → テスト 80/80 まで通過
+- systemd unit: setup.sh と同じ置換をしたものが `systemd-analyze verify` を通過
+- env ファイル(`ticksmith.env.example`)で起動したサーバーに `verify:live` 22/22(差 0.009%)。記録: `docs/verification/2026-11-26-vm-mode-local.txt`
+- `TRUST_PROXY=0` で偽の `X-Forwarded-For` を3種送ると3回目が 429(偽装が効かない)。`=1` では IP ごとに別枠。SIGTERM で `serve.shutdown` を記録して終了
+- ブラウザで console(市場・ウォレット・Playground)と docs を確認。JS エラー 0
+- `npx wrangler deploy --dry-run` でバンドル確認(wrangler 4.168.0)
+
+### 未検証
+- `setup.sh --install-service`(この環境に systemd が動いていないため)、Caddy を前段に置いた構成、実際の Cloud VM 上での動作。VM で上の手順を流して確認すること
+- この回の修正(`handoff/cloud-vm`)は、main にマージされて Workers に自動デプロイされるまで本番に入っていない。マージ後に `npm run verify:live -- https://tk.monokuma3910.workers.dev` を再実行すること
+
+### 次にやること(優先順)
+1. **Hyperliquid WebSocket の常時購読**(`wss://api.hyperliquid.xyz/ws`)。約定・板・mids・ローソク足をサーバー側で購読してメモリから返す。WebSocket には REST の重みがかからないので、同時閲覧の上限(今は 1 インスタンス 2〜3 人)が大きく上がる。VM は常駐プロセスなので実装しやすい(Workers なら Durable Objects が必要)。公式の WS 上限: 接続10・購読1000・ユーザー別購読は10ユーザーまで
+2. **本番をどちらにするか**(Workers のままか VM か)。VM にするなら Cloudflare の Git 連携の扱いを決める。Cloudflare の別プロジェクト `tkp` はこのリポジトリに繋がっていて毎回失敗している(`wrangler.jsonc` の名前は `tk`)。不要ならダッシュボードで Git 連携を外す
+3. **ResearchPhantom の日次同期ワークフロー**(`.github/workflows/sync-research.yml`)が少なくとも 2026-10-23 から毎日失敗(`TypeError: feed.papers must be a non-empty array`)。データAPIとは別件
+4. Workers のまま運用するなら、全体で効くレート制限(Cloudflare Rate Limiting ルール)を追加。今の制限はアイソレート単位
+5. `wrangler.jsonc` は `not_found_handling: 404-page` だが `404.html` が無い
+6. サービス名 Ticksmith(仮名)の確定
+
+---
+
+
 ## 2026-11-23 Hyperliquid データAPIを本番データへ移行(ブランチ `arena/263f378a-tk`)
 
 `b15ece8` のシミュレーション(`market-engine.js`・`data-api.js`)を削除し、公式 info API に直接つなぐバックエンドへ置き換えました。
@@ -16,7 +59,7 @@
 - 上流到達不能(`HL_INFO_URL=https://127.0.0.1:9/info`)で 502 `upstream_unreachable` と各パネルのエラー表示を確認(偽値なし)
 - `wrangler deploy --dry-run` でWorkerのバンドル・バインディングを確認。`wrangler dev`(workerd)では静的配信と `/v1` ルーティングは動作、上流呼び出しはサンドボックスのプロキシ制約で到達できず 502 を正しく返すことを確認
 
-### 未検証
+### 未検証(当時のもの。デプロイ後の動作は 2026-11-24 に本番で検証済み → 上の 2026-11-26 を参照)
 - **Cloudflareへの実デプロイと、デプロイ済みWorkerから api.hyperliquid.xyz への接続**(この環境にCloudflare認証なし)。手元PCで `npx wrangler login` → `npx wrangler deploy` → `npm run verify:live -- https://<worker>.workers.dev`
 - Workers上ではキャッシュ・クライアント制限・上流重み予算がアイソレート単位。グローバルな厳密制限が必要ならCloudflareのRate Limitingルールを追加
 - Cloudflare の送信元IPを他テナントと共有するため、Hyperliquid の IP単位制限(1200/分)に他者の利用が影響する可能性(未計測)

@@ -57,7 +57,7 @@
       <section class="app-view" id="status" data-view="status">
         <header class="app-view__head">
           <div>
-            <p class="eyebrow">GET /v1/status · every 15 s</p>
+            <p class="eyebrow">GET /v1/status · every 30 s</p>
             <h1>Upstream status</h1>
             <p class="app-view__lede">Each check makes an uncached <code>exchangeStatus</code> call to Hyperliquid through the backend and reports the backend’s retry, cache and weight-budget counters. Counters belong to the server instance that answered.</p>
           </div>
@@ -83,7 +83,7 @@
           <div>
             <p class="eyebrow">markets · candles · book · trades · funding</p>
             <h1>Market inspector</h1>
-            <p class="app-view__lede">Perps (<code>BTC</code>), HIP-3 perps (<code>xyz:XYZ100</code>) or spot (<code>HYPE/USDC</code>, <code>@107</code>). Refreshes every 5 s while this view is open.</p>
+            <p class="app-view__lede">Perps (<code>BTC</code>), HIP-3 perps (<code>xyz:XYZ100</code>) or spot (<code>HYPE/USDC</code>, <code>@107</code>). Refreshes every 10 s (funding every 5 min) while this view is open.</p>
           </div>
           <form class="app-view__actions" data-market-form>
             <input class="input input--mono" name="coin" value="BTC" aria-label="Market" list="coin-list" style="width:160px">
