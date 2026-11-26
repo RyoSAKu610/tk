@@ -27,11 +27,27 @@ export function baseWeight(type) {
   return 20;
 }
 
-export function extraWeight(type, data) {
-  const items = Array.isArray(data) ? data.length : 0;
+function surcharge(type, items) {
   if (PER_20_ITEMS.has(type)) return Math.floor(items / 20);
   if (type === 'candleSnapshot') return Math.floor(items / 60);
   return 0;
+}
+
+export function extraWeight(type, data) {
+  return surcharge(type, Array.isArray(data) ? data.length : 0);
+}
+
+/** Largest row counts Hyperliquid returns per call, used when the caller gives no estimate. */
+const MAX_ITEMS = {
+  userFills: 2000, userFillsByTime: 2000, historicalOrders: 2000,
+  fundingHistory: 500, userFunding: 500, nonUserFundingUpdates: 500,
+  recentTrades: 20, candleSnapshot: 5000,
+};
+
+/** Weight to reserve up front: base plus the surcharge of the largest expected response. */
+export function expectedWeight(type, expectedItems = null) {
+  const items = expectedItems ?? MAX_ITEMS[type] ?? 0;
+  return baseWeight(type) + surcharge(type, items);
 }
 
 export class UpstreamError extends Error {
@@ -75,8 +91,11 @@ class WeightBudget {
     return 60_000;
   }
 
+  /** Record weight now; returns the entry so a reservation can be settled later. */
   charge(weight) {
-    if (weight > 0) this.entries.push({ t: this.now(), w: weight });
+    const entry = { t: this.now(), w: Math.max(0, weight) };
+    if (entry.w > 0) this.entries.push(entry);
+    return entry;
   }
 }
 
@@ -112,11 +131,22 @@ export function createHyperliquidClient({
     while (cache.size > config.cacheMaxEntries) cache.delete(cache.keys().next().value);
   }
 
-  async function reserve(type) {
-    const weight = baseWeight(type);
-    const wait = budget.waitFor(weight);
-    if (wait > 0) {
-      if (wait > config.weightMaxWaitMs) {
+  /**
+   * Reserve the weight a request may cost, including the surcharge of the
+   * largest response it can return. Capacity is re-checked after every wait,
+   * so concurrent waiters cannot spend the same freed headroom twice.
+   * Returns the budget entry; settle() corrects it to the real cost.
+   */
+  async function reserve(type, expectedItems) {
+    const weight = expectedWeight(type, expectedItems);
+    if (weight > config.weightBudgetPerMin) {
+      throw new UpstreamError('upstream_budget', `A ${type} request may cost ${weight} weight, more than the whole budget (${config.weightBudgetPerMin}/min)`, { status: 503, retryAfterMs: 60_000 });
+    }
+    const deadline = now() + config.weightMaxWaitMs;
+    for (;;) {
+      const wait = budget.waitFor(weight);
+      if (wait === 0) return budget.charge(weight);
+      if (now() + wait > deadline) {
         throw new UpstreamError('upstream_budget',
           `Upstream weight budget (${config.weightBudgetPerMin}/min) is spent; retry in ${Math.ceil(wait / 1000)} s`,
           { status: 503, retryAfterMs: wait });
@@ -124,8 +154,11 @@ export function createHyperliquidClient({
       logger.warn('upstream.budget_wait', { type, wait_ms: wait });
       await sleep(wait);
     }
-    budget.charge(weight);
-    return weight;
+  }
+
+  /** Replace a reservation with the weight the response actually cost. */
+  function settle(entry, actual) {
+    entry.w = Math.max(0, actual);
   }
 
   async function attempt(body) {
@@ -175,24 +208,28 @@ export function createHyperliquidClient({
     }
   }
 
-  async function fetchFresh(body) {
+  async function fetchFresh(body, expectedItems) {
     const type = body.type;
     let attempts = 0;
     let weight = 0;
     for (;;) {
       attempts += 1;
-      weight += await reserve(type);
+      const reservation = await reserve(type, expectedItems);
       stats.upstreamCalls += 1;
       try {
         const { data, latency } = await attempt(body);
-        const extra = extraWeight(type, data);
-        budget.charge(extra);
-        weight += extra;
+        const cost = baseWeight(type) + extraWeight(type, data);
+        settle(reservation, cost);
+        weight += cost;
         stats.lastSuccessAt = now();
         stats.lastLatencyMs = latency;
         logger.info('upstream.ok', { type, latency_ms: latency, attempts, weight });
         return { data, fetchedAt: now(), upstreamMs: latency, attempts, weight };
       } catch (error) {
+        // A refused or failed call still counts against Hyperliquid's IP limit;
+        // a budget refusal never reached Hyperliquid and holds no reservation.
+        settle(reservation, baseWeight(type));
+        weight += baseWeight(type);
         error.attempts = attempts;
         const retryable = error.retryable && attempts <= config.maxRetries;
         logger[retryable ? 'warn' : 'error']('upstream.fail', {
@@ -213,9 +250,11 @@ export function createHyperliquidClient({
 
   /**
    * POST one info request. `ttlMs` > 0 enables caching for that request body.
+   * `expectedItems` bounds the response size so its weight surcharge can be
+   * reserved before sending (defaults to Hyperliquid's per-call maximum).
    * Resolves to { data, fetchedAt, cached, ageMs, upstreamMs, attempts, weight }.
    */
-  async function info(body, { ttlMs = 0 } = {}) {
+  async function info(body, { ttlMs = 0, expectedItems = null } = {}) {
     if (!body || typeof body.type !== 'string') throw new Error('info() needs a body with a type');
     stats.requests += 1;
     const key = JSON.stringify(body);
@@ -230,7 +269,7 @@ export function createHyperliquidClient({
         return { ...shared, cached: true, ageMs: now() - shared.fetchedAt, attempts: 0, weight: 0 };
       }
     }
-    const pending = fetchFresh(body);
+    const pending = fetchFresh(body, expectedItems);
     if (ttlMs > 0) inflight.set(key, pending);
     try {
       const value = await pending;

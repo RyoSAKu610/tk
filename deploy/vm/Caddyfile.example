@@ -1,0 +1,19 @@
+# Caddy in front of Ticksmith: automatic HTTPS, compression, and a client IP
+# in X-Forwarded-For that serve.mjs can trust (TRUST_PROXY=1).
+# Caddy replaces any client-supplied X-Forwarded-For unless trusted_proxies is
+# configured, so clients cannot spoof their address for the rate limit.
+#
+#   sudo cp deploy/vm/Caddyfile.example /etc/caddy/Caddyfile   # then edit the domain
+#   sudo systemctl reload caddy
+
+data.example.com {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:4173
+}
+
+# nginx equivalent (inside the server block):
+#   location / {
+#     proxy_pass http://127.0.0.1:4173;
+#     proxy_set_header Host $host;
+#     proxy_set_header X-Forwarded-For $remote_addr;   # set, do not append
+#   }

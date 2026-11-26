@@ -1,0 +1,38 @@
+Verifying https://tk.monokuma3910.workers.dev at 2026-11-24T06:14:19.407Z
+
+PASS  status: Hyperliquid reachable                  534 ms · fresh · fetched 2026-11-24T06:14:19.913Z
+PASS  markets: perp list                             254 ms · fresh · fetched 2026-11-24T06:14:20.174Z
+PASS  markets/BTC: context                           267 ms · cache · fetched 2026-11-24T06:14:20.174Z
+PASS  markets/mids                                   374 ms · fresh · fetched 2026-11-24T06:14:20.810Z
+PASS  candles: BTC 1h x24                            239 ms · fresh · fetched 2026-11-24T06:14:21.058Z
+PASS  book: ETH                                      203 ms · fresh · fetched 2026-11-24T06:14:21.262Z
+PASS  trades: BTC                                    221 ms · fresh · fetched 2026-11-24T06:14:21.481Z
+PASS  funding: BTC 24h                               208 ms · fresh · fetched 2026-11-24T06:14:21.690Z
+PASS  spot: markets                                  538 ms · fresh · fetched 2026-11-24T06:14:22.223Z
+PASS  spot: HYPE/USDC book                           973 ms · fresh · fetched 2026-11-24T06:14:23.202Z
+PASS  dexs                                           223 ms · fresh · fetched 2026-11-24T06:14:23.425Z
+
+Wallet under test (buyer of the latest BTC trade): 0xb0a9214592fb899aefab0b615f2b870276cee092
+PASS  account: summary                               221 ms · fresh · fetched 2026-11-24T06:14:23.645Z
+PASS  account: positions                             62 ms · cache · fetched 2026-11-24T06:14:23.645Z
+PASS  account: open orders                           208 ms · fresh · fetched 2026-11-24T06:14:23.917Z
+PASS  account: fills                                 261 ms · fresh · fetched 2026-11-24T06:14:24.168Z
+PASS  account: funding                               408 ms · fresh · fetched 2026-11-24T06:14:24.581Z
+PASS  account: ledger                                198 ms · fresh · fetched 2026-11-24T06:14:24.784Z
+PASS  account: portfolio                             209 ms · fresh · fetched 2026-11-24T06:14:24.995Z
+
+PASS  error: unknown market → 404                    HTTP 404 not_found: Unknown market NOTACOIN. List markets with /v1/markets or /v1/spot/markets.
+PASS  error: bad address → 400                       HTTP 400 invalid_parameter: address must be a 0x-prefixed 40-hex-character wallet address
+PASS  error: bad interval → 400                      HTTP 400 invalid_parameter: interval must be one of 1m, 3m, 5m, 15m, 30m, 1h, 2h, 4h, 8h, 12h, 1d, 3d, 1w, 1M
+PASS  cross-check: BTC vs direct Hyperliquid allMids site mark 60456 vs direct mid 60455.5 (0.001 %)
+
+Sample responses (truncated):
+{"path":"/v1/status","fetched_at":"2026-11-24T06:14:19.913Z","upstream_types":["exchangeStatus"],"data":{"status":"ok","upstream_time":1795500859654,"special_statuses":null,"upstream_latency_ms":187,"client":{"requests":1,"upstreamCalls":1,"cacheHits":0,"retries":0,"failures":0,"lastSuccessAt":1795500859913,"lastFailureAt":null,"lastError":null,"lastLatencyMs":187,"weightUsedLastMinute":2,"weightBudgetPerMin":900,"cacheEntries":0}}}
+{"path":"/v1/markets?limit=5","fetched_at":"2026-11-24T06:14:20.174Z","upstream_types":["metaAndAssetCtxs"],"data":[{"coin":"BTC","dex":"","mark_px":60456,"oracle_px":60483,"mid_px":60449.5,"prev_day_px":61751,"change_24h_pct":-2.0971320302505223,"funding_rate_1h":0.0000092418,"premium":-0.0005456079,"open_interest":36916.2117799999,"open_interest_usd":2231806499.371674,"volume_24h_usd":4819959896.6029625,"volume_24h_base":77731.4441499999,"impact_bid_px":60449,"impact_ask_px":60450,"max_leverage":40,"sz_decimals":5,"only_isolated":false,"delisted":false},{"coin":"ETH","dex":"","mark_px":1699.9,"oracle_px":1700.8,"mid_px":1699.85,"prev_day_px":1729.2,"change_24h_pct":-1.6944251677076076,"funding_rate_1h":0.0000066022,"premium":-0.0005291627,"open_interest":613772.2005999997,"open_interest_usd":1043351363.7999396,"volume_24h_usd":1544991636.528409,"volume_24h_base":880980.9288000009,"impact_bid_px":1699.8,"impact_ask_px":1699.9,"max_leverage":25,"sz_decimals":4,"only_isolated":false,"delisted":false}]}
+{"path":"/v1/markets/BTC","fetched_at":"2026-11-24T06:14:20.174Z","upstream_types":["meta","metaAndAssetCtxs"],"data":{"coin":"BTC","dex":"","mark_px":60456,"oracle_px":60483,"mid_px":60449.5,"prev_day_px":61751,"change_24h_pct":-2.0971320302505223,"funding_rate_1h":0.0000092418,"premium":-0.0005456079,"open_interest":36916.2117799999,"open_interest_usd":2231806499.371674,"volume_24h_usd":4819959896.6029625,"volume_24h_base":77731.4441499999,"impact_bid_px":60449,"impact_ask_px":60450,"max_leverage":40,"sz_decimals":5,"only_isolated":false,"delisted":false}}
+{"path":"/v1/markets/BTC/candles?interval=1h&limit=24","fetched_at":"2026-11-24T06:14:21.058Z","upstream_types":["candleSnapshot"],"data":[{"time_open":1795417200000,"time_close":1795420799999,"open":61458,"high":61563,"low":61398,"close":61444,"volume_base":741.50298,"trades":8734},{"time_open":1795420800000,"time_close":1795424399999,"open":61445,"high":61570,"low":61098,"close":61497,"volume_base":2928.04514,"trades":15090}]}
+{"path":"/v1/markets/BTC/trades","fetched_at":"2026-11-24T06:14:21.481Z","upstream_types":["recentTrades"],"data":[{"time":1795500858179,"coin":"BTC","side":"sell","price":60449,"size":0.00618,"notional_usd":373.57482,"buyer":"0xb0a9214592fb899aefab0b615f2b870276cee092","seller":"0x522b92bcc19d01fe7585a9823435fe8204bde0e0","hash":"0x10fc295003b69f681275044979ea1b02050400359eb9be3ab4c4d4a2c2ba7952","tid":888251130678535},{"time":1795500858179,"coin":"BTC","side":"sell","price":60449,"size":0.04962,"notional_usd":2999.4793799999998,"buyer":"0xd7746a2e03ab616a8f406484cab7671c3272ad80","seller":"0x522b92bcc19d01fe7585a9823435fe8204bde0e0","hash":"0x10fc295003b69f681275044979ea1b02050400359eb9be3ab4c4d4a2c2ba7952","tid":1051317930963465}]}
+{"path":"/v1/accounts/0xb0a9214592fb899aefab0b615f2b870276cee092","fetched_at":"2026-11-24T06:14:23.645Z","upstream_types":["clearinghouseState","spotClearinghouseState"],"data":{"address":"0xb0a9214592fb899aefab0b615f2b870276cee092","dex":"","time":1795500863368,"account_value":1111.661286,"total_notional":5.44104,"total_raw_usd":1117.102326,"margin_used":0.272052,"maintenance_margin":0.068013,"withdrawable":1111.117182,"positions":1,"spot_balances":[]}}
+{"path":"/v1/accounts/0xb0a9214592fb899aefab0b615f2b870276cee092/fills?limit=5","fetched_at":"2026-11-24T06:14:24.168Z","upstream_types":["userFills","userFillsByTime"],"data":[{"time":1795500860203,"coin":"xyz:ZHIPU","side":"buy","direction":"Close Short","price":41.079,"size":3.687,"notional_usd":151.458273,"start_position":-431.179,"closed_pnl":16.99707,"fee":0.001211,"fee_token":"USDC","crossed":false,"liquidation":null,"hash":"0x2f0b6f95db907cae3085044979ea370207a6007b76939b80d2d41ae89a945698","oid":614846485762,"tid":61050114023253,"twap_id":null},{"time":1795500858179,"coin":"BTC","side":"buy","direction":"Close Short","price":60449,"size":0.00618,"notional_usd":373.57482,"start_position":-0.00627,"closed_pnl":-0.04326,"fee":0.014942,"fee_token":"USDC","crossed":false,"liquidation":null,"hash":"0x10fc295003b69f681275044979ea1b02050400359eb9be3ab4c4d4a2c2ba7952","oid":614846471293,"tid":888251130678535,"twap_id":null}]}
+
+22/22 checks passed

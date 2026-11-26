@@ -1,0 +1,35 @@
+# systemd unit for Ticksmith (static site + /v1 data API) on a Cloud VM.
+# setup.sh --install-service fills in __APP_DIR__, __USER__ and __NODE__ and
+# installs this as /etc/systemd/system/ticksmith.service.
+[Unit]
+Description=Ticksmith - Hyperliquid data API (static site + /v1)
+Documentation=file://__APP_DIR__/deploy/vm/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__APP_DIR__
+EnvironmentFile=/etc/ticksmith/ticksmith.env
+ExecStart=__NODE__ tools/serve.mjs
+Restart=on-failure
+RestartSec=3
+# serve.mjs finishes in-flight requests on SIGTERM.
+KillSignal=SIGTERM
+TimeoutStopSec=15
+
+# Hardening: the server only reads dist/ and src/, and needs outbound HTTPS.
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

@@ -205,17 +205,17 @@
           <table class="table">
             <thead><tr><th scope="col">Data</th><th scope="col" class="num">TTL</th></tr></thead>
             <tbody>
-              <tr><td>Mids, order books, trades</td><td class="num mono">1 s</td></tr>
-              <tr><td>Account state, positions, open orders</td><td class="num mono">2 s</td></tr>
-              <tr><td>Perp market contexts, fills</td><td class="num mono">3 s</td></tr>
-              <tr><td>Candles, spot markets</td><td class="num mono">5 s</td></tr>
-              <tr><td>Funding history, user funding, ledger, portfolio</td><td class="num mono">30 s</td></tr>
-              <tr><td>Perp dexs</td><td class="num mono">60 s</td></tr>
-              <tr><td>Market metadata used to validate coin names</td><td class="num mono">5 min</td></tr>
+              <tr><td>Mids, order books</td><td class="num mono">1 s</td></tr>
+              <tr><td>Trades, account state, positions, open orders</td><td class="num mono">3 s</td></tr>
+              <tr><td>Perp market contexts (<code>/v1/markets</code>, <code>/v1/markets/{coin}</code>)</td><td class="num mono">5 s</td></tr>
+              <tr><td>Candles, spot markets, fills (a full fills page costs 120 weight)</td><td class="num mono">10 s</td></tr>
+              <tr><td>Funding history, user funding, ledger, portfolio</td><td class="num mono">60 s</td></tr>
+              <tr><td>Perp dex list and market metadata used to validate names</td><td class="num mono">5 min</td></tr>
               <tr><td><code>/v1/status</code></td><td class="num mono">never</td></tr>
             </tbody>
           </table>
         </div>
+        <p>When <code>start_time</code> and <code>end_time</code> are omitted, the default window is aligned (candles to the interval, funding and ledger to the hour), so every client asking for “the latest” shares one cached upstream call. The weight of a response’s rows is reserved before the call is sent, so one large response can’t push the server past its budget.</p>
         <div class="doc-callout"><b>Per isolate.</b> On Cloudflare Workers the cache, the client bucket and the weight budget live in each isolate’s memory, so they are approximate across a busy deployment. Add a Cloudflare rate-limiting rule for a hard global limit.</div>
       </section>
 
@@ -256,6 +256,8 @@
               <tr><td class="mono">CACHE_MAX_ENTRIES</td><td class="mono">500</td><td>LRU size of the response cache (0 disables it).</td></tr>
               <tr><td class="mono">CORS_ALLOW_ORIGIN</td><td class="mono">*</td><td>Value of <code>access-control-allow-origin</code>.</td></tr>
               <tr><td class="mono">LOG_LEVEL</td><td class="mono">info</td><td>debug, info, warn or error. Logs are one JSON object per line.</td></tr>
+              <tr><td class="mono">HOST / PORT</td><td class="mono">127.0.0.1 / 4173</td><td>Node server only (<code>npm start</code>, VM). Use 0.0.0.0 only when exposing the port directly.</td></tr>
+              <tr><td class="mono">TRUST_PROXY</td><td class="mono">0</td><td>Node server only. 1 = take the client IP from <code>X-Forwarded-For</code> set by your reverse proxy; 0 = use the TCP peer, so clients can’t spoof the rate-limit key.</td></tr>
             </tbody>
           </table>
         </div>
@@ -265,6 +267,10 @@ npm test                 # unit tests + build
 npx wrangler login       # once, in your browser
 npx wrangler deploy      # builds dist/ and uploads the Worker
 npm run verify:live -- https://&lt;your-worker&gt;.workers.dev</code></pre>
+        <h2>Run on a VM</h2>
+        <pre class="code-block"><code>bash deploy/vm/setup.sh                          # checks, npm ci, tests, build, upstream reachability
+sudo -E bash deploy/vm/setup.sh --install-service   # systemd service + end-to-end check</code></pre>
+        <p>See <code>deploy/vm/README.md</code> for Caddy in front, updates and capacity notes.</p>
         <h2>Run locally</h2>
         <pre class="code-block"><code>npm run dev              # build + http://127.0.0.1:4173 with the same /v1 backend</code></pre>
       </section>

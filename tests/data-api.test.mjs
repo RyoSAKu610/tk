@@ -6,7 +6,7 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { createApi } from '../src/server/api.js';
 import { loadConfig } from '../src/server/config.js';
-import { baseWeight, extraWeight } from '../src/server/hyperliquid.js';
+import { baseWeight, createHyperliquidClient, expectedWeight, extraWeight } from '../src/server/hyperliquid.js';
 import { silentLogger } from '../src/server/logger.js';
 import worker from '../src/worker/index.js';
 
@@ -56,6 +56,7 @@ function makeApi(routes, env = {}, clock = { t: 1_800_000_000_000 }) {
 }
 
 const marketRoutes = {
+  perpDexs: () => [null, { name: 'xyz', fullName: 'XYZ' }],
   meta: () => META,
   spotMeta: () => SPOT_META,
   metaAndAssetCtxs: () => [META, CTXS],
@@ -286,4 +287,81 @@ test('front-end pages contain no simulation, replica or third-party brand copy',
     const text = await readFile(new URL(`../${file}`, import.meta.url), 'utf8');
     assert.doesNotMatch(text, /local replica|local simulation|in-browser implementation|demo key|createMarketEngine|data\.hyperdash\.com|market-engine|data-api\.js/i, file);
   }
+});
+
+/* ------------------------------------------------------------------ fixes after review */
+
+function bareClient(env, { sleep, clock }) {
+  const config = { ...loadConfig({ HL_RETRY_BASE_MS: '10', ...env }) };
+  const calls = [];
+  const client = createHyperliquidClient({
+    config, logger: silentLogger, now: () => clock.t, sleep,
+    fetchImpl: async (url, init) => { const body = JSON.parse(init.body); calls.push(body); return json(body.type === 'candleSnapshot' ? [] : { ok: true }); },
+  });
+  return { client, calls };
+}
+
+test('budget waiters re-check capacity after waking instead of spending the same headroom twice', async () => {
+  const clock = { t: 1_000_000 };
+  const sleepers = [];
+  const sleep = (ms) => new Promise((resolve) => sleepers.push({ ms, resolve }));
+  const { client, calls } = bareClient({ HL_WEIGHT_BUDGET_PER_MIN: '20', HL_WEIGHT_MAX_WAIT_MS: '30000' }, { sleep, clock });
+  await client.info({ type: 'meta', dex: 'a' });                    // spends the whole 20
+  clock.t += 40_000;                                                  // it frees up in 20 s
+  const c = client.info({ type: 'meta', dex: 'c' }).then(() => 'ok', (e) => e.code);
+  const d = client.info({ type: 'meta', dex: 'd' }).then(() => 'ok', (e) => e.code);
+  await new Promise((r) => setImmediate(r));
+  assert.equal(sleepers.length, 2, 'both requests wait for the same expiring weight');
+  clock.t += 20_001;                                                  // the first 20 expires
+  for (const s of sleepers.splice(0)) s.resolve();
+  const results = await Promise.all([c, d]);
+  assert.deepEqual(results.sort(), ['ok', 'upstream_budget']);
+  assert.ok(client.snapshot().weightUsedLastMinute <= 20, 'budget never exceeded');
+  assert.equal(calls.length, 2);
+});
+
+test('a large response reserves its row surcharge before the request is sent', async () => {
+  const clock = { t: 1_000_000 };
+  const { client, calls } = bareClient({ HL_WEIGHT_BUDGET_PER_MIN: '120', HL_WEIGHT_MAX_WAIT_MS: '0' }, { sleep: async () => {}, clock });
+  assert.equal(expectedWeight('candleSnapshot', 5000), 103);
+  assert.equal(expectedWeight('userFills'), 120);
+  await client.info({ type: 'meta', dex: 'a' });                     // 20 used, 100 left
+  await assert.rejects(client.info({ type: 'candleSnapshot', req: { coin: 'BTC' } }, { expectedItems: 5000 }), (e) => e.code === 'upstream_budget');
+  assert.equal(calls.length, 1, 'the oversized request was never sent');
+  await client.info({ type: 'candleSnapshot', req: { coin: 'ETH' } }, { expectedItems: 100 });
+  assert.equal(client.snapshot().weightUsedLastMinute, 40, 'reservation settled to the real cost of an empty response');
+});
+
+test('default time windows are aligned so repeated "latest" requests share one upstream call', async () => {
+  const clock = { t: 1_800_000_123_456 };
+  const { get, calls } = makeApi({ ...marketRoutes, candleSnapshot: () => [], fundingHistory: () => [] }, {}, clock);
+  await get('/v1/markets/BTC/candles?interval=1h&limit=24');
+  clock.t += 4_000;
+  const second = await get('/v1/markets/BTC/candles?interval=1h&limit=24');
+  assert.equal(calls.filter((c) => c.type === 'candleSnapshot').length, 1);
+  assert.equal(second.body.meta.cached, true);
+  assert.equal(second.body.meta.end_time % 3_600_000, 0);
+  await get('/v1/markets/BTC/funding');
+  clock.t += 20_000;
+  await get('/v1/markets/BTC/funding');
+  const funding = calls.filter((c) => c.type === 'fundingHistory');
+  assert.equal(funding.length, 1);
+  assert.equal(funding[0].endTime, undefined, 'open-ended window asks for everything up to now');
+  assert.equal(funding[0].startTime % 3_600_000, 0);
+});
+
+test('unknown dexs are 404 and never sent upstream; malformed coin encoding is 400', async () => {
+  const { get, calls } = makeApi(marketRoutes);
+  const unknown = await get('/v1/markets?dex=nosuchdex');
+  assert.equal(unknown.status, 404);
+  assert.equal(unknown.body.code, 'not_found');
+  const unknownCoin = await get('/v1/markets/nosuchdex:FOO/book');
+  assert.equal(unknownCoin.status, 404);
+  assert.ok(!calls.some((c) => c.dex === 'nosuchdex'));
+  const ok = await get('/v1/markets?dex=xyz');
+  assert.equal(ok.status, 200);
+  const bad = await get('/v1/markets/%E0%A4%A/book');
+  assert.equal(bad.status, 400);
+  assert.equal(bad.body.code, 'invalid_parameter');
+  assert.equal(bad.response.headers.get('x-content-type-options'), 'nosniff');
 });
